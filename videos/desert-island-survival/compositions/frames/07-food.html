@@ -28,7 +28,7 @@
         <g id="f07-world">
           <g id="f07-set"></g>
           <!-- rocky tide pool (left) -->
-          <g id="f07-pool">
+          <g id="f07-pool" transform="translate(24 -2)">
             <path class="f07-draw" pathLength="1" d="M300 738 C 300 712, 326 700, 352 702 L 368 692 C 388 684, 412 688, 424 698 L 446 694 C 476 692, 500 708, 502 738 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
             <ellipse id="f07-water" cx="402" cy="712" rx="76" ry="13" fill="#E9E5DB" stroke="#1B2566" stroke-width="4"/>
             <path class="f07-draw" pathLength="1" d="M352 712 q 12 -6 24 0 M410 714 q 12 -6 24 0" fill="none" stroke="#1B2566" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
@@ -522,17 +522,17 @@
       // ------------------------------------------------ the catch: positions are a pure function of time
       const SKEWER = [1020, 618];
       const items = [
-        { g: $("f07-crab"), lbl: $("f07-crab-lbl"), cue: 2.75, slot: 690, lift: 24, wiggle: 14 },
-        { g: $("f07-shells"), lbl: $("f07-shells-lbl"), cue: 3.45, slot: 790, lift: 16, wiggle: 0 },
-        { g: $("f07-fish"), lbl: $("f07-fish-lbl"), cue: 4.25, slot: 890, lift: 16, wiggle: 22 },
+        { g: $("f07-crab"), lbl: $("f07-crab-lbl"), cue: 2.75, slot: 690, lift: 30, wiggle: 14 },
+        { g: $("f07-shells"), lbl: $("f07-shells-lbl"), cue: 3.45, slot: 790, lift: 20, wiggle: 0 },
+        { g: $("f07-fish"), lbl: $("f07-fish-lbl"), cue: 4.25, slot: 890, lift: 20, wiggle: 22 },
       ];
-      const SLIDE = 110, SLIDE_T = 5.6;
+      const SLIDE = 85, SLIDE_T = 5.6;
       function slotX(i, t) {
         if (i === 2) return items[2].slot;
         return items[i].slot + SLIDE * ease(clamp((t - SLIDE_T) / 0.45));
       }
       function place(it, x, y, rot, s, op) {
-        it.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + rot.toFixed(1) + ") scale(" + s.toFixed(3) + ")");
+        it.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + rot.toFixed(1) + ") scale(" + (s * 1.25).toFixed(3) + ")");
         it.g.setAttribute("opacity", op.toFixed(3));
       }
       function drawItems(fig, t) {
