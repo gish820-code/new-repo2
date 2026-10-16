@@ -1,0 +1,813 @@
+<template>
+  <style>
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo-Variable.woff2") format("woff2"); font-weight: 400 600; }
+    @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      color: #1B2566;
+    }
+    .f05-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #E9E5DB;
+      background-image:
+        radial-gradient(circle at 77% 21%, rgba(241, 238, 46, 0.88) 0%, rgba(248, 243, 155, 0.62) 16%, rgba(240, 218, 124, 0.22) 34%, rgba(233, 229, 219, 0) 52%),
+        radial-gradient(circle at 4% 96%, rgba(226, 107, 74, 0.16) 0%, rgba(226, 107, 74, 0) 30%);
+    }
+    .f05-scene {
+      position: absolute;
+      inset: 0;
+    }
+    .f05-svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: visible;
+    }
+    .f05-steptag {
+      position: absolute;
+      left: 77px;
+      top: 60px;
+      font-family: "Archivo", sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1B2566;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #1B2566;
+      white-space: nowrap;
+    }
+    .f05-hero {
+      position: absolute;
+      left: 70px;
+      top: 104px;
+      margin: 0;
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-size: 176px;
+      line-height: 0.9;
+      letter-spacing: -0.018em;
+      color: #1B2566;
+      white-space: nowrap;
+    }
+    .f05-pagenum {
+      position: absolute;
+      right: 77px;
+      bottom: 48px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #1B2566;
+      opacity: 0.75;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-water" data-width="1920" data-height="1080">
+    <div id="f05-bg" class="clip f05-bg" data-start="0" data-duration="8.725" data-track-index="0"></div>
+
+    <div id="f05-scene" class="clip f05-scene" data-start="0" data-duration="8.725" data-track-index="1">
+      <svg id="f05-svg" class="f05-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+        <g id="f05-cam">
+          <g id="f05-stage"></g>
+          <g id="f05-props"></g>
+          <g id="f05-actor"></g>
+          <g id="f05-front"></g>
+        </g>
+        <g id="f05-ui"></g>
+      </svg>
+      <div id="f05-steptag" class="f05-steptag">Step 2 · Water</div>
+      <h1 id="f05-hero" class="f05-hero">Water.</h1>
+      <div id="f05-pagenum" class="f05-pagenum">05 / 09</div>
+    </div>
+  </div>
+
+  <script>
+/* Castaway rig — shared stick-figure character + island kit for every frame.
+ *
+ * Paste this file VERBATIM inside your frame's <template><script> (before your timeline code).
+ * It defines window.CastawayRig once (guarded) and draws everything in SVG, deterministic and
+ * seek-safe: all state is a pure function of timeline time.
+ *
+ * Coordinates: SVG user units = canvas px when the <svg> is 1920×1080 with viewBox "0 0 1920 1080".
+ *
+ *   const R = window.CastawayRig;
+ *   const guy = R.figure(svgGroupEl, { x: 900, y: 760, scale: 1, facing: 1 });
+ *   R.animate(tl, guy, [
+ *     { t: 0,   pose: "stand" },
+ *     { t: 0.8, pose: "wave",  x: 960, ease: "power2.inOut", face: "smile" },
+ *     { t: 2.0, pose: R.mix("stand", { rsh: -150, rel: 20 }) },
+ *   ], { start: 0, end: frameDuration, onDraw: (g) => { // move props to g.hand("r") } });
+ *
+ * x/y = the HIP position when standing; the GROUND line is y + 116*scale for every pose (sit/lie/kneel
+ * lower the hip via the pose's dy, so keep y fixed and switch poses).
+ * Angles (degrees): limbs measured from straight DOWN, positive = toward the facing direction
+ * (forward). Knee/elbow angles are RELATIVE bends added to the upper limb.
+ * torso: 0 = upright, positive = lean forward. head: tilt in degrees, positive = nod forward.
+ * faces: "neutral" | "smile" | "grin" | "o" | "worried" | "determined" | "closed".
+ */
+(function () {
+  if (window.CastawayRig) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const INK = "#1B2566";
+  const SUN = "#F1EE2E";
+  const PAPER = "#E9E5DB";
+  const PAPER_DEEP = "#DCD6C4";
+  const EMBER = "#E26B4A";
+  const STROKE = 9;
+  const L = { torso: 98, neck: 12, head: 27, upArm: 52, loArm: 50, upLeg: 60, loLeg: 58 };
+
+  const POSES = {
+    stand: { torso: 0, head: 0, lsh: -8, lel: 6, rsh: 8, rel: 6, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    wave: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 160, rel: 25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    waveB: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 150, rel: -25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    walkA: { torso: 4, head: 0, lsh: 28, lel: 20, rsh: -24, rel: 10, lhip: -22, lkn: 8, rhip: 24, rkn: 20, dy: -3 },
+    walkB: { torso: 4, head: 0, lsh: -24, lel: 10, rsh: 28, rel: 20, lhip: 24, lkn: 20, rhip: -22, rkn: 8, dy: -3 },
+    sit: { torso: -10, head: 4, lsh: -32, lel: 4, rsh: 30, rel: 40, lhip: 84, lkn: -6, rhip: 70, rkn: 28, dy: 96 },
+    lie: { torso: -90, head: 0, lsh: 160, lel: 10, rsh: 10, rel: -60, lhip: 90, lkn: 0, rhip: 84, rkn: 8, dy: 88 },
+    kneel: { torso: 12, head: 14, lsh: 40, lel: 30, rsh: 55, rel: 35, lhip: 70, lkn: -90, rhip: -5, rkn: 100, dy: 50 },
+    crouch: { torso: 30, head: 16, lsh: 50, lel: 30, rsh: 62, rel: 30, lhip: 95, lkn: -120, rhip: 80, rkn: -115, dy: 58 },
+    reach: { torso: 18, head: 8, lsh: 70, lel: 10, rsh: 95, rel: 8, lhip: -10, lkn: 4, rhip: 12, rkn: 4, dy: 0 },
+    carry: { torso: 10, head: -4, lsh: 70, lel: 70, rsh: 80, rel: 65, lhip: -14, lkn: 10, rhip: 16, rkn: 10, dy: 0 },
+    pull: { torso: -18, head: -6, lsh: 60, lel: 5, rsh: 70, rel: 5, lhip: 22, lkn: 10, rhip: -18, rkn: 20, dy: 4 },
+    point: { torso: 0, head: -4, lsh: -8, lel: 6, rsh: 100, rel: 0, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    think: { torso: 0, head: 8, lsh: -8, lel: 6, rsh: 40, rel: 120, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    shrug: { torso: 0, head: -4, lsh: -45, lel: -70, rsh: 45, rel: 70, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    cheer: { torso: -4, head: -10, lsh: -160, lel: -10, rsh: 160, rel: 10, lhip: -10, lkn: 2, rhip: 10, rkn: 2, dy: 0 },
+    breatheIn: { torso: -3, head: -8, lsh: -18, lel: 10, rsh: 18, rel: 10, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: -4 },
+    drill: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 95, rel: -20, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+    drillB: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 70, rel: 10, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+  };
+  const KEYS = Object.keys(POSES.stand);
+
+  function mix(base, over) {
+    const b = typeof base === "string" ? POSES[base] : base;
+    return Object.assign({}, b, over || {});
+  }
+
+  // deterministic hash → [-1, 1]
+  function hash(n) {
+    const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return (s - Math.floor(s)) * 2 - 1;
+  }
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function dirDown(deg) {
+    const r = (deg * Math.PI) / 180;
+    return [Math.sin(r), Math.cos(r)];
+  }
+
+  // ---------------------------------------------------------------- figure
+  function figure(parent, opts) {
+    opts = opts || {};
+    const g = el("g", { class: "castaway" }, parent);
+    const shadow = el("ellipse", { rx: 70, ry: 10, fill: INK, opacity: 0.12 }, g);
+    const body = el("g", {}, g);
+    const common = { stroke: INK, "stroke-width": STROKE, "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" };
+    const limbs = {};
+    ["lleg", "larm", "torso", "rleg", "rarm"].forEach((k) => (limbs[k] = el("path", common, body)));
+    const headG = el("g", {}, body);
+    const head = el("circle", { r: L.head, fill: PAPER, stroke: INK, "stroke-width": STROKE }, headG);
+    const hair = el("path", Object.assign({}, common, { "stroke-width": 6 }), headG);
+    const eyeL = el("circle", { r: 3.6, fill: INK }, headG);
+    const eyeR = el("circle", { r: 3.6, fill: INK }, headG);
+    const mouth = el("path", Object.assign({}, common, { "stroke-width": 4.5 }), headG);
+    const lidL = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+    const lidR = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+
+    const fig = {
+      g,
+      state: Object.assign({ x: 960, y: 760, scale: 1, facing: 1, face: "neutral", shadow: 1 }, POSES.stand, opts.pose ? mix(opts.pose) : {}, opts),
+      joints: {},
+      boil: opts.boil !== false,
+      time: 0,
+      hand(side) {
+        return this.joints[side === "l" ? "lhand" : "rhand"];
+      },
+      foot(side) {
+        return this.joints[side === "l" ? "lfoot" : "rfoot"];
+      },
+      headPos() {
+        return this.joints.head;
+      },
+      draw(t) {
+        if (t !== undefined) this.time = t;
+        const s = this.state;
+        const f = s.facing >= 0 ? 1 : -1;
+        const step = Math.floor(this.time * 8); // 8 fps line boil
+        const j = (i) => (this.boil ? hash(step * 31 + i) * 1.3 : 0);
+        const sc = s.scale;
+        const P = (lx, ly) => [s.x + lx * sc * f, s.y + ly * sc];
+        const hipL = [0, -s.dy * -1];
+        // local skeleton (facing right), y down
+        const hip = [0, s.dy];
+        const td = [Math.sin((s.torso * Math.PI) / 180), -Math.cos((s.torso * Math.PI) / 180)];
+        const shoulder = [hip[0] + td[0] * L.torso, hip[1] + td[1] * L.torso];
+        const neckTop = [shoulder[0] + td[0] * L.neck, shoulder[1] + td[1] * L.neck];
+        const headC = [neckTop[0] + td[0] * L.head, neckTop[1] + td[1] * L.head];
+        const limb = (root, a1, a2, l1, l2) => {
+          const d1 = dirDown(a1);
+          const mid = [root[0] + d1[0] * l1, root[1] + d1[1] * l1];
+          const d2 = dirDown(a1 + a2);
+          const end = [mid[0] + d2[0] * l2, mid[1] + d2[1] * l2];
+          return [mid, end];
+        };
+        const sh = [shoulder[0] - td[0] * 8, shoulder[1] - td[1] * 8];
+        const [lelb, lhand] = limb(sh, s.lsh + s.torso, s.lel, L.upArm, L.loArm);
+        const [relb, rhand] = limb(sh, s.rsh + s.torso, s.rel, L.upArm, L.loArm);
+        const [lkn, lfoot] = limb(hip, s.lhip, s.lkn, L.upLeg, L.loLeg);
+        const [rkn, rfoot] = limb(hip, s.rhip, s.rkn, L.upLeg, L.loLeg);
+        let n = 0;
+        const W = (p) => {
+          const q = P(p[0], p[1]);
+          n += 1;
+          return [q[0] + j(n), q[1] + j(n + 50)];
+        };
+        const path = (pts) => "M" + pts.map((p) => W(p).map((v) => v.toFixed(1)).join(" ")).join(" L");
+        limbs.torso.setAttribute("d", path([hip, neckTop]));
+        limbs.larm.setAttribute("d", path([sh, lelb, lhand]));
+        limbs.rarm.setAttribute("d", path([sh, relb, rhand]));
+        limbs.lleg.setAttribute("d", path([hip, lkn, lfoot]));
+        limbs.rleg.setAttribute("d", path([hip, rkn, rfoot]));
+        // back limbs slightly lighter for depth
+        limbs.larm.setAttribute("opacity", 0.78);
+        limbs.lleg.setAttribute("opacity", 0.78);
+        const hc = W(headC);
+        const sw = STROKE * sc;
+        [limbs.torso, limbs.larm, limbs.rarm, limbs.lleg, limbs.rleg].forEach((p) => p.setAttribute("stroke-width", sw.toFixed(2)));
+        head.setAttribute("cx", hc[0].toFixed(1));
+        head.setAttribute("cy", hc[1].toFixed(1));
+        head.setAttribute("r", (L.head * sc).toFixed(1));
+        head.setAttribute("stroke-width", sw.toFixed(2));
+        // face, rotated by head tilt + torso
+        const tilt = (s.head + s.torso) * f;
+        headG.setAttribute("transform", "");
+        const fx = (dx, dy) => {
+          const r = (tilt * Math.PI) / 180;
+          const x = dx * f * sc, y = dy * sc;
+          return [hc[0] + x * Math.cos(r) - y * Math.sin(r), hc[1] + x * Math.sin(r) + y * Math.cos(r)];
+        };
+        const pt = (p) => p.map((v) => v.toFixed(1)).join(" ");
+        const eL = fx(4, -4), eR = fx(15, -4);
+        const closed = s.face === "closed";
+        eyeL.setAttribute("cx", eL[0].toFixed(1)); eyeL.setAttribute("cy", eL[1].toFixed(1));
+        eyeR.setAttribute("cx", eR[0].toFixed(1)); eyeR.setAttribute("cy", eR[1].toFixed(1));
+        eyeL.setAttribute("r", (3.6 * sc).toFixed(2)); eyeR.setAttribute("r", (3.6 * sc).toFixed(2));
+        eyeL.setAttribute("opacity", closed ? 0 : 1); eyeR.setAttribute("opacity", closed ? 0 : 1);
+        lidL.setAttribute("d", closed ? `M${pt(fx(0, -4))} Q${pt(fx(4, -1))} ${pt(fx(8, -4))}` : "");
+        lidR.setAttribute("d", closed ? `M${pt(fx(11, -4))} Q${pt(fx(15, -1))} ${pt(fx(19, -4))}` : "");
+        const m = {
+          neutral: `M${pt(fx(5, 9))} L${pt(fx(16, 9))}`,
+          smile: `M${pt(fx(3, 7))} Q${pt(fx(10, 15))} ${pt(fx(18, 7))}`,
+          grin: `M${pt(fx(2, 6))} Q${pt(fx(10, 19))} ${pt(fx(19, 6))} Z`,
+          o: `M${pt(fx(9, 7))} a ${(3.5 * sc).toFixed(1)} ${(4.5 * sc).toFixed(1)} 0 1 0 0.1 0`,
+          worried: `M${pt(fx(3, 12))} Q${pt(fx(10, 6))} ${pt(fx(18, 12))}`,
+          determined: `M${pt(fx(5, 10))} L${pt(fx(17, 8))}`,
+          closed: `M${pt(fx(5, 9))} Q${pt(fx(10, 12))} ${pt(fx(16, 9))}`,
+        }[s.face] || "";
+        mouth.setAttribute("d", m);
+        mouth.setAttribute("fill", s.face === "grin" ? INK : "none");
+        mouth.setAttribute("stroke-width", (4.5 * sc).toFixed(2));
+        // scruffy castaway hair tuft
+        hair.setAttribute("d", `M${pt(fx(-14, -20))} L${pt(fx(-6, -36))} L${pt(fx(0, -24))} L${pt(fx(8, -38))} L${pt(fx(12, -25))}`);
+        hair.setAttribute("stroke-width", (6 * sc).toFixed(2));
+        // ground shadow under the lower foot
+        const fl = P(lfoot[0], lfoot[1]), fr = P(rfoot[0], rfoot[1]);
+        const gy = Math.max(fl[1], fr[1]);
+        shadow.setAttribute("cx", ((fl[0] + fr[0]) / 2).toFixed(1));
+        shadow.setAttribute("cy", (gy + 6 * sc).toFixed(1));
+        shadow.setAttribute("rx", (70 * sc).toFixed(1));
+        shadow.setAttribute("ry", (10 * sc).toFixed(1));
+        shadow.setAttribute("opacity", (0.12 * s.shadow).toFixed(3));
+        this.joints = {
+          hip: P(hip[0], hip[1]), shoulder: P(sh[0], sh[1]), head: hc,
+          lhand: P(lhand[0], lhand[1]), rhand: P(rhand[0], rhand[1]),
+          lelbow: P(lelb[0], lelb[1]), relbow: P(relb[0], relb[1]),
+          lfoot: fl, rfoot: fr,
+        };
+        return this;
+      },
+    };
+    fig.draw(0);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- animate
+  // keyframes: [{ t, pose?: name|object, x?, y?, scale?, facing?, face?, ease? }]
+  // Interpolates numeric state between keyframes (ease applies to the segment ARRIVING at a key).
+  // face/facing switch discretely at their key. Seek-safe: driven by one proxy tween.
+  function animate(tl, fig, keys, opts) {
+    opts = opts || {};
+    const start = opts.start || 0;
+    const end = opts.end !== undefined ? opts.end : keys[keys.length - 1].t + 0.01;
+    // resolve full states
+    const states = [];
+    let prev = Object.assign({}, fig.state);
+    keys.forEach((k) => {
+      const s = Object.assign({}, prev);
+      if (k.pose) Object.assign(s, mix(k.pose));
+      ["x", "y", "scale", "facing", "face", "shadow"].forEach((p) => {
+        if (k[p] !== undefined) s[p] = k[p];
+      });
+      states.push(s);
+      prev = s;
+    });
+    const eases = keys.map((k) => (k.ease ? gsap.parseEase(k.ease) : gsap.parseEase("power2.inOut")));
+    const proxy = { t: 0 };
+    const apply = (lt) => {
+      let i = 0;
+      while (i < keys.length - 1 && lt >= keys[i + 1].t) i++;
+      const a = states[i];
+      const out = Object.assign({}, a);
+      if (i < keys.length - 1) {
+        const b = states[i + 1];
+        const span = keys[i + 1].t - keys[i].t;
+        const p = span > 0 ? eases[i + 1](Math.min(1, Math.max(0, (lt - keys[i].t) / span))) : 1;
+        KEYS.concat(["x", "y", "scale", "shadow"]).forEach((k) => {
+          out[k] = a[k] + (b[k] - a[k]) * p;
+        });
+      }
+      Object.assign(fig.state, out);
+      fig.draw(lt + start);
+      if (opts.onDraw) opts.onDraw(fig, lt + start);
+    };
+    apply(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => apply(proxy.t) }, start);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- island kit
+  function palm(parent, x, y, scale, lean) {
+    scale = scale || 1;
+    lean = lean || 1;
+    const g = el("g", { class: "palm" }, parent);
+    const s = scale;
+    const top = [x + 70 * s * lean, y - 330 * s];
+    el("path", { d: `M${x} ${y} C ${x + 10 * s * lean} ${y - 120 * s}, ${x + 60 * s * lean} ${y - 220 * s}, ${top[0]} ${top[1]}`, stroke: INK, "stroke-width": 14 * s, "stroke-linecap": "round", fill: "none" }, g);
+    for (let i = 1; i < 7; i++) {
+      const tt = i / 7;
+      const bx = x + (top[0] - x) * tt * tt + 6 * s * lean;
+      const by = y + (top[1] - y) * tt;
+      el("path", { d: `M${bx - 9 * s} ${by + 4 * s} L${bx + 9 * s} ${by - 4 * s}`, stroke: INK, "stroke-width": 3 * s, "stroke-linecap": "round", opacity: 0.6 }, g);
+    }
+    const fronds = [-150, -115, -70, -30, 15, 55];
+    fronds.forEach((a, i) => {
+      const r = (a * Math.PI) / 180;
+      const len = (150 + (i % 2) * 30) * s;
+      const ex = top[0] + Math.cos(r) * len;
+      const ey = top[1] + Math.sin(r) * len * 0.55 + 40 * s;
+      const cx = top[0] + Math.cos(r) * len * 0.5;
+      const cy = top[1] + Math.sin(r) * len * 0.5 - 40 * s;
+      el("path", { d: `M${top[0]} ${top[1]} Q ${cx} ${cy} ${ex} ${ey}`, stroke: INK, "stroke-width": 9 * s, "stroke-linecap": "round", fill: "none" }, g);
+      for (let k = 1; k < 6; k++) {
+        const u = k / 6;
+        const px = (1 - u) * (1 - u) * top[0] + 2 * (1 - u) * u * cx + u * u * ex;
+        const py = (1 - u) * (1 - u) * top[1] + 2 * (1 - u) * u * cy + u * u * ey;
+        el("path", { d: `M${px} ${py} l ${-10 * s} ${22 * s * (1 - u * 0.4)}`, stroke: INK, "stroke-width": 4 * s, "stroke-linecap": "round" }, g);
+      }
+    });
+    [[-12, 18], [10, 22], [0, 34]].forEach(([dx, dy]) => el("circle", { cx: top[0] + dx * s, cy: top[1] + dy * s, r: 11 * s, fill: PAPER_DEEP, stroke: INK, "stroke-width": 4 * s }, g));
+    g.top = top;
+    return g;
+  }
+
+  function island(parent, opts) {
+    // sand mound centered at cx with given half-width, sitting on the waterline y
+    opts = opts || {};
+    const cx = opts.cx || 960, wy = opts.y || 820, hw = opts.halfWidth || 520, h = opts.height || 110;
+    const g = el("g", { class: "island" }, parent);
+    el("path", { d: `M${cx - hw} ${wy} C ${cx - hw * 0.6} ${wy - h}, ${cx + hw * 0.6} ${wy - h}, ${cx + hw} ${wy} Z`, fill: PAPER_DEEP, stroke: INK, "stroke-width": 5 }, g);
+    for (let i = 0; i < 14; i++) {
+      const px = cx - hw * 0.7 + ((i * 97) % (hw * 1.4));
+      const py = wy - 20 - ((i * 37) % (h * 0.6));
+      el("circle", { cx: px, cy: py, r: 2.2, fill: INK, opacity: 0.35 }, g);
+    }
+    return g;
+  }
+
+  function sea(parent, opts) {
+    // horizon line + wave strokes below it; returns { g, waves } (animate waves' x yourself)
+    opts = opts || {};
+    const wy = opts.y || 820, w = opts.width || 1920;
+    const g = el("g", { class: "sea" }, parent);
+    el("rect", { x: 0, y: wy, width: w, height: 1080 - wy, fill: INK, opacity: 0.06 }, g);
+    el("line", { x1: 0, y1: wy, x2: w, y2: wy, stroke: INK, "stroke-width": 1 }, g);
+    const waves = el("g", {}, g);
+    for (let r = 0; r < 4; r++) {
+      for (let i = -1; i < 12; i++) {
+        const x = i * 200 + (r % 2) * 100, y = wy + 28 + r * 40;
+        el("path", { d: `M${x} ${y} q 25 -14 50 0 q 25 14 50 0`, stroke: INK, "stroke-width": 3, fill: "none", opacity: 0.45 - r * 0.07, "stroke-linecap": "round" }, waves);
+      }
+    }
+    return { g, waves };
+  }
+
+  function sun(parent, x, y, r) {
+    const g = el("g", { class: "sun" }, parent);
+    el("circle", { cx: x, cy: y, r: r, fill: SUN }, g);
+    return g;
+  }
+
+  window.CastawayRig = { figure, animate, mix, POSES, palm, island, sea, sun, el, hash, INK, SUN, PAPER, PAPER_DEEP, EMBER };
+})();
+
+    (function () {
+      const FID = "05-water";
+      const DUR = 8.725;
+      const R = window.CastawayRig;
+      const INK = R.INK, PAPER = R.PAPER, PD = R.PAPER_DEEP, EMBER = R.EMBER;
+      const el = R.el;
+      const $ = (id) => document.getElementById(id);
+      const tl = gsap.timeline({ paused: true });
+
+      const cam = $("f05-cam");
+      const stage = $("f05-stage");
+      const props = $("f05-props");
+      const actor = $("f05-actor");
+      const front = $("f05-front");
+      const ui = $("f05-ui");
+
+      // ---------------------------------------------------------------- helpers
+      const clamp01 = (v) => Math.max(0, Math.min(1, v));
+      const E = {
+        o2: gsap.parseEase("power2.out"),
+        o3: gsap.parseEase("power3.out"),
+        io2: gsap.parseEase("power2.inOut"),
+        i3: gsap.parseEase("power3.in"),
+        i4: gsap.parseEase("power4.in"),
+      };
+      const seg = (t, a, b, ease) => {
+        const p = clamp01((t - a) / (b - a));
+        return ease ? ease(p) : p;
+      };
+      const lerp = (a, b, p) => a + (b - a) * p;
+      const f2 = (v) => v.toFixed(2);
+      const tr = (node, x, y, s, rot) =>
+        node.setAttribute("transform", `translate(${f2(x)} ${f2(y)}) rotate(${f2(rot || 0)}) scale(${Math.max(0.0001, s).toFixed(4)})`);
+      const op = (node, v) => node.setAttribute("opacity", clamp01(v).toFixed(3));
+      // stroke draw-on (paths carry pathLength="1")
+      const drawOn = (node, p) => {
+        node.setAttribute("stroke-dashoffset", (1 - p).toFixed(4));
+        node.setAttribute("opacity", p > 0.001 ? 1 : 0);
+      };
+      const line = (attrs, parent) =>
+        el("path", Object.assign({ fill: "none", stroke: INK, "stroke-linecap": "round", "stroke-linejoin": "round", pathLength: 1, "stroke-dasharray": "1 1", "stroke-dashoffset": 1 }, attrs), parent);
+      const label = (parent, x, y, text, anchor) => {
+        const g = el("g", { opacity: 0 }, parent);
+        const tx = el("text", {
+          x: x, y: y, fill: INK, "text-anchor": anchor || "start",
+          "font-family": "Archivo, sans-serif", "font-weight": 600, "font-size": 18, "letter-spacing": 3.2,
+        }, g);
+        tx.textContent = text;
+        const tx0 = anchor === "middle" ? x - 28 : x;
+        el("line", { x1: tx0, y1: y + 12, x2: tx0 + 56, y2: y + 12, stroke: INK, "stroke-width": 1 }, g);
+        return g;
+      };
+      const reveal = (g, t, a, b) => {
+        const p = seg(t, a, b, E.o3);
+        op(g, p);
+        g.setAttribute("transform", `translate(0 ${f2(10 * (1 - p))})`);
+      };
+
+      // ---------------------------------------------------------------- stage
+      const WY = 800, ICX = 900, IHW = 620, IH = 120;
+      const sea = R.sea(stage, { y: WY });
+      R.island(stage, { cx: ICX, y: WY, halfWidth: IHW, height: IH });
+      R.palm(stage, 1250, 770, 1.1, 1);
+      R.sun(stage, 1480, 226, 64);
+
+      const bez = (t, a, b, c, d) => {
+        const u = 1 - t;
+        return u * u * u * a + 3 * u * u * t * b + 3 * u * t * t * c + t * t * t * d;
+      };
+      // sand surface height of the island at x
+      function gy(x) {
+        const x0 = ICX - IHW, x1 = ICX - IHW * 0.6, x2 = ICX + IHW * 0.6, x3 = ICX + IHW;
+        if (x <= x0 || x >= x3) return WY;
+        let lo = 0, hi = 1;
+        for (let i = 0; i < 40; i++) {
+          const m = (lo + hi) / 2;
+          if (bez(m, x0, x1, x2, x3) < x) lo = m; else hi = m;
+        }
+        return bez((lo + hi) / 2, WY, WY - IH, WY - IH, WY);
+      }
+
+      // ---------------------------------------------------------------- castaway
+      const SC = 1.5;
+      const hipY = (x) => gy(x) - 116 * SC + 2;
+      const X0 = 450, FX = 800;
+      const P_DIP = R.mix("kneel", { rsh: 48, rel: 18 });
+      const P_HOLD = R.mix("kneel", { rsh: 70, rel: 72, head: 6 });
+      const P_DRINK = R.mix("kneel", { rsh: 28, rel: 132, head: -12 });
+      const P_RECOIL = R.mix("kneel", { torso: -16, head: -14, lsh: -40, lel: 30, rsh: -30, rel: 40 });
+      const P_REACH = R.mix("reach", { rsh: 125, rel: 20, lsh: 60 });
+      const P_SMASH = R.mix("crouch", { rsh: 70, rel: 18 });
+      const P_POINT = R.mix("point", { rsh: 98 });
+      const guy = R.figure(actor, { x: X0, y: hipY(X0), scale: SC, facing: -1 });
+
+      function handAt(pose, x, facing) {
+        const saved = Object.assign({}, guy.state);
+        Object.assign(guy.state, pose, { x: x, y: hipY(x), facing: facing });
+        guy.draw(0);
+        const h = guy.hand("r").slice();
+        Object.assign(guy.state, saved);
+        guy.draw(0);
+        return h;
+      }
+      const C0 = handAt(P_DRINK, X0, -1); // where the cup leaves his hand
+      const HIT = handAt(P_SMASH, FX, 1); // where the coconut meets the rock
+      const T_HAND = 1.86;
+      const CUP_OFF = [0, -12];
+      const BADGE = [1700, 138];
+
+      // ---------------------------------------------------------------- 1 · rain catcher (left)
+      const rainG = el("g", { opacity: 0 }, props);
+      const streaks = [];
+      for (let i = 0; i < 18; i++) {
+        const s = el("path", { d: "M0 0 L-8 40", stroke: INK, "stroke-width": 4, "stroke-linecap": "round", fill: "none", opacity: 0 }, rainG);
+        s.sx = 200 + ((i * 71) % 300);
+        streaks.push(s);
+      }
+      const LB = [212, 516], LT = [452, 606];
+      const leafAt = (x) => LB[1] + ((x - LB[0]) / (LT[0] - LB[0])) * (LT[1] - LB[1]);
+      const sticks = line({
+        d: `M232 ${f2(gy(232) + 2)} L232 ${f2(leafAt(232) + 10)} M232 ${f2(leafAt(232) + 22)} L218 ${f2(leafAt(232) + 4)} ` +
+           `M318 ${f2(gy(318) + 2)} L318 ${f2(leafAt(318) + 10)} M318 ${f2(leafAt(318) + 22)} L334 ${f2(leafAt(318) + 6)}`,
+        "stroke-width": 7,
+      }, props);
+      const leafFill = el("path", {
+        d: `M${LB[0]} ${LB[1]} C 280 452, 420 548, ${LT[0]} ${LT[1]} C 404 642, 262 600, ${LB[0]} ${LB[1]} Z`,
+        fill: PAPER, stroke: "none", opacity: 0,
+      }, props);
+      const leafLine = line({
+        d: `M${LB[0]} ${LB[1]} C 280 452, 420 548, ${LT[0]} ${LT[1]} C 404 642, 262 600, ${LB[0]} ${LB[1]} Z`,
+        "stroke-width": 7,
+      }, props);
+      let veinD = `M${LB[0]} ${LB[1]} Q 340 560 ${LT[0] - 6} ${LT[1] - 2}`;
+      [0.22, 0.4, 0.58, 0.74].forEach((u) => {
+        const x = lerp(LB[0], LT[0], u), y = leafAt(x) - 4;
+        veinD += ` M${f2(x)} ${f2(y)} l 26 -30 M${f2(x)} ${f2(y)} l 30 18`;
+      });
+      const leafVeins = line({ d: veinD, "stroke-width": 4 }, props);
+      const BX = LT[0], BY = gy(LT[0]) + 2; // bottle stands under the leaf tip
+      const bottle = el("g", { opacity: 0 }, props);
+      const bottleD = `M${BX - 21} ${BY} L${BX - 21} ${BY - 56} Q${BX - 21} ${BY - 72} ${BX - 9} ${BY - 78} L${BX - 9} ${BY - 94} L${BX + 9} ${BY - 94} L${BX + 9} ${BY - 78} Q${BX + 21} ${BY - 72} ${BX + 21} ${BY - 56} L${BX + 21} ${BY} Z`;
+      el("path", { d: bottleD, fill: PAPER, stroke: "none" }, bottle);
+      const bottleWater = el("rect", { x: BX - 18, y: BY - 3, width: 36, height: 0, fill: INK, opacity: 0.2 }, bottle);
+      el("path", { d: bottleD, fill: "none", stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, bottle);
+      const drips = [0, 1].map(() => el("ellipse", { rx: 4.5, ry: 6.5, fill: INK, opacity: 0 }, props));
+      const lab1 = label(props, 200, 352, "1 · RAIN", "start");
+
+      // ---------------------------------------------------------------- 2 · coconut (center)
+      const rockTop = HIT[1] + 22, rockBot = gy(HIT[0]) + 4;
+      const rock = el("g", { opacity: 0 }, props);
+      el("path", {
+        d: `M${f2(HIT[0] - 50)} ${f2(rockBot)} C ${f2(HIT[0] - 46)} ${f2(rockTop - 8)}, ${f2(HIT[0] + 40)} ${f2(rockTop - 10)}, ${f2(HIT[0] + 52)} ${f2(rockBot)} Z`,
+        fill: PD, stroke: INK, "stroke-width": 6, "stroke-linejoin": "round",
+      }, rock);
+      el("path", { d: `M${f2(HIT[0] - 14)} ${f2(rockTop + 10)} l 18 6`, stroke: INK, "stroke-width": 3, "stroke-linecap": "round", opacity: 0.5 }, rock);
+      const coco = el("g", { opacity: 0 }, front);
+      const cocoWhole = el("g", {}, coco);
+      el("circle", { r: 21, fill: PD, stroke: INK, "stroke-width": 6 }, cocoWhole);
+      [[-6, -6], [4, -9], [-1, 2]].forEach(([x, y]) => el("circle", { cx: x, cy: y, r: 2.8, fill: INK }, cocoWhole));
+      const halfL = el("g", { opacity: 0 }, coco);
+      el("path", { d: "M-2 -21 A21 21 0 0 0 -2 21 Z", fill: PD, stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, halfL);
+      el("path", { d: "M-8 -14 A15 15 0 0 0 -8 14", fill: "none", stroke: INK, "stroke-width": 3, opacity: 0.6 }, halfL);
+      const halfR = el("g", { opacity: 0 }, coco);
+      el("path", { d: "M2 -21 A21 21 0 0 1 2 21 Z", fill: PD, stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, halfR);
+      el("path", { d: "M8 -14 A15 15 0 0 1 8 14", fill: "none", stroke: INK, "stroke-width": 3, opacity: 0.6 }, halfR);
+      let splashD = "";
+      [-58, -30, 0, 30, 58].forEach((a) => {
+        const r = (a * Math.PI) / 180;
+        splashD += `M${f2(Math.sin(r) * 30)} ${f2(-Math.cos(r) * 30 - 6)} L${f2(Math.sin(r) * 52)} ${f2(-Math.cos(r) * 52 - 6)} `;
+      });
+      const splash = line({ d: splashD, "stroke-width": 4.5 }, coco);
+      const flyDrops = [-40, 0, 40].map(() => el("ellipse", { rx: 4, ry: 5.5, fill: INK, opacity: 0 }, coco));
+      const lab2 = label(props, HIT[0], gy(HIT[0]) + 58, "2 · COCONUTS", "middle");
+
+      // ---------------------------------------------------------------- 3 · solar still cross-section (right)
+      const SX0 = 1392, SX1 = 1842, ST = 600, SB = 800, PL = 1500, PR = 1730, PB = 752, PBL = 1568, PBR = 1662, PC = 1615;
+      const still = el("g", {}, props);
+      const slabFill = el("path", {
+        d: `M${SX0} ${SB} L${SX0} ${ST} L${PL} ${ST} L${PBL} ${PB} L${PBR} ${PB} L${PR} ${ST} L${SX1} ${ST} L${SX1} ${SB} Z`,
+        fill: PD, stroke: "none", opacity: 0,
+      }, still);
+      const slabSides = el("path", { d: `M${SX0} ${ST} L${SX0} ${SB} M${SX1} ${ST} L${SX1} ${SB}`, stroke: INK, "stroke-width": 1, fill: "none", opacity: 0 }, still);
+      const slabDots = el("g", { opacity: 0 }, still);
+      for (let i = 0; i < 46; i++) {
+        const x = SX0 + 14 + ((i * 97.3) % (SX1 - SX0 - 28));
+        const y = ST + 18 + ((i * 53.7) % (SB - ST - 30));
+        const inPit = y < PB + 10 && x > lerp(PL, PBL, (y - ST) / (PB - ST)) - 12 && x < lerp(PR, PBR, (y - ST) / (PB - ST)) + 12;
+        if (!inPit) el("circle", { cx: f2(x), cy: f2(y), r: 2.2, fill: INK, opacity: 0.35 }, slabDots);
+      }
+      const surface = line({ d: `M${SX0} ${ST} L${PL} ${ST} L${PBL} ${PB} L${PBR} ${PB} L${PR} ${ST} L${SX1} ${ST}`, "stroke-width": 6 }, still);
+      const cup2 = el("g", { opacity: 0 }, still);
+      el("path", { d: "M-18 -24 L18 -24 L14 24 L-14 24 Z", fill: PAPER, stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, cup2);
+      const cup2Water = el("rect", { x: -14, y: 10, width: 28, height: 11, fill: INK, opacity: 0.2 }, cup2);
+      const SA = [1478, 596], SBp = [1752, 596];
+      const sheet = line({ d: "", "stroke-width": 4.5, opacity: 0 }, still);
+      const sheetQ = (u, cpy) => [
+        (1 - u) * (1 - u) * SA[0] + 2 * (1 - u) * u * PC + u * u * SBp[0],
+        (1 - u) * (1 - u) * SA[1] + 2 * (1 - u) * u * cpy + u * u * SBp[1],
+      ];
+      const edgeRocks = [SA, SBp].map((p) => el("circle", { cx: p[0], cy: p[1] - 10, r: 13, fill: PD, stroke: INK, "stroke-width": 5, opacity: 0 }, still));
+      const pebble = el("circle", { r: 13, fill: PD, stroke: INK, "stroke-width": 5, opacity: 0 }, still);
+      const beads = [0.22, 0.34, 0.68, 0.8].map(() => el("circle", { r: 3.6, fill: INK, opacity: 0 }, still));
+      const slider = el("ellipse", { rx: 5, ry: 6.5, fill: INK, opacity: 0 }, still);
+      const lab3 = label(props, SX0, ST - 40, "3 · SOLAR STILL", "start");
+
+      // ---------------------------------------------------------------- seawater cup + ember X (front)
+      const cupPos = el("g", {}, front);
+      const cupBody = el("g", {}, cupPos);
+      el("path", { d: "M-18 -24 L18 -24 L14 24 L-14 24 Z", fill: PAPER, stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, cupBody);
+      el("path", { d: "M-15 -9 q7.5 -6 15 0 q7.5 6 15 0", fill: "none", stroke: INK, "stroke-width": 3.5, "stroke-linecap": "round" }, cupBody);
+      const xMark = el("g", { opacity: 0 }, cupPos);
+      el("path", { d: "M-78 -78 L78 78 M78 -78 L-78 78", stroke: EMBER, "stroke-width": 16, "stroke-linecap": "round", fill: "none" }, xMark);
+      const saltLabel = el("text", {
+        x: 0, y: 0, fill: INK, "text-anchor": "middle", opacity: 0,
+        "font-family": "Archivo, sans-serif", "font-weight": 600, "font-size": 18, "letter-spacing": 3.2,
+      }, front);
+      saltLabel.textContent = "SALT = DEHYDRATION";
+
+      // ---------------------------------------------------------------- per-frame render (driven by the rig's proxy tween)
+      function render(fig, t) {
+        // camera: slow pull-back from the waterline to the full stage
+        const cz = lerp(1.06, 1, seg(t, 0, 3.2, E.io2));
+        cam.setAttribute("transform", `translate(450 600) scale(${cz.toFixed(4)}) translate(-450 -600)`);
+        sea.waves.setAttribute("transform", `translate(${f2(-12 * t)} 0)`);
+
+        // seawater cup: in hand → X slam → corner badge
+        let cx, cy, cs = 1;
+        if (t < T_HAND) {
+          const h = fig.hand("r");
+          cx = h[0] + CUP_OFF[0];
+          cy = h[1] + CUP_OFF[1];
+        } else {
+          const pb = seg(t, 3.3, 4.0, E.io2);
+          cx = lerp(C0[0] + CUP_OFF[0], BADGE[0], pb);
+          cy = lerp(C0[1] + CUP_OFF[1], BADGE[1], pb);
+          cs = lerp(1, 0.55, pb);
+        }
+        tr(cupPos, cx, cy, cs);
+        const tilt = 24 * seg(t, 1.3, 1.72, E.io2) * (1 - seg(t, T_HAND, 2.2, E.io2));
+        cupBody.setAttribute("transform", `rotate(${f2(tilt)})`);
+        const px = seg(t, 1.8, 1.95, E.i4);
+        op(xMark, px);
+        xMark.setAttribute("transform", `scale(${lerp(1.9, 1, px).toFixed(4)})`);
+        const pl = seg(t, 2.35, 2.75, E.o3);
+        const pf = seg(t, 3.3, 4.0, E.io2);
+        saltLabel.setAttribute("x", f2(lerp(C0[0], BADGE[0], pf)));
+        saltLabel.setAttribute("y", f2(lerp(C0[1] - 122, BADGE[1] + 84, pf) + 12 * (1 - pl)));
+        op(saltLabel, pl);
+
+        // 1 · rain
+        const rt = t - 4.5;
+        op(rainG, rt > 0 ? seg(t, 4.5, 4.6) : 0);
+        streaks.forEach((s, i) => {
+          const span = 230;
+          const y = 384 + ((((rt * 900 + i * 131) % span) + span) % span);
+          const vis = rt > 0 && y < 384 + rt * 900;
+          s.setAttribute("transform", `translate(${s.sx} ${f2(y)})`);
+          s.setAttribute("opacity", vis ? 0.5 : 0);
+        });
+        drawOn(sticks, seg(t, 4.5, 4.72, E.o2));
+        drawOn(leafLine, seg(t, 4.6, 5.0, E.o2));
+        op(leafFill, seg(t, 4.78, 5.0));
+        drawOn(leafVeins, seg(t, 4.82, 5.08, E.o2));
+        const pbt = seg(t, 4.6, 4.86, E.o3);
+        op(bottle, pbt);
+        bottle.setAttribute("transform", `translate(${BX} ${f2(BY)}) scale(${lerp(0.6, 1, pbt).toFixed(4)}) translate(${-BX} ${f2(-BY)})`);
+        const lvl = 46 * seg(t, 5.05, DUR);
+        bottleWater.setAttribute("y", f2(BY - 3 - lvl));
+        bottleWater.setAttribute("height", f2(lvl));
+        drips.forEach((d, k) => {
+          const dt = t - 5.0 - k * 0.21;
+          if (dt < 0) { op(d, 0); return; }
+          const ph = (dt / 0.42) % 1;
+          d.setAttribute("cx", LT[0] - 2);
+          d.setAttribute("cy", f2(lerp(LT[1] + 10, BY - 92, ph * ph)));
+          op(d, ph < 0.92 ? 0.9 : 0);
+        });
+        reveal(lab1, t, 4.62, 4.95);
+
+        // 2 · coconut
+        const pr = seg(t, 5.6, 5.85, E.o3);
+        op(rock, pr);
+        rock.setAttribute("transform", `translate(${f2(HIT[0])} ${f2(rockBot)}) scale(${lerp(0.7, 1, pr).toFixed(4)}) translate(${f2(-HIT[0])} ${f2(-rockBot)})`);
+        if (t < 5.72) {
+          op(coco, 0);
+        } else {
+          const pc = seg(t, 5.72, 5.95, E.o3);
+          const h = t < 6.25 ? fig.hand("r") : HIT;
+          tr(coco, h[0], h[1], lerp(0.4, 1, pc));
+          op(coco, pc);
+        }
+        const ps = seg(t, 6.28, 6.5, E.o3);
+        op(cocoWhole, ps > 0 ? 0 : 1);
+        op(halfL, ps > 0 ? 1 : 0);
+        op(halfR, ps > 0 ? 1 : 0);
+        halfL.setAttribute("transform", `translate(${f2(-14 * ps)} ${f2(3 * ps)}) rotate(${f2(-34 * ps)} 0 20)`);
+        halfR.setAttribute("transform", `translate(${f2(14 * ps)} ${f2(3 * ps)}) rotate(${f2(34 * ps)} 0 20)`);
+        drawOn(splash, seg(t, 6.28, 6.55, E.o2));
+        flyDrops.forEach((d, k) => {
+          const a = ((-40 + k * 40) * Math.PI) / 180;
+          const p = seg(t, 6.3, 6.75);
+          const dist = 70 * E.o2(p);
+          d.setAttribute("cx", f2(Math.sin(a) * dist));
+          d.setAttribute("cy", f2(-Math.cos(a) * dist - 10 + 60 * p * p));
+          op(d, p > 0 && p < 1 ? 1 - p * p : 0);
+        });
+        reveal(lab2, t, 6.35, 6.7);
+
+        // 3 · solar still draws on
+        const pfill = seg(t, 7.4, 7.62);
+        op(slabFill, pfill);
+        op(slabSides, pfill);
+        op(slabDots, pfill);
+        drawOn(surface, seg(t, 7.4, 7.75, E.o2));
+        const pcup = seg(t, 7.66, 7.86, E.o3);
+        op(cup2, pcup);
+        tr(cup2, PC, PB - 24, lerp(0.6, 1, pcup));
+        const ppeb = seg(t, 8.0, 8.12, E.i3);
+        const dimple = seg(t, 8.12, 8.3, E.o3);
+        const cpy = lerp(612, 760, dimple);
+        const pts = [];
+        for (let i = 0; i <= 16; i++) pts.push(sheetQ(i / 16, cpy).map(f2).join(" "));
+        sheet.setAttribute("d", "M" + pts.join(" L"));
+        drawOn(sheet, seg(t, 7.82, 8.04, E.o2));
+        edgeRocks.forEach((r) => op(r, seg(t, 7.94, 8.06)));
+        const mid = sheetQ(0.5, cpy);
+        pebble.setAttribute("cx", PC);
+        pebble.setAttribute("cy", f2(lerp(ST - 120, mid[1] - 15, ppeb)));
+        op(pebble, seg(t, 8.0, 8.04));
+        beads.forEach((b, i) => {
+          const q = sheetQ([0.22, 0.34, 0.68, 0.8][i], cpy);
+          b.setAttribute("cx", f2(q[0]));
+          b.setAttribute("cy", f2(q[1] + 7));
+          op(b, seg(t, 8.22 + i * 0.03, 8.32 + i * 0.03));
+        });
+        const sl = seg(t, 8.3, 8.56, E.io2);
+        const fall = seg(t, 8.56, 8.66, E.i3);
+        const sq = sheetQ(lerp(0.16, 0.5, sl), cpy);
+        slider.setAttribute("cx", f2(sq[0]));
+        slider.setAttribute("cy", f2(lerp(sq[1] + 8, PB - 16, fall)));
+        op(slider, t >= 8.3 && t < 8.66 ? 1 : 0);
+        cup2Water.setAttribute("y", f2(10 - 5 * seg(t, 8.64, 8.72)));
+        cup2Water.setAttribute("height", f2(11 + 5 * seg(t, 8.64, 8.72)));
+        reveal(lab3, t, 7.5, 7.82);
+      }
+
+      // ---------------------------------------------------------------- castaway acting (one call, all keys)
+      const keys = [
+        { t: 0, pose: P_DIP, x: X0, y: hipY(X0), facing: -1, face: "neutral" },
+        { t: 0.75, pose: P_HOLD },
+        { t: 1.3, pose: P_HOLD },
+        { t: 1.72, pose: P_DRINK },
+        { t: 1.86, pose: P_DRINK, face: "o" },
+        { t: 2.15, pose: P_RECOIL, ease: "power3.out" },
+        { t: 2.7, pose: "shrug" },
+        { t: 3.45, pose: "shrug", face: "worried" },
+        { t: 3.85, pose: "stand", face: "determined" },
+        { t: 4.0, pose: "stand", facing: 1 },
+      ];
+      const W0 = 4.0, W1 = 5.5;
+      [["walkA", 4.3], ["walkB", 4.6], ["walkA", 4.9], ["walkB", 5.2], ["stand", 5.5]].forEach(([pose, tt]) => {
+        const x = lerp(X0, FX, (tt - W0) / (W1 - W0));
+        keys.push({ t: tt, pose: pose, x: x, y: hipY(x), ease: "sine.inOut" });
+      });
+      keys.push(
+        { t: 5.72, pose: "stand" },
+        { t: 6.0, pose: P_REACH, ease: "power3.out" },
+        { t: 6.25, pose: P_SMASH, ease: "power3.in" },
+        { t: 6.4, pose: P_SMASH, face: "smile" },
+        { t: 7.15, pose: P_SMASH },
+        { t: 7.42, pose: "stand" },
+        { t: 7.7, pose: P_POINT, ease: "power3.out" },
+        { t: DUR, pose: P_POINT }
+      );
+      R.animate(tl, guy, keys, { start: 0, end: DUR, onDraw: render });
+
+      // ---------------------------------------------------------------- type
+      tl.fromTo("#f05-steptag", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 0.05);
+      tl.fromTo("#f05-hero", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.15);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>

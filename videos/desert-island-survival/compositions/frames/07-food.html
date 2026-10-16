@@ -1,0 +1,640 @@
+<template>
+  <style>
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo-Variable.woff2") format("woff2"); font-weight: 400 600; }
+    @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; }
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #1B2566; }
+    .f07-layer { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .f07-ground {
+      background-color: #E9E5DB;
+      background-image: radial-gradient(ellipse 44% 58% at 86% 20%, rgba(241,238,46,0.84) 0%, rgba(248,243,155,0.6) 32%, rgba(240,218,124,0.2) 62%, rgba(233,229,219,0) 100%);
+    }
+    .f07-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .f07-tag { position: absolute; left: 76px; top: 72px; font-family: "Archivo", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #1B2566; }
+    .f07-rule { position: absolute; left: 76px; top: 100px; width: 300px; height: 1px; background: #1B2566; transform-origin: 0 50%; }
+    .f07-hero { position: absolute; left: 70px; top: 118px; display: flex; align-items: baseline; gap: 26px; white-space: nowrap; color: #1B2566; }
+    .f07-word { display: inline-block; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 168px; line-height: 0.86; letter-spacing: -0.018em; }
+    .f07-aside { display: inline-block; font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1; letter-spacing: -0.005em; }
+    .f07-pagenum { position: absolute; right: 76px; top: 1012px; font-family: "JetBrains Mono", monospace; font-size: 14px; letter-spacing: 0.08em; color: #1B2566; opacity: 0.75; }
+    .f07-lbl { font-family: "Archivo", sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 2.7px; }
+  </style>
+
+  <div id="root" data-composition-id="07-food" data-width="1920" data-height="1080" data-duration="8.32">
+    <div id="f07-bg" class="clip f07-layer f07-ground" data-start="0" data-duration="8.32" data-track-index="0"></div>
+    <div id="f07-scene" class="clip f07-layer" data-start="0" data-duration="8.32" data-track-index="1">
+      <svg id="f07-svg" class="f07-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+        <g id="f07-sky"></g>
+        <g id="f07-world">
+          <g id="f07-set"></g>
+          <!-- rocky tide pool (left) -->
+          <g id="f07-pool">
+            <path class="f07-draw" pathLength="1" d="M300 738 C 300 712, 326 700, 352 702 L 368 692 C 388 684, 412 688, 424 698 L 446 694 C 476 692, 500 708, 502 738 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+            <ellipse id="f07-water" cx="402" cy="712" rx="76" ry="13" fill="#E9E5DB" stroke="#1B2566" stroke-width="4"/>
+            <path class="f07-draw" pathLength="1" d="M352 712 q 12 -6 24 0 M410 714 q 12 -6 24 0" fill="none" stroke="#1B2566" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+            <path class="f07-draw" pathLength="1" d="M318 738 L 312 722 M480 738 L 488 720 M340 702 L 334 692" fill="none" stroke="#1B2566" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <!-- mystery berry bush (far left) -->
+          <g id="f07-bush">
+            <path id="f07-bush-out" pathLength="1" d="M172 774 C 150 770, 146 742, 166 732 C 154 708, 176 686, 198 694 C 204 668, 240 662, 254 682 C 274 668, 304 684, 296 708 C 316 716, 314 750, 292 760 C 296 772, 286 776, 276 774 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="6" stroke-linejoin="round"/>
+            <path id="f07-bush-twig" pathLength="1" d="M232 774 L 232 736 M232 750 L 212 730 M232 744 L 256 722" fill="none" stroke="#1B2566" stroke-width="4" stroke-linecap="round"/>
+            <g id="f07-berries">
+              <circle cx="194" cy="726" r="8" fill="#1B2566"/>
+              <circle cx="212" cy="704" r="8" fill="#1B2566"/>
+              <circle cx="246" cy="700" r="8" fill="#1B2566"/>
+              <circle cx="272" cy="726" r="8" fill="#1B2566"/>
+              <circle cx="258" cy="752" r="8" fill="#1B2566"/>
+              <circle cx="186" cy="756" r="8" fill="#1B2566"/>
+            </g>
+            <text id="f07-bush-lbl" class="f07-lbl" x="232" y="640" text-anchor="middle" fill="#1B2566">UNKNOWN</text>
+          </g>
+          <!-- fire carried over from step 3 -->
+          <g id="f07-fire">
+            <path d="M984 726 L 1056 708 M984 708 L 1056 726" fill="none" stroke="#1B2566" stroke-width="8" stroke-linecap="round"/>
+            <g transform="translate(1020 712)">
+              <path id="f07-flame" d="M-26 0 C-34 -24 -10 -34 -6 -62 C6 -42 30 -36 24 0 Z" fill="#E9E5DB" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+              <path id="f07-core" d="M-12 0 C-16 -14 -4 -20 -2 -34 C6 -22 16 -16 12 0 Z" fill="#E26B4A"/>
+            </g>
+          </g>
+          <!-- skewer rig -->
+          <g id="f07-skewer">
+            <path class="f07-sk" pathLength="1" d="M956 720 L 956 622 M956 630 L 944 608 M956 630 L 968 608" fill="none" stroke="#1B2566" stroke-width="6" stroke-linecap="round"/>
+            <path class="f07-sk" pathLength="1" d="M1084 716 L 1084 622 M1084 630 L 1072 608 M1084 630 L 1096 608" fill="none" stroke="#1B2566" stroke-width="6" stroke-linecap="round"/>
+            <path class="f07-sk" pathLength="1" d="M930 618 L 1112 618" fill="none" stroke="#1B2566" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <!-- the catch -->
+          <g id="f07-items">
+            <g id="f07-crab" opacity="0">
+              <path d="M-26 6 L -40 18 M-22 10 L -32 24 M-16 12 L -22 26 M26 6 L 40 18 M22 10 L 32 24 M16 12 L 22 26" fill="none" stroke="#1B2566" stroke-width="4" stroke-linecap="round"/>
+              <path d="M-24 -6 C -34 -14, -36 -28, -28 -34 M24 -6 C 34 -14, 36 -28, 28 -34" fill="none" stroke="#1B2566" stroke-width="5" stroke-linecap="round"/>
+              <path d="M-34 -36 L -26 -42 L -22 -32 Z M34 -36 L 26 -42 L 22 -32 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="4" stroke-linejoin="round"/>
+              <ellipse cx="0" cy="2" rx="30" ry="17" fill="#DCD6C4" stroke="#1B2566" stroke-width="5"/>
+              <path d="M-8 -14 L -10 -24 M8 -14 L 10 -24" fill="none" stroke="#1B2566" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="-10" cy="-26" r="3.6" fill="#1B2566"/>
+              <circle cx="10" cy="-26" r="3.6" fill="#1B2566"/>
+            </g>
+            <g id="f07-shells" opacity="0">
+              <path d="M-40 8 C -46 -10, -32 -26, -18 -24 C -4 -26, 8 -10, 2 8 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M-19 6 L -30 -14 M-19 6 L -19 -20 M-19 6 L -8 -14" fill="none" stroke="#1B2566" stroke-width="3" stroke-linecap="round"/>
+              <path d="M6 10 C 2 -6, 14 -20, 26 -18 C 38 -20, 48 -6, 44 10 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M25 8 L 16 -10 M25 8 L 25 -14 M25 8 L 34 -10" fill="none" stroke="#1B2566" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <g id="f07-fish" opacity="0">
+              <path d="M18 0 L 40 -16 L 40 16 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M-38 0 C -24 -22, 6 -22, 22 0 C 6 22, -24 22, -38 0 Z" fill="#DCD6C4" stroke="#1B2566" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M-18 -11 C -12 -4, -12 4, -18 11" fill="none" stroke="#1B2566" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="-27" cy="-3" r="3.6" fill="#1B2566"/>
+            </g>
+            <text id="f07-crab-lbl" class="f07-lbl" x="0" y="0" text-anchor="middle" fill="#1B2566" opacity="0">CRAB</text>
+            <text id="f07-shells-lbl" class="f07-lbl" x="0" y="0" text-anchor="middle" fill="#1B2566" opacity="0">SHELLS</text>
+            <text id="f07-fish-lbl" class="f07-lbl" x="0" y="0" text-anchor="middle" fill="#1B2566" opacity="0">FISH</text>
+          </g>
+          <!-- steam over the skewer -->
+          <g id="f07-steam" fill="none" stroke="#1B2566" stroke-width="4" stroke-linecap="round" opacity="0.6">
+            <path class="f07-st" pathLength="1" d="M996 592 q -9 -11 0 -22 q 9 -11 0 -22"/>
+            <path class="f07-st" pathLength="1" d="M1022 588 q -9 -11 0 -22 q 9 -11 0 -22 q -9 -11 0 -22"/>
+            <path class="f07-st" pathLength="1" d="M1048 592 q -9 -11 0 -22 q 9 -11 0 -22"/>
+          </g>
+          <g id="f07-fig"></g>
+          <!-- danger mark -->
+          <g id="f07-x">
+            <path d="M166 650 L 298 780 M298 650 L 166 780" fill="none" stroke="#E26B4A" stroke-width="16" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+      <div id="f07-tag" class="f07-tag">Step 4 · Food</div>
+      <div id="f07-rule" class="f07-rule"></div>
+      <div id="f07-hero" class="f07-hero"><span id="f07-word" class="f07-word">Food.</span><span id="f07-aside" class="f07-aside">(last)</span></div>
+      <div id="f07-pagenum" class="f07-pagenum">07 / 09</div>
+    </div>
+  </div>
+
+  <script>
+/* Castaway rig — shared stick-figure character + island kit for every frame.
+ *
+ * Paste this file VERBATIM inside your frame's <template><script> (before your timeline code).
+ * It defines window.CastawayRig once (guarded) and draws everything in SVG, deterministic and
+ * seek-safe: all state is a pure function of timeline time.
+ *
+ * Coordinates: SVG user units = canvas px when the <svg> is 1920×1080 with viewBox "0 0 1920 1080".
+ *
+ *   const R = window.CastawayRig;
+ *   const guy = R.figure(svgGroupEl, { x: 900, y: 760, scale: 1, facing: 1 });
+ *   R.animate(tl, guy, [
+ *     { t: 0,   pose: "stand" },
+ *     { t: 0.8, pose: "wave",  x: 960, ease: "power2.inOut", face: "smile" },
+ *     { t: 2.0, pose: R.mix("stand", { rsh: -150, rel: 20 }) },
+ *   ], { start: 0, end: frameDuration, onDraw: (g) => { // move props to g.hand("r") } });
+ *
+ * x/y = the HIP position when standing; the GROUND line is y + 116*scale for every pose (sit/lie/kneel
+ * lower the hip via the pose's dy, so keep y fixed and switch poses).
+ * Angles (degrees): limbs measured from straight DOWN, positive = toward the facing direction
+ * (forward). Knee/elbow angles are RELATIVE bends added to the upper limb.
+ * torso: 0 = upright, positive = lean forward. head: tilt in degrees, positive = nod forward.
+ * faces: "neutral" | "smile" | "grin" | "o" | "worried" | "determined" | "closed".
+ */
+(function () {
+  if (window.CastawayRig) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const INK = "#1B2566";
+  const SUN = "#F1EE2E";
+  const PAPER = "#E9E5DB";
+  const PAPER_DEEP = "#DCD6C4";
+  const EMBER = "#E26B4A";
+  const STROKE = 9;
+  const L = { torso: 98, neck: 12, head: 27, upArm: 52, loArm: 50, upLeg: 60, loLeg: 58 };
+
+  const POSES = {
+    stand: { torso: 0, head: 0, lsh: -8, lel: 6, rsh: 8, rel: 6, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    wave: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 160, rel: 25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    waveB: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 150, rel: -25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    walkA: { torso: 4, head: 0, lsh: 28, lel: 20, rsh: -24, rel: 10, lhip: -22, lkn: 8, rhip: 24, rkn: 20, dy: -3 },
+    walkB: { torso: 4, head: 0, lsh: -24, lel: 10, rsh: 28, rel: 20, lhip: 24, lkn: 20, rhip: -22, rkn: 8, dy: -3 },
+    sit: { torso: -10, head: 4, lsh: -32, lel: 4, rsh: 30, rel: 40, lhip: 84, lkn: -6, rhip: 70, rkn: 28, dy: 96 },
+    lie: { torso: -90, head: 0, lsh: 160, lel: 10, rsh: 10, rel: -60, lhip: 90, lkn: 0, rhip: 84, rkn: 8, dy: 88 },
+    kneel: { torso: 12, head: 14, lsh: 40, lel: 30, rsh: 55, rel: 35, lhip: 70, lkn: -90, rhip: -5, rkn: 100, dy: 50 },
+    crouch: { torso: 30, head: 16, lsh: 50, lel: 30, rsh: 62, rel: 30, lhip: 95, lkn: -120, rhip: 80, rkn: -115, dy: 58 },
+    reach: { torso: 18, head: 8, lsh: 70, lel: 10, rsh: 95, rel: 8, lhip: -10, lkn: 4, rhip: 12, rkn: 4, dy: 0 },
+    carry: { torso: 10, head: -4, lsh: 70, lel: 70, rsh: 80, rel: 65, lhip: -14, lkn: 10, rhip: 16, rkn: 10, dy: 0 },
+    pull: { torso: -18, head: -6, lsh: 60, lel: 5, rsh: 70, rel: 5, lhip: 22, lkn: 10, rhip: -18, rkn: 20, dy: 4 },
+    point: { torso: 0, head: -4, lsh: -8, lel: 6, rsh: 100, rel: 0, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    think: { torso: 0, head: 8, lsh: -8, lel: 6, rsh: 40, rel: 120, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    shrug: { torso: 0, head: -4, lsh: -45, lel: -70, rsh: 45, rel: 70, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    cheer: { torso: -4, head: -10, lsh: -160, lel: -10, rsh: 160, rel: 10, lhip: -10, lkn: 2, rhip: 10, rkn: 2, dy: 0 },
+    breatheIn: { torso: -3, head: -8, lsh: -18, lel: 10, rsh: 18, rel: 10, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: -4 },
+    drill: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 95, rel: -20, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+    drillB: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 70, rel: 10, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+  };
+  const KEYS = Object.keys(POSES.stand);
+
+  function mix(base, over) {
+    const b = typeof base === "string" ? POSES[base] : base;
+    return Object.assign({}, b, over || {});
+  }
+
+  // deterministic hash → [-1, 1]
+  function hash(n) {
+    const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return (s - Math.floor(s)) * 2 - 1;
+  }
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function dirDown(deg) {
+    const r = (deg * Math.PI) / 180;
+    return [Math.sin(r), Math.cos(r)];
+  }
+
+  // ---------------------------------------------------------------- figure
+  function figure(parent, opts) {
+    opts = opts || {};
+    const g = el("g", { class: "castaway" }, parent);
+    const shadow = el("ellipse", { rx: 70, ry: 10, fill: INK, opacity: 0.12 }, g);
+    const body = el("g", {}, g);
+    const common = { stroke: INK, "stroke-width": STROKE, "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" };
+    const limbs = {};
+    ["lleg", "larm", "torso", "rleg", "rarm"].forEach((k) => (limbs[k] = el("path", common, body)));
+    const headG = el("g", {}, body);
+    const head = el("circle", { r: L.head, fill: PAPER, stroke: INK, "stroke-width": STROKE }, headG);
+    const hair = el("path", Object.assign({}, common, { "stroke-width": 6 }), headG);
+    const eyeL = el("circle", { r: 3.6, fill: INK }, headG);
+    const eyeR = el("circle", { r: 3.6, fill: INK }, headG);
+    const mouth = el("path", Object.assign({}, common, { "stroke-width": 4.5 }), headG);
+    const lidL = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+    const lidR = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+
+    const fig = {
+      g,
+      state: Object.assign({ x: 960, y: 760, scale: 1, facing: 1, face: "neutral", shadow: 1 }, POSES.stand, opts.pose ? mix(opts.pose) : {}, opts),
+      joints: {},
+      boil: opts.boil !== false,
+      time: 0,
+      hand(side) {
+        return this.joints[side === "l" ? "lhand" : "rhand"];
+      },
+      foot(side) {
+        return this.joints[side === "l" ? "lfoot" : "rfoot"];
+      },
+      headPos() {
+        return this.joints.head;
+      },
+      draw(t) {
+        if (t !== undefined) this.time = t;
+        const s = this.state;
+        const f = s.facing >= 0 ? 1 : -1;
+        const step = Math.floor(this.time * 8); // 8 fps line boil
+        const j = (i) => (this.boil ? hash(step * 31 + i) * 1.3 : 0);
+        const sc = s.scale;
+        const P = (lx, ly) => [s.x + lx * sc * f, s.y + ly * sc];
+        const hipL = [0, -s.dy * -1];
+        // local skeleton (facing right), y down
+        const hip = [0, s.dy];
+        const td = [Math.sin((s.torso * Math.PI) / 180), -Math.cos((s.torso * Math.PI) / 180)];
+        const shoulder = [hip[0] + td[0] * L.torso, hip[1] + td[1] * L.torso];
+        const neckTop = [shoulder[0] + td[0] * L.neck, shoulder[1] + td[1] * L.neck];
+        const headC = [neckTop[0] + td[0] * L.head, neckTop[1] + td[1] * L.head];
+        const limb = (root, a1, a2, l1, l2) => {
+          const d1 = dirDown(a1);
+          const mid = [root[0] + d1[0] * l1, root[1] + d1[1] * l1];
+          const d2 = dirDown(a1 + a2);
+          const end = [mid[0] + d2[0] * l2, mid[1] + d2[1] * l2];
+          return [mid, end];
+        };
+        const sh = [shoulder[0] - td[0] * 8, shoulder[1] - td[1] * 8];
+        const [lelb, lhand] = limb(sh, s.lsh + s.torso, s.lel, L.upArm, L.loArm);
+        const [relb, rhand] = limb(sh, s.rsh + s.torso, s.rel, L.upArm, L.loArm);
+        const [lkn, lfoot] = limb(hip, s.lhip, s.lkn, L.upLeg, L.loLeg);
+        const [rkn, rfoot] = limb(hip, s.rhip, s.rkn, L.upLeg, L.loLeg);
+        let n = 0;
+        const W = (p) => {
+          const q = P(p[0], p[1]);
+          n += 1;
+          return [q[0] + j(n), q[1] + j(n + 50)];
+        };
+        const path = (pts) => "M" + pts.map((p) => W(p).map((v) => v.toFixed(1)).join(" ")).join(" L");
+        limbs.torso.setAttribute("d", path([hip, neckTop]));
+        limbs.larm.setAttribute("d", path([sh, lelb, lhand]));
+        limbs.rarm.setAttribute("d", path([sh, relb, rhand]));
+        limbs.lleg.setAttribute("d", path([hip, lkn, lfoot]));
+        limbs.rleg.setAttribute("d", path([hip, rkn, rfoot]));
+        // back limbs slightly lighter for depth
+        limbs.larm.setAttribute("opacity", 0.78);
+        limbs.lleg.setAttribute("opacity", 0.78);
+        const hc = W(headC);
+        const sw = STROKE * sc;
+        [limbs.torso, limbs.larm, limbs.rarm, limbs.lleg, limbs.rleg].forEach((p) => p.setAttribute("stroke-width", sw.toFixed(2)));
+        head.setAttribute("cx", hc[0].toFixed(1));
+        head.setAttribute("cy", hc[1].toFixed(1));
+        head.setAttribute("r", (L.head * sc).toFixed(1));
+        head.setAttribute("stroke-width", sw.toFixed(2));
+        // face, rotated by head tilt + torso
+        const tilt = (s.head + s.torso) * f;
+        headG.setAttribute("transform", "");
+        const fx = (dx, dy) => {
+          const r = (tilt * Math.PI) / 180;
+          const x = dx * f * sc, y = dy * sc;
+          return [hc[0] + x * Math.cos(r) - y * Math.sin(r), hc[1] + x * Math.sin(r) + y * Math.cos(r)];
+        };
+        const pt = (p) => p.map((v) => v.toFixed(1)).join(" ");
+        const eL = fx(4, -4), eR = fx(15, -4);
+        const closed = s.face === "closed";
+        eyeL.setAttribute("cx", eL[0].toFixed(1)); eyeL.setAttribute("cy", eL[1].toFixed(1));
+        eyeR.setAttribute("cx", eR[0].toFixed(1)); eyeR.setAttribute("cy", eR[1].toFixed(1));
+        eyeL.setAttribute("r", (3.6 * sc).toFixed(2)); eyeR.setAttribute("r", (3.6 * sc).toFixed(2));
+        eyeL.setAttribute("opacity", closed ? 0 : 1); eyeR.setAttribute("opacity", closed ? 0 : 1);
+        lidL.setAttribute("d", closed ? `M${pt(fx(0, -4))} Q${pt(fx(4, -1))} ${pt(fx(8, -4))}` : "");
+        lidR.setAttribute("d", closed ? `M${pt(fx(11, -4))} Q${pt(fx(15, -1))} ${pt(fx(19, -4))}` : "");
+        const m = {
+          neutral: `M${pt(fx(5, 9))} L${pt(fx(16, 9))}`,
+          smile: `M${pt(fx(3, 7))} Q${pt(fx(10, 15))} ${pt(fx(18, 7))}`,
+          grin: `M${pt(fx(2, 6))} Q${pt(fx(10, 19))} ${pt(fx(19, 6))} Z`,
+          o: `M${pt(fx(9, 7))} a ${(3.5 * sc).toFixed(1)} ${(4.5 * sc).toFixed(1)} 0 1 0 0.1 0`,
+          worried: `M${pt(fx(3, 12))} Q${pt(fx(10, 6))} ${pt(fx(18, 12))}`,
+          determined: `M${pt(fx(5, 10))} L${pt(fx(17, 8))}`,
+          closed: `M${pt(fx(5, 9))} Q${pt(fx(10, 12))} ${pt(fx(16, 9))}`,
+        }[s.face] || "";
+        mouth.setAttribute("d", m);
+        mouth.setAttribute("fill", s.face === "grin" ? INK : "none");
+        mouth.setAttribute("stroke-width", (4.5 * sc).toFixed(2));
+        // scruffy castaway hair tuft
+        hair.setAttribute("d", `M${pt(fx(-14, -20))} L${pt(fx(-6, -36))} L${pt(fx(0, -24))} L${pt(fx(8, -38))} L${pt(fx(12, -25))}`);
+        hair.setAttribute("stroke-width", (6 * sc).toFixed(2));
+        // ground shadow under the lower foot
+        const fl = P(lfoot[0], lfoot[1]), fr = P(rfoot[0], rfoot[1]);
+        const gy = Math.max(fl[1], fr[1]);
+        shadow.setAttribute("cx", ((fl[0] + fr[0]) / 2).toFixed(1));
+        shadow.setAttribute("cy", (gy + 6 * sc).toFixed(1));
+        shadow.setAttribute("rx", (70 * sc).toFixed(1));
+        shadow.setAttribute("ry", (10 * sc).toFixed(1));
+        shadow.setAttribute("opacity", (0.12 * s.shadow).toFixed(3));
+        this.joints = {
+          hip: P(hip[0], hip[1]), shoulder: P(sh[0], sh[1]), head: hc,
+          lhand: P(lhand[0], lhand[1]), rhand: P(rhand[0], rhand[1]),
+          lelbow: P(lelb[0], lelb[1]), relbow: P(relb[0], relb[1]),
+          lfoot: fl, rfoot: fr,
+        };
+        return this;
+      },
+    };
+    fig.draw(0);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- animate
+  // keyframes: [{ t, pose?: name|object, x?, y?, scale?, facing?, face?, ease? }]
+  // Interpolates numeric state between keyframes (ease applies to the segment ARRIVING at a key).
+  // face/facing switch discretely at their key. Seek-safe: driven by one proxy tween.
+  function animate(tl, fig, keys, opts) {
+    opts = opts || {};
+    const start = opts.start || 0;
+    const end = opts.end !== undefined ? opts.end : keys[keys.length - 1].t + 0.01;
+    // resolve full states
+    const states = [];
+    let prev = Object.assign({}, fig.state);
+    keys.forEach((k) => {
+      const s = Object.assign({}, prev);
+      if (k.pose) Object.assign(s, mix(k.pose));
+      ["x", "y", "scale", "facing", "face", "shadow"].forEach((p) => {
+        if (k[p] !== undefined) s[p] = k[p];
+      });
+      states.push(s);
+      prev = s;
+    });
+    const eases = keys.map((k) => (k.ease ? gsap.parseEase(k.ease) : gsap.parseEase("power2.inOut")));
+    const proxy = { t: 0 };
+    const apply = (lt) => {
+      let i = 0;
+      while (i < keys.length - 1 && lt >= keys[i + 1].t) i++;
+      const a = states[i];
+      const out = Object.assign({}, a);
+      if (i < keys.length - 1) {
+        const b = states[i + 1];
+        const span = keys[i + 1].t - keys[i].t;
+        const p = span > 0 ? eases[i + 1](Math.min(1, Math.max(0, (lt - keys[i].t) / span))) : 1;
+        KEYS.concat(["x", "y", "scale", "shadow"]).forEach((k) => {
+          out[k] = a[k] + (b[k] - a[k]) * p;
+        });
+      }
+      Object.assign(fig.state, out);
+      fig.draw(lt + start);
+      if (opts.onDraw) opts.onDraw(fig, lt + start);
+    };
+    apply(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => apply(proxy.t) }, start);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- island kit
+  function palm(parent, x, y, scale, lean) {
+    scale = scale || 1;
+    lean = lean || 1;
+    const g = el("g", { class: "palm" }, parent);
+    const s = scale;
+    const top = [x + 70 * s * lean, y - 330 * s];
+    el("path", { d: `M${x} ${y} C ${x + 10 * s * lean} ${y - 120 * s}, ${x + 60 * s * lean} ${y - 220 * s}, ${top[0]} ${top[1]}`, stroke: INK, "stroke-width": 14 * s, "stroke-linecap": "round", fill: "none" }, g);
+    for (let i = 1; i < 7; i++) {
+      const tt = i / 7;
+      const bx = x + (top[0] - x) * tt * tt + 6 * s * lean;
+      const by = y + (top[1] - y) * tt;
+      el("path", { d: `M${bx - 9 * s} ${by + 4 * s} L${bx + 9 * s} ${by - 4 * s}`, stroke: INK, "stroke-width": 3 * s, "stroke-linecap": "round", opacity: 0.6 }, g);
+    }
+    const fronds = [-150, -115, -70, -30, 15, 55];
+    fronds.forEach((a, i) => {
+      const r = (a * Math.PI) / 180;
+      const len = (150 + (i % 2) * 30) * s;
+      const ex = top[0] + Math.cos(r) * len;
+      const ey = top[1] + Math.sin(r) * len * 0.55 + 40 * s;
+      const cx = top[0] + Math.cos(r) * len * 0.5;
+      const cy = top[1] + Math.sin(r) * len * 0.5 - 40 * s;
+      el("path", { d: `M${top[0]} ${top[1]} Q ${cx} ${cy} ${ex} ${ey}`, stroke: INK, "stroke-width": 9 * s, "stroke-linecap": "round", fill: "none" }, g);
+      for (let k = 1; k < 6; k++) {
+        const u = k / 6;
+        const px = (1 - u) * (1 - u) * top[0] + 2 * (1 - u) * u * cx + u * u * ex;
+        const py = (1 - u) * (1 - u) * top[1] + 2 * (1 - u) * u * cy + u * u * ey;
+        el("path", { d: `M${px} ${py} l ${-10 * s} ${22 * s * (1 - u * 0.4)}`, stroke: INK, "stroke-width": 4 * s, "stroke-linecap": "round" }, g);
+      }
+    });
+    [[-12, 18], [10, 22], [0, 34]].forEach(([dx, dy]) => el("circle", { cx: top[0] + dx * s, cy: top[1] + dy * s, r: 11 * s, fill: PAPER_DEEP, stroke: INK, "stroke-width": 4 * s }, g));
+    g.top = top;
+    return g;
+  }
+
+  function island(parent, opts) {
+    // sand mound centered at cx with given half-width, sitting on the waterline y
+    opts = opts || {};
+    const cx = opts.cx || 960, wy = opts.y || 820, hw = opts.halfWidth || 520, h = opts.height || 110;
+    const g = el("g", { class: "island" }, parent);
+    el("path", { d: `M${cx - hw} ${wy} C ${cx - hw * 0.6} ${wy - h}, ${cx + hw * 0.6} ${wy - h}, ${cx + hw} ${wy} Z`, fill: PAPER_DEEP, stroke: INK, "stroke-width": 5 }, g);
+    for (let i = 0; i < 14; i++) {
+      const px = cx - hw * 0.7 + ((i * 97) % (hw * 1.4));
+      const py = wy - 20 - ((i * 37) % (h * 0.6));
+      el("circle", { cx: px, cy: py, r: 2.2, fill: INK, opacity: 0.35 }, g);
+    }
+    return g;
+  }
+
+  function sea(parent, opts) {
+    // horizon line + wave strokes below it; returns { g, waves } (animate waves' x yourself)
+    opts = opts || {};
+    const wy = opts.y || 820, w = opts.width || 1920;
+    const g = el("g", { class: "sea" }, parent);
+    el("rect", { x: 0, y: wy, width: w, height: 1080 - wy, fill: INK, opacity: 0.06 }, g);
+    el("line", { x1: 0, y1: wy, x2: w, y2: wy, stroke: INK, "stroke-width": 1 }, g);
+    const waves = el("g", {}, g);
+    for (let r = 0; r < 4; r++) {
+      for (let i = -1; i < 12; i++) {
+        const x = i * 200 + (r % 2) * 100, y = wy + 28 + r * 40;
+        el("path", { d: `M${x} ${y} q 25 -14 50 0 q 25 14 50 0`, stroke: INK, "stroke-width": 3, fill: "none", opacity: 0.45 - r * 0.07, "stroke-linecap": "round" }, waves);
+      }
+    }
+    return { g, waves };
+  }
+
+  function sun(parent, x, y, r) {
+    const g = el("g", { class: "sun" }, parent);
+    el("circle", { cx: x, cy: y, r: r, fill: SUN }, g);
+    return g;
+  }
+
+  window.CastawayRig = { figure, animate, mix, POSES, palm, island, sea, sun, el, hash, INK, SUN, PAPER, PAPER_DEEP, EMBER };
+})();
+
+    (function () {
+      const FID = "07-food";
+      const DUR = 8.32;
+      const R = window.CastawayRig;
+      const root = document.querySelector('[data-composition-id="' + FID + '"]');
+      const $ = (id) => root.querySelector("#" + id);
+      const $$ = (sel) => Array.prototype.slice.call(root.querySelectorAll(sel));
+      const tl = gsap.timeline({ paused: true });
+
+      // ------------------------------------------------ stage (shared island set, panned 120px left)
+      const IS = { cx: 780, y: 800, hw: 620, h: 120 };
+      R.sun($("f07-sky"), 1652, 214, 66);
+      const set = $("f07-set");
+      R.sea(set, { y: 800 });
+      R.island(set, { cx: IS.cx, y: IS.y, halfWidth: IS.hw, height: IS.h });
+      R.palm(set, 1130, 770, 1.1, 1);
+
+      // sand surface height at canvas x (solves the island's cubic outline)
+      function gy(x) {
+        const P0 = IS.cx - IS.hw, P1 = IS.cx - 0.6 * IS.hw, P2 = IS.cx + 0.6 * IS.hw, P3 = IS.cx + IS.hw;
+        let lo = 0, hi = 1;
+        for (let i = 0; i < 32; i++) {
+          const t = (lo + hi) / 2, u = 1 - t;
+          const bx = u * u * u * P0 + 3 * u * u * t * P1 + 3 * u * t * t * P2 + t * t * t * P3;
+          if (bx < x) lo = t; else hi = t;
+        }
+        const t = (lo + hi) / 2;
+        return IS.y - 3 * IS.h * t * (1 - t);
+      }
+      const SC = 1.5, FOOT = 116 * SC;
+      const hipY = (x) => gy(x) - FOOT;
+      const clamp = (v) => Math.max(0, Math.min(1, v));
+      const ease = gsap.parseEase("power2.inOut");
+      const easeOut = gsap.parseEase("power3.out");
+
+      // ------------------------------------------------ camera: slow push-in on the world
+      tl.fromTo($("f07-world"), { scale: 1, svgOrigin: "700 640" }, { scale: 1.045, svgOrigin: "700 640", duration: DUR, ease: "sine.inOut" }, 0);
+
+      // ------------------------------------------------ type (Scene 1)
+      tl.fromTo($("f07-tag"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo($("f07-rule"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.1);
+      tl.fromTo($("f07-word"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.15);
+      tl.fromTo($("f07-aside"), { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 1.4);
+      tl.fromTo($("f07-pagenum"), { opacity: 0 }, { opacity: 0.75, duration: 0.3, ease: "none" }, 0);
+
+      // tide pool draws on as he heads for it
+      $$("#f07-pool .f07-draw").forEach((p, i) => {
+        p.setAttribute("stroke-dasharray", "1");
+        tl.fromTo(p, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.out" }, 0.35 + i * 0.1);
+      });
+      tl.fromTo($("f07-water"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none" }, 0.6);
+      tl.fromTo($("f07-pool").querySelector("path"), { attr: { "fill-opacity": 0 } }, { attr: { "fill-opacity": 1 }, duration: 0.4, ease: "none" }, 0.55);
+
+      // ------------------------------------------------ Scene 3: skewer + steam
+      $$("#f07-skewer .f07-sk").forEach((p, i) => {
+        p.setAttribute("stroke-dasharray", "1");
+        tl.fromTo(p, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.25, ease: "power2.out" }, 5.6 + i * 0.08);
+      });
+      $$("#f07-steam .f07-st").forEach((p, i) => {
+        p.setAttribute("stroke-dasharray", "1");
+        tl.fromTo(p, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.4, ease: "power2.out" }, 6.05 + i * 0.1);
+      });
+
+      // ------------------------------------------------ Scene 4: bush, berries, ember X
+      const bushOut = $("f07-bush-out"), twig = $("f07-bush-twig");
+      bushOut.setAttribute("stroke-dasharray", "1");
+      twig.setAttribute("stroke-dasharray", "1");
+      tl.fromTo(bushOut, { attr: { "stroke-dashoffset": 1, "fill-opacity": 0 } }, { attr: { "stroke-dashoffset": 0, "fill-opacity": 1 }, duration: 0.35, ease: "power2.out" }, 6.8);
+      tl.fromTo(twig, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.25, ease: "power2.out" }, 6.9);
+      $$("#f07-berries circle").forEach((c, i) => {
+        tl.fromTo(c, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, transformOrigin: "50% 50%", duration: 0.2, ease: "power3.out" }, 6.95 + i * 0.04);
+      });
+      tl.fromTo($("f07-bush-lbl"), { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "none" }, 7.05);
+      tl.fromTo($("f07-x"), { opacity: 0, scale: 1.8, svgOrigin: "232 715" }, { opacity: 1, scale: 1, svgOrigin: "232 715", duration: 0.16, ease: "power3.in" }, 7.4);
+
+      // ------------------------------------------------ the catch: positions are a pure function of time
+      const SKEWER = [1020, 618];
+      const items = [
+        { g: $("f07-crab"), lbl: $("f07-crab-lbl"), cue: 2.75, slot: 690, lift: 24, wiggle: 14 },
+        { g: $("f07-shells"), lbl: $("f07-shells-lbl"), cue: 3.45, slot: 790, lift: 16, wiggle: 0 },
+        { g: $("f07-fish"), lbl: $("f07-fish-lbl"), cue: 4.25, slot: 890, lift: 16, wiggle: 22 },
+      ];
+      const SLIDE = 110, SLIDE_T = 5.6;
+      function slotX(i, t) {
+        if (i === 2) return items[2].slot;
+        return items[i].slot + SLIDE * ease(clamp((t - SLIDE_T) / 0.45));
+      }
+      function place(it, x, y, rot, s, op) {
+        it.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + rot.toFixed(1) + ") scale(" + s.toFixed(3) + ")");
+        it.g.setAttribute("opacity", op.toFixed(3));
+      }
+      function drawItems(fig, t) {
+        const h = fig.hand("r");
+        items.forEach((it, i) => {
+          const a = it.cue - 0.22, b = it.cue + 0.12, c = it.cue + 0.5;
+          const sx = slotX(i, t), sy = gy(sx) - it.lift;
+          if (t < a) {
+            place(it, h[0], h[1], 0, 1, 0);
+          } else if (t < b) {
+            const w = it.wiggle * Math.sin(t * 34);
+            place(it, h[0], h[1] - 14, w, 1, clamp((t - a) / 0.08));
+          } else if (t < c) {
+            const p = ease((t - b) / (c - b));
+            const x = h[0] + (sx - h[0]) * p;
+            const y = h[1] - 14 + (sy - (h[1] - 14)) * p - 130 * 4 * p * (1 - p);
+            place(it, x, y, it.wiggle * Math.sin(t * 34) * (1 - p), 1, 1);
+          } else if (i === 2 && t >= SLIDE_T) {
+            const p = ease(clamp((t - SLIDE_T) / 0.42));
+            const x = sx + (SKEWER[0] - sx) * p;
+            const y = sy + (SKEWER[1] - sy) * p - 90 * 4 * p * (1 - p);
+            place(it, x, y, 0, 1, 1);
+          } else {
+            const q = clamp((t - c) / 0.2);
+            place(it, sx, sy, 0, 1 + 0.14 * Math.sin(Math.PI * q), 1);
+          }
+          let lo = clamp((t - (c - 0.05)) / 0.2);
+          if (i === 2) lo *= 1 - clamp((t - SLIDE_T) / 0.15);
+          it.lbl.setAttribute("x", sx.toFixed(1));
+          it.lbl.setAttribute("y", (gy(sx) + 34).toFixed(1));
+          it.lbl.setAttribute("opacity", lo.toFixed(3));
+        });
+      }
+
+      // ------------------------------------------------ deterministic flame flicker (10 steps/s)
+      const FLAMES = [
+        ["M-26 0 C-34 -24 -10 -34 -6 -62 C6 -42 30 -36 24 0 Z", "M-12 0 C-16 -14 -4 -20 -2 -34 C6 -22 16 -16 12 0 Z"],
+        ["M-24 0 C-36 -28 -4 -38 2 -68 C10 -40 32 -30 26 0 Z", "M-11 0 C-16 -16 0 -22 2 -38 C8 -22 16 -14 12 0 Z"],
+        ["M-26 0 C-30 -20 -16 -38 -4 -58 C2 -36 34 -34 24 0 Z", "M-12 0 C-14 -12 -8 -20 -4 -32 C4 -20 16 -16 11 0 Z"],
+      ];
+      const flame = $("f07-flame"), core = $("f07-core");
+      let lastStep = -1;
+      function drawFlame(t) {
+        const step = Math.floor(t * 10);
+        if (step === lastStep) return;
+        lastStep = step;
+        const v = FLAMES[Math.floor((R.hash(step + 7) + 1) * 1.5) % 3];
+        flame.setAttribute("d", v[0]);
+        core.setAttribute("d", v[1]);
+      }
+
+      // ------------------------------------------------ the castaway
+      const K = (t, pose, x, extra) => Object.assign({ t: t, pose: pose, x: x, y: hipY(x) }, extra || {});
+      const DIP = R.mix("crouch", { torso: 55, head: 20, rsh: -35, rel: 10, lsh: 20, lel: 20 });
+      const LIFT = R.mix("crouch", { torso: 20, head: -10, rsh: 150, rel: -10, lsh: 40, lel: 30 });
+      const SHAKE = R.mix("point", { rsh: 118, rel: -32 });
+      const W = "sine.inOut";
+      const guy = R.figure($("f07-fig"), { x: 940, y: hipY(940), scale: SC, facing: -1, pose: "walkA" });
+      R.animate(tl, guy, [
+        // Scene 1: walk left to the tide pool
+        K(0.0, "walkA", 940, { facing: -1, face: "neutral" }),
+        K(0.3, "walkB", 883, { ease: W }),
+        K(0.6, "walkA", 826, { ease: W }),
+        K(0.9, "walkB", 769, { ease: W }),
+        K(1.2, "walkA", 711, { ease: W }),
+        K(1.5, "walkB", 654, { ease: W }),
+        K(1.8, "walkA", 597, { ease: W }),
+        K(2.1, "stand", 540, { ease: "power2.out" }),
+        // Scene 2: crouch and pull out crab / shells / fish
+        K(2.45, DIP, 540, { face: "o" }),
+        K(2.75, LIFT, 540, { face: "smile", ease: "power3.out" }),
+        K(3.1, DIP, 540),
+        K(3.45, LIFT, 540, { ease: "power3.out" }),
+        K(3.85, DIP, 540),
+        K(4.25, LIFT, 540, { face: "grin", ease: "power3.out" }),
+        K(4.7, "crouch", 540, { face: "smile" }),
+        K(5.3, "stand", 540),
+        // Scene 3: turn to the fire, point — cook everything
+        K(5.6, "stand", 540, { facing: 1 }),
+        K(5.8, "point", 540, { face: "smile" }),
+        K(6.45, "stand", 540),
+        // Scene 4: reach for the berries, X, pull back and wag a finger
+        K(6.8, "walkA", 515, { facing: -1, face: "neutral" }),
+        K(7.0, "walkB", 485, { ease: W }),
+        K(7.22, "reach", 470, { face: "o" }),
+        K(7.42, "reach", 470),
+        K(7.62, "point", 545, { face: "determined", ease: "power3.out" }),
+        K(7.76, SHAKE, 545),
+        K(7.9, "point", 545),
+        K(8.04, SHAKE, 545),
+        K(8.18, "point", 545),
+      ], {
+        start: 0,
+        end: DUR,
+        onDraw: (fig, t) => {
+          drawItems(fig, t);
+          drawFlame(t);
+        },
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>
