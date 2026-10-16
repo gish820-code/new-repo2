@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="assets/gsap.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -12,25 +12,23 @@
       }
       html,
       body {
-        margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #0a0a0a;
+        background: #000;
       }
       #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #E9E5DB;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
       }
     </style>
   </head>
@@ -39,17 +37,205 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
+      data-duration="63.637"
       data-width="1920"
       data-height="1080"
     >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <div
+        id="el-01-washed-ashore"
+        class="scene"
+        data-composition-id="01-washed-ashore"
+        data-composition-src="compositions/frames/01-washed-ashore.html"
+        data-start="0"
+        data-duration="6.089"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-01-washed-ashore-voice"
+        src="assets/voice/01.wav"
+        data-start="0"
+        data-duration="5.589"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-02-rule-of-threes"
+        class="scene"
+        data-composition-id="02-rule-of-threes"
+        data-composition-src="compositions/frames/02-rule-of-threes.html"
+        data-start="5.589"
+        data-duration="9.695"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-02-rule-of-threes-voice"
+        src="assets/voice/02.wav"
+        data-start="5.589"
+        data-duration="9.195"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-03-take-stock"
+        class="scene"
+        data-composition-id="03-take-stock"
+        data-composition-src="compositions/frames/03-take-stock.html"
+        data-start="14.784"
+        data-duration="5.449"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-03-take-stock-voice"
+        src="assets/voice/03.wav"
+        data-start="14.784"
+        data-duration="4.949"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-04-shelter"
+        class="scene"
+        data-composition-id="04-shelter"
+        data-composition-src="compositions/frames/04-shelter.html"
+        data-start="19.733"
+        data-duration="7.348"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-04-shelter-voice"
+        src="assets/voice/04.wav"
+        data-start="19.733"
+        data-duration="6.848"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-05-water"
+        class="scene"
+        data-composition-id="05-water"
+        data-composition-src="compositions/frames/05-water.html"
+        data-start="26.581"
+        data-duration="9.225"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-05-water-voice"
+        src="assets/voice/05.wav"
+        data-start="26.581"
+        data-duration="8.725"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-06-fire"
+        class="scene"
+        data-composition-id="06-fire"
+        data-composition-src="compositions/frames/06-fire.html"
+        data-start="35.306"
+        data-duration="7.775"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-06-fire-voice"
+        src="assets/voice/06.wav"
+        data-start="35.306"
+        data-duration="7.275"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-07-food"
+        class="scene"
+        data-composition-id="07-food"
+        data-composition-src="compositions/frames/07-food.html"
+        data-start="42.580999999999996"
+        data-duration="8.72"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-07-food-voice"
+        src="assets/voice/07.wav"
+        data-start="42.580999999999996"
+        data-duration="8.32"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-08-signal"
+        class="scene"
+        data-composition-id="08-signal"
+        data-composition-src="compositions/frames/08-signal.html"
+        data-start="50.900999999999996"
+        data-duration="6.985"
+        data-track-index="1"
+      ></div>
+      <audio
+        id="el-08-signal-voice"
+        src="assets/voice/08.wav"
+        data-start="50.900999999999996"
+        data-duration="6.485"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
+      <div
+        id="el-09-in-order"
+        class="scene"
+        data-composition-id="09-in-order"
+        data-composition-src="compositions/frames/09-in-order.html"
+        data-start="57.385999999999996"
+        data-duration="6.251"
+        data-track-index="0"
+      ></div>
+      <audio
+        id="el-09-in-order-voice"
+        src="assets/voice/09.wav"
+        data-start="57.385999999999996"
+        data-duration="6.251"
+        data-track-index="10"
+        data-volume="1"
+      ></audio>
+
     </div>
+
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+      // ── frame transitions (injected by transitions.mjs) ──
+      (function () { var tl = window.__timelines["main"];
+        tl.to("#el-01-washed-ashore", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 5.589);
+        tl.fromTo("#el-02-rule-of-threes", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 5.589);
+        tl.addLabel("hf:transition:01-washed-ashore:02-rule-of-threes:crossfade", 5.589);
+        tl.to("#el-02-rule-of-threes", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 14.784);
+        tl.fromTo("#el-03-take-stock", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 14.784);
+        tl.addLabel("hf:transition:02-rule-of-threes:03-take-stock:crossfade", 14.784);
+        tl.to("#el-03-take-stock", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 19.733);
+        tl.fromTo("#el-04-shelter", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 19.733);
+        tl.addLabel("hf:transition:03-take-stock:04-shelter:push-slide", 19.733);
+        tl.to("#el-04-shelter", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 26.581);
+        tl.fromTo("#el-05-water", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 26.581);
+        tl.addLabel("hf:transition:04-shelter:05-water:push-slide", 26.581);
+        tl.to("#el-05-water", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 35.306);
+        tl.fromTo("#el-06-fire", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 35.306);
+        tl.addLabel("hf:transition:05-water:06-fire:push-slide", 35.306);
+        tl.to("#el-06-fire", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 42.581);
+        tl.fromTo("#el-07-food", { x: 1920, opacity: 1 }, { x: 0, opacity: 1, duration: 0.5, ease: "power3.inOut" }, 42.581);
+        tl.addLabel("hf:transition:06-fire:07-food:push-slide", 42.581);
+        tl.to("#el-07-food", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 50.901);
+        tl.fromTo("#el-08-signal", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 50.901);
+        tl.addLabel("hf:transition:07-food:08-signal:zoom-through", 50.901);
+        tl.to("#el-08-signal", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 57.386);
+        tl.fromTo("#el-09-in-order", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 57.386);
+        tl.addLabel("hf:transition:08-signal:09-in-order:crossfade", 57.386);
+        tl.to({}, { duration: 63.637 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+      })();
     </script>
   </body>
 </html>

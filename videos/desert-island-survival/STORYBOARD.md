@@ -26,7 +26,7 @@ style: "Elevated stick-figure animation: one ink stick-figure castaway on warm p
 - voiceover: "You wake up on a beach. No boat. No phone. Just sand, sea — and one palm tree."
 - duration: 5.589s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-washed-ashore.html
 - type: hook
 - persuasion: Imagine / scenario + Progressive disclosure (each "no" removes something)
@@ -49,7 +49,7 @@ Scene 3 (3.2–5.6s): "Just sand, sea — and one palm tree." — the X'd icons 
 - voiceover: "Survival runs on the rule of threes. Three hours without shelter. Three days without water. Three weeks without food. So the order matters."
 - duration: 9.195s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/02-rule-of-threes.html
 - type: social_proof
 - persuasion: Rule of three + Statistical proof
@@ -75,7 +75,7 @@ Scene 5 (7.9–9.2s): "So the order matters." A hairline arrow draws left→righ
 - voiceover: "First, stop. Breathe. Take stock — then salvage everything the tide gives you."
 - duration: 4.949s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/03-take-stock.html
 - type: product_intro
 - persuasion: Signposting ("first") + Concretization (the salvage row)
@@ -99,7 +99,7 @@ Scene 4 (2.6–4.95s): "then salvage everything the tide gives you." Four salvag
 - voiceover: "Step one: shelter. Get out of the sun, above the high-tide line — a driftwood frame, a palm-frond roof."
 - duration: 6.848s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/04-shelter.html
 - type: feature_showcase
 - persuasion: Demonstration + Progressive disclosure
@@ -122,7 +122,7 @@ Scene 3 (4.3–6.85s): "a driftwood frame, a palm-frond roof." He carries two dr
 - voiceover: "Step two: water. Never drink the sea — the salt dries you out faster. Catch the rain. Crack green coconuts. Build a solar still."
 - duration: 8.725s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/05-water.html
 - type: feature_showcase
 - persuasion: Common-belief vs reality + Numbered enumeration
@@ -147,7 +147,7 @@ Scene 5 (7.4–8.7s): "Build a solar still." Right: a cross-section diagram draw
 - voiceover: "Step three: fire. Friction, patience, dry coconut husk — and now you have clean water, cooked food, and warmth."
 - duration: 7.275s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/06-fire.html
 - type: feature_showcase
 - persuasion: Causal chain (fire → clean water, food, warmth)
@@ -170,7 +170,7 @@ Scene 3 (4.3–7.27s): "and now you have clean water, cooked food, and warmth." 
 - voiceover: "Step four: food — the last priority. Crabs, shellfish, fish from the tide pools. Cook everything. Skip the mystery berries."
 - duration: 8.32s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/07-food.html
 - type: feature_showcase
 - persuasion: Numbered enumeration + Counterexample (the berries)
@@ -194,7 +194,7 @@ Scene 4 (6.8–8.3s): "Skip the mystery berries." A bush with berries at the far
 - voiceover: "Step five: get seen. Spell S-O-S in rocks on the sand, and keep three fires ready to light."
 - duration: 6.485s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/08-signal.html
 - type: benefit_highlight
 - persuasion: Demonstration + Callback (the plane answers the hook's "no boat")
@@ -217,7 +217,7 @@ Scene 3 (4.4–6.49s): "and keep three fires ready to light." Three small fire-p
 - voiceover: "Shelter. Water. Fire. Food. Signal. Do them in order — and you'll still be here when rescue comes."
 - duration: 6.251s
 - transition_in: crossfade
-- status: outline
+- status: animated
 - src: compositions/frames/09-in-order.html
 - type: branding
 - persuasion: Distillation + Callback
