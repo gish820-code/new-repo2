@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "name": "stick-figure-survival",
+  "workflow": "faceless-explainer",
+  "approved_at": "2026-10-16T23:54:33.870Z",
+  "source_project": "desert-island-survival",
+  "destination": "youtube",
+  "aspect": "16:9",
+  "language": "en",
+  "voice": "bm_george",
+  "style_preset": "biennale-yellow"
+}
