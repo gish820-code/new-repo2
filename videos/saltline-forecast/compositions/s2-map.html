@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        #s2 .header {
+          position: absolute;
+          left: 60px;
+          top: 210px;
+          width: 960px;
+          display: flex;
+          align-items: baseline;
+          gap: 22px;
+        }
+        #s2 .header .title {
+          font-size: 104px;
+          color: var(--cream);
+        }
+        #s2 .header .sub {
+          font-size: 26px;
+          color: var(--sun);
+        }
+        #s2 .map {
+          position: absolute;
+          left: 0;
+          top: 260px;
+          width: 1080px;
+          height: 1300px;
+        }
+        #s2 .map svg {
+          display: block;
+          width: 1080px;
+          height: 1300px;
+        }
+        #s2 .coast-label {
+          position: absolute;
+          left: 820px;
+          top: 860px;
+          width: 400px;
+          font-size: 64px;
+          color: #8a7652;
+          transform-origin: 0 0;
+          rotate: 90deg;
+          white-space: nowrap;
+        }
+        .pin {
+          position: absolute;
+          width: 44px;
+          height: 44px;
+          margin: -22px 0 0 -22px;
+        }
+        .pin .core {
+          display: block;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: var(--sun);
+          border: 6px solid var(--navy);
+        }
+        .pin .ring {
+          position: absolute;
+          left: -18px;
+          top: -18px;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          border: 4px solid var(--sun);
+        }
+        .card {
+          position: absolute;
+          left: 60px;
+          width: 560px;
+          height: 214px;
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          padding: 22px 26px;
+          background: var(--cream);
+          color: var(--navy);
+          box-shadow: 0 18px 40px rgba(5, 25, 40, 0.35);
+        }
+        .card .icon {
+          flex: 0 0 auto;
+          width: 96px;
+          height: 96px;
+        }
+        .card .icon svg {
+          display: block;
+          width: 96px;
+          height: 96px;
+        }
+        .card .body {
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .card .row {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+        }
+        .card .name {
+          font-size: 34px;
+          font-weight: 700;
+          color: var(--navy);
+        }
+        .card .temp {
+          font-size: 92px;
+          color: var(--coral);
+        }
+        .card .odds {
+          display: block;
+          align-self: flex-start;
+          padding: 8px 14px;
+          background: var(--navy);
+          color: var(--sun);
+          font-size: 24px;
+        }
+        .connector {
+          position: absolute;
+          height: 4px;
+          background: var(--cream);
+          transform-origin: 0 50%;
+        }
+      </style>
+
+      <div id="root" data-composition-id="s2-map" data-width="1080" data-height="1920">
+        <div id="s2" class="scene">
+          <div class="map">
+            <svg viewBox="0 0 1080 1300">
+              <path
+                id="s2-land"
+                fill="#f2d7a1"
+                d="M760 0 C 700 60 760 120 720 160 S 760 330 700 470 S 640 640 680 780 S 760 960 700 1090 S 660 1250 690 1300 L 1080 1300 L 1080 0 Z"
+              />
+              <path
+                id="s2-coast"
+                fill="none"
+                stroke="#fff4e0"
+                stroke-width="8"
+                stroke-linecap="round"
+                d="M760 0 C 700 60 760 120 720 160 S 760 330 700 470 S 640 640 680 780 S 760 960 700 1090 S 660 1250 690 1300"
+              />
+            </svg>
+            <div class="coast-label display" id="s2-coast-label">Saltline Coast</div>
+          </div>
+
+          <div class="header" id="s2-header">
+            <div class="title display">Weekend Outlook</div>
+          </div>
+
+          <!-- pins sit on the coastline anchors (map top 260 + anchor y) -->
+          <div class="connector" id="c1" style="left: 620px; top: 418px; width: 100px"></div>
+          <div class="connector" id="c2" style="left: 620px; top: 728px; width: 80px"></div>
+          <div class="connector" id="c3" style="left: 620px; top: 1038px; width: 60px"></div>
+          <div class="connector" id="c4" style="left: 620px; top: 1348px; width: 80px"></div>
+
+          <div class="pin" id="p1" style="left: 720px; top: 420px"><span class="ring"></span><span class="core"></span></div>
+          <div class="pin" id="p2" style="left: 700px; top: 730px"><span class="ring"></span><span class="core"></span></div>
+          <div class="pin" id="p3" style="left: 680px; top: 1040px"><span class="ring"></span><span class="core"></span></div>
+          <div class="pin" id="p4" style="left: 700px; top: 1350px"><span class="ring"></span><span class="core"></span></div>
+
+          <div class="card" id="k1" style="top: 313px">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Saltline Point</span><span class="temp display" id="t1">60°</span></div>
+              <span class="odds mono" id="o1">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+          <div class="card" id="k2" style="top: 623px">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Sandbar Cove</span><span class="temp display" id="t2">60°</span></div>
+              <span class="odds mono" id="o2">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+          <div class="card" id="k3" style="top: 933px">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Driftwood Bay</span><span class="temp display" id="t3">60°</span></div>
+              <span class="odds mono" id="o3">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+          <div class="card" id="k4" style="top: 1243px">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Tidepool Key</span><span class="temp display" id="t4">60°</span></div>
+              <span class="odds mono" id="o4">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#s2 .map", { x: 420 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0);
+        tl.fromTo("#s2-coast", { strokeDasharray: 1500, strokeDashoffset: 1500 }, { strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut" }, 0.1);
+        tl.fromTo("#s2-coast-label", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.4);
+        tl.fromTo("#s2-header", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);
+
+        const stops = [
+          { i: 1, temp: 88, at: 0.7 },
+          { i: 2, temp: 91, at: 1.7 },
+          { i: 3, temp: 93, at: 2.7 },
+          { i: 4, temp: 95, at: 3.7 },
+        ];
+        stops.forEach(({ i, temp, at }) => {
+          tl.fromTo(`#p${i}`, { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, at);
+          tl.fromTo(`#p${i} .ring`, { scale: 0.4, opacity: 1 }, { scale: 1.6, opacity: 0, duration: 0.8, ease: "power2.out" }, at + 0.1);
+          tl.fromTo(`#c${i}`, { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, at + 0.1);
+          tl.fromTo(`#k${i}`, { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, at + 0.15);
+          const t = { v: 60 };
+          const el = document.getElementById(`t${i}`);
+          tl.fromTo(
+            t,
+            { v: 60 },
+            { v: temp, duration: 0.8, ease: "power2.out", onUpdate: () => (el.textContent = Math.round(t.v) + "°") },
+            at + 0.2
+          );
+          tl.fromTo(`#o${i}`, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)" }, at + 0.55);
+        });
+        // every forecast agrees
+        const odds = ["#o1", "#o2", "#o3", "#o4"];
+        tl.fromTo(odds, { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.08, immediateRender: false }, 4.9);
+        tl.fromTo(odds, { backgroundColor: "#0b2236" }, { backgroundColor: "#c2412c", duration: 0.2, stagger: 0.08, immediateRender: false }, 4.9);
+        tl.fromTo("#s2 .card, #s2 .pin, #s2 .connector, #s2-header", { y: 0, opacity: 1 }, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in", stagger: 0.02, immediateRender: false }, 6.4);
+        window.__timelines["s2-map"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

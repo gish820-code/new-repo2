@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "preferences": {
+    "aspect": {
+      "value": "9:16",
+      "confirmed_in": [
+        "saltline-forecast"
+      ],
+      "updated_at": "2026-10-16T22:31:23.860Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "saltline-forecast"
+      ],
+      "updated_at": "2026-10-16T22:31:23.939Z"
+    },
+    "storyboard": {
+      "value": "no",
+      "confirmed_in": [
+        "saltline-forecast"
+      ],
+      "updated_at": "2026-10-16T22:31:24.006Z"
+    }
+  },
+  "sightings": {}
+}

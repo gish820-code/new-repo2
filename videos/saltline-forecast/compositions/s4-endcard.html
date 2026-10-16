@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        #s4 .stack {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 220px;
+        }
+        #s4 .sun-mini {
+          width: 200px;
+          height: 200px;
+          margin-bottom: 20px;
+        }
+        #s4 .sun-mini svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #s4 .wordmark {
+          display: flex;
+          font-size: 300px;
+          color: var(--cream);
+          letter-spacing: 0.02em;
+        }
+        #s4 .wordmark span {
+          display: block;
+        }
+        #s4 .swim {
+          margin-top: 8px;
+          font-size: 44px;
+          font-weight: 900;
+          letter-spacing: 0.6em;
+          padding-left: 0.6em;
+          color: var(--sun);
+        }
+        #s4 .tagline {
+          margin-top: 70px;
+          font-size: 50px;
+          font-weight: 700;
+          color: var(--cream);
+        }
+        #s4 .cta {
+          margin-top: 44px;
+          padding: 26px 46px;
+          background: var(--sun);
+          color: var(--navy);
+          font-size: 34px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+        }
+    
+      </style>
+
+      <div id="root" data-composition-id="s4-endcard" data-width="1080" data-height="1920">
+        <div id="s4" class="scene">
+          <div class="stack">
+            <div class="sun-mini" id="s4-sun">
+              <svg viewBox="0 0 200 200">
+                <g stroke="#ffc542" stroke-width="10" stroke-linecap="round">
+                  <line x1="100" y1="6" x2="100" y2="34" />
+                  <line x1="100" y1="166" x2="100" y2="194" />
+                  <line x1="6" y1="100" x2="34" y2="100" />
+                  <line x1="166" y1="100" x2="194" y2="100" />
+                  <line x1="34" y1="34" x2="54" y2="54" />
+                  <line x1="146" y1="146" x2="166" y2="166" />
+                  <line x1="34" y1="166" x2="54" y2="146" />
+                  <line x1="146" y1="54" x2="166" y2="34" />
+                </g>
+                <circle cx="100" cy="100" r="50" fill="#ffc542" />
+              </svg>
+            </div>
+            <div class="wordmark display" id="s4-word">
+              <span>S</span><span>a</span><span>l</span><span>t</span><span>l</span><span>i</span><span>n</span><span>e</span>
+            </div>
+            <div class="swim" id="s4-swim">SWIM</div>
+            <div class="tagline" id="s4-tag">100% chance of beach.</div>
+            <div class="cta" id="s4-cta">SHOP THE SUMMER COLLECTION</div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#s4-sun", { y: 120, opacity: 0, rotation: -40 }, { y: 0, opacity: 1, rotation: 0, duration: 0.6, ease: "power3.out" }, 0);
+        tl.fromTo("#s4-word span", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.6)", stagger: 0.04 }, 0.1);
+        tl.fromTo("#s4-swim", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.45);
+        tl.fromTo("#s4-tag", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.75);
+        tl.fromTo("#s4-cta", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.2)" }, 1.0);
+        tl.fromTo("#s4-cta", { scale: 1 }, { scale: 1.05, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.7);
+        window.__timelines["s4-endcard"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        #bg {
+          background: radial-gradient(120% 70% at 50% 30%, #13628a 0%, var(--ocean) 45%, var(--ocean-deep) 100%);
+        }
+        #bg .contours {
+          position: absolute;
+          left: -120px;
+          top: 0;
+          width: 1320px;
+          height: 1920px;
+        }
+        #bg .glow {
+          position: absolute;
+          left: 140px;
+          top: 260px;
+          width: 800px;
+          height: 800px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 197, 66, 0.22) 0%, rgba(255, 197, 66, 0) 65%);
+        }
+      </style>
+
+      <div id="root" data-composition-id="bg" data-width="1080" data-height="1920">
+        <div id="bg" class="scene">
+          <div class="glow"></div>
+          <svg data-layout-allow-overflow class="contours" viewBox="0 0 1320 1920" fill="none" stroke="rgba(255,244,224,0.07)" stroke-width="3">
+            <path d="M0 220 C 220 170 440 280 660 220 S 1100 170 1320 220" />
+            <path d="M0 520 C 220 470 440 580 660 520 S 1100 470 1320 520" />
+            <path d="M0 820 C 220 770 440 880 660 820 S 1100 770 1320 820" />
+            <path d="M0 1120 C 220 1070 440 1180 660 1120 S 1100 1070 1320 1120" />
+            <path d="M0 1420 C 220 1370 440 1480 660 1420 S 1100 1370 1320 1420" />
+            <path d="M0 1720 C 220 1670 440 1780 660 1720 S 1100 1670 1320 1720" />
+          </svg>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#bg .glow", { scale: 0.9, opacity: 0.7 }, { scale: 1.1, opacity: 1, duration: 3.75, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+        tl.fromTo("#bg .contours", { x: 0 }, { x: -120, duration: 15, ease: "none" }, 0);
+        window.__timelines["bg"] = tl;
+      </script>
+    </template>
+  </body>
+</html>

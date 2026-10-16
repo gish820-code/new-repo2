@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        #bug {
+          position: absolute;
+          left: 60px;
+          top: 110px;
+          width: 960px;
+          height: 72px;
+        }
+        #bug .inner {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          width: 100%;
+          height: 100%;
+        }
+        #bug .live {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          height: 60px;
+          padding: 0 22px;
+          background: var(--coral);
+          border: 3px solid var(--cream);
+          color: var(--cream);
+          font-size: 30px;
+        }
+        #bug .dot {
+          display: block;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: var(--cream);
+        }
+        #bug .station {
+          font-size: 30px;
+          color: var(--cream);
+        }
+        #bug .time {
+          margin-left: auto;
+          font-size: 28px;
+          color: var(--sun);
+        }
+
+        #ticker {
+          position: absolute;
+          left: 0;
+          top: 1540px;
+          width: 1080px;
+          height: 84px;
+        }
+        #ticker .inner {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          background: var(--navy);
+          border-top: 4px solid var(--sun);
+        }
+        #ticker .tag {
+          position: relative;
+          z-index: 2;
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          padding: 0 26px;
+          background: var(--sun);
+          color: var(--navy);
+          font-size: 28px;
+        }
+        #ticker .window {
+          position: relative;
+          flex: 1 1 auto;
+          overflow: hidden;
+        }
+        #ticker .crawl {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          display: flex;
+          white-space: nowrap;
+        }
+        #ticker .crawl span {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          padding-right: 40px;
+          font-size: 28px;
+          color: var(--cream);
+        }
+      </style>
+
+      <div id="root" data-composition-id="chrome" data-width="1080" data-height="1920">
+        <div id="bug">
+          <div class="inner" id="bug-inner">
+            <span class="live mono"><span class="dot" id="bug-dot"></span>LIVE</span>
+            <span class="station mono">SALTLINE WX</span>
+            <span class="time mono">SAT 11:00 AM · 91°</span>
+          </div>
+        </div>
+
+        <div id="ticker">
+          <div class="inner" id="ticker-inner">
+            <span class="tag mono">SURF REPORT</span>
+            <div class="window">
+              <div class="crawl mono" id="crawl" data-layout-allow-overflow>
+                <span>WAVES 3–4 FT AND GLASSY · SUNSCREEN MANDATORY · OFFICE ATTENDANCE UNLIKELY · NEW SALTLINE SUMMER COLLECTION NOW IN STOCK ·</span>
+                <span>WAVES 3–4 FT AND GLASSY · SUNSCREEN MANDATORY · OFFICE ATTENDANCE UNLIKELY · NEW SALTLINE SUMMER COLLECTION NOW IN STOCK ·</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#bug-inner", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.1);
+        tl.fromTo("#bug-dot", { opacity: 1 }, { opacity: 0.25, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: 14 }, 0);
+        tl.fromTo("#ticker-inner", { y: 100 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+        tl.fromTo("#crawl", { xPercent: 0 }, { xPercent: -50, duration: 15, ease: "none" }, 0);
+        window.__timelines["chrome"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
