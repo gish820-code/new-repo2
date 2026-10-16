@@ -474,7 +474,7 @@
           "font-family": "Archivo, sans-serif", "font-weight": 600, "font-size": 18, "letter-spacing": 3.2,
         }, g);
         tx.textContent = text;
-        const tx0 = anchor === "middle" ? x - 28 : x;
+        const tx0 = anchor === "middle" ? x - 28 : anchor === "end" ? x - 56 : x;
         el("line", { x1: tx0, y1: y + 12, x2: tx0 + 56, y2: y + 12, stroke: INK, "stroke-width": 1 }, g);
         return g;
       };
@@ -516,7 +516,7 @@
       const P_DRINK = R.mix("kneel", { rsh: 28, rel: 132, head: -12 });
       const P_RECOIL = R.mix("kneel", { torso: -16, head: -14, lsh: -40, lel: 30, rsh: -30, rel: 40 });
       const P_REACH = R.mix("reach", { rsh: 125, rel: 20, lsh: 60 });
-      const P_SMASH = R.mix("crouch", { rsh: 70, rel: 18 });
+      const P_SMASH = R.mix("crouch", { rsh: 42, rel: 8 });
       const P_POINT = R.mix("point", { rsh: 98 });
       const guy = R.figure(actor, { x: X0, y: hipY(X0), scale: SC, facing: -1 });
 
@@ -530,7 +530,8 @@
         return h;
       }
       const C0 = handAt(P_DRINK, X0, -1); // where the cup leaves his hand
-      const HIT = handAt(P_SMASH, FX, 1); // where the coconut meets the rock
+      const HAND_HIT = handAt(P_SMASH, FX, 1); // his hand at the smash
+      const HIT = [HAND_HIT[0] + 6, Math.max(HAND_HIT[1], gy(HAND_HIT[0]) - 66)]; // coconut on the rock top
       const T_HAND = 1.86;
       const CUP_OFF = [0, -12];
       const BADGE = [1700, 138];
@@ -540,25 +541,25 @@
       const streaks = [];
       for (let i = 0; i < 18; i++) {
         const s = el("path", { d: "M0 0 L-8 40", stroke: INK, "stroke-width": 4, "stroke-linecap": "round", fill: "none", opacity: 0 }, rainG);
-        s.sx = 200 + ((i * 71) % 300);
+        s.sx = 262 + ((i * 71) % 290);
         streaks.push(s);
       }
-      const LB = [212, 516], LT = [452, 606];
+      const LB = [272, 516], LT = [502, 606];
       const leafAt = (x) => LB[1] + ((x - LB[0]) / (LT[0] - LB[0])) * (LT[1] - LB[1]);
       const sticks = line({
-        d: `M232 ${f2(gy(232) + 2)} L232 ${f2(leafAt(232) + 10)} M232 ${f2(leafAt(232) + 22)} L218 ${f2(leafAt(232) + 4)} ` +
-           `M318 ${f2(gy(318) + 2)} L318 ${f2(leafAt(318) + 10)} M318 ${f2(leafAt(318) + 22)} L334 ${f2(leafAt(318) + 6)}`,
+        d: `M300 ${f2(gy(300) + 2)} L300 ${f2(leafAt(300) + 10)} M300 ${f2(leafAt(300) + 22)} L286 ${f2(leafAt(300) + 4)} ` +
+           `M382 ${f2(gy(382) + 2)} L382 ${f2(leafAt(382) + 10)} M382 ${f2(leafAt(382) + 22)} L398 ${f2(leafAt(382) + 6)}`,
         "stroke-width": 7,
       }, props);
       const leafFill = el("path", {
-        d: `M${LB[0]} ${LB[1]} C 280 452, 420 548, ${LT[0]} ${LT[1]} C 404 642, 262 600, ${LB[0]} ${LB[1]} Z`,
+        d: `M${LB[0]} ${LB[1]} C 340 452, 470 548, ${LT[0]} ${LT[1]} C 454 642, 322 600, ${LB[0]} ${LB[1]} Z`,
         fill: PAPER, stroke: "none", opacity: 0,
       }, props);
       const leafLine = line({
-        d: `M${LB[0]} ${LB[1]} C 280 452, 420 548, ${LT[0]} ${LT[1]} C 404 642, 262 600, ${LB[0]} ${LB[1]} Z`,
+        d: `M${LB[0]} ${LB[1]} C 340 452, 470 548, ${LT[0]} ${LT[1]} C 454 642, 322 600, ${LB[0]} ${LB[1]} Z`,
         "stroke-width": 7,
       }, props);
-      let veinD = `M${LB[0]} ${LB[1]} Q 340 560 ${LT[0] - 6} ${LT[1] - 2}`;
+      let veinD = `M${LB[0]} ${LB[1]} Q 400 560 ${LT[0] - 6} ${LT[1] - 2}`;
       [0.22, 0.4, 0.58, 0.74].forEach((u) => {
         const x = lerp(LB[0], LT[0], u), y = leafAt(x) - 4;
         veinD += ` M${f2(x)} ${f2(y)} l 26 -30 M${f2(x)} ${f2(y)} l 30 18`;
@@ -571,7 +572,7 @@
       const bottleWater = el("rect", { x: BX - 18, y: BY - 3, width: 36, height: 0, fill: INK, opacity: 0.2 }, bottle);
       el("path", { d: bottleD, fill: "none", stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" }, bottle);
       const drips = [0, 1].map(() => el("ellipse", { rx: 4.5, ry: 6.5, fill: INK, opacity: 0 }, props));
-      const lab1 = label(props, 200, 352, "1 · RAIN", "start");
+      const lab1 = label(props, 262, 352, "1 · RAIN", "start");
 
       // ---------------------------------------------------------------- 2 · coconut (center)
       const rockTop = HIT[1] + 22, rockBot = gy(HIT[0]) + 4;
@@ -629,7 +630,7 @@
       const pebble = el("circle", { r: 13, fill: PD, stroke: INK, "stroke-width": 5, opacity: 0 }, still);
       const beads = [0.22, 0.34, 0.68, 0.8].map(() => el("circle", { r: 3.6, fill: INK, opacity: 0 }, still));
       const slider = el("ellipse", { rx: 5, ry: 6.5, fill: INK, opacity: 0 }, still);
-      const lab3 = label(props, SX0, ST - 40, "3 · SOLAR STILL", "start");
+      const lab3 = label(props, SX1, ST - 40, "3 · SOLAR STILL", "end");
 
       // ---------------------------------------------------------------- seawater cup + ember X (front)
       const cupPos = el("g", {}, front);
@@ -713,7 +714,8 @@
           op(coco, 0);
         } else {
           const pc = seg(t, 5.72, 5.95, E.o3);
-          const h = t < 6.25 ? fig.hand("r") : HIT;
+          const hh = fig.hand("r");
+          const h = t < 6.25 ? [lerp(hh[0], HIT[0], seg(t, 6.0, 6.25)), lerp(hh[1], HIT[1], seg(t, 6.0, 6.25))] : HIT;
           tr(coco, h[0], h[1], lerp(0.4, 1, pc));
           op(coco, pc);
         }
