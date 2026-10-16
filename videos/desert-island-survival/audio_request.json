@@ -1,0 +1,46 @@
+{
+  "provider": "auto",
+  "speed": "1.0",
+  "lines": [
+    {
+      "id": "01",
+      "text": "You wake up on a beach. No boat. No phone. Just sand, sea — and one palm tree."
+    },
+    {
+      "id": "02",
+      "text": "Survival runs on the rule of threes. Three hours without shelter. Three days without water. Three weeks without food. So the order matters."
+    },
+    {
+      "id": "03",
+      "text": "First, stop. Breathe. Take stock — then salvage everything the tide gives you."
+    },
+    {
+      "id": "04",
+      "text": "Step one: shelter. Get out of the sun, above the high-tide line — a driftwood frame, a palm-frond roof."
+    },
+    {
+      "id": "05",
+      "text": "Step two: water. Never drink the sea — the salt dries you out faster. Catch the rain. Crack green coconuts. Build a solar still."
+    },
+    {
+      "id": "06",
+      "text": "Step three: fire. Friction, patience, dry coconut husk — and now you have clean water, cooked food, and warmth."
+    },
+    {
+      "id": "07",
+      "text": "Step four: food — the last priority. Crabs, shellfish, fish from the tide pools. Cook everything. Skip the mystery berries."
+    },
+    {
+      "id": "08",
+      "text": "Step five: get seen. Spell S-O-S in rocks on the sand, and keep three fires ready to light."
+    },
+    {
+      "id": "09",
+      "text": "Shelter. Water. Fire. Food. Signal. Do them in order — and you'll still be here when rescue comes."
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  },
+  "voice": "bm_george"
+}
