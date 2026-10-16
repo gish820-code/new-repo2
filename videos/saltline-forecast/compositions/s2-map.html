@@ -210,10 +210,10 @@
         tl.fromTo("#s2-header", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);
 
         const stops = [
-          { i: 1, temp: 88, at: 0.7 },
-          { i: 2, temp: 91, at: 1.7 },
-          { i: 3, temp: 93, at: 2.7 },
-          { i: 4, temp: 95, at: 3.7 },
+          { i: 1, temp: 88, at: 0.45 },
+          { i: 2, temp: 91, at: 0.75 },
+          { i: 3, temp: 93, at: 1.05 },
+          { i: 4, temp: 95, at: 1.35 },
         ];
         stops.forEach(({ i, temp, at }) => {
           tl.fromTo(`#p${i}`, { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, at);
@@ -225,16 +225,16 @@
           tl.fromTo(
             t,
             { v: 60 },
-            { v: temp, duration: 0.8, ease: "power2.out", onUpdate: () => (el.textContent = Math.round(t.v) + "°") },
+            { v: temp, duration: 0.6, ease: "power2.out", onUpdate: () => (el.textContent = Math.round(t.v) + "°") },
             at + 0.2
           );
           tl.fromTo(`#o${i}`, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)" }, at + 0.55);
         });
         // every forecast agrees
         const odds = ["#o1", "#o2", "#o3", "#o4"];
-        tl.fromTo(odds, { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.08, immediateRender: false }, 4.9);
-        tl.fromTo(odds, { backgroundColor: "#0b2236" }, { backgroundColor: "#c2412c", duration: 0.2, stagger: 0.08, immediateRender: false }, 4.9);
-        tl.fromTo("#s2 .card, #s2 .pin, #s2 .connector, #s2-header", { y: 0, opacity: 1 }, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in", stagger: 0.02, immediateRender: false }, 6.4);
+        tl.fromTo(odds, { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.08, immediateRender: false }, 1.95);
+        tl.fromTo(odds, { backgroundColor: "#0b2236" }, { backgroundColor: "#c2412c", duration: 0.2, stagger: 0.08, immediateRender: false }, 1.95);
+        tl.fromTo("#s2 .card, #s2 .pin, #s2 .connector, #s2-header", { y: 0, opacity: 1 }, { opacity: 0, y: -30, duration: 0.3, ease: "power2.in", stagger: 0.02, immediateRender: false }, 2.3);
         window.__timelines["s2-map"] = tl;
       </script>
     </template>

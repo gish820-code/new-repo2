@@ -23,3 +23,10 @@ A 15-second promo for a beachwear company, framed as a spoof broadcast weather r
 - Fully graphic: no photos, footage, or voiceover. No music bed in this pass (silence chosen; can be added).
 - No website/domain shown, since the brand is a placeholder.
 - Vertical 1080×1920; key content kept clear of feed UI at the bottom and right edges.
+
+## Assets
+
+- `assets/stills/beach-swimwear.png` — Higgsfield still (Soul 2): woman in Saltline two-piece on the beach → Beach Cam 01 / Saltline Point.
+- `assets/stills/beach-dog.png` — Higgsfield still (GPT Image 2.5): golden retriever in Saltline bandana → Beach Cam 02 / Sandbar Cove.
+- `assets/stills/beach-car.png` — Higgsfield still (GPT Image 2.5): vintage convertible with Saltline towel → Beach Cam 03 / Driftwood Bay.
+- Pending: these files must be added before re-rendering (the session's network policy blocked the download).

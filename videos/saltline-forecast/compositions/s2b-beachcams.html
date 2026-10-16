@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        #s2b .shot {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background: var(--ocean-deep);
+        }
+        #s2b .photo {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+        #s2b .photo img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        #s2b .shade {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(10, 34, 54, 0.75) 0%, rgba(10, 34, 54, 0) 24%, rgba(10, 58, 85, 0) 58%, rgba(10, 34, 54, 0.7) 100%);
+        }
+        #s2b .cam {
+          position: absolute;
+          left: 60px;
+          top: 214px;
+          padding: 10px 18px;
+          background: rgba(11, 34, 54, 0.85);
+          color: var(--cream);
+          font-size: 26px;
+        }
+        #s2b .bc-card {
+          position: absolute;
+          left: 60px;
+          top: 1290px;
+          width: 620px;
+          height: 214px;
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          padding: 22px 26px;
+          background: var(--cream);
+          color: var(--navy);
+          box-shadow: 0 18px 40px rgba(5, 25, 40, 0.35);
+        }
+        #s2b .icon {
+          flex: 0 0 auto;
+          width: 96px;
+          height: 96px;
+        }
+        #s2b .icon svg {
+          display: block;
+          width: 96px;
+          height: 96px;
+        }
+        #s2b .body {
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        #s2b .row {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+        }
+        #s2b .name {
+          font-size: 34px;
+          font-weight: 700;
+          color: var(--navy);
+        }
+        #s2b .temp {
+          font-size: 92px;
+          color: var(--coral);
+        }
+        #s2b .odds {
+          display: block;
+          align-self: flex-start;
+          padding: 8px 14px;
+          background: var(--coral);
+          color: var(--cream);
+          font-size: 24px;
+        }
+      </style>
+
+      <div id="root" data-composition-id="s2b-beachcams" data-width="1080" data-height="1920">
+        <div id="s2b" class="scene">
+        <div class="shot" id="bc-shot1">
+          <div class="photo" id="bc-photo1"><img src="assets/stills/beach-swimwear.png" alt="Swimwear on the shoreline at Saltline Point" /></div>
+          <div class="shade"></div>
+          <span class="cam mono" id="bc-cam1">● BEACH CAM 01</span>
+          <div class="bc-card" id="bc-card1">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Saltline Point</span><span class="temp display">88°</span></div>
+              <span class="odds mono">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+        </div>
+        <div class="shot" id="bc-shot2">
+          <div class="photo" id="bc-photo2"><img src="assets/stills/beach-dog.png" alt="A dog running out of the surf at Sandbar Cove" /></div>
+          <div class="shade"></div>
+          <span class="cam mono" id="bc-cam2">● BEACH CAM 02</span>
+          <div class="bc-card" id="bc-card2">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Sandbar Cove</span><span class="temp display">91°</span></div>
+              <span class="odds mono">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+        </div>
+        <div class="shot" id="bc-shot3">
+          <div class="photo" id="bc-photo3"><img src="assets/stills/beach-car.png" alt="A vintage convertible above Driftwood Bay" /></div>
+          <div class="shade"></div>
+          <span class="cam mono" id="bc-cam3">● BEACH CAM 03</span>
+          <div class="bc-card" id="bc-card3">
+            <div class="icon"><svg viewBox="0 0 96 96"><g stroke="#c2412c" stroke-width="7" stroke-linecap="round"><line x1="48" y1="4" x2="48" y2="16"/><line x1="48" y1="80" x2="48" y2="92"/><line x1="4" y1="48" x2="16" y2="48"/><line x1="80" y1="48" x2="92" y2="48"/><line x1="17" y1="17" x2="25" y2="25"/><line x1="71" y1="71" x2="79" y2="79"/><line x1="17" y1="79" x2="25" y2="71"/><line x1="71" y1="25" x2="79" y2="17"/></g><circle cx="48" cy="48" r="22" fill="#ffc542" stroke="#c2412c" stroke-width="5"/></svg></div>
+            <div class="body">
+              <div class="row"><span class="name">Driftwood Bay</span><span class="temp display">93°</span></div>
+              <span class="odds mono">100% CHANCE OF BEACH</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        // three hard-cut beach cams, ~1.53s each, slow push-in on every photo
+        const len = 4.6 / 3;
+        [1, 2, 3].forEach((n, k) => {
+          const at = k * len;
+          tl.fromTo(`#bc-shot${n}`, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, at);
+          tl.fromTo(`#bc-photo${n}`, { scale: 1.12 }, { scale: 1.02, duration: len + 0.2, ease: "power1.out" }, at);
+          tl.fromTo(`#bc-cam${n}`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, at + 0.1);
+          tl.fromTo(`#bc-card${n}`, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, at + 0.15);
+          if (n < 3) tl.fromTo(`#bc-shot${n}`, { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, at + len);
+        });
+        window.__timelines["s2b-beachcams"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
