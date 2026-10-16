@@ -501,10 +501,10 @@
   const SC = 1.5;
   const hipY = (x) => groundY(x) - 116 * SC;
   const guy = R.figure(actor, { x: 590, y: hipY(590), scale: SC, facing: 1, pose: "walkA", face: "neutral" });
-  const reachA = R.mix("crouch", { torso: 38, head: 22, rsh: 78, rel: 6, lsh: 40 });
-  const reachB = R.mix("crouch", { torso: 46, head: 26, rsh: 88, rel: 2, lsh: 46 });
-  const reachC = R.mix("crouch", { torso: 52, head: 28, rsh: 96, rel: 0, lsh: 52 });
-  const tuck = R.mix("crouch", { torso: 34, head: 20, rsh: 50, rel: 30 });
+  const reachA = R.mix("crouch", { torso: 38, head: 22, rsh: 26, rel: 4, lsh: 12, lel: 20 });
+  const reachB = R.mix("crouch", { torso: 46, head: 26, rsh: 22, rel: 2, lsh: 8, lel: 20 });
+  const reachC = R.mix("crouch", { torso: 52, head: 28, rsh: 20, rel: 0, lsh: 6, lel: 20 });
+  const tuck = R.mix("crouch", { torso: 34, head: 20, rsh: 14, rel: 40, lsh: 4, lel: 30 });
   R.animate(tl, guy, [
     // Scene 1 — "First, stop." mid-stride, freezes, settles
     { t: 0.0, pose: "walkA", x: 590, y: hipY(590) },
@@ -575,16 +575,17 @@
     { key: "glass", label: "GLASS", x: 1100, t: 3.97 },
   ];
 
+  const LABEL_Y = Math.max.apply(null, SLOTS.map((s) => groundY(s.x))) + 30;
   SLOTS.forEach((s, i) => {
     const gy = groundY(s.x);
     // small wave stroke at the waterline that carries the item in
     const wave = mk("path", {
-      d: "M" + (s.x - 70) + " 826 q 22 -18 44 -6 q 22 12 44 -4 q 14 -10 30 -2",
+      d: "M" + (s.x - 70) + " 812 q 22 -18 44 -6 q 22 12 44 -4 q 14 -10 30 -2",
       stroke: INK, "stroke-width": 4, "stroke-linecap": "round", fill: "none",
-      pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1,
+      pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1, opacity: 0,
     }, wavesG);
-    tl.fromTo(wave, { attr: { "stroke-dashoffset": 1 }, opacity: 0.9 },
-      { attr: { "stroke-dashoffset": 0 }, duration: 0.3, ease: "power2.out" }, s.t);
+    tl.fromTo(wave, { attr: { "stroke-dashoffset": 1 }, opacity: 0 },
+      { attr: { "stroke-dashoffset": 0 }, opacity: 0.9, duration: 0.3, ease: "power2.out" }, s.t);
     tl.to(wave, { opacity: 0.35, duration: 0.4, ease: "power1.out" }, s.t + 0.32);
 
     // item: rides up from the sea into its slot on the sand
@@ -598,7 +599,7 @@
 
     // micro-label under the item
     const label = mk("text", {
-      x: 0, y: 30, "text-anchor": "middle",
+      x: 0, y: (LABEL_Y - gy).toFixed(1), "text-anchor": "middle",
       "font-family": "Archivo, sans-serif", "font-weight": 600, "font-size": 14,
       "letter-spacing": 2.6, fill: INK,
     }, slot);
@@ -608,7 +609,7 @@
 
   // soft hairline under the finished row
   const rowRule = mk("line", {
-    x1: 756, y1: groundY(800) + 46, x2: 1144, y2: groundY(1100) + 46,
+    x1: 756, y1: LABEL_Y + 16, x2: 1144, y2: LABEL_Y + 16,
     stroke: INK, "stroke-width": 1, opacity: 0.2,
   }, itemsG);
   tl.fromTo(rowRule, { attr: { x2: 756 } }, { attr: { x2: 1144 }, duration: 1.6, ease: "power2.inOut" }, 2.7);
