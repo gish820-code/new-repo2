@@ -458,7 +458,8 @@
     opts = opts || {};
     const start = opts.start || 0, end = opts.end || 2, amp = opts.amp || 14, rot = opts.rot || 0.6, freq = opts.freq || 11;
     const rin = opts.rampIn !== undefined ? opts.rampIn : 0.6, rout = opts.rampOut !== undefined ? opts.rampOut : 0.8;
-    const elx = typeof target === "string" ? document.querySelector(target) : target;
+    const elx = typeof target === "string" ? (document.getElementById(target.replace(/^#/, "")) || document.querySelector(target)) : target;
+    if (!elx) return;
     const isSvg = elx && elx.namespaceURI === NS;
     const proxy = { t: 0 };
     const apply = (t) => {
@@ -557,7 +558,7 @@
 
     const GROUND = 860, SIDE = 782, CURB = 812, NEAR = 1000, HORIZON = 560;
     const SHOREX = 545, LEVEL = 650, WALL = 768, DECK = 612, FLOOD0 = 625;
-    const FONT_SIGN = "'League Gothic', Oswald, Impact, 'Arial Narrow', sans-serif";
+    const FONT_SIGN = "'League Gothic', Oswald, Impact, sans-serif";
     const FONT_HAND = "Kalam, 'Comic Sans MS', cursive";
     const f1 = (v) => (+v).toFixed(1);
     const D = (pts, close) => "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + (close ? " Z" : "");
@@ -1582,7 +1583,7 @@
   sk.rect(plq, SX - 88, 410, 74, 56, { fill: P.paper, stroke: INK, width: 2.5, seed: S() });
   sk.rect(plq, SX - 84, 414, 66, 16, { fill: P.storm, stroke: "none", seed: S(), double: false });
   [["TSUNAMI", 425, 11, P.paper], ["WARNING", 446, 12, INK], ["SIREN", 460, 12, INK]].forEach(([s, y, fs, c]) => {
-    const t = el("text", { x: SX - 51, y, "text-anchor": "middle", "font-family": "'League Gothic', Oswald, 'Arial Narrow', sans-serif", "font-size": fs, fill: c, "letter-spacing": 1 }, plq);
+    const t = el("text", { x: SX - 51, y, "text-anchor": "middle", "font-family": "'League Gothic', Oswald, sans-serif", "font-size": fs, fill: c, "letter-spacing": 1 }, plq);
     t.textContent = s;
   });
   sk.line(siren, SX - 14, 418, SX - 8, 418, { width: 3, seed: S(), double: false });

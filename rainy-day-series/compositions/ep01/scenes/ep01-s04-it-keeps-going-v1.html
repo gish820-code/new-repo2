@@ -458,7 +458,8 @@
     opts = opts || {};
     const start = opts.start || 0, end = opts.end || 2, amp = opts.amp || 14, rot = opts.rot || 0.6, freq = opts.freq || 11;
     const rin = opts.rampIn !== undefined ? opts.rampIn : 0.6, rout = opts.rampOut !== undefined ? opts.rampOut : 0.8;
-    const elx = typeof target === "string" ? document.querySelector(target) : target;
+    const elx = typeof target === "string" ? (document.getElementById(target.replace(/^#/, "")) || document.querySelector(target)) : target;
+    if (!elx) return;
     const isSvg = elx && elx.namespaceURI === NS;
     const proxy = { t: 0 };
     const apply = (t) => {
@@ -1461,7 +1462,7 @@
   tl.fromTo("#" + SID + "-cam", { scale: 1.18, x: 125, y: -60, svgOrigin: "960 540" },
     { scale: 1.6, x: 416, y: -76, svgOrigin: "960 540", duration: DUR, ease: "sine.inOut" }, 0);
   // full-strength shaking for the whole scene (no ramp), still going at the cut
-  RD.shake(tl, "#" + SID + "-shake", { start: 0, end: DUR, amp: 16, rot: 0.7, freq: 11, rampIn: 0, rampOut: 0.001 });
+  RD.shake(tl, $("shake"), { start: 0, end: DUR, amp: 16, rot: 0.7, freq: 11, rampIn: 0, rampOut: 0.001 });
 
   window.__timelines["ep01-s04"] = tl;
 })();

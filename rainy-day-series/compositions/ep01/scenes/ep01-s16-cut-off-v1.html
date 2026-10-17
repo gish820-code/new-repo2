@@ -6,8 +6,8 @@
     #s16-stage { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
     #s16-sting { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
     #s16-sting-card { position: absolute; left: 1260px; top: 36px; width: 600px; text-align: center; transform-origin: 50% 60%; }
-    #s16-sting-next { display: block; font-family: "League Gothic", "Oswald", "Arial Narrow", sans-serif; font-size: 76px; line-height: 1; letter-spacing: 0.08em; color: #F2C230; -webkit-text-stroke: 3px #10161F; paint-order: stroke fill; text-shadow: 4px 5px 0 #10161F; }
-    #s16-sting-day { display: block; font-family: "League Gothic", "Oswald", "Arial Narrow", sans-serif; font-size: 176px; line-height: 0.92; letter-spacing: 0.03em; color: #F2C230; -webkit-text-stroke: 5px #10161F; paint-order: stroke fill; text-shadow: 6px 8px 0 #10161F; }
+    #s16-sting-next { display: block; font-family: "League Gothic", "Oswald", sans-serif; font-size: 76px; line-height: 1; letter-spacing: 0.08em; color: #F2C230; -webkit-text-stroke: 3px #10161F; paint-order: stroke fill; text-shadow: 4px 5px 0 #10161F; }
+    #s16-sting-day { display: block; font-family: "League Gothic", "Oswald", sans-serif; font-size: 176px; line-height: 0.92; letter-spacing: 0.03em; color: #F2C230; -webkit-text-stroke: 5px #10161F; paint-order: stroke fill; text-shadow: 6px 8px 0 #10161F; }
     #s16-sting-rule { display: block; margin: 6px auto 0; width: 430px; height: 26px; }
   </style>
   <div id="root" data-composition-id="ep01-s16" data-width="1920" data-height="1080" data-duration="18">
@@ -466,7 +466,8 @@
     opts = opts || {};
     const start = opts.start || 0, end = opts.end || 2, amp = opts.amp || 14, rot = opts.rot || 0.6, freq = opts.freq || 11;
     const rin = opts.rampIn !== undefined ? opts.rampIn : 0.6, rout = opts.rampOut !== undefined ? opts.rampOut : 0.8;
-    const elx = typeof target === "string" ? document.querySelector(target) : target;
+    const elx = typeof target === "string" ? (document.getElementById(target.replace(/^#/, "")) || document.querySelector(target)) : target;
+    if (!elx) return;
     const isSvg = elx && elx.namespaceURI === NS;
     const proxy = { t: 0 };
     const apply = (t) => {
@@ -543,7 +544,7 @@ if (!window.RainyDayBG.hilltop) window.RainyDayBG.hilltop = function (parent, op
     t.textContent = s;
     return t;
   };
-  const GOTHIC = '"League Gothic", "Oswald", "Arial Narrow", sans-serif';
+  const GOTHIC = '"League Gothic", "Oswald", sans-serif';
   const HAND = '"Kalam", "Comic Sans MS", cursive';
 
   const root = el("g", { class: "rd-bg rd-bg-hilltop" }, parent);
