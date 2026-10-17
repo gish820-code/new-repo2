@@ -181,7 +181,8 @@ if (!window.RainyDayBG.hilltop) window.RainyDayBG.hilltop = function (parent, op
     sk.line(farG, x, y, x + w, y, DET({ stroke: i % 4 ? P.mist : P.paper, opacity: 0.4, double: false, wobble: 0.5 }));
   }
   // a long cape running out to the horizon (hides the ocean's left edge)
-  sk.poly(farG, [[560, 520], [700, 462], [820, 440], [930, 428], [1010, 422], [1060, 421], [1090, 426], [1090, 560], [560, 560]], D({ fill: P.mist, stroke: P.steel, width: LINE.detail, opacity: 0.75 }));
+  sk.poly(farG, [[560, 520], [700, 462], [820, 440], [930, 428], [1010, 422], [1060, 421], [1090, 424], [1060, 436], [1000, 452], [930, 474], [880, 500], [860, 560], [560, 560]], D({ fill: P.mist, stroke: P.steel, width: LINE.detail, opacity: 1 }));
+  sk.poly(farG, [[560, 520], [700, 462], [820, 440], [930, 428], [1010, 422], [1060, 421], [1090, 424], [1060, 436], [1000, 452], [930, 474], [880, 500], [860, 560], [560, 560]], { seed: sd(), fill: P.steel, stroke: "none", opacity: 0.35, double: false, wobble: 0 }); // haze
   for (let i = 0; i < 12; i++) { const x = 720 + i * 28, base = 466 - (x - 720) * 0.12 + 8; fir(farG, x, base, 16 + rnd(i + 44) * 10, 8, { fill: P.steel, stroke: P.steel, width: 1.5, opacity: 0.45, boughs: false, tiers: 3, wobble: 0.4 }); }
   // far mainland hills (left, behind the summit)
   sk.poly(farG, [[-20, 520], [120, 470], [260, 450], [420, 470], [560, 440], [700, 462], [860, 492], [980, 520], [1060, 560], [1060, 700], [-20, 700]], D({ fill: P.mist, stroke: P.steel, width: LINE.detail, opacity: 0.55 }));
@@ -376,7 +377,7 @@ if (!window.RainyDayBG.hilltop) window.RainyDayBG.hilltop = function (parent, op
   sk.rect(tankG, 188, 752, 128, 14, D({ fill: P.slate, width: 3 }));
   sk.poly(tankG, [[196, 752], [194, 616], [310, 616], [308, 752]], D({ fill: P.fog, width: LINE.main }));
   el("ellipse", { cx: TX, cy: 616, rx: 58, ry: 12, fill: P.paper, stroke: P.ink, "stroke-width": 3 }, tankG);
-  sk.circle(tankG, TX, 614, 14, DET({ fill: P.mist }));
+  el("ellipse", { cx: TX, cy: 615, rx: 16, ry: 5, fill: P.mist, stroke: P.ink, "stroke-width": 2 }, tankG);
   for (let i = 0; i < 5; i++) sk.path(tankG, [[196, 640 + i * 24], [TX, 646 + i * 24], [308, 640 + i * 24]], DET({ stroke: P.steel, opacity: 0.8, double: false }));
   sk.hatch(tankG, 276, 620, 32, 130, { seed: sd(), gap: 9, angle: 60, stroke: P.steel, opacity: 0.5 });
   txt(tankG, TX - 8, 700, "POTABLE", { "font-family": GOTHIC, "font-size": 22, fill: P.slate }, 70);
@@ -524,8 +525,8 @@ if (!window.RainyDayBG.hilltop) window.RainyDayBG.hilltop = function (parent, op
     const w = add(person(crowdG, 1440, 770 - 50 * 0.5, 0.48, RD.mix("sit", { lsh: 30, lel: 90, rsh: 30, rel: 90 }), { facing: 1, opacity: 0.9 }), "sit");
     sk.poly(crowdG, [[w.head[0] - 16, w.head[1] + 8], [w.head[0] + 16, w.head[1] + 8], [w.hip[0] + 28, w.hip[1] + 6], [w.hip[0] - 22, w.hip[1] + 10]], D({ fill: P.mist, stroke: P.slate, width: 3, step: 400, wobble: 1 }));
     // a pair talking by the far trees (smallest, furthest)
-    add(person(crowdG, 870, 700, 0.36, "think", { facing: 1, coat: P.steel, opacity: 0.8 }), "think");
-    add(person(crowdG, 905, 702, 0.36, "shrug", { facing: -1, opacity: 0.8 }), "shrug");
+    add(person(crowdG, 1150, 712, 0.36, "think", { facing: 1, coat: P.steel, opacity: 0.8 }), "think");
+    add(person(crowdG, 1186, 714, 0.36, "shrug", { facing: -1, opacity: 0.8 }), "shrug");
   }
 
   // ------------------------------------------------------------------ FOREGROUND FRAMING
