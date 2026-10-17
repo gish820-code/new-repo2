@@ -1,0 +1,44 @@
+/* Rainy Day — shared visual style, v1.
+ * Palette: stormy blues and grays; the yellow slicker is the ONLY saturated color.
+ * Fonts: Kalam (hand-lettered captions + dialogue), League Gothic (DAY cards, signage; bundled by HyperFrames).
+ * The same tokens are exported to JS as window.RainyDay.palette / .LINE in assets/characters/rainy-day-rig-v1.js.
+ */
+@font-face { font-family: "Kalam"; src: url("assets/fonts/Kalam-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Kalam"; src: url("assets/fonts/Kalam-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+
+:root {
+  /* — palette — */
+  --rd-night: #141B26;       /* deepest shadow, letterbox, 9:16 chrome */
+  --rd-storm: #24303F;       /* storm sky, deep water */
+  --rd-slate: #3A4A5E;       /* mid shadows, wet asphalt */
+  --rd-steel: #5B6E85;       /* buildings, hills (mid) */
+  --rd-mist: #8FA0B4;        /* distant layers, rain */
+  --rd-fog: #C3CDD8;         /* light surfaces, sky glow */
+  --rd-paper: #E6EAEE;       /* brightest neutral: faces, highlights, caption text */
+  --rd-ink: #10161F;         /* every outline and the stick figures */
+  --rd-slicker: #F2C230;     /* Drizzle's slicker — the only saturated color */
+  --rd-slicker-shade: #C99A16;
+
+  /* — line weights (px at 1920×1080) — */
+  --rd-line-figure: 8px;     /* stick-figure limbs */
+  --rd-line-main: 4px;       /* object outlines in backgrounds */
+  --rd-line-detail: 2px;     /* hatching, texture, small detail */
+
+  /* — caption type — */
+  --rd-caption-font: "Kalam", "Comic Sans MS", cursive;
+  --rd-caption-size-16x9: 44px;
+  --rd-caption-size-9x16: 52px;
+  --rd-title-font: "League Gothic", "Oswald", sans-serif;
+}
+
+/* Caption block (used by the generated caption tracks). */
+.rd-caption {
+  font-family: var(--rd-caption-font);
+  font-weight: 700;
+  color: var(--rd-paper);
+  line-height: 1.2;
+  text-align: center;
+}
+.rd-caption .rd-speaker { color: var(--rd-slicker); font-weight: 700; margin-right: 0.35em; }
+.rd-caption.rd-narration { font-weight: 400; font-style: normal; color: var(--rd-fog); }
+.rd-caption.rd-sign { font-family: var(--rd-title-font); letter-spacing: 0.04em; color: var(--rd-slicker); }
