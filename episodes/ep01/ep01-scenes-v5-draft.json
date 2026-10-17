@@ -1,0 +1,948 @@
+{
+ "episode": 1,
+ "title": "DAY 0: THE SHAKING",
+ "version": 5,
+ "lessons": [
+  "Drop, cover, and hold on during shaking.",
+  "On the coast, when the shaking stops, walk to high ground immediately — don't wait for an official warning.",
+  "Grab the go-bag, not your belongings."
+ ],
+ "parts": [
+  {
+   "part": 1,
+   "title": "The Ordinary Morning",
+   "hook": "The lights go out while the shaking keeps going.",
+   "scenes": [
+    {
+     "id": "h1",
+     "title": "Hook: Shaking",
+     "bg": "kitchen",
+     "bgOpts": {},
+     "duration": 1.5,
+     "file": "compositions/ep01/scenes/ep01-h1-hook-shaking-v1.html",
+     "action": "v5 cold open (flash-forward): 1.5 s of s04 — the kitchen mid-quake.",
+     "start": "",
+     "end": "",
+     "captions": []
+    },
+    {
+     "id": "h2",
+     "title": "Hook: The Wave",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 1.5,
+     "file": "compositions/ep01/scenes/ep01-h2-hook-the-wave-v1.html",
+     "action": "v5 cold open (flash-forward): 1.5 s of s13b — the second wave slamming into the lower town; hard cut to the title.",
+     "start": "",
+     "end": "",
+     "captions": []
+    },
+    {
+     "id": "s01",
+     "title": "Gull Harbor",
+     "bg": "mainStreet",
+     "bgOpts": {
+      "damage": 0
+     },
+     "duration": 12,
+     "action": "Establishing shot of rainy Gull Harbor main street (intact): ferry at the dock, calm harbor, storefronts, the hill to the east. Slow push-in with a gentle pan right. The series title 'RAINY DAY' appears large and hand-lettered (League Gothic, slicker yellow, ink outline) at ~1.0s and clears by ~5.4s; 'DAY 0 · THE SHAKING' lands at ~6.0s and clears by ~11.4s. From ~8.6s Drizzle (slicker, hood up) walks in from the left along the sidewalk carrying a paper grocery bag and heads off right (home).",
+     "start": "Empty street, rain.",
+     "end": "Drizzle exits right; title card clearing.",
+     "captions": [
+      {
+       "t0": 0.8,
+       "t1": 3.8,
+       "kind": "narration",
+       "text": "Gull Harbor, Washington. Population 2,140.",
+       "say": "Gull Harbor, Washington. Population: twenty-one hundred and forty."
+      },
+      {
+       "t0": 5.0,
+       "t1": 8.0,
+       "kind": "narration",
+       "text": "It rains here two hundred days a year."
+      },
+      {
+       "t0": 8.8,
+       "t1": 11.8,
+       "kind": "narration",
+       "text": "And Drizzle is ready for every single one of them."
+      }
+     ]
+    },
+    {
+     "id": "s02",
+     "title": "The Snack Bag",
+     "bg": "kitchen",
+     "bgOpts": {
+      "mess": 0
+     },
+     "duration": 22,
+     "action": "Drizzle's kitchen, rain on the window. Drizzle (slicker on, indoors) potters by the stove; the kettle steams; a mug sits on the table. Mags opens the front door and steps in holding her radio. Banter: she eyes his slicker; says she's here for sugar and to check his go-bag; he points at the go-bag sitting on the bench by the door (RainyDay.goBag prop on the bench handle); she counts contents on her fingers; he defends snacks. Each speaker has talk:true during their line. Ends with both standing near the table, Mags unimpressed, Drizzle grinning.",
+     "start": "Drizzle at the stove; door closed.",
+     "end": "Drizzle just left of the table, Mags right of the table, both standing.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Drizzle... you're wearing your raincoat. Indoors."
+      },
+      {
+       "t0": 3.8,
+       "t1": 6.199999999999999,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Hey, you never know when it'll rain in here."
+      },
+      {
+       "t0": 7.0,
+       "t1": 9.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Uh-huh. I came for sugar. And to check your go-bag."
+      },
+      {
+       "t0": 10.5,
+       "t1": 12.9,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "My snack bag? It's right by the door."
+      },
+      {
+       "t0": 13.8,
+       "t1": 16.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Water, flashlight, meds, radio... then snacks."
+      },
+      {
+       "t0": 17.8,
+       "t1": 20.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Snacks are a food group, Mags."
+      }
+     ]
+    },
+    {
+     "id": "s03",
+     "title": "The Rattle",
+     "bg": "kitchen",
+     "bgOpts": {
+      "mess": 0
+     },
+     "duration": 22,
+     "action": "Same kitchen. The wall clock reads 10:42. The mug on the table starts to rattle and creep; the pendant lamp begins to sway. Drizzle stares at the mug. At ~6.4s strong shaking begins (RainyDay.shake on the scene wrapper, ramping in) and continues to the end. Mags shouts. Drizzle's wrong instinct: he runs toward the front doorway (~9.0s). Mags points at the table. Both DROP, crawl under the table and take COVER (~12-14s), then each grips a table leg and HOLDS ON (holdOn pose) by ~16s; the table jitters; plates on the shelf rattle (fallables jiggle but do not fall yet).",
+     "start": "Both standing near the table (as s02 ended).",
+     "end": "Both under the table in holdOn, shaking at full strength.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "sign",
+       "text": "10:42 AM"
+      },
+      {
+       "t0": 3.2,
+       "t1": 5.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Uh, Mags? Why is my mug... dancing?"
+      },
+      {
+       "t0": 6.6,
+       "t1": 9.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "That's an earthquake. Drop!"
+      },
+      {
+       "t0": 9.0,
+       "t1": 11.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "The doorway! We go to the doorway, right?"
+      },
+      {
+       "t0": 11.8,
+       "t1": 14.200000000000001,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "No, no — under the table. Cover!"
+      },
+      {
+       "t0": 15.0,
+       "t1": 18.0,
+       "kind": "sign",
+       "text": "DROP · COVER · HOLD ON"
+      },
+      {
+       "t0": 18.4,
+       "t1": 20.799999999999997,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Grab a leg and hold on. Don't let go."
+      }
+     ]
+    },
+    {
+     "id": "s04",
+     "title": "It Keeps Going",
+     "bg": "kitchen",
+     "bgOpts": {
+      "mess": 0
+     },
+     "duration": 20,
+     "action": "Under the table, shaking at full strength the whole scene (shake from 0, no ramp-in). Closer framing on the table (slow push-in). Things fall around them: plates slide off the shelf and break, the potted plant tips, the picture swings, the lamp swings hard. A small hand-drawn timer card in the upper-left reads 0:45, then 1:30, then 2:40 as the scene progresses (ink on a paper card, in-world). Drizzle peeks out, worried; Mags keeps her head down. At ~16.6s the lamp's soft light cone flickers twice and goes OUT: the scene drops to near-black (night overlay ~92%) with only faint outlines of the table and two pairs of eyes; shaking continues in the dark to the end.",
+     "start": "Both under the table in holdOn, shaking.",
+     "end": "Near-black, still shaking.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "It's still going..."
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Big ones can last minutes. Stay put."
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.8,
+       "kind": "narration",
+       "text": "A magnitude 9 can shake for three to five minutes.",
+       "say": "A magnitude nine can shake for three to five minutes."
+      },
+      {
+       "t0": 10.8,
+       "t1": 13.200000000000001,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Is the house supposed to make that noise?"
+      },
+      {
+       "t0": 14.0,
+       "t1": 16.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Hold on, kid. I've got you."
+      },
+      {
+       "t0": 16.8,
+       "t1": 19.8,
+       "kind": "narration",
+       "text": "Then the lights went out."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "title": "The Quiet After",
+   "hook": "Out past the harbor mouth, the horizon begins to rise.",
+   "scenes": [
+    {
+     "id": "s05",
+     "title": "Silence",
+     "bg": "kitchen",
+     "bgOpts": {
+      "mess": 1
+     },
+     "duration": 18,
+     "action": "Opens near-black and still: the shaking has stopped. Gray daylight from the window slowly returns (night overlay fades from ~92% to 0 over 0-3s), revealing the wrecked kitchen (mess:1) with dust motes hanging in the window light (slow drift). Both still under the table holding on; a beat; Drizzle lets go and crawls out (~7s), stands and looks around (worried). Mags crawls out more slowly and stands, radio in hand, determined.",
+     "start": "Both under the table in holdOn, dark.",
+     "end": "Both standing in the wrecked kitchen; Mags nearer the door, Drizzle center.",
+     "captions": [
+      {
+       "t0": 0.8,
+       "t1": 3.8,
+       "kind": "narration",
+       "text": "Then... nothing."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Is it over? Can I let go now?"
+      },
+      {
+       "t0": 7.2,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "You can let go. But we're not staying."
+      },
+      {
+       "t0": 10.8,
+       "t1": 13.200000000000001,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Oh... my kitchen."
+      },
+      {
+       "t0": 14.0,
+       "t1": 16.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "We're right on the coast. Shaking that long means one thing."
+      }
+     ]
+    },
+    {
+     "id": "s06",
+     "title": "Go-Bag, Not Stuff",
+     "bg": "kitchen",
+     "bgOpts": {
+      "mess": 1
+     },
+     "duration": 20,
+     "action": "Wrecked kitchen. Drizzle frantically gathers belongings into his arms: a laptop, a photo album, a potted plant — a teetering stack (scene-drawn props carried at his hands via onDraw). Mags points at the stack. He sets the stack on the table (~8s). She points at the go-bag on the bench. He picks it up and swings it onto his back (switch his figure to bag:true at ~10s and hide the bench prop). At ~10.6s a hand-drawn card pops in at upper right with five small ink icons and labels: water, flashlight, radio, meds, sweater. He looks back at the plant; Mags deadpans; they head for the door (right).",
+     "start": "Both standing in the wrecked kitchen.",
+     "end": "Drizzle wearing the go-bag; both walking toward the door at right.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Okay, okay. Laptop... photo album... plant—"
+      },
+      {
+       "t0": 3.8,
+       "t1": 6.199999999999999,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Put it down. All of it."
+      },
+      {
+       "t0": 6.4,
+       "t1": 8.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Just the go-bag. Nothing else."
+      },
+      {
+       "t0": 10.6,
+       "t1": 14.2,
+       "kind": "sign",
+       "text": "GO-BAG, NOT BELONGINGS"
+      },
+      {
+       "t0": 14.6,
+       "t1": 17.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Can the plant at least come?"
+      },
+      {
+       "t0": 17.4,
+       "t1": 19.799999999999997,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "The plant can swim."
+      }
+     ]
+    },
+    {
+     "id": "s07",
+     "title": "The Harbor Leaves",
+     "bg": "mainStreet",
+     "bgOpts": {
+      "damage": 1
+     },
+     "duration": 20,
+     "action": "Main street after the quake (damage:1), light rain. Drizzle (go-bag on) and Mags step in from the right side of the frame (coming out of his house) and stop mid-street. A few muted gray neighbors (scene-drawn simple stick figures in mist/steel, no yellow) stand around looking at phones. At ~4s Drizzle notices the harbor at left: over 4-14s the water DRAINS far below normal (animate harbor.setLevel from levelY down to the drained level), exposing mud, the ferry settling and tilting on the bottom, a few fish flopping (tiny ink marks). Drizzle points at it; Mags looks grim. A neighbor holds up a phone (a small fog-colored screen glow).",
+     "start": "Neighbors milling; harbor normal.",
+     "end": "Harbor drained; Drizzle pointing at it, Mags beside him.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "narration",
+       "text": "Outside, Gull Harbor looked... wrong."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Mags... where's all the water going?"
+      },
+      {
+       "t0": 7.2,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Out. And it's coming back. Bigger."
+      },
+      {
+       "t0": 11.0,
+       "t1": 14.2,
+       "kind": "sign",
+       "text": "SEA DRAINING AWAY = A TSUNAMI IS COMING"
+      },
+      {
+       "t0": 14.6,
+       "t1": 17.0,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "Huh. No alert on my phone yet..."
+      },
+      {
+       "t0": 17.2,
+       "t1": 19.599999999999998,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "The shaking WAS the alert."
+      }
+     ]
+    },
+    {
+     "id": "s08",
+     "title": "Be the Siren",
+     "bg": "mainStreet",
+     "bgOpts": {
+      "damage": 1
+     },
+     "duration": 18,
+     "action": "Same street, harbor still drained (start at the drained level). A tall tsunami-siren pole (scene-drawn, steel, horn cluster on top) stands silent — Drizzle looks up at it (lookUp). Mags turns east (right) toward the hill and starts walking. Drizzle cups his hands to his mouth and yells to the neighbors; they look up and start walking uphill (right) one by one. Final ~4s: the camera drifts left toward the open sea past the drained harbor; on the far horizon a thin dark line rises (scene-drawn) — the hook.",
+     "start": "Harbor drained, neighbors on phones.",
+     "end": "Everyone heading right/uphill; a dark line rising on the horizon.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Why isn't the siren going off?"
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Power's out. No siren's coming."
+      },
+      {
+       "t0": 6.6,
+       "t1": 9.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Don't wait for a warning. We walk uphill. Now."
+      },
+      {
+       "t0": 10.4,
+       "t1": 12.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Everybody! Uphill! Come on!"
+      },
+      {
+       "t0": 13.6,
+       "t1": 16.6,
+       "kind": "narration",
+       "text": "Out past the harbor mouth, the horizon began to rise."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "title": "Uphill",
+   "hook": "A gray line across the whole horizon, moving fast.",
+   "scenes": [
+    {
+     "id": "s09",
+     "title": "Walk, Don't Drive",
+     "bg": "mainStreet",
+     "bgOpts": {
+      "damage": 1
+     },
+     "duration": 18,
+     "action": "The east end of main street by the gas station: a jam of simple ink-outline cars (scene-drawn, gray) stuck on the cracked road; a driver leans out of a window. Drizzle and Mags walk briskly (walk cycle) left to right past the stalled cars toward the hill. Drizzle waves a driver out of his car; the driver gets out and follows on foot. The camera pans right with them.",
+     "start": "Our two enter at left, walking.",
+     "end": "Walking off toward the hill at right, a driver following on foot.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Should we take your truck?"
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Roads crack. Cars jam. Feet don't get stuck in traffic."
+      },
+      {
+       "t0": 7.6,
+       "t1": 10.8,
+       "kind": "sign",
+       "text": "WALK, DON'T DRIVE — ROADS MAY BE BROKEN OR BLOCKED"
+      },
+      {
+       "t0": 11.0,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Hey! Leave the car! Walk with us!"
+      },
+      {
+       "t0": 14.4,
+       "t1": 17.4,
+       "kind": "narration",
+       "text": "The hill was twenty minutes away. On foot."
+      }
+     ]
+    },
+    {
+     "id": "s10",
+     "title": "Aftershock",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "The evacuation trail through the firs, with the blue-white TSUNAMI EVACUATION ROUTE sign. Drizzle and Mags climb (walk cycle following trailY). At ~7.0s an aftershock hits (shake, medium strength, ~6s): the firs sway, a few small rocks roll down the trail. Both get low on the trail and cover their heads and necks with their arms (cover pose), away from tree trunks. The shaking stops at ~13s; they stand up; Drizzle brushes himself off; they keep climbing.",
+     "start": "Lower-left of the trail, climbing.",
+     "end": "Mid-trail, climbing again.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "narration",
+       "text": "The evacuation trail. Steep. Muddy. Perfect."
+      },
+      {
+       "t0": 3.8,
+       "t1": 6.199999999999999,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Well... at least I'm getting my steps in."
+      },
+      {
+       "t0": 7.0,
+       "t1": 8.4,
+       "kind": "sign",
+       "text": "AFTERSHOCK"
+      },
+      {
+       "t0": 8.6,
+       "t1": 11.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Down! Cover your head and neck!"
+      },
+      {
+       "t0": 12.0,
+       "t1": 15.2,
+       "kind": "sign",
+       "text": "NO TABLE? GET LOW. ARMS OVER HEAD AND NECK."
+      },
+      {
+       "t0": 15.6,
+       "t1": 18.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Okay. I officially hate the ground."
+      },
+      {
+       "t0": 17.8,
+       "t1": 20.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Up. Keep moving."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "The Radio",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Higher on the trail. Mags stops, winded, and sits on a rock by the trail (sit pose); Drizzle comes back and offers his arm (reach). Mags cranks the radio: a small crank handle spins beside it and hand-drawn static squiggles come out (in-world); at ~10s the squiggles turn into neat sound-wave arcs as a voice comes through. She gets up with Drizzle's help and they keep climbing.",
+     "start": "Both climbing mid-trail.",
+     "end": "Both climbing again, Mags leaning on Drizzle's arm.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Give me a second. These knees are old."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Lean on me. I'm very sturdy."
+      },
+      {
+       "t0": 7.0,
+       "t1": 9.6,
+       "kind": "sign",
+       "text": "KRRSHHH—"
+      },
+      {
+       "t0": 10.0,
+       "t1": 12.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...tsunami warning for the Washington coast... move to high ground immediately..."
+      },
+      {
+       "t0": 14.4,
+       "t1": 16.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "See? It's official."
+      },
+      {
+       "t0": 16.8,
+       "t1": 19.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "And twenty minutes late. Climb."
+      }
+     ]
+    },
+    {
+     "id": "s12",
+     "title": "Look Back",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 18,
+     "action": "A switchback with the wide view down to the drained harbor and the ocean (harbor at the drained level the whole scene). Drizzle stops and turns to look back (facing left toward the view); Mags keeps going, then stops and turns too. On the horizon the waveLine appears at ~6.5s and over the rest of the scene thickens and rises slightly as it advances. Slow push-in toward the horizon over the last 6s. End on the gray line, both figures small on the trail.",
+     "start": "Climbing to the switchback.",
+     "end": "Both stopped, looking at the advancing gray line.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Mags... you need to see this."
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Don't stop. Don't watch. Keep going."
+      },
+      {
+       "t0": 7.0,
+       "t1": 10.0,
+       "kind": "narration",
+       "text": "A gray line stretched across the whole horizon."
+      },
+      {
+       "t0": 11.0,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "That's... that's not a cloud."
+      },
+      {
+       "t0": 14.4,
+       "t1": 17.4,
+       "kind": "narration",
+       "text": "And it was moving fast."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 4,
+   "title": "The Hilltop",
+   "hook": "Gull Harbor is cut off, and there's a light out on the water.",
+   "scenes": [
+    {
+     "id": "s13",
+     "title": "The Wave",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Same view. The wave arrives: the waveLine sweeps in and the harbor SURGES far above normal (harbor.setLevel from drained to surged over ~3-12s): the dock and the ferry disappear under gray water and water pushes into the lowland streets (environment only, no people visible). Drizzle and Mags run up the last switchback (run cycle along trailY), Drizzle pulling Mags by the hand; they reach the top edge and exit right.",
+     "start": "Both on the switchback looking back.",
+     "end": "Both run off the top right of the trail; harbor flooded.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Move! Go, go!"
+      },
+      {
+       "t0": 3.4,
+       "t1": 6.4,
+       "kind": "narration",
+       "text": "The first wave hit 22 minutes after the shaking.",
+       "say": "The first wave hit twenty-two minutes after the shaking."
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "The dock... the ferry..."
+      },
+      {
+       "t0": 10.4,
+       "t1": 12.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Boats can be replaced. Keep climbing."
+      },
+      {
+       "t0": 13.8,
+       "t1": 17.0,
+       "kind": "sign",
+       "text": "THE FIRST WAVE IS OFTEN NOT THE BIGGEST"
+      },
+      {
+       "t0": 17.4,
+       "t1": 19.799999999999997,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Climbing! I'm climbing!"
+      }
+     ]
+    },
+    {
+     "id": "s13b",
+     "title": "The Lower Town",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 22,
+     "action": "NEW in v4. Higher up the trail, at a bend with a clear view down to the bay and the lower town. Drizzle and Mags come up from the lower left at a run and stop, breathing hard; Drizzle turns to look back down (facing left). The SECOND, BIGGER wave arrives: a towering dark wall of water with a churning pale crest rolls in through the harbor mouth and slams into the lower town — FULL FORCE destruction, but NO people shown: waterfront houses are lifted off their foundations, tilt, break apart into tumbling roof/wall pieces and are swept inland; the ferry and boats are tossed up the streets; cars and power poles are carried along; a churning debris-filled surge floods Main Street up the lower slopes; spray and foam. The camera pushes in toward the town for the impact (~4–14s), with a strong RD.shake on impact. Drizzle reacts (scared, hands to head); Mags steps beside him, a hand on his shoulder (worried → determined). Near the end the water starts to pull back, leaving a flattened, debris-strewn waterline where the lower town was. Ends with both turning back uphill (facing right, walk pose) — no exit.",
+     "start": "Running up from the lower left (they ran off the top right of the previous switchback).",
+     "end": "Both on the trail facing right, starting to walk uphill again; the lower town flattened below.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "narration",
+       "text": "The second wave was bigger."
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Mags... Main Street. It's — it's all going."
+      },
+      {
+       "t0": 7.4,
+       "t1": 9.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "We're high enough here. Catch your breath."
+      },
+      {
+       "t0": 10.6,
+       "t1": 13.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Your house is down there..."
+      },
+      {
+       "t0": 13.4,
+       "t1": 15.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Houses get rebuilt. People don't."
+      },
+      {
+       "t0": 16.6,
+       "t1": 19.6,
+       "kind": "narration",
+       "text": "By the time the water pulled back, the lower town was gone."
+      }
+     ]
+    },
+    {
+     "id": "s14",
+     "title": "Assembly Area",
+     "bg": "hilltop",
+     "bgOpts": {
+      "crowd": true
+     },
+     "duration": 20,
+     "action": "The hilltop assembly area, rain easing. Drizzle and Mags stagger in from the left; Drizzle drops to sit on the ground (sit, relieved grin); Mags stands beside him, radio in hand. Ms. Ortega's class (a row of small gray stick-figure kids with their teacher, scene-drawn and/or the crowd group) sits under the canopy; one kid waves at Drizzle and he waves back. At far right, the flooded lowland (view.setLevel high).",
+     "start": "Entering from the left.",
+     "end": "Drizzle sitting, Mags standing beside him; kids under the canopy.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "narration",
+       "text": "The hilltop assembly area. Higher than any wave."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "We made it. We actually made it."
+      },
+      {
+       "t0": 7.2,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Because we didn't wait. Remember that."
+      },
+      {
+       "t0": 10.6,
+       "t1": 13.6,
+       "kind": "narration",
+       "text": "The school got every kid up the hill. They'd practiced."
+      },
+      {
+       "t0": 14.4,
+       "t1": 16.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "...Maybe I should practice."
+      },
+      {
+       "t0": 17.2,
+       "t1": 19.599999999999998,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Everyone should."
+      }
+     ]
+    },
+    {
+     "id": "s15",
+     "title": "Three Things",
+     "bg": "hilltop",
+     "bgOpts": {
+      "crowd": true
+     },
+     "duration": 18,
+     "action": "Closer two-shot on the hilltop. Drizzle counts on his fingers (point/talk); three hand-drawn index cards pin up one by one on the canopy pole beside them (ink on paper, each with a tiny doodle: a table, an uphill arrow, a backpack) on the caption cues (~3.8s, ~7.0s, ~10.2s). Then Drizzle pulls a granola bar out of the go-bag (the bag stays on; the bar is a small prop at his hand) and offers it to Mags; she takes it, deadpan.",
+     "start": "Drizzle sitting, Mags standing.",
+     "end": "Drizzle standing, offering the snack; Mags holding it.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Okay. So... three things."
+      },
+      {
+       "t0": 3.6,
+       "t1": 6.6,
+       "kind": "sign",
+       "text": "1 · DROP, COVER, HOLD ON",
+       "say": "One. Drop, cover, and hold on."
+      },
+      {
+       "t0": 6.9,
+       "t1": 9.9,
+       "kind": "sign",
+       "text": "2 · COAST + SHAKING = WALK UPHILL NOW",
+       "say": "Two. On the coast, if it shakes... walk uphill. Now."
+      },
+      {
+       "t0": 10.2,
+       "t1": 13.0,
+       "kind": "sign",
+       "text": "3 · GRAB THE GO-BAG, NOT YOUR STUFF",
+       "say": "Three. Grab the go-bag. Not your stuff."
+      },
+      {
+       "t0": 13.4,
+       "t1": 15.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "And four: snacks."
+      },
+      {
+       "t0": 15.8,
+       "t1": 18.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "...Fine. Snacks."
+      }
+     ]
+    },
+    {
+     "id": "s16",
+     "title": "Cut Off",
+     "bg": "hilltop",
+     "bgOpts": {
+      "crowd": true
+     },
+     "duration": 18,
+     "action": "Dusk on the hilltop (a night overlay deepening from 0 to ~55% across the scene). Mags cranks the radio; sound-wave arcs come out. Drizzle walks to the edge and looks out over the flooded lowland at right. At ~13.4s a pulsing bright paper-white light appears out on the dark water (a distress flare), with a soft fog-colored glow ring. Final ~2s: a 'NEXT: DAY 1' hand-lettered sting (League Gothic, slicker yellow) appears center-right and holds.",
+     "start": "Both on the hilltop.",
+     "end": "Drizzle at the edge staring at the light on the water; NEXT: DAY 1 card.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...the Highway 101 bridge at Gull Creek has collapsed...",
+       "say": "...the Highway one-oh-one bridge at Gull Creek has collapsed..."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...no road access to Gull Harbor at this time..."
+      },
+      {
+       "t0": 7.2,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "So... nobody's coming?"
+      },
+      {
+       "t0": 10.2,
+       "t1": 12.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Not today. Not by road."
+      },
+      {
+       "t0": 13.4,
+       "t1": 16.4,
+       "kind": "narration",
+       "text": "Then... a light on the water."
+      },
+      {
+       "t0": 15.8,
+       "t1": 17.8,
+       "kind": "sign",
+       "text": "NEXT: DAY 1",
+       "say": "Next... Day one."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

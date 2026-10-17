@@ -1,0 +1,632 @@
+[
+ {
+  "id": "s01-b1",
+  "sid": "s01",
+  "lines": [
+   {
+    "cap": 1,
+    "speaker": "NARRATOR",
+    "text": "The quake. The waves. A long night on the hill.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 0,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s01-b1-v2.mp3"
+ },
+ {
+  "id": "s02-b1",
+  "sid": "s02",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Morning came cold and gray. Nobody had really slept.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Good news. I'm still waterproof.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Bad news. Nothing else is.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 1,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s02-b1-v2.mp3"
+ },
+ {
+  "id": "s03-b1",
+  "sid": "s03",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Below them, Gull Harbor was gone.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Mags... the ferry's on Main Street.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "So is half the harbor.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Someone'll come, right? Helicopters? Coast Guard?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Look at the bridge.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "No boats. No helicopters. No one on the road.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 2,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s03-b1-v2.mp3"
+ },
+ {
+  "id": "s04-b1",
+  "sid": "s04",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NEIGHBOR_F",
+    "text": "It's been a whole night. Where is everybody?",
+    "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4"
+   },
+   {
+    "cap": 1,
+    "speaker": "NEIGHBOR",
+    "text": "They'll come. They have to.",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 2,
+    "speaker": "GORD",
+    "text": "Folks! Listen up! Help is on its way.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 3,
+    "speaker": "GORD",
+    "text": "Till then, we stay calm and organized.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "He doesn't know that. Nobody does.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 3,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s04-b1-v2.mp3"
+ },
+ {
+  "id": "s05-b1",
+  "sid": "s05",
+  "lines": [
+   {
+    "cap": 1,
+    "speaker": "RADIO",
+    "text": "...the entire coast, Oregon to British Columbia...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 2,
+    "speaker": "RADIO",
+    "text": "...roads and bridges impassable... Highway one-oh-one...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 3,
+    "speaker": "RADIO",
+    "text": "...relief may take days... possibly weeks...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "...Weeks?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 4,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s05-b1-v2.mp3"
+ },
+ {
+  "id": "s06-b1",
+  "sid": "s06",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NEIGHBOR_F",
+    "text": "Weeks?! We'll be dead in weeks!",
+    "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4"
+   },
+   {
+    "cap": 1,
+    "speaker": "NEIGHBOR",
+    "text": "I'm driving out. I'm not waiting.",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Drive where? There's no road left.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "NARRATOR",
+    "text": "Fear spreads fast when there's nothing to do.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "Okay. Then let's do something.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 5,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s06-b1-v2.mp3"
+ },
+ {
+  "id": "s07-b1",
+  "sid": "s07",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "MAGS",
+    "text": "Don't drink that!",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 1,
+    "speaker": "NEIGHBOR",
+    "text": "It's just rainwater.",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "It's runoff. Sewage, fuel, chemicals.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "What about the cabin tap?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Pipes broke. Catch rain clean, then boil it.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 6,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s07-b1-v2.mp3"
+ },
+ {
+  "id": "s08-b1",
+  "sid": "s08",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NEIGHBOR",
+    "text": "My boy's freezing. Just for a few minutes.",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Mags— the stove!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Not in there. Not ever.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Carbon monoxide. You can't see it or smell it.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 7,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s08-b1-v2.mp3"
+ },
+ {
+  "id": "s09-b1",
+  "sid": "s09",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "GORD",
+    "text": "Okay. Everything you brought — on the table.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 1,
+    "speaker": "NARRATOR",
+    "text": "Most people had run with nothing but their phones.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 2,
+    "speaker": "GORD",
+    "text": "Three waters. Chips. A lighter. That's it?",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "I've got... a granola bar to add!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "NARRATOR",
+    "text": "Everyone saw what else was in the bag.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 5,
+    "speaker": "GORD",
+    "text": "Well, well. What've you got there, Drizzle?",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   }
+  ],
+  "index": 8,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s09-b1-v2.mp3"
+ },
+ {
+  "id": "s10-b1",
+  "sid": "s10",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "GORD",
+    "text": "One pile. I ration it. Fair for everyone.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 1,
+    "speaker": "NEIGHBOR",
+    "text": "Yeah! Why should he keep it?",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 2,
+    "speaker": "DRIZZLE",
+    "text": "I want to help, but who decides who gets what?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 3,
+    "speaker": "GORD",
+    "text": "I do. Somebody has to.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Nobody takes anything from anybody. Not today.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "Yesterday they were neighbors. Today they were counting.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 9,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s10-b1-v2.mp3"
+ },
+ {
+  "id": "s11-b1",
+  "sid": "s11",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "GORD",
+    "text": "You too, Tess. What's in the bag?",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 1,
+    "speaker": "TESS",
+    "text": "Mine. For my son.",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f"
+   },
+   {
+    "cap": 2,
+    "speaker": "GORD",
+    "text": "There's no 'mine' anymore. Not up here.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 3,
+    "speaker": "TESS",
+    "text": "Says the man holding the list.",
+    "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f"
+   },
+   {
+    "cap": 4,
+    "speaker": "GORD",
+    "text": "We'll talk later. Everybody shares.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 5,
+    "speaker": "DRIZZLE",
+    "text": "She looks like I feel.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 10,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s11-b1-v2.mp3"
+ },
+ {
+  "id": "s12-b1",
+  "sid": "s12",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "MAGS",
+    "text": "Ration the food from day one.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "And the water?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Drink what you need. Then find more.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "And keep that bag out of sight. People notice.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 11,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s12-b1-v2.mp3"
+ },
+ {
+  "id": "s13-b1",
+  "sid": "s13",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Shh. Our secret. Eat it slow.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Every house up here has a hidden water tank.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "DRIZZLE",
+    "text": "The water heater? That's forty gallons!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Power off. Open the drain. Clean water.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 12,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s13-b1-v2.mp3"
+ },
+ {
+  "id": "s13-b2",
+  "sid": "s13",
+  "lines": [
+   {
+    "cap": 5,
+    "speaker": "GORD",
+    "text": "Listen up! Dale's store has a whole pallet of water!",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   }
+  ],
+  "index": 13,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s13-b2-v2.mp3"
+ },
+ {
+  "id": "s14-b1",
+  "sid": "s14",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "GORD",
+    "text": "Four of us. In and out before lunch.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Into the flood zone? Any aftershock can send another wave.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Lines down. Gas leaking. Walls cracked.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "GORD",
+    "text": "People are thirsty. I won't wait weeks.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   }
+  ],
+  "index": 14,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s14-b1-v2.mp3"
+ },
+ {
+  "id": "s15-b1",
+  "sid": "s15",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Dale's Gas and Grocery. The flood zone.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "PRUITT",
+    "text": "Gord... you smell that?",
+    "voice_id": "195e386a-cb61-5c1b-a53b-0e2f0669c408"
+   },
+   {
+    "cap": 2,
+    "speaker": "GORD",
+    "text": "Just grab the water. Fast.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   },
+   {
+    "cap": 3,
+    "speaker": "PRUITT",
+    "text": "Watch the wire! Stay out of that puddle!",
+    "voice_id": "195e386a-cb61-5c1b-a53b-0e2f0669c408"
+   },
+   {
+    "cap": 4,
+    "speaker": "GORD",
+    "text": "Pallet's right inside. Get the door open.",
+    "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5"
+   }
+  ],
+  "index": 15,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s15-b1-v2.mp3"
+ },
+ {
+  "id": "s16-b1",
+  "sid": "s16",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Water first. Stoves outside. Ration. Stay out of the flood zone.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Tell that to Gord.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "NARRATOR",
+    "text": "Dale's Gas & Grocery went up in black smoke.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "No. No, no, no—",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Stay here. Nobody else goes down. Nobody.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 16,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s16-b1-v2.mp3"
+ },
+ {
+  "id": "s17-b1",
+  "sid": "s17",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "First-aid kit. They'll need it—",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "...Where's my bag?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "DRIZZLE",
+    "text": "It was right here. Right HERE.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Who knew where you kept it?",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "...Everyone saw it.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "Smoke below. An empty spot. No one coming.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 6,
+    "speaker": "NARRATOR",
+    "text": "Next... Day one. Night.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 17,
+  "file": "audio/ep02/vo/blocks-v2/ep02-s17-b1-v2.mp3"
+ }
+]

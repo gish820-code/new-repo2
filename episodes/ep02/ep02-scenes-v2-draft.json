@@ -1,0 +1,878 @@
+{
+ "episode": 2,
+ "title": "DAY 1: NO ONE IS COMING",
+ "version": 2,
+ "lessons": [
+  "Water first: assume tap and flood water are unsafe; boil (rolling boil, 1 minute) or purify; a home water-heater tank is a hidden clean-water supply.",
+  "Don't go back into the flood zone: more waves (aftershocks), contaminated water, downed power lines, gas leaks, unstable buildings.",
+  "Never run a generator, grill or camp stove inside a tent, car or any enclosed space — carbon monoxide.",
+  "Ration food from day one (but drink the water you need) and keep supplies discreet — having what others lack changes how people treat you."
+ ],
+ "parts": [
+  {
+   "part": 1,
+   "title": "The Morning After",
+   "hook": "The radio: relief may take days... possibly weeks.",
+   "scenes": [
+    {
+     "id": "s01",
+     "title": "Previously",
+     "bg": "hilltop",
+     "bgOpts": {
+      "crowd": true
+     },
+     "duration": 5,
+     "action": "RECAP of Day 0 (5 s, fast). NIGHT version of the Episode-1 hilltop: darken the whole frame (a night overlay over the background, a few flashlight beams and cold blue light), the crowd huddled under the canopy. In the distant flooded lowland (view), the water surges pale and pulses (view.setLevel up/down, white foam flashes) — the waves seen from above in the dark. Quick push-in toward the view. Drizzle (hood up, go-bag on) and Mags (radio, blanket over her shoulders) sit huddled together under the canopy edge, watching. A 'PREVIOUSLY' feel: slight film-flicker/vignette.",
+     "start": "Night, crowd huddled; waves flashing below.",
+     "end": "Drizzle and Mags huddled, watching the dark water.",
+     "captions": [
+      {
+       "t0": 0.3,
+       "t1": 1.9,
+       "kind": "sign",
+       "text": "PREVIOUSLY: DAY 0"
+      },
+      {
+       "t0": 2.1,
+       "t1": 4.9,
+       "kind": "narration",
+       "text": "The quake. The waves. A long night on the hill."
+      }
+     ]
+    },
+    {
+     "id": "s02",
+     "title": "Day One",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.8
+     },
+     "duration": 15,
+     "action": "Title open. 0–4 s: the 'RAINY DAY' title sting (yellow League Gothic, hand-drawn underline, like Episode 1's title) over the foggy camp, then a 'DAY 1' card (League Gothic, paper/yellow) with a small 'NO ONE IS COMING' subtitle; both fade out by ~4.5 s. Flat cold gray dawn; the fog layer slowly thins over the scene; drizzle (rain, low intensity). Townspeople (extras) stir: one wrings out a blanket, one stamps feet for warmth. Drizzle crawls out from under a tarp lean-to near the canopy (crouch → stand), hood up, go-bag on his back, shivers (small fast jitter) and stretches. Mags sits on a camp chair with a blanket over her shoulders and her radio on her knee, deadpan. Slow camera drift.",
+     "start": "Fog, camp asleep; title over it.",
+     "end": "Drizzle standing, stretching; Mags in her chair.",
+     "captions": [
+      {
+       "t0": 4.6,
+       "t1": 7.8,
+       "kind": "narration",
+       "text": "Morning came cold and gray. Nobody had really slept."
+      },
+      {
+       "t0": 8.2,
+       "t1": 10.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Good news. I'm still waterproof."
+      },
+      {
+       "t0": 11.2,
+       "t1": 14.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Bad news. Nothing else is."
+      }
+     ]
+    },
+    {
+     "id": "s03",
+     "title": "The View Down",
+     "bg": "townView",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Drizzle walks to the hill lip (from left), Mags follows; two or three extras already stand at the edge, silent. Wide vista of the wrecked, flooded town. Slow push-in toward the town; at ~4.5 s a slight drift toward the stranded ferry on Main Street; at ~13.8 s the camera pans/drifts right to the broken Gull Creek BRIDGE on the coast highway and holds; at ~17 s pull back to the wide empty sky — no boats, no helicopters, no cars on the road. Drizzle points at the ferry; later looks up at the sky hopefully (lookUp), then his shoulders drop. Light rain. Gulls (tiny ink Vs) circle over the water.",
+     "start": "Walking to the edge.",
+     "end": "Both standing at the lip; Drizzle deflated.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.0,
+       "kind": "narration",
+       "text": "Below them, Gull Harbor was gone."
+      },
+      {
+       "t0": 4.4,
+       "t1": 7.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Mags... the ferry's on Main Street."
+      },
+      {
+       "t0": 7.4,
+       "t1": 9.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "So is half the harbor."
+      },
+      {
+       "t0": 10.2,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Someone'll come, right? Helicopters? Coast Guard?"
+      },
+      {
+       "t0": 13.8,
+       "t1": 16.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Look at the bridge."
+      },
+      {
+       "t0": 17.0,
+       "t1": 19.8,
+       "kind": "narration",
+       "text": "No boats. No helicopters. No one on the road."
+      }
+     ]
+    },
+    {
+     "id": "s04",
+     "title": "Nobody's Coming",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.4
+     },
+     "duration": 18,
+     "action": "The camp, restless. Extras look at the sky and the road, pace; a woman (extra, NEIGHBOR) hugs herself, another (NEIGHBOR) answers. At ~6.6 s GORD PIKE (new character: big, flat cap, puffy vest, CLIPBOARD) climbs up onto the picnic table and raises the clipboard; the crowd turns toward him. He gestures broadly while he talks. Drizzle and Mags stand at the left side of the crowd; at ~14 s Mags leans toward Drizzle and speaks quietly (small head tilt), Drizzle glances at her.",
+     "start": "Crowd pacing; Gord near the table.",
+     "end": "Gord standing on the table; crowd facing him; Mags beside Drizzle.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "It's been a whole night. Where is everybody?",
+       "voice": "NEIGHBOR_F"
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "They'll come. They have to."
+      },
+      {
+       "t0": 6.8,
+       "t1": 10.2,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Folks! Listen up! Help is on its way."
+      },
+      {
+       "t0": 10.6,
+       "t1": 13.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Till then, we stay calm and organized."
+      },
+      {
+       "t0": 14.0,
+       "t1": 17.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "He doesn't know that. Nobody does."
+      }
+     ]
+    },
+    {
+     "id": "s05",
+     "title": "Static",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "Under the canopy: Mags sits and cranks her radio (crank arm circling, visible static squiggle lines from the speaker); the crowd presses in around her in a half circle, Gord at the back with his clipboard, Drizzle kneeling next to Mags. Camera slowly pushes in on the radio and the faces as each fragment lands. After the last fragment (~13.6 s) the static cuts and the whole crowd freezes; dead silence beat; Drizzle looks up at Mags (worried face). End close on Drizzle.",
+     "start": "Mags starts cranking, crowd gathering.",
+     "end": "Crowd frozen; close on Drizzle.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.4,
+       "kind": "sign",
+       "text": "KRRSHHH—"
+      },
+      {
+       "t0": 2.8,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...the entire coast, Oregon to British Columbia..."
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.8,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...roads and bridges impassable... Highway 101...",
+       "say": "...roads and bridges impassable... Highway one-oh-one..."
+      },
+      {
+       "t0": 10.2,
+       "t1": 13.6,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...relief may take days... possibly weeks..."
+      },
+      {
+       "t0": 14.2,
+       "t1": 17.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "...Weeks?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "title": "Water First",
+   "hook": "Every eye on Drizzle's open go-bag.",
+   "scenes": [
+    {
+     "id": "s06",
+     "title": "Panic",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "The crowd erupts: extras turn to each other, arms up, pacing fast. A man (NEIGHBOR) runs to a car parked on the grass at the edge, gets in; the car rocks, its rear wheel spins in mud throwing mud spatter and goes nowhere. Mags walks to the car and says her line through the window. TESS VARGA (new character: beanie with pom, ponytail, long dark coat, big padlocked DUFFEL) pulls her duffel close and puts an arm around her son MILO (a kid extra) at the side of the frame. At ~14 s Drizzle grabs a folded tarp and a bucket from the canopy and holds them up with a determined face.",
+     "start": "Crowd frozen after the radio.",
+     "end": "Drizzle holding up a tarp and a bucket.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "Weeks?! We'll be dead in weeks!",
+       "voice": "NEIGHBOR_F"
+      },
+      {
+       "t0": 3.4,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "I'm driving out. I'm not waiting."
+      },
+      {
+       "t0": 6.4,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Drive where? There's no road left."
+      },
+      {
+       "t0": 10.0,
+       "t1": 13.6,
+       "kind": "narration",
+       "text": "Fear spreads fast when there's nothing to do."
+      },
+      {
+       "t0": 14.0,
+       "t1": 17.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Okay. Then let's do something."
+      }
+     ]
+    },
+    {
+     "id": "s07",
+     "title": "Water First",
+     "bg": "shelter",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "The shelter set. A neighbor (extra) kneels at a muddy runoff puddle at the front, cupping water toward his mouth; at 0.6 s Mags hurries in and stops him (hand up), he stands. Then Drizzle and Mags rig the rain catch: Drizzle stretches the tarp corner so the sag drips into the bucket (animate drips falling from the sag into the bucket, the bucket level rising), Mags sets a pot on the grate over the fire ring OUTSIDE the tarp (small flames, steam). When the sign appears (~15.4 s) the pot comes to a rolling boil (bubbles, steam).",
+     "start": "Neighbor drinking from a puddle.",
+     "end": "Rain catch dripping, pot boiling on the fire.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Don't drink that!"
+      },
+      {
+       "t0": 2.8,
+       "t1": 4.8,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "It's just rainwater."
+      },
+      {
+       "t0": 5.2,
+       "t1": 8.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "It's runoff. Sewage, fuel, chemicals."
+      },
+      {
+       "t0": 9.0,
+       "t1": 11.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "What about the cabin tap?"
+      },
+      {
+       "t0": 11.8,
+       "t1": 15.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Pipes broke. Catch rain clean, then boil it."
+      },
+      {
+       "t0": 15.4,
+       "t1": 19.6,
+       "kind": "sign",
+       "text": "WATER FIRST: TAP AND FLOOD WATER ARE UNSAFE — BOIL OR PURIFY"
+      }
+     ]
+    },
+    {
+     "id": "s08",
+     "title": "Not in the Tent",
+     "bg": "shelter",
+     "bgOpts": {},
+     "duration": 18,
+     "action": "A dad (extra) carries a lit camp stove (small flame) toward the dome tent, where his kid (kid extra) shivers in the open door. Drizzle spots it and points. Mags hurries over, steps between the dad and the tent, takes the stove and carries it back out into the open next to the fire ring (outside, away from the tent and tarp). Then she wraps the kid in her blanket (give the blanket over). Calm but firm acting; the dad nods, chastened.",
+     "start": "Dad walking toward the tent with the stove.",
+     "end": "Stove outside by the fire ring; kid wrapped in Mags' blanket.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.2,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "My boy's freezing. Just for a few minutes."
+      },
+      {
+       "t0": 3.6,
+       "t1": 5.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Mags— the stove!"
+      },
+      {
+       "t0": 6.0,
+       "t1": 8.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Not in there. Not ever."
+      },
+      {
+       "t0": 8.8,
+       "t1": 12.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Carbon monoxide. You can't see it or smell it."
+      },
+      {
+       "t0": 12.4,
+       "t1": 17.6,
+       "kind": "sign",
+       "text": "NEVER RUN A STOVE, GRILL OR GENERATOR IN A TENT, CAR OR ANY ENCLOSED SPACE"
+      }
+     ]
+    },
+    {
+     "id": "s09",
+     "title": "The Count",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 20,
+     "action": "At the picnic table. Gord stands behind it with his clipboard, writing. Extras step up and put a few things on the table: three water bottles, a bag of chips, a lighter, a phone (draw these props on the table as they appear). Gord's face goes from expectant to grim. At ~10 s Drizzle steps up, unzips his go-bag on the table to add a granola bar — the open bag reveals water pouches, food bars, a water filter, a flashlight, a first-aid kit (draw them peeking out). At ~13 s the crowd's heads ALL turn toward Drizzle (every extra faces him); Drizzle freezes with the granola bar in hand, awkward smile. Gord leans over the table toward him at ~16 s. Slow push-in on Drizzle and the open bag.",
+     "start": "Gord at the table, crowd lining up.",
+     "end": "All eyes on Drizzle and the open go-bag.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Okay. Everything you brought — on the table."
+      },
+      {
+       "t0": 3.8,
+       "t1": 6.8,
+       "kind": "narration",
+       "text": "Most people had run with nothing but their phones."
+      },
+      {
+       "t0": 7.0,
+       "t1": 9.8,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Three waters. Chips. A lighter. That's it?"
+      },
+      {
+       "t0": 10.0,
+       "t1": 12.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "I've got... a granola bar to add!"
+      },
+      {
+       "t0": 13.2,
+       "t1": 15.8,
+       "kind": "narration",
+       "text": "Everyone saw what else was in the bag."
+      },
+      {
+       "t0": 16.2,
+       "t1": 19.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Well, well. What've you got there, Drizzle?"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "title": "Mine",
+   "hook": "Gord: Dale's store has a whole pallet of water.",
+   "scenes": [
+    {
+     "id": "s10",
+     "title": "Pool It",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 20,
+     "action": "Continuous from s09: a half circle of the crowd around Drizzle at the table; Gord taps the clipboard on his palm. A neighbor steps forward, pointing at Drizzle. Drizzle clutches the bag's strap (bag back on his back), shrinking. At ~12.8 s Mags steps in between Drizzle and Gord, radio in hand, calm and immovable; the crowd shifts back half a step. Tension: slow push-in, the extras' heads turn between speakers.",
+     "start": "Crowd around Drizzle, bag open on the table.",
+     "end": "Mags standing between Drizzle and Gord; crowd backed off a step.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.8,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "One pile. I ration it. Fair for everyone."
+      },
+      {
+       "t0": 4.2,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "NEIGHBOR",
+       "text": "Yeah! Why should he keep it?"
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "I want to help, but who decides who gets what?"
+      },
+      {
+       "t0": 10.0,
+       "t1": 12.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "I do. Somebody has to."
+      },
+      {
+       "t0": 12.8,
+       "t1": 15.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Nobody takes anything from anybody. Not today."
+      },
+      {
+       "t0": 16.2,
+       "t1": 19.6,
+       "kind": "narration",
+       "text": "Yesterday they were neighbors. Today they were counting."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "The Duffel",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "At the camp edge by the tents (fewer extras). Tess sits on her padlocked duffel (sit pose), Milo (kid extra) beside her. Gord walks up with two followers (extras) behind him, clipboard raised. Tess stands up slowly, grips the duffel strap, faces him: a standoff, neither moves. Gord leans in on his last line. In the background at left, Drizzle and Mags watch; at 14.6 s Drizzle says his line quietly to Mags.",
+     "start": "Tess sitting on the duffel; Gord approaching.",
+     "end": "Tess and Gord face to face; Drizzle and Mags watching.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "You too, Tess. What's in the bag?"
+      },
+      {
+       "t0": 3.2,
+       "t1": 5.0,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "Mine. For my son."
+      },
+      {
+       "t0": 5.4,
+       "t1": 8.2,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "There's no 'mine' anymore. Not up here."
+      },
+      {
+       "t0": 8.6,
+       "t1": 11.0,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "Says the man holding the list."
+      },
+      {
+       "t0": 11.4,
+       "t1": 14.2,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "We'll talk later. Everybody shares."
+      },
+      {
+       "t0": 14.6,
+       "t1": 17.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "She looks like I feel."
+      }
+     ]
+    },
+    {
+     "id": "s12",
+     "title": "Quietly",
+     "bg": "shelter",
+     "bgOpts": {},
+     "duration": 18,
+     "action": "Under the tarp, later. Drizzle sits on his sleeping bag; Mags on the crate. Drizzle takes the go-bag off and tucks it under the sleeping bag at the bag spot, pulls the sleeping bag over it (out of sight). Mags breaks a food bar in half and hands him one half (rationing). Rain drips from the sag into the bucket. Quiet, intimate framing; slow push-in.",
+     "start": "Both under the tarp.",
+     "end": "Bag hidden under the sleeping bag; each with half a bar.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Ration the food from day one."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "And the water?"
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Drink what you need. Then find more."
+      },
+      {
+       "t0": 10.0,
+       "t1": 13.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "And keep that bag out of sight. People notice."
+      },
+      {
+       "t0": 13.4,
+       "t1": 17.6,
+       "kind": "sign",
+       "text": "RATION FOOD FROM DAY ONE. KEEP SUPPLIES OUT OF SIGHT."
+      }
+     ]
+    },
+    {
+     "id": "s13",
+     "title": "Hidden Water",
+     "bg": "shelter",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Milo (kid extra) wanders up to the tarp; Drizzle quietly slips him a granola bar (finger to lips). Then Mags leads Drizzle to the cabin's open utility shed and points at the WATER HEATER. Drizzle crouches at the drain valve with the bucket; clear water runs from the valve into the bucket (animate the stream). At ~16 s, in the background on the camp side (left/back), Gord appears raised up (on a crate or the table edge), arm up, shouting his line; Drizzle and Mags turn their heads toward him.",
+     "start": "Milo arriving at the tarp.",
+     "end": "Water filling the bucket; both looking toward Gord.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Shh. Our secret. Eat it slow."
+      },
+      {
+       "t0": 3.2,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Every house up here has a hidden water tank."
+      },
+      {
+       "t0": 6.8,
+       "t1": 9.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "The water heater? That's forty gallons!"
+      },
+      {
+       "t0": 9.8,
+       "t1": 12.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Power off. Open the drain. Clean water."
+      },
+      {
+       "t0": 12.6,
+       "t1": 15.6,
+       "kind": "sign",
+       "text": "HIDDEN WATER: A WATER HEATER HOLDS 30–80 GALLONS"
+      },
+      {
+       "t0": 16.0,
+       "t1": 19.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Listen up! Dale's store has a whole pallet of water!"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 4,
+   "title": "Down the Hill",
+   "hook": "Black smoke over Dale's — and Drizzle's go-bag is gone.",
+   "scenes": [
+    {
+     "id": "s14",
+     "title": "Against the Warning",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 18,
+     "action": "By the trailhead at the camp edge. Gord, clipboard under his arm, picks volunteers: three extras step forward (one is a Pruitt twin: cap + rain jacket, mist coat). Mags stands in front of Gord blocking the way, radio in hand, and makes her case (pointing down the hill on 'Lines are down'). Gord steps around her. On the sign (~14 s) the group of four walks off downhill (exit right/down), Gord leading; Drizzle takes a step after them and Mags puts a hand on his chest — he stops.",
+     "start": "Gord picking volunteers.",
+     "end": "The group gone downhill; Mags holding Drizzle back.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Four of us. In and out before lunch."
+      },
+      {
+       "t0": 3.8,
+       "t1": 7.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Into the flood zone? Any aftershock can send another wave."
+      },
+      {
+       "t0": 7.8,
+       "t1": 10.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Lines down. Gas leaking. Walls cracked."
+      },
+      {
+       "t0": 11.0,
+       "t1": 13.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "People are thirsty. I won't wait weeks."
+      },
+      {
+       "t0": 14.0,
+       "t1": 17.8,
+       "kind": "sign",
+       "text": "STAY OUT OF THE FLOOD ZONE"
+      }
+     ]
+    },
+    {
+     "id": "s15",
+     "title": "Dale's",
+     "bg": "gasStation",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Cutaway down in town, no Drizzle/Mags. Gord and three volunteers (one is PRUITT) wade in across the flooded lot (water to the shins, ripples). Pruitt sniffs the air, worried. The downed power line lies across the lot into a puddle; Pruitt holds an arm out to stop another volunteer from stepping near it. Gord and a volunteer wrench the jammed store door (it scrapes open in jerks); the tilted canopy creaks and sways slightly. Faint shimmer lines (fuel vapor) rise from the sheen. On the sign, a tiny blue-white SPARK crackles where the downed line touches the water near the sheen — hold on it as the scene ends (no explosion yet). Tension: slow push-in.",
+     "start": "Group wading in.",
+     "end": "Door forced open; a spark at the downed line.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "narration",
+       "text": "Dale's Gas & Grocery. The flood zone."
+      },
+      {
+       "t0": 3.4,
+       "t1": 5.8,
+       "kind": "dialogue",
+       "speaker": "PRUITT",
+       "text": "Gord... you smell that?"
+      },
+      {
+       "t0": 6.2,
+       "t1": 8.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Just grab the water. Fast."
+      },
+      {
+       "t0": 8.8,
+       "t1": 11.2,
+       "kind": "dialogue",
+       "speaker": "PRUITT",
+       "text": "Watch the wire! Stay out of that puddle!"
+      },
+      {
+       "t0": 11.6,
+       "t1": 14.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Pallet's right inside. Get the door open."
+      },
+      {
+       "t0": 15.0,
+       "t1": 19.6,
+       "kind": "sign",
+       "text": "TREAT EVERY DOWNED LINE AS LIVE. IF YOU SMELL GAS, GET OUT."
+      }
+     ]
+    },
+    {
+     "id": "s16",
+     "title": "Smoke",
+     "bg": "townView",
+     "bgOpts": {},
+     "duration": 18,
+     "action": "Drizzle, Mags and Milo (kid extra) at the hill lip, looking down at the tiny figures near Dale's. At ~7.4 s: a bright FLASH at the gas station (whiteout pop, then orange-free — use paper/fog whites, no yellow), a camera shake (RD.shake), and a column of thick BLACK SMOKE billows up from the station and keeps rising and spreading for the rest of the scene. Drizzle steps forward (scared), Mags grabs his arm. Milo hides behind Drizzle. No people visible hurt — the figures in town are too small to see; just smoke.",
+     "start": "At the lip, looking down.",
+     "end": "Black smoke rising over the town; Mags holding Drizzle's arm.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Water first. Stoves outside. Ration. Stay out of the flood zone."
+      },
+      {
+       "t0": 4.8,
+       "t1": 7.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Tell that to Gord."
+      },
+      {
+       "t0": 8.0,
+       "t1": 11.0,
+       "kind": "narration",
+       "text": "Dale's Gas & Grocery went up in black smoke."
+      },
+      {
+       "t0": 11.4,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "No. No, no, no—"
+      },
+      {
+       "t0": 13.8,
+       "t1": 17.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Stay here. Nobody else goes down. Nobody."
+      }
+     ]
+    },
+    {
+     "id": "s17",
+     "title": "Gone",
+     "bg": "shelter",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "Drizzle runs back into the shelter (from right), drops to his knees at the bag spot and throws back the sleeping bag — the go-bag is GONE (empty spot, a torn flap of the tarp swinging, muddy boot prints leading away). He searches frantically (looks under the crate, around the cars). Mags arrives behind him. Far in the background the black smoke column rises over the hill edge. Final beat: Drizzle sits back on his heels, staring at the empty spot; slow push-in on his face. 'NEXT: DAY 1 · NIGHT' sting at the end (League Gothic, paper/yellow like Episode 1's 'NEXT: DAY 1').",
+     "start": "Running in.",
+     "end": "Drizzle on his heels at the empty spot; smoke beyond; NEXT sting.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "First-aid kit. They'll need it—"
+      },
+      {
+       "t0": 3.4,
+       "t1": 5.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "...Where's my bag?"
+      },
+      {
+       "t0": 6.0,
+       "t1": 8.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "It was right here. Right HERE."
+      },
+      {
+       "t0": 8.8,
+       "t1": 11.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Who knew where you kept it?"
+      },
+      {
+       "t0": 11.6,
+       "t1": 13.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "...Everyone saw it."
+      },
+      {
+       "t0": 14.0,
+       "t1": 17.0,
+       "kind": "narration",
+       "text": "Smoke below. An empty spot. No one coming."
+      },
+      {
+       "t0": 17.4,
+       "t1": 19.7,
+       "kind": "sign",
+       "text": "NEXT: DAY 1 · NIGHT",
+       "say": "Next... Day one. Night."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

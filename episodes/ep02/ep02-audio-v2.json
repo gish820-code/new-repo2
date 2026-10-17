@@ -1,0 +1,456 @@
+{
+ "version": 2,
+ "notes": "Episode 2 voices + SFX, made exactly like Episode 1 v4: ElevenLabs v4 (elevenlabs_v4 via Higgsfield) multi-speaker takes per run of voiced captions (audio/ep02/vo/ep02-blocks-v2.json), split into lines, captions retimed to the speech, mouth flaps synced; SFX synthesized with ffmpeg (same synthesizer + a few new kinds).",
+ "model": "elevenlabs_v4",
+ "cast": {
+  "NARRATOR": {
+   "name": "Arthur",
+   "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DRIZZLE": {
+   "name": "Dylan",
+   "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "MAGS": {
+   "name": "Mabel",
+   "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "RADIO": {
+   "name": "Grady",
+   "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+   "fx": "radio",
+   "gainDb": -2
+  },
+  "NEIGHBOR": {
+   "name": "Jake",
+   "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f",
+   "fx": "none",
+   "gainDb": -1
+  },
+  "GORD": {
+   "name": "Gideon",
+   "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "TESS": {
+   "name": "Sloane",
+   "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "PRUITT": {
+   "name": "Knox",
+   "voice_id": "195e386a-cb61-5c1b-a53b-0e2f0669c408",
+   "fx": "none",
+   "gainDb": -1
+  },
+  "NEIGHBOR_F": {
+   "name": "Juno",
+   "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+   "fx": "none",
+   "gainDb": -1
+  }
+ },
+ "ambience": {
+  "s01": "rain-out-light",
+  "s02": "rain-out-light",
+  "s03": "rain-out",
+  "s04": "rain-out-light",
+  "s05": "rain-out-light",
+  "s06": "rain-out-light",
+  "s07": "rain-out",
+  "s08": "rain-out",
+  "s09": "rain-out-light",
+  "s10": "rain-out-light",
+  "s11": "rain-out-light",
+  "s12": "rain-in",
+  "s13": "rain-in",
+  "s14": "rain-out-light",
+  "s15": "rain-out",
+  "s16": "rain-out",
+  "s17": "rain-in"
+ },
+ "sfx": {
+  "s01": [
+   {
+    "type": "roar",
+    "t": 0.0,
+    "d": 5.0,
+    "level": 0.35,
+    "rampIn": 0.6
+   }
+  ],
+  "s02": [
+   {
+    "type": "murmur",
+    "t": 4.0,
+    "d": 11.0,
+    "level": 0.35,
+    "rampIn": 1.5
+   }
+  ],
+  "s03": [
+   {
+    "type": "roar",
+    "t": 0.0,
+    "d": 20.0,
+    "level": 0.18,
+    "rampIn": 1.0
+   }
+  ],
+  "s04": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.8,
+    "rampIn": 0.3
+   }
+  ],
+  "s05": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 3.0,
+    "level": 0.5,
+    "rampIn": 0.1
+   },
+   {
+    "type": "crank",
+    "t": 0.4,
+    "d": 13.2
+   },
+   {
+    "type": "static",
+    "t": 0.6,
+    "d": 1.8,
+    "level": 1.0
+   },
+   {
+    "type": "static",
+    "t": 2.4,
+    "d": 11.2,
+    "level": 0.35
+   }
+  ],
+  "s06": [
+   {
+    "type": "murmur",
+    "t": 0.35,
+    "d": 17.5,
+    "level": 1.0,
+    "rampIn": 0.3
+   },
+   {
+    "type": "door",
+    "t": 5.6
+   },
+   {
+    "type": "engine",
+    "t": 5.9,
+    "d": 7.6,
+    "level": 0.8,
+    "rampIn": 0.2
+   },
+   {
+    "type": "spin",
+    "t": 6.0,
+    "d": 7.4,
+    "level": 0.8,
+    "rampIn": 0.3
+   }
+  ],
+  "s07": [
+   {
+    "type": "drip",
+    "t": 2.3,
+    "d": 17.7
+   },
+   {
+    "type": "crackle",
+    "t": 10.0,
+    "d": 10.0,
+    "level": 0.7,
+    "rampIn": 1.0
+   },
+   {
+    "type": "boil",
+    "t": 13.4,
+    "d": 6.6,
+    "level": 0.6,
+    "rampIn": 2.0
+   }
+  ],
+  "s08": [
+   {
+    "type": "crackle",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.6,
+    "rampIn": 0.3
+   },
+   {
+    "type": "boil",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.3,
+    "rampIn": 0.3
+   },
+   {
+    "type": "hiss",
+    "t": 0.0,
+    "d": 12.0,
+    "level": 0.8,
+    "rampIn": 0.3
+   }
+  ],
+  "s09": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 20.0,
+    "level": 0.6,
+    "rampIn": 0.3
+   },
+   {
+    "type": "thud",
+    "t": 2.5,
+    "level": 0.25
+   },
+   {
+    "type": "thud",
+    "t": 3.9,
+    "level": 0.25
+   },
+   {
+    "type": "thud",
+    "t": 5.0,
+    "level": 0.2
+   },
+   {
+    "type": "thud",
+    "t": 6.0,
+    "level": 0.2
+   },
+   {
+    "type": "thud",
+    "t": 6.45,
+    "level": 0.15
+   },
+   {
+    "type": "thud",
+    "t": 10.3,
+    "level": 0.4
+   },
+   {
+    "type": "click",
+    "t": 10.8
+   },
+   {
+    "type": "click",
+    "t": 10.95
+   }
+  ],
+  "s10": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 20.0,
+    "level": 0.7,
+    "rampIn": 0.3
+   }
+  ],
+  "s11": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.25,
+    "rampIn": 0.3
+   }
+  ],
+  "s12": [
+   {
+    "type": "drip",
+    "t": 0.0,
+    "d": 18.0
+   },
+   {
+    "type": "crackle",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.35,
+    "rampIn": 0.3
+   },
+   {
+    "type": "snap",
+    "t": 2.1,
+    "level": 0.3
+   }
+  ],
+  "s13": [
+   {
+    "type": "drip",
+    "t": 0.0,
+    "d": 20.0
+   },
+   {
+    "type": "click",
+    "t": 11.0
+   },
+   {
+    "type": "pour",
+    "t": 11.35,
+    "d": 8.65,
+    "level": 0.8,
+    "rampIn": 0.2
+   },
+   {
+    "type": "murmur",
+    "t": 15.6,
+    "d": 4.4,
+    "level": 0.4,
+    "rampIn": 0.5
+   }
+  ],
+  "s14": [
+   {
+    "type": "murmur",
+    "t": 0.0,
+    "d": 18.0,
+    "level": 0.5,
+    "rampIn": 0.3
+   }
+  ],
+  "s15": [
+   {
+    "type": "hiss",
+    "t": 2.5,
+    "d": 17.5,
+    "level": 0.4,
+    "rampIn": 2.0
+   },
+   {
+    "type": "creak",
+    "t": 5.6,
+    "d": 1.2
+   },
+   {
+    "type": "creak",
+    "t": 13.1,
+    "d": 1.2
+   },
+   {
+    "type": "creak",
+    "t": 17.6,
+    "d": 1.2
+   },
+   {
+    "type": "scrape",
+    "t": 11.9
+   },
+   {
+    "type": "scrape",
+    "t": 12.6
+   },
+   {
+    "type": "scrape",
+    "t": 13.3
+   },
+   {
+    "type": "scrape",
+    "t": 14.0
+   },
+   {
+    "type": "scrape",
+    "t": 14.7
+   },
+   {
+    "type": "spark",
+    "t": 15.0
+   },
+   {
+    "type": "spark",
+    "t": 15.6,
+    "level": 0.7
+   },
+   {
+    "type": "spark",
+    "t": 16.4
+   },
+   {
+    "type": "spark",
+    "t": 17.3,
+    "level": 0.8
+   },
+   {
+    "type": "spark",
+    "t": 18.5
+   },
+   {
+    "type": "spark",
+    "t": 19.4,
+    "level": 0.8
+   }
+  ],
+  "s16": [
+   {
+    "type": "roar",
+    "t": 0.0,
+    "d": 7.4,
+    "level": 0.15,
+    "rampIn": 0.5
+   },
+   {
+    "type": "impact",
+    "t": 7.4,
+    "level": 1.0
+   },
+   {
+    "type": "crash",
+    "t": 7.45,
+    "level": 0.8
+   },
+   {
+    "type": "rumble",
+    "t": 7.4,
+    "d": 2.0,
+    "rampIn": 0.05,
+    "level": 0.7
+   },
+   {
+    "type": "roar",
+    "t": 7.6,
+    "d": 10.4,
+    "level": 0.5,
+    "rampIn": 0.3
+   }
+  ],
+  "s17": [
+   {
+    "type": "drip",
+    "t": 0.0,
+    "d": 20.0
+   },
+   {
+    "type": "roar",
+    "t": 0.0,
+    "d": 20.0,
+    "level": 0.12,
+    "rampIn": 0.3
+   },
+   {
+    "type": "thud",
+    "t": 1.95,
+    "level": 0.5
+   }
+  ]
+ }
+}
