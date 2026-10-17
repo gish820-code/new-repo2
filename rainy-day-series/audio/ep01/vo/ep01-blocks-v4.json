@@ -1,0 +1,730 @@
+[
+ {
+  "id": "s01-b1",
+  "sid": "s01",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Gull Harbor, Washington. Population: twenty-one hundred and forty.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "NARRATOR",
+    "text": "It rains here two hundred days a year.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 2,
+    "speaker": "NARRATOR",
+    "text": "And Drizzle is ready for every single one of them.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 0,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s01-b1-v4.mp3"
+ },
+ {
+  "id": "s02-b1",
+  "sid": "s02",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "MAGS",
+    "text": "Drizzle... you're wearing your raincoat. Indoors.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Hey, you never know when it'll rain in here.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Uh-huh. I came for sugar. And to check your go-bag.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "My snack bag? It's right by the door.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Water, flashlight, meds, radio... then snacks.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 5,
+    "speaker": "DRIZZLE",
+    "text": "Snacks are a food group, Mags.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 1,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s02-b1-v4.mp3"
+ },
+ {
+  "id": "s03-b1",
+  "sid": "s03",
+  "lines": [
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Uh, Mags? Why is my mug... dancing?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "That's an earthquake. Drop!",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "The doorway! We go to the doorway, right?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "No, no — under the table. Cover!",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 2,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s03-b1-v4.mp3"
+ },
+ {
+  "id": "s03-b2",
+  "sid": "s03",
+  "lines": [
+   {
+    "cap": 6,
+    "speaker": "MAGS",
+    "text": "Grab a leg and hold on. Don't let go.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 3,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s03-b2-v4.mp3"
+ },
+ {
+  "id": "s04-b1",
+  "sid": "s04",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "It's still going...",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Big ones can last minutes. Stay put.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "NARRATOR",
+    "text": "A magnitude nine can shake for three to five minutes.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Is the house supposed to make that noise?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Hold on, kid. I've got you.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "Then the lights went out.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 4,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s04-b1-v4.mp3"
+ },
+ {
+  "id": "s05-b1",
+  "sid": "s05",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Then... nothing.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Is it over? Can I let go now?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "You can let go. But we're not staying.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Oh... my kitchen.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "We're right on the coast. Shaking that long means one thing.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 5,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s05-b1-v4.mp3"
+ },
+ {
+  "id": "s06-b1",
+  "sid": "s06",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Okay, okay. Laptop... photo album... plant—",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Put it down. All of it.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Just the go-bag. Nothing else.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 6,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s06-b1-v4.mp3"
+ },
+ {
+  "id": "s06-b2",
+  "sid": "s06",
+  "lines": [
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "Can the plant at least come?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 5,
+    "speaker": "MAGS",
+    "text": "The plant can swim.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 7,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s06-b2-v4.mp3"
+ },
+ {
+  "id": "s07-b1",
+  "sid": "s07",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "Outside, Gull Harbor looked... wrong.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Mags... where's all the water going?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Out. And it's coming back. Bigger.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 8,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s07-b1-v4.mp3"
+ },
+ {
+  "id": "s07-b2",
+  "sid": "s07",
+  "lines": [
+   {
+    "cap": 4,
+    "speaker": "NEIGHBOR",
+    "text": "Huh. No alert on my phone yet...",
+    "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f"
+   },
+   {
+    "cap": 5,
+    "speaker": "MAGS",
+    "text": "The shaking WAS the alert.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 9,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s07-b2-v4.mp3"
+ },
+ {
+  "id": "s08-b1",
+  "sid": "s08",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Why isn't the siren going off?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Power's out. No siren's coming.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Don't wait for a warning. We walk uphill. Now.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Everybody! Uphill! Come on!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "NARRATOR",
+    "text": "Out past the harbor mouth, the horizon began to rise.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 10,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s08-b1-v4.mp3"
+ },
+ {
+  "id": "s09-b1",
+  "sid": "s09",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Should we take your truck?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Roads crack. Cars jam. Feet don't get stuck in traffic.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 11,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s09-b1-v4.mp3"
+ },
+ {
+  "id": "s09-b2",
+  "sid": "s09",
+  "lines": [
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Hey! Leave the car! Walk with us!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "NARRATOR",
+    "text": "The hill was twenty minutes away. On foot.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 12,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s09-b2-v4.mp3"
+ },
+ {
+  "id": "s10-b1",
+  "sid": "s10",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "The evacuation trail. Steep. Muddy. Perfect.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Well... at least I'm getting my steps in.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 13,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s10-b1-v4.mp3"
+ },
+ {
+  "id": "s10-b2",
+  "sid": "s10",
+  "lines": [
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Down! Cover your head and neck!",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 14,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s10-b2-v4.mp3"
+ },
+ {
+  "id": "s10-b3",
+  "sid": "s10",
+  "lines": [
+   {
+    "cap": 5,
+    "speaker": "DRIZZLE",
+    "text": "Okay. I officially hate the ground.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 6,
+    "speaker": "MAGS",
+    "text": "Up. Keep moving.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 15,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s10-b3-v4.mp3"
+ },
+ {
+  "id": "s11-b1",
+  "sid": "s11",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "MAGS",
+    "text": "Give me a second. These knees are old.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Lean on me. I'm very sturdy.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 16,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s11-b1-v4.mp3"
+ },
+ {
+  "id": "s11-b2",
+  "sid": "s11",
+  "lines": [
+   {
+    "cap": 3,
+    "speaker": "RADIO",
+    "text": "...tsunami warning for the Washington coast... move to high ground immediately...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "See? It's official.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 5,
+    "speaker": "MAGS",
+    "text": "And twenty minutes late. Climb.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 17,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s11-b2-v4.mp3"
+ },
+ {
+  "id": "s12-b1",
+  "sid": "s12",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Mags... you need to see this.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "MAGS",
+    "text": "Don't stop. Don't watch. Keep going.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 2,
+    "speaker": "NARRATOR",
+    "text": "A gray line stretched across the whole horizon.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "That's... that's not a cloud.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "NARRATOR",
+    "text": "And it was moving fast.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 18,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s12-b1-v4.mp3"
+ },
+ {
+  "id": "s13-b1",
+  "sid": "s13",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "MAGS",
+    "text": "Move! Go, go!",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 1,
+    "speaker": "NARRATOR",
+    "text": "The first wave hit twenty-two minutes after the shaking.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 2,
+    "speaker": "DRIZZLE",
+    "text": "The dock... the ferry...",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Boats can be replaced. Keep climbing.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 19,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s13-b1-v4.mp3"
+ },
+ {
+  "id": "s13-b2",
+  "sid": "s13",
+  "lines": [
+   {
+    "cap": 5,
+    "speaker": "DRIZZLE",
+    "text": "Climbing! I'm climbing!",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   }
+  ],
+  "index": 20,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s13-b2-v4.mp3"
+ },
+ {
+  "id": "s13b-b1",
+  "sid": "s13b",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "The second wave was bigger.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "Mags... Main Street. It's — it's all going.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "We're high enough here. Catch your breath.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "DRIZZLE",
+    "text": "Your house is down there...",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 4,
+    "speaker": "MAGS",
+    "text": "Houses get rebuilt. People don't.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "By the time the water pulled back, the lower town was gone.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 21,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s13b-b1-v4.mp3"
+ },
+ {
+  "id": "s14-b1",
+  "sid": "s14",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "NARRATOR",
+    "text": "The hilltop assembly area. Higher than any wave.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 1,
+    "speaker": "DRIZZLE",
+    "text": "We made it. We actually made it.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 2,
+    "speaker": "MAGS",
+    "text": "Because we didn't wait. Remember that.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 3,
+    "speaker": "NARRATOR",
+    "text": "The school got every kid up the hill. They'd practiced.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "...Maybe I should practice.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 5,
+    "speaker": "MAGS",
+    "text": "Everyone should.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 22,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s14-b1-v4.mp3"
+ },
+ {
+  "id": "s15-b1",
+  "sid": "s15",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "DRIZZLE",
+    "text": "Okay. So... three things.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 1,
+    "speaker": "NARRATOR",
+    "text": "One. Drop, cover, and hold on.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 2,
+    "speaker": "NARRATOR",
+    "text": "Two. On the coast, if it shakes... walk uphill. Now.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 3,
+    "speaker": "NARRATOR",
+    "text": "Three. Grab the go-bag. Not your stuff.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 4,
+    "speaker": "DRIZZLE",
+    "text": "And four: snacks.",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 5,
+    "speaker": "MAGS",
+    "text": "...Fine. Snacks.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   }
+  ],
+  "index": 23,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s15-b1-v4.mp3"
+ },
+ {
+  "id": "s16-b1",
+  "sid": "s16",
+  "lines": [
+   {
+    "cap": 0,
+    "speaker": "RADIO",
+    "text": "...the Highway one-oh-one bridge at Gull Creek has collapsed...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 1,
+    "speaker": "RADIO",
+    "text": "...no road access to Gull Harbor at this time...",
+    "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678"
+   },
+   {
+    "cap": 2,
+    "speaker": "DRIZZLE",
+    "text": "So... nobody's coming?",
+    "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60"
+   },
+   {
+    "cap": 3,
+    "speaker": "MAGS",
+    "text": "Not today. Not by road.",
+    "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706"
+   },
+   {
+    "cap": 4,
+    "speaker": "NARRATOR",
+    "text": "Then... a light on the water.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   },
+   {
+    "cap": 5,
+    "speaker": "NARRATOR",
+    "text": "Next... Day one.",
+    "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346"
+   }
+  ],
+  "index": 24,
+  "file": "audio/ep01/vo/blocks-v4/ep01-s16-b1-v4.mp3"
+ }
+]
