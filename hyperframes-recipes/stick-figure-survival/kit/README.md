@@ -9,7 +9,7 @@ container. This kit holds what the recipe format does not carry:
 
 | File | Copy to (in the new project) | Why |
 | --- | --- | --- |
-| `castaway-rig.js` | `assets/castaway-rig.js` | The shared stick-figure character + island kit. Every frame pastes it verbatim. |
+| `castaway-rig.js` | `assets/castaway-rig.js` | The shared stick-figure character + island kit (sea, island, palm) + forest kit (ground, forest, pine, leafyTree, stream). Every frame pastes it verbatim. |
 | `gsap.min.js` | `assets/gsap.min.js` | The jsdelivr CDN is blocked in this environment; GSAP must load locally. |
 | `fonts/*.woff2` | `assets/fonts/` | Instrument Serif, Archivo, JetBrains Mono for frame.md. |
 | `dispatch-template.md` | `.hyperframes/frame-packets/_dispatch.md` | Worker overrides (no GSAP tag, mandatory rig, fonts, ids). Replace its `## Video direction` with the new storyboard's. |

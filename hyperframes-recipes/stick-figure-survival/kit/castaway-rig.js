@@ -329,5 +329,80 @@
     return g;
   }
 
-  window.CastawayRig = { figure, animate, mix, POSES, palm, island, sea, sun, el, hash, INK, SUN, PAPER, PAPER_DEEP, EMBER };
+
+  // ---------------------------------------------------------------- forest kit
+  function ground(parent, opts) {
+    // flat forest floor: paper-deep band below the ground line y, ink hairline, grass tufts
+    opts = opts || {};
+    const gy = opts.y || 820, w = opts.width || 1920;
+    const g = el("g", { class: "ground" }, parent);
+    el("rect", { x: -200, y: gy, width: w + 400, height: 1080 - gy + 200, fill: PAPER_DEEP }, g);
+    el("line", { x1: -200, y1: gy, x2: w + 200, y2: gy, stroke: INK, "stroke-width": 4, "stroke-linecap": "round" }, g);
+    for (let i = 0; i < 26; i++) {
+      const x = ((i * 173) % (w + 100)) - 40, y = gy + 18 + ((i * 53) % 150);
+      el("path", { d: `M${x} ${y} l 6 -16 M${x + 9} ${y} l 2 -20 M${x + 17} ${y} l -3 -14`, stroke: INK, "stroke-width": 3, "stroke-linecap": "round", opacity: 0.4 }, g);
+    }
+    return g;
+  }
+
+  function pine(parent, x, y, scale, opts) {
+    // ink pine standing on the ground at (x, y); opts.opacity for background depth
+    scale = scale || 1;
+    opts = opts || {};
+    const s = scale;
+    const g = el("g", { class: "pine", opacity: opts.opacity !== undefined ? opts.opacity : 1 }, parent);
+    el("path", { d: `M${x} ${y} L${x} ${y - 70 * s}`, stroke: opts.stroke || INK, "stroke-width": 12 * s, "stroke-linecap": "round" }, g);
+    const tiers = [[0, 150], [95, 120], [175, 90], [240, 60]];
+    tiers.forEach(([dy, hw], i) => {
+      const base = y - 60 * s - dy * s;
+      const tip = base - 150 * s;
+      el("path", { d: `M${x - hw * s} ${base} L${x} ${tip} L${x + hw * s} ${base} Z`, fill: opts.fill || PAPER, stroke: opts.stroke || INK, "stroke-width": 7 * s, "stroke-linejoin": "round" }, g);
+      el("path", { d: `M${x - hw * 0.55 * s} ${base - 4 * s} l ${10 * s} ${-14 * s} M${x + hw * 0.3 * s} ${base - 4 * s} l ${10 * s} ${-14 * s}`, stroke: INK, "stroke-width": 3 * s, "stroke-linecap": "round", opacity: 0.5 }, g);
+    });
+    g.top = [x, y - 60 * s - 240 * s - 150 * s];
+    return g;
+  }
+
+  function leafyTree(parent, x, y, scale, opts) {
+    scale = scale || 1;
+    opts = opts || {};
+    const s = scale;
+    const g = el("g", { class: "leafy-tree", opacity: opts.opacity !== undefined ? opts.opacity : 1 }, parent);
+    el("path", { d: `M${x - 14 * s} ${y} C ${x - 10 * s} ${y - 120 * s}, ${x - 8 * s} ${y - 200 * s}, ${x} ${y - 250 * s} M${x + 14 * s} ${y} C ${x + 10 * s} ${y - 120 * s}, ${x + 10 * s} ${y - 200 * s}, ${x + 4 * s} ${y - 250 * s} M${x} ${y - 190 * s} l ${40 * s} ${-50 * s}`, stroke: INK, "stroke-width": 8 * s, "stroke-linecap": "round", fill: "none" }, g);
+    const cy = y - 330 * s;
+    el("path", { d: `M${x - 150 * s} ${cy + 40 * s} c ${-40 * s} ${-80 * s}, ${40 * s} ${-160 * s}, ${100 * s} ${-120 * s} c ${20 * s} ${-70 * s}, ${140 * s} ${-70 * s}, ${150 * s} ${0} c ${70 * s} ${-10 * s}, ${100 * s} ${90 * s}, ${40 * s} ${130 * s} c ${10 * s} ${60 * s}, ${-110 * s} ${80 * s}, ${-140 * s} ${40 * s} c ${-60 * s} ${40 * s}, ${-170 * s} ${10 * s}, ${-150 * s} ${-50 * s} Z`, fill: opts.fill || PAPER, stroke: INK, "stroke-width": 8 * s, "stroke-linejoin": "round" }, g);
+    return g;
+  }
+
+  function forest(parent, opts) {
+    // a full forest backdrop on a ground line: two dim back rows + a front row of pines.
+    // opts: { y, seed, skip: [x ranges to keep clear as [x0, x1]] }
+    opts = opts || {};
+    const gy = opts.y || 820, seed = opts.seed || 1, skip = opts.skip || [];
+    const g = el("g", { class: "forest" }, parent);
+    const clear = (x) => skip.some(([a, b]) => x > a && x < b);
+    const rows = [
+      { n: 14, y: gy - 40, s: 0.55, c: "#C3C1C4" },
+      { n: 10, y: gy - 18, s: 0.8, c: "#9EA0B6" },
+    ];
+    rows.forEach((r, ri) => {
+      for (let i = 0; i < r.n; i++) {
+        const x = (i + 0.5) * (1920 / r.n) + hash(seed * 7 + i + ri * 31) * 40;
+        if (!clear(x)) pine(g, x, r.y, r.s * (1 + hash(seed + i * 3 + ri) * 0.12), { stroke: r.c });
+      }
+    });
+    return g;
+  }
+
+  function stream(parent, d, opts) {
+    // a stream along an SVG path d: wide paper-deep band + ink banks + current ticks
+    opts = opts || {};
+    const g = el("g", { class: "stream" }, parent);
+    el("path", { d, stroke: INK, "stroke-width": (opts.width || 70) + 10, fill: "none", "stroke-linecap": "round" }, g);
+    el("path", { d, stroke: "#CBD0D8", "stroke-width": opts.width || 70, fill: "none", "stroke-linecap": "round" }, g);
+    el("path", { d, stroke: INK, "stroke-width": 3, fill: "none", "stroke-dasharray": "18 26", opacity: 0.5, "stroke-linecap": "round" }, g);
+    return g;
+  }
+
+  window.CastawayRig = { figure, animate, mix, POSES, palm, island, sea, sun, ground, pine, leafyTree, forest, stream, el, hash, INK, SUN, PAPER, PAPER_DEEP, EMBER };
 })();
