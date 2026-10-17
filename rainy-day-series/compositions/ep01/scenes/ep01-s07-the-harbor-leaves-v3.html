@@ -1,0 +1,1676 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+    @font-face { font-family: "Kalam"; src: url("assets/fonts/Kalam-Bold.woff2") format("woff2"); font-weight: 700; }
+    #s07-ground { position: absolute; inset: 0; background: #141B26; }
+    #s07-stage { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+  </style>
+  <div id="root" data-composition-id="ep01-s07" data-width="1920" data-height="1080" data-duration="20">
+    <div id="s07-ground" class="clip" data-start="0" data-duration="20" data-track-index="0"></div>
+    <svg id="s07-stage" class="clip" data-start="0" data-duration="20" data-track-index="1" viewBox="0 0 1920 1080" width="1920" height="1080">
+      <defs id="s07-defs"></defs>
+      <g id="s07-shake"><g id="s07-cam"><g id="s07-bg"></g><g id="s07-mid"></g><g id="s07-chars"></g><g id="s07-fx"></g></g><g id="s07-rain"></g></g>
+      <g id="s07-ui"></g>
+    </svg>
+  </div>
+  <script>
+window.__rdSpeech = {"drizzle": [[4.32, 6.91]], "mags": [[7.17, 10.56], [17.54, 19.24]]};  /* v2: mouth flaps follow the voice track (episodes/ep01/ep01-speech-v4.json) */
+/* Rainy Day rig — v2 (v1 + mouth flaps driven by window.__rdSpeech, the voice-track timing). Shared characters (Drizzle, Mags), hand-drawn line helpers, rain and camera shake.
+ *
+ * HOW TO USE IN A SCENE: paste this file VERBATIM inside your scene's <template><script>, before your own
+ * code (it is guarded, so it defines window.RainyDay once). Everything is deterministic and seek-safe:
+ * every visual is a pure function of timeline time, driven from tween onUpdate callbacks.
+ *
+ * Coordinates: SVG user units = canvas px for an <svg viewBox="0 0 1920 1080">.
+ *
+ *   const RD = window.RainyDay;
+ *   const drizzle = RD.figure(layer, { character: "drizzle", x: 700, y: 640, scale: 1.4 });
+ *   const mags    = RD.figure(layer, { character: "mags",    x: 1100, y: 640, scale: 1.4, facing: -1 });
+ *   RD.animate(tl, drizzle, [
+ *     { t: 0,   pose: "idle" },
+ *     { t: 1.2, pose: "walkA", x: 760 }, { t: 1.5, pose: "walkB", x: 820 },
+ *     { t: 2.0, pose: "point", talk: true, face: "smile" },
+ *     { t: 3.4, pose: "idle",  talk: false },
+ *   ], { start: 0, end: SCENE_DURATION });
+ *
+ * x/y = the HIP when standing. The GROUND line is y + 116*scale for every pose (crouch/cover/sit lower the
+ * hip themselves via the pose's dy), so keep y fixed on flat ground and change poses.
+ * Angles (deg): limbs measured from straight DOWN; positive = toward the facing direction (forward).
+ * Elbow/knee values are RELATIVE bends. torso: 0 upright, + leans forward. head: + nods forward.
+ * Poses: idle, idleB, walkA, walkB, runA, runB, crouch, cover, holdOn, point, talk, shrug, think, reach,
+ *        carry, wave, waveB, sit, kneel, lie, cheer, lookUp, brace.
+ * Faces: neutral, smile, grin, o, worried, scared, determined, closed, talk (mouth flaps automatically).
+ * Keyframe fields: t (scene-local s), pose (name | object from RD.mix), x, y, scale, facing (1|-1), face,
+ *                  talk (true/false — flaps the mouth while true), ease (arriving ease, default power2.inOut).
+ * One RD.animate call per figure per scene (it drives everything from ONE proxy tween).
+ *
+ * Costumes are part of the character: Drizzle ALWAYS wears the yellow slicker with the hood up (and can
+ * wear the go-bag: { bag: true }). Mags wears her cardigan, glasses, gray bun, and holds the hand-crank radio
+ * in her left hand ({ radio: false } to hide it, e.g. when she sets it down).
+ */
+(function () {
+  if (window.RainyDay) return;
+  const NS = "http://www.w3.org/2000/svg";
+
+  const palette = {
+    night: "#141B26", storm: "#24303F", slate: "#3A4A5E", steel: "#5B6E85", mist: "#8FA0B4",
+    fog: "#C3CDD8", paper: "#E6EAEE", ink: "#10161F", slicker: "#F2C230", slickerShade: "#C99A16",
+    cardigan: "#6F7E92", hair: "#B9C0C8",
+  };
+  const LINE = { figure: 8, main: 4, detail: 2 };
+  const INK = palette.ink;
+  const L = { torso: 96, neck: 12, head: 27, upArm: 52, loArm: 50, upLeg: 60, loLeg: 58 };
+
+  const POSES = {
+    idle: { torso: 0, head: 0, lsh: -8, lel: 6, rsh: 8, rel: 6, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    idleB: { torso: 1, head: 3, lsh: -6, lel: 10, rsh: 10, rel: 10, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 1 },
+    walkA: { torso: 4, head: 0, lsh: 28, lel: 20, rsh: -24, rel: 10, lhip: -22, lkn: 8, rhip: 24, rkn: 20, dy: -3 },
+    walkB: { torso: 4, head: 0, lsh: -24, lel: 10, rsh: 28, rel: 20, lhip: 24, lkn: 20, rhip: -22, rkn: 8, dy: -3 },
+    runA: { torso: 16, head: -4, lsh: -40, lel: 85, rsh: 55, rel: 75, lhip: -38, lkn: -70, rhip: 62, rkn: -55, dy: -6 },
+    runB: { torso: 16, head: -4, lsh: 55, lel: 75, rsh: -40, rel: 85, lhip: 62, lkn: -55, rhip: -38, rkn: -70, dy: -6 },
+    crouch: { torso: 30, head: 16, lsh: 50, lel: 30, rsh: 62, rel: 30, lhip: 95, lkn: -120, rhip: 80, rkn: -115, dy: 58 },
+    cover: { torso: 42, head: 26, lsh: 150, lel: 45, rsh: 160, rel: 50, lhip: 100, lkn: -128, rhip: 88, rkn: -122, dy: 64 },
+    holdOn: { torso: 36, head: 20, lsh: 160, lel: 50, rsh: 82, rel: -4, lhip: 100, lkn: -128, rhip: 88, rkn: -122, dy: 64 },
+    point: { torso: 0, head: -4, lsh: -8, lel: 6, rsh: 96, rel: 0, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    talk: { torso: 2, head: 2, lsh: 20, lel: 70, rsh: 35, rel: 60, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    shrug: { torso: 0, head: -4, lsh: -45, lel: -70, rsh: 45, rel: 70, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    think: { torso: 0, head: 8, lsh: -8, lel: 6, rsh: 40, rel: 120, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    reach: { torso: 18, head: 8, lsh: 70, lel: 10, rsh: 95, rel: 8, lhip: -10, lkn: 4, rhip: 12, rkn: 4, dy: 0 },
+    carry: { torso: 8, head: -2, lsh: 70, lel: 70, rsh: 80, rel: 65, lhip: -14, lkn: 10, rhip: 16, rkn: 10, dy: 0 },
+    wave: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 160, rel: 25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    waveB: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 150, rel: -25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    sit: { torso: -10, head: 4, lsh: -32, lel: 4, rsh: 30, rel: 40, lhip: 84, lkn: -6, rhip: 70, rkn: 28, dy: 96 },
+    kneel: { torso: 12, head: 14, lsh: 40, lel: 30, rsh: 55, rel: 35, lhip: 70, lkn: -90, rhip: -5, rkn: 100, dy: 50 },
+    lie: { torso: -90, head: 0, lsh: 160, lel: 10, rsh: 10, rel: -60, lhip: 90, lkn: 0, rhip: 84, rkn: 8, dy: 88 },
+    cheer: { torso: -4, head: -10, lsh: -160, lel: -10, rsh: 160, rel: 10, lhip: -10, lkn: 2, rhip: 10, rkn: 2, dy: 0 },
+    lookUp: { torso: -6, head: -22, lsh: -12, lel: 8, rsh: 12, rel: 8, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    brace: { torso: 6, head: 6, lsh: -55, lel: 30, rsh: 55, rel: 30, lhip: -26, lkn: 22, rhip: 26, rkn: 22, dy: 14 },
+  };
+  const KEYS = Object.keys(POSES.idle);
+
+  function mix(base, over) {
+    const b = typeof base === "string" ? POSES[base] : base;
+    return Object.assign({}, b, over || {});
+  }
+  function hash(n) {
+    const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return (s - Math.floor(s)) * 2 - 1;
+  }
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const f1 = (v) => v.toFixed(1);
+
+  // ---------------------------------------------------------------- hand-drawn line helpers
+  // Points get a small seeded wobble and every stroke is doubled by a faint offset pass, so lines read
+  // as pen-drawn. Static: call once at build time. opts: { stroke, width, fill, seed, wobble, double, opacity }
+  function wobblePts(pts, seed, amt) {
+    return pts.map(([x, y], i) => [x + hash(seed * 13 + i * 7.1) * amt, y + hash(seed * 17 + i * 3.3) * amt]);
+  }
+  function densify(pts, step, closed) {
+    const out = [];
+    const n = pts.length;
+    for (let i = 0; i < (closed ? n : n - 1); i++) {
+      const a = pts[i], b = pts[(i + 1) % n];
+      const d = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const k = Math.max(1, Math.round(d / step));
+      for (let j = 0; j < k; j++) out.push([a[0] + ((b[0] - a[0]) * j) / k, a[1] + ((b[1] - a[1]) * j) / k]);
+    }
+    if (!closed) out.push(pts[n - 1]);
+    return out;
+  }
+  function ptsToD(pts, closed) {
+    return "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + (closed ? " Z" : "");
+  }
+  const sk = {
+    path(parent, pts, o) {
+      o = o || {};
+      const seed = o.seed || 1, amt = o.wobble !== undefined ? o.wobble : 1.6;
+      const g = el("g", { opacity: o.opacity !== undefined ? o.opacity : 1 }, parent);
+      const dense = densify(pts, o.step || 28, !!o.closed);
+      if (o.fill && o.fill !== "none") el("path", { d: ptsToD(dense, true), fill: o.fill, stroke: "none" }, g);
+      const w = o.width || LINE.main;
+      el("path", { d: ptsToD(wobblePts(dense, seed, amt), o.closed), fill: "none", stroke: o.stroke || INK, "stroke-width": w, "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
+      if (o.double !== false) el("path", { d: ptsToD(wobblePts(dense, seed + 101, amt * 1.4), o.closed), fill: "none", stroke: o.stroke || INK, "stroke-width": Math.max(1, w * 0.45), opacity: 0.45, "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
+      return g;
+    },
+    line(parent, x1, y1, x2, y2, o) {
+      return sk.path(parent, [[x1, y1], [x2, y2]], o);
+    },
+    rect(parent, x, y, w, h, o) {
+      return sk.path(parent, [[x, y], [x + w, y], [x + w, y + h], [x, y + h]], Object.assign({ closed: true }, o));
+    },
+    poly(parent, pts, o) {
+      return sk.path(parent, pts, Object.assign({ closed: true }, o));
+    },
+    circle(parent, cx, cy, r, o) {
+      const n = Math.max(12, Math.round(r / 4));
+      const pts = [];
+      for (let i = 0; i < n; i++) pts.push([cx + Math.cos((i / n) * Math.PI * 2) * r, cy + Math.sin((i / n) * Math.PI * 2) * r]);
+      return sk.path(parent, pts, Object.assign({ closed: true, step: 1000 }, o));
+    },
+    hatch(parent, x, y, w, h, o) {
+      // diagonal pen hatching for shading: o.gap, o.angle (deg), o.stroke, o.width, o.opacity
+      o = o || {};
+      const gap = o.gap || 14, a = ((o.angle || 45) * Math.PI) / 180;
+      const g = el("g", { opacity: o.opacity !== undefined ? o.opacity : 0.35 }, parent);
+      const cid = "rdclip" + Math.round(Math.abs(hash((o.seed || 1) + x * 0.37 + y * 0.11)) * 1e9);
+      const cp = el("clipPath", { id: cid }, g);
+      el("rect", { x, y, width: w, height: h }, cp);
+      const inner = el("g", { "clip-path": `url(#${cid})` }, g);
+      const span = w + h;
+      for (let i = -span; i < span; i += gap) {
+        const x1 = x + i, y1 = y, x2 = x1 + Math.cos(a) * span, y2 = y1 + Math.sin(a) * span;
+        el("line", { x1: f1(x1), y1: f1(y1), x2: f1(x2), y2: f1(y2), stroke: o.stroke || INK, "stroke-width": o.width || LINE.detail, "stroke-linecap": "round" }, inner);
+      }
+      return g;
+    },
+  };
+
+  // ---------------------------------------------------------------- characters
+  function figure(parent, opts) {
+    opts = opts || {};
+    const who = opts.character === "mags" ? "mags" : "drizzle";
+    const g = el("g", { class: "rd-figure rd-" + who }, parent);
+    const shadow = el("ellipse", { rx: 70, ry: 10, fill: INK, opacity: 0.18 }, g);
+    const body = el("g", {}, g);
+    const line = { stroke: INK, "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" };
+    // layer order: back limbs → coat → front limbs → head
+    const P = {};
+    P.lleg = el("path", line, body);
+    P.larmOut = el("path", line, body);
+    P.larmFill = el("path", Object.assign({}, line, { stroke: who === "drizzle" ? palette.slickerShade : palette.cardigan }), body);
+    P.larmHand = el("path", line, body);
+    P.bag = el("g", {}, body);
+    P.coat = el("path", { fill: who === "drizzle" ? palette.slicker : palette.cardigan, stroke: INK, "stroke-linejoin": "round" }, body);
+    P.coatDetail = el("path", Object.assign({}, line, { opacity: 0.55 }), body);
+    P.rleg = el("path", line, body);
+    P.bootL = el("ellipse", { fill: INK }, body);
+    P.bootR = el("ellipse", { fill: INK }, body);
+    P.rarmOut = el("path", line, body);
+    P.rarmFill = el("path", Object.assign({}, line, { stroke: who === "drizzle" ? palette.slicker : palette.cardigan }), body);
+    P.rarmHand = el("path", line, body);
+    P.radio = el("g", {}, body);
+    const headG = el("g", {}, body);
+    P.hoodBack = el("path", { fill: palette.slicker, stroke: INK, "stroke-linejoin": "round" }, headG);
+    P.bun = el("circle", { fill: palette.hair, stroke: INK }, headG);
+    P.head = el("circle", { fill: palette.paper, stroke: INK }, headG);
+    P.hoodRim = el("path", Object.assign({}, line, { stroke: palette.slicker }), headG);
+    P.hoodRimInk = el("path", line, headG);
+    P.hair = el("path", Object.assign({}, line, { stroke: palette.hair }), headG);
+    P.eyeL = el("circle", { fill: INK }, headG);
+    P.eyeR = el("circle", { fill: INK }, headG);
+    P.glasses = el("path", Object.assign({}, line, { opacity: who === "mags" ? 1 : 0 }), headG);
+    P.brow = el("path", line, headG);
+    P.mouth = el("path", line, headG);
+    // radio prop (Mags)
+    el("rect", { x: -20, y: -13, width: 40, height: 26, rx: 4, fill: palette.steel, stroke: INK, "stroke-width": 3 }, P.radio);
+    el("circle", { cx: -7, cy: 0, r: 7, fill: palette.fog, stroke: INK, "stroke-width": 2 }, P.radio);
+    el("line", { x1: 6, y1: -6, x2: 15, y2: -6, stroke: INK, "stroke-width": 2 }, P.radio);
+    el("line", { x1: 6, y1: 0, x2: 15, y2: 0, stroke: INK, "stroke-width": 2 }, P.radio);
+    el("line", { x1: 12, y1: -13, x2: 22, y2: -40, stroke: INK, "stroke-width": 3, "stroke-linecap": "round" }, P.radio);
+    el("path", { d: "M20 6 l 10 4 l -3 8", stroke: INK, "stroke-width": 3, fill: "none", "stroke-linecap": "round" }, P.radio);
+    // go-bag (Drizzle, worn on the back)
+    el("rect", { x: -26, y: -34, width: 40, height: 58, rx: 8, fill: palette.slate, stroke: INK, "stroke-width": 3 }, P.bag);
+    el("rect", { x: -22, y: -6, width: 32, height: 18, rx: 4, fill: palette.steel, stroke: INK, "stroke-width": 2 }, P.bag);
+
+    const fig = {
+      g, who,
+      state: Object.assign({ x: 960, y: 640, scale: 1, facing: 1, face: "neutral", talk: false, shadow: 1, bag: false, radio: who === "mags" }, POSES.idle, opts.pose ? mix(opts.pose) : {}, opts),
+      joints: {},
+      time: 0,
+      hand(side) { return this.joints[side === "l" ? "lhand" : "rhand"]; },
+      foot(side) { return this.joints[side === "l" ? "lfoot" : "rfoot"]; },
+      headPos() { return this.joints.head; },
+      draw(t) {
+        if (t !== undefined) this.time = t;
+        const s = this.state, f = s.facing >= 0 ? 1 : -1, sc = s.scale;
+        const step = Math.floor(this.time * 8);
+        const j = (i) => hash(step * 31 + i) * 1.2;
+        const hunch = who === "mags" ? 7 : 0;
+        const torsoA = s.torso + hunch;
+        const W = (lp, i) => [s.x + lp[0] * sc * f + j(i), s.y + lp[1] * sc + j(i + 50)];
+        const hip = [0, s.dy];
+        const td = [Math.sin((torsoA * Math.PI) / 180), -Math.cos((torsoA * Math.PI) / 180)];
+        const shoulder = [hip[0] + td[0] * L.torso, hip[1] + td[1] * L.torso];
+        const neckTop = [shoulder[0] + td[0] * L.neck, shoulder[1] + td[1] * L.neck];
+        const headC = [neckTop[0] + td[0] * L.head, neckTop[1] + td[1] * L.head];
+        const dir = (a) => [Math.sin((a * Math.PI) / 180), Math.cos((a * Math.PI) / 180)];
+        const limb = (root, a1, a2, l1, l2) => {
+          const d1 = dir(a1), mid = [root[0] + d1[0] * l1, root[1] + d1[1] * l1];
+          const d2 = dir(a1 + a2), end = [mid[0] + d2[0] * l2, mid[1] + d2[1] * l2];
+          return [mid, end];
+        };
+        const sh = [shoulder[0] - td[0] * 8, shoulder[1] - td[1] * 8];
+        const [lelb, lhand] = limb(sh, s.lsh + torsoA, s.lel, L.upArm, L.loArm);
+        const [relb, rhand] = limb(sh, s.rsh + torsoA, s.rel, L.upArm, L.loArm);
+        const [lkn, lfoot] = limb(hip, s.lhip, s.lkn, L.upLeg, L.loLeg);
+        const [rkn, rfoot] = limb(hip, s.rhip, s.rkn, L.upLeg, L.loLeg);
+        const pts = (arr, i0) => arr.map((p, k) => W(p, i0 + k));
+        const D = (arr) => "M" + arr.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L");
+        const sw = LINE.figure * sc;
+        // legs + boots
+        P.lleg.setAttribute("d", D(pts([hip, lkn, lfoot], 1)));
+        P.rleg.setAttribute("d", D(pts([hip, rkn, rfoot], 4)));
+        P.lleg.setAttribute("stroke-width", f1(sw)); P.rleg.setAttribute("stroke-width", f1(sw));
+        P.lleg.setAttribute("opacity", 0.85);
+        const fl = W(lfoot, 3), fr = W(rfoot, 6);
+        [[P.bootL, fl], [P.bootR, fr]].forEach(([e, p]) => {
+          e.setAttribute("cx", f1(p[0] + 6 * sc * f)); e.setAttribute("cy", f1(p[1] - 2 * sc));
+          e.setAttribute("rx", f1(13 * sc)); e.setAttribute("ry", f1(7 * sc));
+        });
+        // arms: ink outline (wide) + sleeve color (narrower) for the upper+lower arm, hand stub in ink
+        const sleeveEnd = (elb, hand) => [elb[0] + (hand[0] - elb[0]) * 0.82, elb[1] + (hand[1] - elb[1]) * 0.82];
+        const armDraw = (out, fill, hand, elb, hd, i0) => {
+          const se = sleeveEnd(elb, hd);
+          const p = pts([sh, elb, se], i0);
+          out.setAttribute("d", D(p)); out.setAttribute("stroke-width", f1(sw * 2.6));
+          fill.setAttribute("d", D(p)); fill.setAttribute("stroke-width", f1(sw * 1.7));
+          hand.setAttribute("d", D(pts([se, hd], i0 + 3))); hand.setAttribute("stroke-width", f1(sw));
+        };
+        armDraw(P.larmOut, P.larmFill, P.larmHand, lelb, lhand, 10);
+        armDraw(P.rarmOut, P.rarmFill, P.rarmHand, relb, rhand, 20);
+        P.larmOut.setAttribute("opacity", 0.9);
+        // coat: a trapezoid hung from the shoulders along the torso, hem below the hip
+        const nrm = [-td[1], td[0]];
+        const coatLen = who === "drizzle" ? 1.22 : 1.0;
+        const hem = [shoulder[0] - td[0] * L.torso * coatLen, shoulder[1] - td[1] * L.torso * coatLen];
+        const topW = 24, hemW = who === "drizzle" ? 40 : 32;
+        const cpts = [
+          [sh[0] + nrm[0] * topW, sh[1] + nrm[1] * topW], [sh[0] - nrm[0] * topW, sh[1] - nrm[1] * topW],
+          [hem[0] - nrm[0] * hemW, hem[1] - nrm[1] * hemW], [hem[0] + nrm[0] * hemW, hem[1] + nrm[1] * hemW],
+        ];
+        P.coat.setAttribute("d", D(pts(cpts, 30)) + " Z");
+        P.coat.setAttribute("stroke-width", f1(LINE.main * sc * 1.2));
+        // coat detail: front seam + (Drizzle) toggles / (Mags) pocket
+        const seamTop = [sh[0] + td[0] * 0, sh[1]], seamBot = hem;
+        let det = D(pts([[sh[0] + nrm[0] * 4, sh[1] + nrm[1] * 4], [hem[0] + nrm[0] * 4, hem[1] + nrm[1] * 4]], 40));
+        if (who === "drizzle") {
+          for (let k = 1; k <= 3; k++) {
+            const u = k / 4, cx = sh[0] + (hem[0] - sh[0]) * u + nrm[0] * 4, cy = sh[1] + (hem[1] - sh[1]) * u + nrm[1] * 4;
+            const a = W([cx - nrm[0] * 9, cy - nrm[1] * 9], 44 + k), b = W([cx + nrm[0] * 9, cy + nrm[1] * 9], 48 + k);
+            det += ` M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])}`;
+          }
+        } else {
+          const pc = [sh[0] + (hem[0] - sh[0]) * 0.7 - nrm[0] * 16, sh[1] + (hem[1] - sh[1]) * 0.7 - nrm[1] * 16];
+          const a = W([pc[0] - 9, pc[1] - 7], 52), b = W([pc[0] + 9, pc[1] + 9], 53);
+          det += ` M${f1(a[0])} ${f1(a[1])} L${f1(b[0])} ${f1(a[1])} L${f1(b[0])} ${f1(b[1])} L${f1(a[0])} ${f1(b[1])} Z`;
+        }
+        void seamTop; void seamBot;
+        P.coatDetail.setAttribute("d", det);
+        P.coatDetail.setAttribute("stroke-width", f1(LINE.detail * sc * 1.4));
+        // go-bag on the back
+        if (who === "drizzle" && s.bag) {
+          const bl = [hip[0] + td[0] * 58 - nrm[0] * 34, hip[1] + td[1] * 58 - nrm[1] * 34];
+          const bc = W(bl, 60);
+          P.bag.setAttribute("transform", `translate(${f1(bc[0])} ${f1(bc[1])}) rotate(${f1(torsoA * f)}) scale(${f1(sc * f)} ${f1(sc)})`);
+          P.bag.setAttribute("opacity", 1);
+        } else P.bag.setAttribute("opacity", 0);
+        // radio in Mags' left hand
+        if (who === "mags" && s.radio) {
+          const rh = W(lhand, 13);
+          P.radio.setAttribute("transform", `translate(${f1(rh[0])} ${f1(rh[1] + 10 * sc)}) scale(${f1(sc * f)} ${f1(sc)})`);
+          P.radio.setAttribute("opacity", 1);
+        } else P.radio.setAttribute("opacity", 0);
+        // head
+        const hc = W(headC, 70);
+        const hr = L.head * sc;
+        P.head.setAttribute("cx", f1(hc[0])); P.head.setAttribute("cy", f1(hc[1])); P.head.setAttribute("r", f1(hr));
+        P.head.setAttribute("stroke-width", f1(sw));
+        const tilt = (s.head + torsoA) * f;
+        const fx = (dx, dy) => {
+          const r = (tilt * Math.PI) / 180, x = dx * f * sc, y = dy * sc;
+          return [hc[0] + x * Math.cos(r) - y * Math.sin(r), hc[1] + x * Math.sin(r) + y * Math.cos(r)];
+        };
+        const pt = (p) => f1(p[0]) + " " + f1(p[1]);
+        if (who === "drizzle") {
+          // hood UP: a yellow shell behind/around the head, open toward the face, with an inked rim
+          const R = hr * 1.42;
+          const back = fx(-10, -4);
+          P.hoodBack.setAttribute("d", `M${pt(fx(16, -31))} Q${pt(fx(0, -54))} ${pt(fx(-18, -50))} Q${pt(fx(-46, -38))} ${pt(fx(-44, -2))} Q${pt(fx(-44, 30))} ${pt(fx(-30, 40))} L${pt(fx(12, 44))} Q${pt(fx(26, 36))} ${pt(fx(22, 24))} Q${pt(fx(38, 0))} ${pt(fx(16, -31))} Z`);
+          P.hoodBack.setAttribute("stroke-width", f1(LINE.main * sc * 1.2));
+          P.hoodRim.setAttribute("d", `M${pt(fx(15, -30))} Q${pt(fx(34, 0))} ${pt(fx(19, 27))}`);
+          P.hoodRim.setAttribute("stroke-width", f1(7 * sc));
+          P.hoodRimInk.setAttribute("d", `M${pt(fx(20, -29))} Q${pt(fx(40, 0))} ${pt(fx(23, 26))}`);
+          P.hoodRimInk.setAttribute("stroke-width", f1(LINE.main * sc));
+          P.bun.setAttribute("r", 0);
+          P.hair.setAttribute("d", "");
+          void R; void back;
+        } else {
+          P.hoodBack.setAttribute("d", ""); P.hoodRim.setAttribute("d", ""); P.hoodRimInk.setAttribute("d", "");
+          const bn = fx(-20, -24);
+          P.bun.setAttribute("cx", f1(bn[0])); P.bun.setAttribute("cy", f1(bn[1])); P.bun.setAttribute("r", f1(13 * sc));
+          P.bun.setAttribute("stroke-width", f1(LINE.main * sc));
+          P.hair.setAttribute("d", `M${pt(fx(-27, 8))} Q${pt(fx(-30, -22))} ${pt(fx(-6, -27))} Q${pt(fx(8, -29))} ${pt(fx(18, -21))} M${pt(fx(-23, 14))} Q${pt(fx(-26, -12))} ${pt(fx(-10, -21))}`);
+          P.hair.setAttribute("stroke-width", f1(5 * sc));
+        }
+        // face
+        const talkOpen = s.talk && hash(Math.floor(this.time * 7) + 3) > -0.2;
+        const face = s.talk ? (talkOpen ? "talkOpen" : "talkShut") : s.face;
+        const closed = face === "closed";
+        const eL = fx(5, -4), eR = fx(16, -4);
+        [[P.eyeL, eL], [P.eyeR, eR]].forEach(([e, p]) => {
+          e.setAttribute("cx", f1(p[0])); e.setAttribute("cy", f1(p[1])); e.setAttribute("r", f1((face === "scared" ? 4.6 : 3.6) * sc));
+          e.setAttribute("opacity", closed ? 0 : 1);
+        });
+        P.glasses.setAttribute("d", who === "mags" ? `M${pt(fx(-1, -4))} a ${f1(6 * sc)} ${f1(6 * sc)} 0 1 0 ${f1(12 * sc * f)} 0 a ${f1(6 * sc)} ${f1(6 * sc)} 0 1 0 ${f1(-12 * sc * f)} 0 M${pt(fx(11, -4))} L${pt(fx(14, -5))} M${pt(fx(14, -4))} a ${f1(5 * sc)} ${f1(6 * sc)} 0 1 0 ${f1(10 * sc * f)} 0 a ${f1(5 * sc)} ${f1(6 * sc)} 0 1 0 ${f1(-10 * sc * f)} 0` : "");
+        P.glasses.setAttribute("stroke-width", f1(2.4 * sc));
+        const brows = {
+          worried: `M${pt(fx(1, -13))} L${pt(fx(8, -11))} M${pt(fx(13, -11))} L${pt(fx(20, -13))}`,
+          scared: `M${pt(fx(1, -15))} L${pt(fx(8, -12))} M${pt(fx(13, -12))} L${pt(fx(20, -15))}`,
+          determined: `M${pt(fx(1, -11))} L${pt(fx(8, -9))} M${pt(fx(13, -9))} L${pt(fx(20, -11))}`,
+        };
+        P.brow.setAttribute("d", who === "mags" && !brows[face] ? `M${pt(fx(0, -12))} L${pt(fx(9, -11))} M${pt(fx(13, -11))} L${pt(fx(21, -12))}` : brows[face] || "");
+        P.brow.setAttribute("stroke-width", f1(3 * sc));
+        const m = {
+          neutral: `M${pt(fx(6, 10))} L${pt(fx(16, 10))}`,
+          smile: `M${pt(fx(4, 8))} Q${pt(fx(11, 15))} ${pt(fx(18, 8))}`,
+          grin: `M${pt(fx(3, 7))} Q${pt(fx(11, 19))} ${pt(fx(19, 7))} Z`,
+          o: `M${pt(fx(10, 8))} a ${f1(3.5 * sc)} ${f1(4.5 * sc)} 0 1 0 0.1 0`,
+          worried: `M${pt(fx(4, 13))} Q${pt(fx(11, 7))} ${pt(fx(18, 13))}`,
+          scared: `M${pt(fx(6, 9))} Q${pt(fx(11, 4))} ${pt(fx(16, 9))} Q${pt(fx(11, 16))} ${pt(fx(6, 9))} Z`,
+          determined: `M${pt(fx(6, 11))} L${pt(fx(17, 9))}`,
+          closed: `M${pt(fx(6, 10))} Q${pt(fx(11, 13))} ${pt(fx(16, 10))}`,
+          talkOpen: `M${pt(fx(6, 8))} Q${pt(fx(11, 4))} ${pt(fx(16, 8))} Q${pt(fx(11, 16))} ${pt(fx(6, 8))} Z`,
+          talkShut: `M${pt(fx(6, 10))} Q${pt(fx(11, 12))} ${pt(fx(16, 10))}`,
+        }[face] || "";
+        P.mouth.setAttribute("d", m);
+        P.mouth.setAttribute("fill", face === "grin" || face === "scared" || face === "talkOpen" ? INK : "none");
+        P.mouth.setAttribute("stroke-width", f1(4 * sc));
+        // ground shadow
+        const gy = Math.max(fl[1], fr[1]);
+        shadow.setAttribute("cx", f1((fl[0] + fr[0]) / 2)); shadow.setAttribute("cy", f1(gy + 6 * sc));
+        shadow.setAttribute("rx", f1(70 * sc)); shadow.setAttribute("ry", f1(10 * sc));
+        shadow.setAttribute("opacity", (0.18 * s.shadow).toFixed(3));
+        this.joints = { hip: W(hip, 90), shoulder: W(sh, 91), head: hc, lhand: W(lhand, 13), rhand: W(rhand, 23), lelbow: W(lelb, 11), relbow: W(relb, 21), lfoot: fl, rfoot: fr };
+        return this;
+      },
+    };
+    fig.draw(0);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- animate (one proxy tween per figure)
+  function animate(tl, fig, keys, opts) {
+    opts = opts || {};
+    const start = opts.start || 0;
+    const end = opts.end !== undefined ? opts.end : keys[keys.length - 1].t + 0.01;
+    const states = [];
+    let prev = Object.assign({}, fig.state);
+    keys.forEach((k) => {
+      const s = Object.assign({}, prev);
+      if (k.pose) Object.assign(s, mix(k.pose));
+      ["x", "y", "scale", "facing", "face", "shadow", "talk", "bag", "radio"].forEach((p) => { if (k[p] !== undefined) s[p] = k[p]; });
+      states.push(s);
+      prev = s;
+    });
+    const eases = keys.map((k) => gsap.parseEase(k.ease || "power2.inOut"));
+    // v2: when the scene declares who speaks when (window.__rdSpeech = { drizzle: [[t0, t1], ...], mags: [...] },
+    // scene-local seconds, set right before the scene code), the mouth follows the voice track instead of the keys.
+    const speech = window.__rdSpeech || null;
+    const spans = speech ? speech[fig.who] || [] : null;
+    const proxy = { t: 0 };
+    const apply = (lt) => {
+      let i = 0;
+      while (i < keys.length - 1 && lt >= keys[i + 1].t) i++;
+      const a = states[i], out = Object.assign({}, a);
+      if (i < keys.length - 1 && lt >= keys[i].t) {
+        const b = states[i + 1], span = keys[i + 1].t - keys[i].t;
+        const p = span > 0 ? eases[i + 1](Math.min(1, Math.max(0, (lt - keys[i].t) / span))) : 1;
+        KEYS.concat(["x", "y", "scale", "shadow"]).forEach((k) => { out[k] = a[k] + (b[k] - a[k]) * p; });
+      }
+      if (spans) { const st = lt + start; out.talk = spans.some((r) => st >= r[0] && st < r[1]); }
+      Object.assign(fig.state, out);
+      fig.draw(lt + start);
+      if (opts.onDraw) opts.onDraw(fig, lt + start);
+    };
+    apply(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => apply(proxy.t) }, start);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- weather + camera
+  // rain(tl, parent, opts): falling streaks over [start, end]. opts: { start, end, count, angle, length,
+  // speed, stroke, opacity, seed, x0, y0, w, h }. Deterministic: positions are a function of time.
+  function rain(tl, parent, opts) {
+    opts = opts || {};
+    const start = opts.start || 0, end = opts.end || 10;
+    const n = opts.count || 140, ang = ((opts.angle || 12) * Math.PI) / 180, len = opts.length || 46, speed = opts.speed || 1500;
+    const x0 = opts.x0 || -100, y0 = opts.y0 || -60, w = opts.w || 2120, h = opts.h || 1200, seed = opts.seed || 5;
+    const g = el("g", { class: "rd-rain", opacity: opts.opacity !== undefined ? opts.opacity : 0.5 }, parent);
+    const drops = [];
+    for (let i = 0; i < n; i++) {
+      drops.push({ e: el("line", { stroke: opts.stroke || palette.mist, "stroke-width": i % 5 === 0 ? 3 : 2, "stroke-linecap": "round" }, g), x: x0 + ((hash(seed + i) + 1) / 2) * w, y: ((hash(seed * 3 + i) + 1) / 2) * h, sp: speed * (0.8 + 0.4 * ((hash(i + 9) + 1) / 2)) });
+    }
+    const proxy = { t: 0 };
+    const draw = (t) => {
+      drops.forEach((d) => {
+        const yy = y0 + ((d.y + t * d.sp) % h);
+        const xx = d.x - Math.tan(ang) * (yy - y0) * 0.3;
+        d.e.setAttribute("x1", f1(xx)); d.e.setAttribute("y1", f1(yy));
+        d.e.setAttribute("x2", f1(xx - Math.sin(ang) * len)); d.e.setAttribute("y2", f1(yy - Math.cos(ang) * len));
+      });
+    };
+    draw(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => draw(proxy.t) }, start);
+    return g;
+  }
+
+  // shake(tl, target, opts): deterministic camera shake on a wrapper element's x/y/rotation.
+  // opts: { start, end, amp (px), rot (deg), freq (Hz), rampIn, rampOut }. Use on a <g> or <div> that wraps
+  // the whole scene (never #root). Amplitude ramps in/out so the quake builds and settles.
+  function shake(tl, target, opts) {
+    opts = opts || {};
+    const start = opts.start || 0, end = opts.end || 2, amp = opts.amp || 14, rot = opts.rot || 0.6, freq = opts.freq || 11;
+    const rin = opts.rampIn !== undefined ? opts.rampIn : 0.6, rout = opts.rampOut !== undefined ? opts.rampOut : 0.8;
+    const elx = typeof target === "string" ? (document.getElementById(target.replace(/^#/, "")) || document.querySelector(target)) : target;
+    if (!elx) return;
+    const isSvg = elx && elx.namespaceURI === NS;
+    const proxy = { t: 0 };
+    const apply = (t) => {
+      const dur = end - start;
+      const env = Math.min(1, t / Math.max(0.001, rin)) * Math.min(1, (dur - t) / Math.max(0.001, rout));
+      const k = Math.floor(t * freq), u = t * freq - k;
+      const lerp = (a, b) => a + (b - a) * u;
+      const x = lerp(hash(k * 3 + 1), hash(k * 3 + 4)) * amp * env;
+      const y = lerp(hash(k * 5 + 2), hash(k * 5 + 7)) * amp * 0.6 * env;
+      const r = lerp(hash(k * 7 + 3), hash(k * 7 + 10)) * rot * env;
+      if (isSvg) elx.setAttribute("transform", `translate(${f1(x)} ${f1(y)}) rotate(${r.toFixed(3)} 960 540)`);
+      else elx.style.transform = `translate(${f1(x)}px, ${f1(y)}px) rotate(${r.toFixed(3)}deg)`;
+    };
+    apply(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => apply(proxy.t) }, start);
+  }
+
+  // goBag(parent, x, y, scale): the go-bag as a standalone prop (by the door, being grabbed).
+  function goBag(parent, x, y, scale) {
+    const s = scale || 1;
+    const g = el("g", { transform: `translate(${x} ${y}) scale(${s})` }, parent);
+    el("rect", { x: -32, y: -70, width: 64, height: 76, rx: 12, fill: palette.slate, stroke: INK, "stroke-width": 4 }, g);
+    el("rect", { x: -26, y: -30, width: 52, height: 28, rx: 6, fill: palette.steel, stroke: INK, "stroke-width": 3 }, g);
+    el("path", { d: "M-18 -70 Q 0 -96 18 -70", fill: "none", stroke: INK, "stroke-width": 4, "stroke-linecap": "round" }, g);
+    el("rect", { x: -12, y: -60, width: 24, height: 12, rx: 3, fill: palette.slicker, stroke: INK, "stroke-width": 2 }, g);
+    return g;
+  }
+
+  window.RainyDay = { palette, LINE, POSES, mix, hash, el, sk, figure, animate, rain, shake, goBag };
+})();
+
+/* Rainy Day background — mainStreet (Gull Harbor main street), v1.
+ *
+ * Paste VERBATIM after assets/characters/rainy-day-rig-v1.js. Guarded; registers window.RainyDayBG.mainStreet.
+ *
+ *   const bg = window.RainyDayBG.mainStreet(bgLayer, { damage: 0 });   // bgLayer = <g> in a 1920x1080 SVG
+ *
+ * View: a small Washington coastal town street looking roughly south. Harbor + ferry dock + moored ferry at LEFT,
+ * storefronts along the back (post office, diner, hardware store with the painted "GULL HARBOR" wall sign), gas station at RIGHT, the
+ * hill rising to the east (right background) with the tiny school on its lower slope and the evacuation trail.
+ * Static and deterministic; scenes own all motion (no GSAP inside). Weather is NOT included (add RainyDay.rain).
+ *
+ * OPTS (all optional)
+ *   damage      0 | 1   (default 0). 1 = post-quake: cracked asphalt, broken/crooked windows, leaning power pole
+ *                       with sagging + snapped lines, tilted gas-station canopy, scattered debris, buckled sidewalk.
+ *   level       number  initial harbor water y (default harbor.levelY = 650).
+ *   floatFerry  bool    (default true) setLevel() also floats the ferry on the water (rises on a surge, settles and
+ *                       lists in the mud when drained). Pass false if the scene wants to move the ferry itself.
+ *   seed        number  wobble seed (default 3).
+ *
+ * HANDLES (return value)
+ *   g            root <g> of the whole background.
+ *   groundY      860   street line where feet stand (figure hip y = 860 - 116*scale; scale 1.4 -> y 697.6).
+ *                The street runs full width (x 0..1920); the harbor seawall + railing sit behind it at left.
+ *   sidewalkY    782   back sidewalk / building base line.   nearCurbY 1000 (front curb; below it = caption zone).
+ *   harbor       { g, waterG, shoreX: 545, levelY: 650, drainedY: 790, lowY: 720, surgedY: 560, floodY: 480,
+ *                  wallY: 768, deckY: 612, level, setLevel(y) }
+ *                - waterG holds the harbor water AND the street flood sheet; it sits in FRONT of the street,
+ *                  buildings and gas station (but behind poles/railing/sign), so a surge visibly floods the town.
+ *                - setLevel(y) redraws the water surface at image height y (pure function of y, seek-safe; call it
+ *                  from a tween's onUpdate). Larger y = lower water:
+ *                    650 normal (just under the pier deck) · 720 low · 790 fully DRAINED (exposed mud, rocks,
+ *                    stranded rowboat, pilings with water marks, ferry aground and listing)
+ *                    < 625 water tops the pier and spills over the seawall onto the street: the flood sheet
+ *                    grows rightward and deepens (y 560 ~ floods to x 1450 / ~50px deep; y <= 500 whole street,
+ *                    ~95px up the storefronts; 480 = floodY, everything awash).
+ *                - level = the current y (read-only bookkeeping).
+ *   dock         { g, deckY: 612, x0: 16, x1: 548, hut: { g } }  the ferry pier (pilings, deck, terminal hut).
+ *   ferry        { g, floatG, x: 240, waterline: 650 }  g is scene-owned (translate/rotate freely); floatG is
+ *                driven by setLevel when floatFerry is on.
+ *   gasStation   { g, canopyG, pumps: [{x,y}], x: 1590, y: 782 }  (canopyG is pre-tilted when damage = 1).
+ *   hill         { g, ridge: [[x,y]..], yAt(x) }  hill surface y at x (east hill, right background).
+ *   school       { g, x: 1720, y: 330 }  bottom-centre of the tiny school on the lower slope (above the gas canopy).
+ *   trail        { g, points: [[x,y]..] }  the switchback evacuation trail from the school up to the ridge.
+ *   sign         { g, x: 600, y: 300 }  the "ENTERING TSUNAMI HAZARD ZONE" sign (x = post, y = panel top; base y 800).
+ *   poles        [{ g, x, baseY, top: [x,y] }]  power poles at x 300 / 945 / 1590 (index 1 leans + a line
+ *                snaps when damaged).
+ *   wires        { g }  all power lines.
+ *   buildings    { postOffice, diner, hardware }  each a <g> (x 690–935 / 955–1225 / 1235–1565; doors ~330px).
+ *   debris       { g }  post-quake debris layer (empty when damage = 0).
+ *   layers       { sky, far, hill, mid, harbor, ground, water, front }  draw-order groups.
+ */
+(function () {
+  window.RainyDayBG = window.RainyDayBG || {};
+  if (window.RainyDayBG.mainStreet) return;
+
+  window.RainyDayBG.mainStreet = function (parent, opts) {
+    opts = opts || {};
+    const RD = window.RainyDay, P = RD.palette, LINE = RD.LINE, sk = RD.sk, el = RD.el, H = RD.hash;
+    const INK = P.ink;
+    const DMG = (opts.damage || 0) >= 0.5;
+    const floatFerry = opts.floatFerry !== false;
+    const seed0 = opts.seed || 3;
+    const uid = "rdms" + Math.round(Math.abs(H(seed0 * 1.7 + 0.3)) * 1e6);
+    let sN = seed0 * 1000 + 11;
+    const S = () => (sN += 7);
+
+    const GROUND = 860, SIDE = 782, CURB = 812, NEAR = 1000, HORIZON = 560;
+    const SHOREX = 545, LEVEL = 650, WALL = 768, DECK = 612, FLOOD0 = 625;
+    const FONT_SIGN = "'League Gothic', Oswald, Impact, sans-serif";
+    const FONT_HAND = "Kalam, 'Comic Sans MS', cursive";
+    const f1 = (v) => (+v).toFixed(1);
+    const D = (pts, close) => "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + (close ? " Z" : "");
+
+    const g = el("g", { class: "rdbg-main-street" }, parent);
+    const defs = el("defs", {}, g);
+    const layer = (name, par) => el("g", { class: "ms-" + name }, par || g);
+
+    // ------------------------------------------------------------------ small helpers
+    function txt(par, x, y, s, o) {
+      o = o || {};
+      const a = { x: f1(x), y: f1(y), "font-family": o.font || FONT_SIGN, "font-size": o.size || 24, fill: o.fill || INK, "text-anchor": o.anchor || "middle" };
+      if (o.ls) a["letter-spacing"] = o.ls;
+      if (o.weight) a["font-weight"] = o.weight;
+      if (o.len) { a.textLength = o.len; a.lengthAdjust = "spacingAndGlyphs"; }
+      if (o.opacity !== undefined) a.opacity = o.opacity;
+      if (o.rot) a.transform = `rotate(${o.rot} ${f1(x)} ${f1(y)})`;
+      const t = el("text", a, par);
+      t.textContent = s;
+      return t;
+    }
+    const ellPts = (cx, cy, rx, ry, n) => {
+      const a = []; n = n || 20;
+      for (let i = 0; i < n; i++) { const t = (i / n) * Math.PI * 2; a.push([cx + Math.cos(t) * rx, cy + Math.sin(t) * ry]); }
+      return a;
+    };
+    const rotPt = (p, cx, cy, deg) => {
+      const r = (deg * Math.PI) / 180, dx = p[0] - cx, dy = p[1] - cy;
+      return [cx + dx * Math.cos(r) - dy * Math.sin(r), cy + dx * Math.sin(r) + dy * Math.cos(r)];
+    };
+    // texture lines as one path (bricks, siding, planks): rows of short jittered strokes
+    function lines(par, segs, o) {
+      o = o || {};
+      const d = segs.map((s) => `M${f1(s[0])} ${f1(s[1])} L${f1(s[2])} ${f1(s[3])}`).join(" ");
+      return el("path", { d, stroke: o.stroke || P.storm, "stroke-width": o.width || 1.6, fill: "none", opacity: o.opacity !== undefined ? o.opacity : 0.35, "stroke-linecap": "round" }, par);
+    }
+    function crack(par, x0, y0, x1, y1, o) {
+      o = o || {};
+      const n = o.n || 9, amp = o.amp || 10, seed = o.seed || S();
+      const pts = [];
+      for (let i = 0; i <= n; i++) {
+        const t = i / n, nx = -(y1 - y0), ny = x1 - x0, len = Math.hypot(nx, ny) || 1;
+        const k = i === 0 || i === n ? 0 : (i % 2 ? 1 : -1) * amp * (0.5 + 0.5 * Math.abs(H(seed + i)));
+        pts.push([x0 + (x1 - x0) * t + (nx / len) * k, y0 + (y1 - y0) * t + (ny / len) * k]);
+      }
+      const cg = el("g", {}, par);
+      if (o.shade) sk.path(cg, pts.map((p) => [p[0] + 3, p[1] + 4]), { stroke: o.shade, width: (o.width || 3) + 3, seed: seed + 3, double: false, opacity: 0.6 });
+      sk.path(cg, pts, { stroke: o.stroke || INK, width: o.width || 3, seed, wobble: 1, double: false });
+      if (o.branches) {
+        for (let i = 2; i < n - 1; i += 3) {
+          const p = pts[i], a = Math.atan2(y1 - y0, x1 - x0) + (i % 2 ? 0.9 : -0.9), l = amp * 3.2;
+          sk.path(cg, [p, [p[0] + Math.cos(a) * l * 0.5 + H(seed + i) * 4, p[1] + Math.sin(a) * l * 0.5], [p[0] + Math.cos(a) * l, p[1] + Math.sin(a) * l]], { stroke: o.stroke || INK, width: Math.max(1.5, (o.width || 3) - 1.2), seed: seed + i * 5, double: false });
+        }
+      }
+      return cg;
+    }
+    function glassStar(par, cx, cy, r, seed) {
+      const cg = el("g", {}, par);
+      for (let i = 0; i < 7; i++) {
+        const a = (i / 7) * Math.PI * 2 + H(seed + i) * 0.4, rr = r * (0.55 + 0.45 * Math.abs(H(seed + i * 3)));
+        const mid = [cx + Math.cos(a) * rr * 0.5 + H(seed + i * 5) * 3, cy + Math.sin(a) * rr * 0.5 + H(seed + i * 7) * 3];
+        sk.path(cg, [[cx, cy], mid, [cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]], { stroke: P.paper, width: 1.8, seed: seed + i, double: false, wobble: 0.6 });
+      }
+      sk.path(cg, ellPts(cx, cy, r * 0.32, r * 0.28, 9), { closed: true, stroke: P.paper, width: 1.5, seed: seed + 40, double: false, opacity: 0.8 });
+      return cg;
+    }
+    // window: o = { lit, cols, rows, stroke, brk: 'crack' | 'smash' | 'crooked' }
+    function win(par, x, y, w, h, o) {
+      o = o || {};
+      const wg = el("g", {}, par);
+      const st = o.stroke || P.storm;
+      sk.rect(wg, x, y, w, h, { fill: o.lit ? P.fog : P.slate, stroke: st, width: 3, seed: S(), wobble: 0.9 });
+      sk.line(wg, x + w * 0.18, y + h * 0.5, x + w * 0.5, y + h * 0.16, { stroke: o.lit ? P.paper : P.mist, width: 2, opacity: 0.55, seed: S(), double: false });
+      sk.line(wg, x + w * 0.3, y + h * 0.62, x + w * 0.56, y + h * 0.36, { stroke: o.lit ? P.paper : P.mist, width: 2, opacity: 0.35, seed: S(), double: false });
+      const cols = o.cols || 1, rows = o.rows || 1;
+      for (let c = 1; c < cols; c++) sk.line(wg, x + (w * c) / cols, y + 2, x + (w * c) / cols, y + h - 2, { stroke: st, width: 2.5, seed: S(), double: false });
+      for (let r = 1; r < rows; r++) sk.line(wg, x + 2, y + (h * r) / rows, x + w - 2, y + (h * r) / rows, { stroke: st, width: 2.5, seed: S(), double: false });
+      sk.line(wg, x - 6, y + h + 4, x + w + 6, y + h + 4, { stroke: st, width: LINE.main, seed: S() });
+      if (DMG && o.brk) {
+        if (o.brk === "smash") {
+          const sx = x + w * 0.55, sy = y + h * 0.4;
+          sk.poly(wg, [[sx - w * 0.3, sy - h * 0.25], [sx + w * 0.05, sy - h * 0.32], [sx + w * 0.3, sy + h * 0.05], [sx + w * 0.02, sy + h * 0.4], [sx - w * 0.12, sy + h * 0.08], [sx - w * 0.34, sy + h * 0.2]], { fill: P.night, stroke: P.paper, width: 1.6, seed: S(), double: false });
+          glassStar(wg, sx - w * 0.3, sy - h * 0.2, Math.min(w, h) * 0.35, S());
+        } else if (o.brk === "crack") {
+          glassStar(wg, x + w * (0.3 + 0.4 * Math.abs(H(S()))), y + h * 0.45, Math.min(w, h) * 0.45, S());
+        } else if (o.brk === "crooked") {
+          wg.setAttribute("transform", `rotate(${o.rot || 4} ${f1(x)} ${f1(y)})`);
+          glassStar(wg, x + w * 0.6, y + h * 0.6, Math.min(w, h) * 0.3, S());
+        }
+      }
+      return wg;
+    }
+    function fir(par, x, base, h, o) {
+      o = o || {};
+      const tg = el("g", {}, par);
+      const fill = o.fill || P.storm, stroke = o.stroke || P.night, wd = o.width || 2, w = h * (o.wide || 0.36);
+      sk.line(tg, x, base, x, base - h * 0.2, { stroke, width: Math.max(2, h / 40), seed: S(), double: false });
+      const tiers = o.tiers || 4;
+      for (let i = 0; i < tiers; i++) {
+        const tb = base - h * 0.1 - i * h * (0.68 / tiers);
+        const tt = i === tiers - 1 ? base - h : tb - h * 0.42;
+        const tw = w * (1 - i * (0.7 / tiers));
+        sk.poly(tg, [[x - tw, tb], [x - tw * 0.45, tb - (tb - tt) * 0.35], [x, tt], [x + tw * 0.45, tb - (tb - tt) * 0.35], [x + tw, tb], [x + tw * 0.3, tb - h * 0.035], [x - tw * 0.3, tb - h * 0.035]], { fill, stroke, width: wd, seed: S(), wobble: Math.max(0.6, h / 90), double: h > 90 });
+      }
+      return tg;
+    }
+    function gull(par, x, y, s, o) {
+      o = o || {};
+      s = s || 1;
+      return el("path", { d: `M${f1(x - 9 * s)} ${f1(y)} Q${f1(x - 4 * s)} ${f1(y - 6 * s)} ${f1(x)} ${f1(y)} Q${f1(x + 4 * s)} ${f1(y - 6 * s)} ${f1(x + 9 * s)} ${f1(y)}`, stroke: o.stroke || INK, "stroke-width": o.width || 2, fill: "none", "stroke-linecap": "round", opacity: o.opacity || 0.85 }, par);
+    }
+    function sittingGull(par, x, y) {
+      const gg = el("g", {}, par);
+      sk.path(gg, [[x - 9, y], [x - 6, y - 7], [x + 2, y - 9], [x + 8, y - 14], [x + 12, y - 12], [x + 8, y - 8], [x + 10, y - 2], [x + 2, y]], { closed: true, fill: P.paper, stroke: INK, width: 2, seed: S(), wobble: 0.4, double: false });
+      sk.line(gg, x - 10, y - 4, x - 1, y - 6, { stroke: P.slate, width: 2, seed: S(), double: false });
+      el("circle", { cx: x + 9, cy: y - 12, r: 1.2, fill: INK }, gg);
+      return gg;
+    }
+
+    // ------------------------------------------------------------------ SKY
+    const skyL = layer("sky");
+    const sg = el("linearGradient", { id: uid + "sky", x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+    [[0, P.night], [0.45, P.storm], [0.82, P.slate], [1, P.steel]].forEach(([o, c]) => el("stop", { offset: o, "stop-color": c }, sg));
+    el("rect", { x: -40, y: -40, width: 2000, height: 1160, fill: P.storm }, skyL);
+    el("rect", { x: -40, y: -40, width: 2000, height: HORIZON + 50, fill: `url(#${uid}sky)` }, skyL);
+    function cloud(par, x0, x1, cy, h, fill, op, sd) {
+      const pts = [], n = Math.max(6, Math.round((x1 - x0) / 55));
+      for (let i = 0; i <= n; i++) {
+        const t = i / n, x = x0 + (x1 - x0) * t;
+        const bump = Math.pow(Math.sin(t * Math.PI), 0.7) * h * (0.65 + 0.35 * Math.abs(H(sd + i)));
+        pts.push([x, cy - bump + (i % 2 ? h * 0.12 : 0)]);
+      }
+      pts.push([x1 - 30, cy + h * 0.18], [x0 + (x1 - x0) * 0.6, cy + h * 0.26], [x0 + 40, cy + h * 0.16]);
+      const cg = sk.path(par, pts, { closed: true, fill, stroke: P.night, width: LINE.detail, seed: sd, wobble: 3, opacity: op });
+      sk.hatch(par, x0 + 30, cy - h * 0.1, x1 - x0 - 60, h * 0.32, { gap: 11, angle: 20, stroke: P.night, width: 1.5, opacity: 0.18 * op, seed: sd + 2 });
+      return cg;
+    }
+    cloud(skyL, -80, 620, 120, 90, P.storm, 0.9, S());
+    cloud(skyL, 480, 1260, 70, 70, P.night, 0.55, S());
+    cloud(skyL, 1050, 2000, 140, 110, P.storm, 0.85, S());
+    cloud(skyL, 120, 900, 300, 70, P.slate, 0.6, S());
+    cloud(skyL, 820, 1500, 250, 60, P.storm, 0.5, S());
+    cloud(skyL, -60, 380, 430, 50, P.slate, 0.55, S());
+    // distant rain curtains
+    sk.hatch(skyL, 0, 150, 760, 420, { gap: 20, angle: 102, stroke: P.mist, width: 2, opacity: 0.1, seed: S() });
+    sk.hatch(skyL, 900, 200, 600, 330, { gap: 24, angle: 100, stroke: P.mist, width: 2, opacity: 0.07, seed: S() });
+    [[300, 205, 1], [338, 218, 0.8], [720, 170, 1.1], [1010, 330, 0.7]].forEach(([x, y, s]) => gull(skyL, x, y, s, { opacity: 0.6 }));
+
+    // ------------------------------------------------------------------ FAR: open sea, headland, lighthouse
+    const farL = layer("far");
+    sk.path(farL, [[-30, HORIZON], [1500, HORIZON], [1500, 730], [-30, 730]], { closed: true, fill: P.slate, stroke: P.storm, width: LINE.detail, seed: S(), wobble: 0.5 });
+    sk.line(farL, -20, HORIZON + 1, 1500, HORIZON + 1, { stroke: P.mist, width: 2, opacity: 0.55, seed: S(), double: false, wobble: 0.6 });
+    const waveSegs = [];
+    for (let i = 0; i < 46; i++) {
+      const x = ((i * 137) % 1480) + 10, y = HORIZON + 10 + ((i * 53) % 150);
+      const l = 10 + (y - HORIZON) * 0.18;
+      waveSegs.push([x, y, x + l, y]);
+    }
+    lines(farL, waveSegs, { stroke: P.mist, width: 2, opacity: 0.35 });
+    // headland across the bay, with tiny firs and a lighthouse
+    sk.path(farL, [[-30, 578], [-30, 520], [30, 508], [90, 512], [150, 526], [210, 540], [262, 552], [300, 566], [320, 578]], { closed: true, fill: P.storm, stroke: P.night, width: LINE.detail, seed: S(), wobble: 1.2 });
+    for (let i = 0; i < 9; i++) fir(farL, -10 + i * 26, 518 + i * 3.6, 26 + (i % 3) * 7, { fill: P.night, stroke: P.night, width: 1.5, tiers: 3 });
+    sk.rect(farL, 268, 528, 9, 30, { fill: P.fog, stroke: P.night, width: 2, seed: S(), wobble: 0.3, double: false });
+    sk.poly(farL, [[265, 529], [272.5, 520], [280, 529]], { fill: P.night, stroke: P.night, width: 2, seed: S(), double: false });
+    sk.path(farL, [[264, 525], [222, 512], [222, 538]], { closed: true, fill: P.fog, stroke: "none", width: 0.1, opacity: 0.12, seed: S(), double: false });
+    sk.path(farL, [[380, 566], [410, 556], [450, 553], [490, 560], [510, 567]], { closed: true, fill: P.storm, stroke: P.night, width: 1.6, seed: S(), double: false });
+
+    // ------------------------------------------------------------------ HILL (east), school, trail
+    const hillL = layer("hill");
+    const ridge = [[980, 430], [1150, 352], [1300, 292], [1450, 238], [1600, 192], [1740, 152], [1860, 122], [1960, 104]];
+    const hillY = (x) => {
+      if (x <= ridge[0][0]) return ridge[0][1];
+      for (let i = 0; i < ridge.length - 1; i++) {
+        const a = ridge[i], b = ridge[i + 1];
+        if (x <= b[0]) return a[1] + ((b[1] - a[1]) * (x - a[0])) / (b[0] - a[0]);
+      }
+      return ridge[ridge.length - 1][1];
+    };
+    // a farther ridge behind for depth
+    sk.path(hillL, [[1100, 420], [1260, 300], [1420, 225], [1600, 160], [1780, 112], [1960, 70], [1960, 460], [1100, 460]], { closed: true, fill: P.steel, stroke: P.slate, width: LINE.detail, seed: S(), wobble: 2, opacity: 0.7 });
+    sk.path(hillL, ridge.concat([[1960, 800], [980, 800]]), { closed: true, fill: P.slate, stroke: P.storm, width: LINE.main, seed: S(), wobble: 2 });
+    sk.hatch(hillL, 1000, 100, 960, 700, { gap: 16, angle: 62, stroke: P.storm, width: 1.6, opacity: 0.22, seed: S() });
+    const grass = [];
+    for (let i = 0; i < 90; i++) {
+      const x = 1000 + ((i * 97) % 950), y = hillY(x) + 18 + ((i * 61) % 300);
+      grass.push([x, y, x + 3, y - 9], [x + 5, y, x + 9, y - 7]);
+    }
+    lines(hillL, grass, { stroke: P.mist, width: 1.6, opacity: 0.28 });
+    // ridge firs (top row)
+    for (let i = 0; i < 32; i++) {
+      const x = 990 + i * 31 + H(i + 300) * 9;
+      fir(hillL, x, hillY(x) + 12 + Math.abs(H(i + 50)) * 8, 50 + Math.abs(H(i + 80)) * 36, { fill: P.storm, stroke: P.night, width: 2 });
+    }
+    // school (lower slope, just above the gas-station canopy)
+    const SCHX = 1720, SCHY = 330;
+    // firs flanking the school clearing
+    [[1600, 318, 70], [1628, 336, 58], [1806, 300, 64], [1838, 318, 72], [1878, 286, 60], [1912, 312, 70], [1650, 250, 46], [1860, 236, 44], [1770, 214, 40]].forEach(([x, b, h]) => fir(hillL, x, b, h, { fill: P.storm, stroke: P.night, width: 2, tiers: 3 }));
+    const schoolG = el("g", { class: "ms-school" }, hillL);
+    sk.path(schoolG, ellPts(SCHX + 6, SCHY + 2, 96, 12, 18), { closed: true, fill: P.steel, stroke: "none", seed: S(), double: false, opacity: 0.9 });
+    sk.rect(schoolG, SCHX - 54, SCHY - 58, 108, 58, { fill: P.fog, stroke: P.storm, width: 3, seed: S(), wobble: 0.6 });
+    sk.poly(schoolG, [[SCHX - 64, SCHY - 56], [SCHX, SCHY - 84], [SCHX + 64, SCHY - 56]], { fill: P.steel, stroke: P.storm, width: 3, seed: S(), wobble: 0.6 });
+    lines(schoolG, [[SCHX - 42, SCHY - 62, SCHX + 42, SCHY - 62], [SCHX - 26, SCHY - 70, SCHX + 26, SCHY - 70]], { stroke: P.storm, opacity: 0.5 });
+    sk.rect(schoolG, SCHX - 8, SCHY - 100, 16, 18, { fill: P.fog, stroke: P.storm, width: 2.5, seed: S(), wobble: 0.4, double: false });
+    sk.poly(schoolG, [[SCHX - 12, SCHY - 99], [SCHX, SCHY - 112], [SCHX + 12, SCHY - 99]], { fill: P.steel, stroke: P.storm, width: 2.5, seed: S(), double: false });
+    el("circle", { cx: SCHX, cy: SCHY - 90, r: 3.5, fill: P.storm }, schoolG);
+    for (let i = 0; i < 4; i++) if (i !== 2) win(schoolG, SCHX - 46 + i * 24, SCHY - 44, 15, 16, { stroke: P.storm });
+    sk.rect(schoolG, SCHX + 4, SCHY - 30, 15, 30, { fill: P.slate, stroke: P.storm, width: 2.5, seed: S(), double: false });
+    txt(schoolG, SCHX - 2, SCHY - 50, "SCHOOL", { size: 11, fill: P.storm, len: 44, ls: 1 });
+    sk.line(schoolG, SCHX + 72, SCHY + 2, SCHX + 72, SCHY - 92, { stroke: P.storm, width: 2.5, seed: S(), double: false });
+    sk.path(schoolG, [[SCHX + 72, SCHY - 90], [SCHX + 94, SCHY - 87], [SCHX + 92, SCHY - 79], [SCHX + 72, SCHY - 78]], { closed: true, fill: P.paper, stroke: P.storm, width: 1.8, seed: S(), double: false });
+    // evacuation trail (switchbacks) from the school up the ridge
+    const trailPts = [[SCHX - 30, SCHY + 6], [1800, 300], [1752, 276], [1858, 244], [1812, 216], [1930, 184], [1902, 156], [1960, 146]];
+    const trailG = el("g", { class: "ms-trail" }, hillL);
+    sk.path(trailG, trailPts, { stroke: P.storm, width: 7, seed: S(), wobble: 1.2, double: false, opacity: 0.6 });
+    const tr = sk.path(trailG, trailPts, { stroke: P.fog, width: 3, seed: S(), wobble: 1.2, double: false, opacity: 0.85 });
+    tr.querySelectorAll("path").forEach((p) => p.setAttribute("stroke-dasharray", "10 8"));
+    sk.line(trailG, 1792, 300, 1792, 280, { stroke: P.storm, width: 2.5, seed: S(), double: false });
+    sk.rect(trailG, 1781, 266, 24, 15, { fill: P.steel, stroke: P.paper, width: 1.5, seed: S(), double: false });
+    el("path", { d: "M1786 277 L1793 269 L1800 277 M1793 270 L1793 279", stroke: P.paper, "stroke-width": 1.8, fill: "none", "stroke-linecap": "round" }, trailG);
+    // atmospheric haze over the far layers
+    const hz = el("linearGradient", { id: uid + "haze", x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+    [[0, 0], [0.6, 0.16], [1, 0.05]].forEach(([o, a]) => el("stop", { offset: o, "stop-color": P.mist, "stop-opacity": a }, hz));
+    el("rect", { x: -40, y: 260, width: 2000, height: 460, fill: `url(#${uid}haze)` }, hillL);
+
+    // ------------------------------------------------------------------ HARBOR (bed, ferry, pier) — water comes later
+    const harborL = layer("harbor");
+    const bedG = el("g", { class: "ms-harbor-bed" }, harborL);
+    const bedTop = [];
+    for (let i = 0; i <= 12; i++) { const x = -20 + i * 46; bedTop.push([x, 668 + x * 0.035 + H(i + 900) * 5]); }
+    sk.path(bedG, bedTop.concat([[540, 772], [-20, 772]]), { closed: true, fill: P.storm, stroke: P.night, width: LINE.detail, seed: S(), wobble: 1.5 });
+    sk.hatch(bedG, -20, 670, 560, 100, { gap: 9, angle: 8, stroke: P.night, width: 1.6, opacity: 0.4, seed: S() });
+    // mud ripples, rocks, kelp, junk revealed when the water drains
+    const rip = [];
+    for (let i = 0; i < 22; i++) { const x = (i * 83) % 520, y = 690 + ((i * 37) % 70); rip.push([x, y, x + 22, y + 1]); }
+    lines(bedG, rip, { stroke: P.steel, width: 2, opacity: 0.45 });
+    [[30, 700, 16, 10], [96, 742, 22, 13], [176, 708, 12, 8], [250, 752, 18, 11], [342, 700, 14, 9], [430, 728, 20, 12], [505, 702, 12, 9], [60, 762, 14, 7]].forEach(([x, y, rx, ry], i) => {
+      sk.path(bedG, [[x - rx, y + ry * 0.4], [x - rx * 0.7, y - ry * 0.6], [x - rx * 0.1, y - ry], [x + rx * 0.7, y - ry * 0.6], [x + rx, y + ry * 0.4]], { closed: true, fill: i % 2 ? P.steel : P.slate, stroke: INK, width: 2, seed: S(), wobble: 0.8, double: false });
+    });
+    [[140, 702], [300, 690], [470, 745], [215, 760]].forEach(([x, y]) => {
+      sk.path(bedG, [[x, y], [x - 6, y - 10], [x + 3, y - 20], [x - 4, y - 30]], { stroke: P.slate, width: 3, seed: S(), double: false });
+      sk.path(bedG, [[x + 5, y], [x + 9, y - 12], [x + 4, y - 22]], { stroke: P.slate, width: 2.5, seed: S(), double: false });
+    });
+    // stranded rowboat
+    sk.path(bedG, [[300, 722], [372, 716], [382, 726], [366, 742], [314, 746], [296, 734]], { closed: true, fill: P.mist, stroke: INK, width: 3, seed: S(), wobble: 0.8 });
+    sk.line(bedG, 304, 729, 376, 722, { stroke: INK, width: 2, seed: S(), double: false });
+    lines(bedG, [[318, 730, 320, 744], [345, 728, 346, 744]], { stroke: INK, opacity: 0.6, width: 2 });
+    // old tire + shopping cart + crab
+    sk.path(bedG, ellPts(462, 760, 16, 7, 14), { closed: true, fill: P.night, stroke: INK, width: 3, seed: S(), double: false });
+    sk.path(bedG, ellPts(462, 759, 7, 3, 10), { closed: true, fill: P.storm, stroke: INK, width: 1.6, seed: S(), double: false });
+    sk.path(bedG, [[150, 744], [196, 744], [190, 764], [156, 764]], { closed: true, stroke: P.mist, width: 2, seed: S(), double: false });
+    lines(bedG, [[160, 744, 162, 764], [170, 744, 171, 764], [180, 744, 180, 764], [153, 754, 193, 754]], { stroke: P.mist, width: 1.5, opacity: 0.7 });
+    sk.line(bedG, 196, 744, 206, 734, { stroke: P.mist, width: 2, seed: S(), double: false });
+    sk.path(bedG, ellPts(244, 718, 8, 5, 10), { closed: true, fill: P.steel, stroke: INK, width: 2, seed: S(), double: false });
+    lines(bedG, [[236, 716, 230, 710], [252, 716, 258, 710], [238, 721, 232, 725], [250, 721, 256, 725]], { stroke: INK, width: 1.8, opacity: 0.9 });
+
+    // the ferry (behind the pier). floatG is moved by setLevel; ferryG is the scene's to animate.
+    const ferryG = el("g", { class: "ms-ferry" }, harborL);
+    const floatG = el("g", {}, ferryG);
+    sk.poly(floatG, [[32, 598], [452, 598], [444, 638], [424, 676], [72, 676], [42, 640]], { fill: P.fog, stroke: INK, width: LINE.main, seed: S(), wobble: 1 });
+    sk.path(floatG, [[40, 618], [449, 618], [446, 632], [42, 632]], { closed: true, fill: P.storm, stroke: "none", seed: S(), double: false });
+    sk.rect(floatG, 46, 600, 58, 32, { fill: P.night, stroke: INK, width: 2.5, seed: S(), double: false });
+    txt(floatG, 270, 630, "M/V KITTIWAKE", { size: 15, fill: P.paper, len: 120, ls: 1 });
+    sk.hatch(floatG, 60, 636, 380, 36, { gap: 10, angle: 35, stroke: P.slate, width: 1.5, opacity: 0.35, seed: S() });
+    sk.rect(floatG, 70, 548, 352, 50, { fill: P.fog, stroke: INK, width: 3, seed: S(), wobble: 0.8 });
+    for (let i = 0; i < 12; i++) sk.rect(floatG, 84 + i * 28, 560, 16, 14, { fill: P.slate, stroke: INK, width: 1.6, seed: S(), wobble: 0.4, double: false });
+    sk.line(floatG, 70, 586, 422, 586, { stroke: P.steel, width: 2, seed: S(), double: false });
+    sk.rect(floatG, 140, 514, 222, 34, { fill: P.paper, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    lines(floatG, [[150, 506, 352, 506]].concat([0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => [150 + i * 25, 506, 150 + i * 25, 514])), { stroke: INK, width: 1.6, opacity: 0.7 });
+    sk.rect(floatG, 205, 478, 92, 36, { fill: P.fog, stroke: INK, width: 3, seed: S(), wobble: 0.5 });
+    for (let i = 0; i < 4; i++) sk.rect(floatG, 212 + i * 21, 486, 15, 12, { fill: P.slate, stroke: INK, width: 1.6, seed: S(), wobble: 0.3, double: false });
+    sk.line(floatG, 252, 478, 252, 418, { stroke: INK, width: 3, seed: S(), double: false });
+    sk.line(floatG, 236, 432, 268, 432, { stroke: INK, width: 2.5, seed: S(), double: false });
+    sk.poly(floatG, [[318, 514], [322, 474], [348, 474], [350, 514]], { fill: P.slate, stroke: INK, width: 3, seed: S(), wobble: 0.5 });
+    sk.line(floatG, 320, 484, 349, 484, { stroke: P.paper, width: 3, seed: S(), double: false, opacity: 0.8 });
+    sk.path(floatG, ellPts(172, 534, 7, 7, 10), { closed: true, stroke: P.paper, width: 3, seed: S(), double: false });
+    sk.path(floatG, [[372, 530], [412, 530], [406, 542], [378, 542]], { closed: true, fill: P.steel, stroke: INK, width: 2, seed: S(), double: false });
+
+    // the pier: pilings, bracing, deck, terminal hut, bollards
+    const dockG = el("g", { class: "ms-dock" }, harborL);
+    const pileXs = [];
+    for (let x = 30; x <= 530; x += 50) pileXs.push(x);
+    pileXs.forEach((x, i) => {
+      sk.rect(dockG, x - 7, i % 3 === 0 ? 596 : 618, 14, i % 3 === 0 ? 174 : 152, { fill: P.storm, stroke: INK, width: 3, seed: S(), wobble: 0.8 });
+      sk.hatch(dockG, x - 6, 662, 12, 104, { gap: 6, angle: 30, stroke: P.mist, width: 1.4, opacity: 0.4, seed: S() });
+      sk.line(dockG, x - 7, 654, x + 7, 655, { stroke: P.mist, width: 2, opacity: 0.6, seed: S(), double: false });
+    });
+    const brace = [];
+    for (let i = 0; i < pileXs.length - 1; i++) { const a = pileXs[i], b = pileXs[i + 1]; brace.push([a + 6, 628, b - 6, 690], [a + 6, 690, b - 6, 628]); }
+    lines(dockG, brace, { stroke: INK, width: 2.5, opacity: 0.7 });
+    sk.rect(dockG, 16, DECK, 534, 13, { fill: P.steel, stroke: INK, width: LINE.main, seed: S(), wobble: 0.8 });
+    const planks = [];
+    for (let x = 30; x < 548; x += 17) planks.push([x, DECK + 2, x + 1, DECK + 11]);
+    lines(dockG, planks, { stroke: INK, width: 1.4, opacity: 0.4 });
+    const railSegs = [[20, 590, 545, 592]];
+    for (let x = 24; x < 548; x += 40) railSegs.push([x, DECK, x, 588]);
+    lines(dockG, railSegs, { stroke: INK, width: 2.5, opacity: 0.75 });
+    harborL.insertBefore(bedG, dockG); // mud bed in front of the ferry hull (it settles INTO the mud when drained)
+    const hutG = el("g", {}, dockG);
+    sk.rect(hutG, 458, 552, 70, 60, { fill: P.mist, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    sk.poly(hutG, [[450, 554], [493, 530], [536, 554]], { fill: P.slate, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    win(hutG, 466, 566, 22, 20, { stroke: INK, cols: 2 });
+    sk.rect(hutG, 498, 568, 20, 44, { fill: P.storm, stroke: INK, width: 2, seed: S(), double: false });
+    sk.rect(hutG, 462, 538, 62, 13, { fill: P.paper, stroke: INK, width: 2, seed: S(), double: false, wobble: 0.3 });
+    txt(hutG, 493, 549, "FERRY", { size: 12, fill: P.storm, len: 40, ls: 1 });
+    [[130, 600], [330, 600]].forEach(([x, y]) => sk.rect(dockG, x - 6, y, 12, 12, { fill: P.storm, stroke: INK, width: 2, seed: S(), double: false }));
+    sittingGull(dockG, 30, 596); sittingGull(dockG, 180, 596); sittingGull(dockG, 434, 597);
+    // mooring lines ferry -> pier
+    sk.path(dockG, [[90, 600], [105, 606], [128, 604]], { stroke: INK, width: 2, seed: S(), double: false });
+    sk.path(dockG, [[420, 600], [400, 607], [382, 604]], { stroke: INK, width: 2, seed: S(), double: false });
+    // shore embankment (riprap) between the pier and the street
+    const EMB = [[520, 770], [540, 700], [562, 646], [600, 614], [700, 612]];
+    sk.path(harborL, EMB.concat([[700, 790], [520, 790]]), { closed: true, fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 1 });
+    [[548, 690, 12], [566, 662, 11], [592, 640, 12], [560, 728, 14], [600, 690, 15], [640, 650, 12], [630, 730, 16], [672, 690, 12]].forEach(([x, y, r]) => {
+      sk.path(harborL, [[x - r, y + r * 0.5], [x - r * 0.6, y - r * 0.6], [x + r * 0.3, y - r * 0.8], [x + r, y + r * 0.2], [x + r * 0.5, y + r * 0.6]], { closed: true, fill: P.mist, stroke: INK, width: 2, seed: S(), wobble: 0.6, double: false });
+    });
+    // crab pots stacked on the shore
+    [[612, 598], [640, 598], [626, 584]].forEach(([x, y]) => {
+      sk.rect(harborL, x - 13, y, 26, 14, { fill: P.slate, stroke: INK, width: 2, seed: S(), wobble: 0.4, double: false });
+      lines(harborL, [[x - 6, y + 1, x - 6, y + 13], [x + 2, y + 1, x + 2, y + 13], [x - 12, y + 7, x + 12, y + 7]], { stroke: P.fog, width: 1.3, opacity: 0.6 });
+    });
+
+    // ------------------------------------------------------------------ MID: storefronts (sized for scale-1.4 figures: doors ~330px)
+    const midL = layer("mid");
+    const BST = P.storm; // building outline: a step softer than ink keeps the action zone quieter
+    fir(midL, 952, 372, 220, { fill: P.slate, stroke: P.storm, width: 3, tiers: 5 });
+    fir(midL, 1574, 420, 270, { fill: P.slate, stroke: P.storm, width: 3, tiers: 6 });
+
+    // POST OFFICE (690–935)
+    const po = el("g", { class: "ms-post-office" }, midL);
+    sk.rect(po, 690, 362, 245, SIDE - 362, { fill: P.fog, stroke: BST, width: LINE.main, seed: S(), wobble: 1 });
+    sk.poly(po, [[786, 346], [812, 318], [838, 346]], { fill: P.mist, stroke: BST, width: 3, seed: S(), wobble: 0.5 });
+    sk.rect(po, 682, 344, 261, 22, { fill: P.mist, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    const dent = [];
+    for (let x = 690; x < 936; x += 14) dent.push([x, 366, x, 372]);
+    lines(po, dent, { stroke: BST, width: 3, opacity: 0.5 });
+    sk.hatch(po, 692, 600, 241, 180, { gap: 26, angle: 0, stroke: P.mist, width: 1.5, opacity: 0.7, seed: S() });
+    sk.rect(po, 704, 380, 217, 50, { fill: P.paper, stroke: BST, width: 3, seed: S(), wobble: 0.5 });
+    txt(po, 812, 418, "POST OFFICE", { size: 40, fill: P.storm, len: 190, ls: 2 });
+    txt(po, 812, 448, "U.S. MAIL · GULL HARBOR, WA", { size: 13, fill: P.slate, len: 170 });
+    win(po, 700, 468, 46, 226, { rows: 4, cols: 2, brk: "smash" });
+    win(po, 878, 468, 46, 226, { rows: 4, cols: 2, brk: "crack" });
+    sk.rect(po, 757, 458, 110, SIDE - 458, { fill: P.slate, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    sk.line(po, 812, 462, 812, SIDE - 2, { stroke: BST, width: 2.5, seed: S(), double: false });
+    win(po, 766, 476, 38, 120, { stroke: BST, brk: "crack" }); win(po, 820, 476, 38, 120, { stroke: BST });
+    lines(po, [[800, 640, 800, 670], [824, 640, 824, 670]], { stroke: P.fog, width: 4, opacity: 0.8 });
+    sk.poly(po, [[748, SIDE - 6], [876, SIDE - 6], [884, SIDE + 2], [740, SIDE + 2]], { fill: P.mist, stroke: BST, width: 2.5, seed: S(), double: false });
+    sk.line(po, 922, 344, 922, 236, { stroke: BST, width: 3, seed: S(), double: false });
+    sk.path(po, [[922, 238], [954, 242], [968, 252], [952, 262], [922, 264]], { closed: true, fill: P.steel, stroke: BST, width: 2, seed: S(), double: false });
+    lines(po, [[924, 248, 962, 251], [924, 256, 954, 258]], { stroke: P.paper, width: 2, opacity: 0.8 });
+    sk.rect(po, 882, 708, 40, 52, { fill: P.paper, stroke: BST, width: 2, seed: S(), double: false, wobble: 0.4 });
+    txt(po, 902, 726, "DRILL", { size: 11, font: FONT_HAND, fill: P.storm, len: 30 });
+    txt(po, 902, 742, "SAT 10AM", { size: 8, font: FONT_HAND, fill: P.storm, len: 32 });
+    el("path", { d: "M890 752 q 6 -6 12 0 q 6 6 12 0", stroke: P.storm, "stroke-width": 1.4, fill: "none" }, po);
+    if (DMG) {
+      crack(po, 704, 366, 744, 466, { amp: 7, width: 2.5, branches: true });
+      crack(po, 930, 440, 880, 560, { amp: 6, width: 2.5 });
+    }
+
+    // ALLEY (935–955)
+    sk.rect(midL, 935, 384, 20, SIDE - 384, { fill: P.night, stroke: BST, width: 2, seed: S(), double: false });
+
+    // DINER (955–1225)
+    const diner = el("g", { class: "ms-diner" }, midL);
+    sk.rect(diner, 955, 380, 270, SIDE - 380, { fill: P.mist, stroke: BST, width: LINE.main, seed: S(), wobble: 1 });
+    const sid = [];
+    for (let y = 392; y < 410; y += 12) sid.push([958, y, 1222, y + 1]);
+    lines(diner, sid, { stroke: BST, width: 1.5, opacity: 0.3 });
+    sk.rect(diner, 955, 700, 270, SIDE - 702, { fill: P.steel, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    const tiles = [];
+    for (let x = 962; x < 1222; x += 20) tiles.push([x, 704, x, SIDE - 4]);
+    for (let y = 722; y < SIDE; y += 20) tiles.push([958, y, 1222, y]);
+    lines(diner, tiles, { stroke: P.storm, opacity: 0.3 });
+    win(diner, 964, 470, 106, 220, { lit: true, cols: 2, rows: 2, brk: "smash" });
+    win(diner, 1170, 470, 48, 220, { lit: true, rows: 2, brk: "crack" });
+    txt(diner, 1017, 560, "PIE", { size: 34, font: FONT_HAND, fill: P.slate, weight: 700 });
+    txt(diner, 1194, 548, "COFFEE", { size: 10, font: FONT_HAND, fill: P.slate, weight: 700, len: 40 });
+    lines(diner, [[980, 688, 980, 664], [1000, 688, 1000, 664], [1020, 688, 1020, 664], [1040, 688, 1040, 664], [972, 664, 1056, 664]], { stroke: P.slate, width: 5, opacity: 0.55 });
+    sk.rect(diner, 1080, 458, 80, SIDE - 458, { fill: P.slate, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    win(diner, 1092, 472, 56, 120, { lit: true, stroke: BST });
+    el("circle", { cx: 1150, cy: 640, r: 4, fill: P.fog }, diner);
+    sk.rect(diner, 1100, 600, 40, 18, { fill: P.paper, stroke: BST, width: 1.6, seed: S(), double: false });
+    txt(diner, 1120, 613, DMG ? "CLOSED" : "OPEN", { size: 11, fill: P.storm, len: 32 });
+    const aw = el("g", {}, diner);
+    sk.poly(aw, [[958, 412], [1222, 412], [1234, 452], [946, 452]], { fill: P.fog, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    for (let i = 0; i < 12; i += 2) {
+      const x0 = 958 + i * 22, x1 = x0 + 22;
+      sk.poly(aw, [[x0, 413], [x1, 413], [x1 + (x1 - 1090) * 0.045, 451], [x0 + (x0 - 1090) * 0.045, 451]], { fill: P.storm, stroke: "none", seed: S(), double: false, opacity: 0.85 });
+    }
+    const scal = [];
+    for (let i = 0; i <= 12; i++) scal.push([946 + i * 24, 452 + (i % 2 ? 9 : 0)]);
+    sk.path(aw, scal, { stroke: BST, width: 2.5, seed: S(), double: false });
+    // rooftop DINER sign on legs (hangs askew after the quake)
+    const ds = el("g", {}, diner);
+    lines(ds, [[1000, 380, 1000, 350], [1180, 380, 1180, 350]], { stroke: BST, width: 5, opacity: 1 });
+    sk.rect(ds, 978, 280, 224, 72, { fill: P.paper, stroke: BST, width: LINE.main, seed: S(), wobble: 0.8 });
+    sk.rect(ds, 988, 289, 204, 54, { fill: "none", stroke: P.steel, width: 2, seed: S(), double: false, wobble: 0.5 });
+    txt(ds, 1090, 335, "DINER", { size: 54, fill: P.storm, len: 170, ls: 4 });
+    if (DMG) ds.setAttribute("transform", "rotate(9 1000 380)");
+    sk.rect(diner, 1174, 708, 40, 52, { fill: P.paper, stroke: BST, width: 2, seed: S(), double: false, wobble: 0.4 });
+    txt(diner, 1194, 726, "LOST", { size: 11, font: FONT_HAND, fill: P.storm, len: 28 });
+    txt(diner, 1194, 740, "CAT", { size: 11, font: FONT_HAND, fill: P.storm, len: 22 });
+    el("path", { d: "M1186 752 q 8 -8 16 0", stroke: P.storm, "stroke-width": 1.4, fill: "none" }, diner);
+    if (DMG) crack(diner, 1076, 382, 1030, 468, { amp: 6, width: 2.5, branches: true });
+
+    // HARDWARE with the painted "GULL HARBOR" wall sign (1235–1565)
+    const hw = el("g", { class: "ms-hardware" }, midL);
+    sk.path(hw, [[1235, SIDE], [1235, 200], [1290, 200], [1290, 182], [1360, 182], [1360, 166], [1440, 166], [1440, 182], [1510, 182], [1510, 200], [1565, 200], [1565, SIDE]], { closed: true, fill: P.steel, stroke: BST, width: LINE.main, seed: S(), wobble: 1 });
+    sk.rect(hw, 1229, 196, 342, 12, { fill: P.slate, stroke: BST, width: 2.5, seed: S(), double: false });
+    const bricks = [];
+    for (let r = 0, y = 212; y < 452; r++, y += 14) {
+      bricks.push([1238, y, 1562, y + (r % 3) * 0.6]);
+      for (let x = 1244 + (r % 2) * 14; x < 1562; x += 28) bricks.push([x, y, x, y + 14]);
+    }
+    lines(hw, bricks, { stroke: P.storm, width: 1.4, opacity: 0.3 });
+    // painted wall sign (weathered)
+    sk.rect(hw, 1254, 216, 292, 104, { fill: P.storm, stroke: BST, width: 3, seed: S(), wobble: 0.7 });
+    txt(hw, 1400, 290, "GULL HARBOR", { size: 76, fill: P.paper, len: 262, ls: 2 });
+    txt(hw, 1400, 312, "EST. 1891", { size: 15, fill: P.fog, len: 70, ls: 2 });
+    gull(hw, 1276, 236, 1, { stroke: P.paper, opacity: 0.9 });
+    gull(hw, 1524, 232, 0.8, { stroke: P.paper, opacity: 0.9 });
+    sk.hatch(hw, 1256, 218, 288, 100, { gap: 30, angle: 75, stroke: P.storm, width: 3, opacity: 0.25, seed: S() });
+    win(hw, 1262, 334, 50, 56, { rows: 2, cols: 2, brk: "crooked", rot: -6 });
+    win(hw, 1488, 334, 50, 56, { rows: 2, cols: 2, brk: "smash" });
+    txt(hw, 1400, 372, "PAINT · TOOLS · BAIT", { size: 18, fill: P.fog, len: 150, ls: 1 });
+    sk.rect(hw, 1248, 402, 304, 48, { fill: P.slate, stroke: BST, width: 3, seed: S(), wobble: 0.5 });
+    txt(hw, 1400, 441, "HARDWARE", { size: 42, fill: P.paper, len: 230, ls: 4 });
+    win(hw, 1245, 470, 102, 230, { lit: true, rows: 2, cols: 2, brk: "crack" });
+    sk.rect(hw, 1258, 484, 40, 26, { fill: P.paper, stroke: BST, width: 1.6, seed: S(), double: false });
+    txt(hw, 1278, 503, "SALE", { size: 15, fill: P.storm, len: 32 });
+    win(hw, 1458, 470, 98, 230, { lit: true, rows: 2, cols: 2, brk: "smash" });
+    [[1476, 676], [1500, 676], [1524, 676], [1488, 652], [1512, 652]].forEach(([x, y]) => sk.rect(hw, x - 10, y - 20, 20, 22, { fill: P.steel, stroke: BST, width: 2, seed: S(), double: false, wobble: 0.3 }));
+    sk.rect(hw, 1238, 708, 324, SIDE - 710, { fill: P.slate, stroke: BST, width: 2, seed: S(), double: false, opacity: 0.6 });
+    sk.rect(hw, 1362, 458, 80, SIDE - 458, { fill: P.slate, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    win(hw, 1374, 472, 56, 120, { stroke: BST, lit: true });
+    el("circle", { cx: 1434, cy: 640, r: 4, fill: P.fog }, hw);
+    // tools barrel outside (shovels / rakes)
+    const rack = el("g", {}, hw);
+    sk.rect(rack, 1258, 736, 70, 46, { fill: P.steel, stroke: BST, width: 2.5, seed: S(), double: false });
+    lines(rack, [[1258, 750, 1328, 750], [1258, 768, 1328, 768]], { stroke: BST, width: 2, opacity: 0.6 });
+    [1266, 1282, 1298, 1314].forEach((x, i) => {
+      sk.line(rack, x, 736, x + (i % 2 ? 3 : -3), 640, { stroke: BST, width: 3, seed: S(), double: false });
+      if (i % 2) sk.path(rack, [[x - 6, 640], [x + 12, 640], [x + 9, 652], [x - 3, 652]], { closed: true, fill: P.steel, stroke: BST, width: 2, seed: S(), double: false });
+      else lines(rack, [[x - 12, 642, x + 6, 642], [x - 11, 642, x - 11, 634], [x - 4, 642, x - 4, 634], [x + 3, 642, x + 3, 634]], { stroke: BST, width: 2, opacity: 0.9 });
+    });
+    if (!DMG) {
+      sk.line(hw, 1548, SIDE, 1566, 540, { stroke: P.storm, width: 4, seed: S(), double: false });
+      sk.line(hw, 1576, SIDE, 1580, 542, { stroke: P.storm, width: 4, seed: S(), double: false });
+      const rungs = [];
+      for (let y = 560; y < SIDE; y += 30) { const t = (y - 540) / (SIDE - 540); rungs.push([1566 - 18 * t, y, 1580 - 4 * t, y]); }
+      lines(hw, rungs, { stroke: P.storm, width: 3, opacity: 0.9 });
+    } else {
+      crack(hw, 1562, 214, 1490, 440, { amp: 9, width: 3, branches: true });
+      crack(hw, 1238, 330, 1286, 214, { amp: 5, width: 2.5 });
+    }
+
+    // GAS STATION (1580–1920): kiosk, canopy, pumps, price sign
+    const gas = el("g", { class: "ms-gas-station" }, midL);
+    sk.rect(gas, 1660, 470, 270, SIDE - 470, { fill: P.mist, stroke: BST, width: LINE.main, seed: S(), wobble: 1 });
+    sk.rect(gas, 1660, 470, 270, 18, { fill: P.slate, stroke: BST, width: 2.5, seed: S(), double: false });
+    win(gas, 1676, 520, 126, 140, { lit: true, cols: 3, brk: "smash" });
+    [["ICE", 1698], ["BAIT", 1739], ["SNACKS", 1780]].forEach(([s, x]) => {
+      sk.rect(gas, x - 17, 536, 34, 22, { fill: P.paper, stroke: BST, width: 1.5, seed: S(), double: false });
+      txt(gas, x, 552, s, { size: 11, fill: P.storm, len: s.length > 4 ? 30 : 20 });
+    });
+    sk.rect(gas, 1822, 480, 72, SIDE - 480, { fill: P.slate, stroke: BST, width: 3, seed: S(), wobble: 0.6 });
+    win(gas, 1834, 494, 48, 124, { lit: true, stroke: BST });
+    sk.rect(gas, 1680, 676, 60, 50, { fill: P.steel, stroke: BST, width: 2, seed: S(), double: false });
+    txt(gas, 1710, 706, "PROPANE", { size: 10, fill: P.paper, len: 46 });
+    // canopy (left pillar fixed; the right side drops when damaged)
+    const canopyG = el("g", { class: "ms-canopy" }, gas);
+    sk.rect(midL, 1610, 394, 16, SIDE - 394 + 6, { fill: P.fog, stroke: BST, width: 3, seed: S(), wobble: 0.5 });
+    sk.poly(canopyG, [[1584, 336], [1918, 336], [1918, 396], [1584, 396]], { fill: P.mist, stroke: INK, width: LINE.main, seed: S(), wobble: 0.8 });
+    sk.rect(canopyG, 1584, 336, 334, 16, { fill: P.slate, stroke: INK, width: 2.5, seed: S(), double: false });
+    txt(canopyG, 1751, 386, "GAS · DIESEL · PROPANE", { size: 28, fill: P.storm, len: 270, ls: 2 });
+    for (let i = 0; i < 5; i++) sk.rect(canopyG, 1610 + i * 64, 396, 28, 7, { fill: P.paper, stroke: INK, width: 1.5, seed: S(), double: false });
+    sk.hatch(canopyG, 1586, 352, 330, 42, { gap: 12, angle: 70, stroke: P.storm, width: 1.4, opacity: 0.16, seed: S() });
+    // pump island + pumps
+    sk.rect(gas, 1676, SIDE - 12, 170, 14, { fill: P.fog, stroke: BST, width: 2.5, seed: S(), double: false });
+    const pumps = [{ x: 1714, y: SIDE - 12 }, { x: 1806, y: SIDE - 12 }];
+    pumps.forEach((p, i) => {
+      const pg = el("g", {}, gas);
+      sk.rect(pg, p.x - 24, p.y - 220, 48, 220, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.7 });
+      sk.rect(pg, p.x - 28, p.y - 232, 56, 16, { fill: P.slate, stroke: INK, width: 2.5, seed: S(), double: false });
+      sk.rect(pg, p.x - 16, p.y - 200, 32, 30, { fill: P.paper, stroke: INK, width: 2, seed: S(), double: false });
+      lines(pg, [[p.x - 11, p.y - 190, p.x + 11, p.y - 190], [p.x - 11, p.y - 180, p.x + 6, p.y - 180]], { stroke: INK, width: 1.8, opacity: 0.7 });
+      sk.rect(pg, p.x - 14, p.y - 156, 28, 44, { fill: P.slate, stroke: INK, width: 2, seed: S(), double: false });
+      lines(pg, [[p.x - 8, p.y - 146, p.x + 8, p.y - 146], [p.x - 8, p.y - 136, p.x + 8, p.y - 136], [p.x - 8, p.y - 126, p.x + 8, p.y - 126]], { stroke: P.mist, width: 2, opacity: 0.6 });
+      sk.path(pg, [[p.x + 24, p.y - 140], [p.x + 40, p.y - 110], [p.x + 38, p.y - 40], [p.x + 30, p.y - 8]], { stroke: INK, width: 3.5, seed: S(), double: false });
+      sk.rect(pg, p.x + 20, p.y - 150, 10, 22, { fill: INK, stroke: INK, width: 2, seed: S(), double: false });
+      if (DMG && i === 1) pg.setAttribute("transform", `rotate(-7 ${p.x - 24} ${p.y})`);
+    });
+    if (DMG) {
+      canopyG.setAttribute("transform", "rotate(6.5 1618 396)");
+      sk.path(midL, [[1870, SIDE + 4], [1874, 620], [1856, 560], [1864, 430]], { stroke: INK, width: 17, seed: S(), double: false });
+      sk.path(midL, [[1870, SIDE + 4], [1874, 620], [1856, 560], [1864, 430]], { stroke: P.fog, width: 10, seed: S(), double: false });
+    } else {
+      sk.rect(midL, 1862, 394, 16, SIDE - 394 + 6, { fill: P.fog, stroke: BST, width: 3, seed: S(), wobble: 0.5 });
+    }
+    // price sign on its own pole
+    const price = el("g", {}, midL);
+    sk.line(price, 1904, SIDE + 10, 1904, 262, { stroke: INK, width: 6, seed: S(), double: false });
+    sk.rect(price, 1846, 160, 68, 104, { fill: P.slate, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    txt(price, 1880, 186, "GAS", { size: 20, fill: P.paper, len: 36 });
+    sk.rect(price, 1853, 196, 54, 26, { fill: P.paper, stroke: INK, width: 1.6, seed: S(), double: false });
+    sk.rect(price, 1853, 230, 54, 26, { fill: P.paper, stroke: INK, width: 1.6, seed: S(), double: false });
+    txt(price, 1880, 216, "4.59", { size: 18, fill: P.storm, len: 38 });
+    txt(price, 1880, 250, "4.89", { size: 18, fill: P.storm, len: 38 });
+    if (DMG) price.setAttribute("transform", "rotate(-6 1904 792)");
+
+    // ------------------------------------------------------------------ GROUND: seawall cap, sidewalk, street
+    const groundL = layer("ground");
+    sk.rect(groundL, -20, 766, 562, 18, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    const capJ = [];
+    for (let x = 30; x < 540; x += 52) capJ.push([x, 768, x + 1, 782]);
+    lines(groundL, capJ, { stroke: INK, width: 1.6, opacity: 0.5 });
+    sk.path(groundL, [[-20, SIDE], [1940, SIDE], [1940, CURB], [-20, CURB]], { closed: true, fill: P.mist, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+    const slabs = [];
+    for (let x = 40; x < 1920; x += 88) slabs.push([x, SIDE + 2, x - 6, CURB - 2]);
+    lines(groundL, slabs, { stroke: P.storm, width: 1.6, opacity: 0.45 });
+    sk.path(groundL, [[-20, CURB], [1940, CURB], [1940, NEAR], [-20, NEAR]], { closed: true, fill: P.slate, stroke: "none", seed: S(), double: false });
+    sk.line(groundL, -20, CURB + 2, 1940, CURB + 2, { stroke: INK, width: LINE.main, seed: S() });
+    sk.line(groundL, -20, CURB + 9, 1940, CURB + 9, { stroke: P.storm, width: 6, seed: S(), double: false, opacity: 0.6 });
+    sk.hatch(groundL, -20, CURB + 12, 1960, NEAR - CURB - 12, { gap: 18, angle: 4, stroke: P.storm, width: 1.6, opacity: 0.28, seed: S() });
+    // wet sheen: vertical-ish reflections of the lit windows + horizontal streaks
+    const sheen = [];
+    for (let i = 0; i < 40; i++) { const x = (i * 211) % 1900, y = 830 + ((i * 47) % 150); sheen.push([x, y, x + 30 + (i % 4) * 12, y]); }
+    lines(groundL, sheen, { stroke: P.mist, width: 2, opacity: 0.25 });
+    const refl = [];
+    [[964, 1070], [1170, 1218], [1245, 1347], [1458, 1556], [1676, 1802]].forEach(([a, b]) => { for (let x = a + 6; x < b; x += 9) refl.push([x, CURB + 14, x + 2, CURB + 30 + ((x * 7) % 26)]); });
+    lines(groundL, refl, { stroke: P.fog, width: 2, opacity: 0.16 });
+    for (let x = 20; x < 1920; x += 150) sk.poly(groundL, [[x, 914], [x + 80, 913], [x + 80, 920], [x, 921]], { fill: P.fog, stroke: "none", seed: S(), double: false, opacity: DMG ? 0.4 : 0.5 });
+    sk.rect(groundL, 1010, CURB + 1, 52, 10, { fill: P.night, stroke: INK, width: 2, seed: S(), double: false });
+    lines(groundL, [[1020, CURB + 2, 1020, CURB + 10], [1030, CURB + 2, 1030, CURB + 10], [1040, CURB + 2, 1040, CURB + 10], [1050, CURB + 2, 1050, CURB + 10]], { stroke: P.mist, width: 1.5, opacity: 0.6 });
+    sk.path(groundL, ellPts(1460, 952, 44, 9, 18), { closed: true, fill: P.storm, stroke: INK, width: 2, seed: S(), double: false, opacity: 0.8 });
+    [[760, 878, 74, 12], [1290, 892, 96, 13], [430, 862, 56, 9], [1700, 870, 60, 10], [220, 940, 80, 12]].forEach(([cx, cy, rx, ry], i) => {
+      sk.path(groundL, ellPts(cx, cy, rx, ry, 22).map((p, k) => [p[0] + H(i * 30 + k) * 5, p[1] + H(i * 30 + k + 9) * 2]), { closed: true, fill: P.steel, stroke: P.storm, width: 2, seed: S(), wobble: 1, double: false });
+      lines(groundL, [[cx - rx * 0.5, cy - 2, cx - rx * 0.1, cy - 2], [cx + rx * 0.05, cy + 3, cx + rx * 0.45, cy + 3], [cx - rx * 0.25, cy + 5, cx - rx * 0.05, cy + 5]], { stroke: P.fog, width: 2, opacity: 0.6 });
+    });
+    sk.path(groundL, [[-20, NEAR], [1940, NEAR], [1940, 1100], [-20, 1100]], { closed: true, fill: P.storm, stroke: "none", seed: S(), double: false });
+    sk.line(groundL, -20, NEAR, 1940, NEAR, { stroke: INK, width: LINE.main, seed: S() });
+    sk.line(groundL, -20, NEAR + 12, 1940, NEAR + 12, { stroke: P.slate, width: 3, seed: S(), double: false, opacity: 0.7 });
+    const nj = [];
+    for (let x = 100; x < 1920; x += 240) nj.push([x, NEAR + 14, x - 18, 1080]);
+    lines(groundL, nj, { stroke: P.slate, width: 2, opacity: 0.5 });
+    // post-quake ground damage + debris
+    const debrisG = el("g", { class: "ms-debris" }, groundL);
+    if (DMG) {
+      crack(groundL, 300, CURB + 4, 1180, NEAR - 4, { n: 16, amp: 14, width: 4, branches: true, shade: P.night });
+      crack(groundL, 1480, CURB + 4, 1760, NEAR - 6, { n: 9, amp: 11, width: 3.5, branches: true, shade: P.night });
+      crack(groundL, 40, 890, 360, 940, { n: 7, amp: 8, width: 3, shade: P.night });
+      crack(groundL, 1880, 830, 1620, 930, { n: 6, amp: 8, width: 3 });
+      sk.poly(groundL, [[620, 892], [760, 912], [742, 930], [600, 908]], { fill: P.steel, stroke: INK, width: 3, seed: S() });
+      // buckled sidewalk: slabs tented up in front of the hardware store
+      sk.poly(groundL, [[1300, CURB], [1392, 764], [1406, 768], [1496, CURB]], { fill: P.mist, stroke: INK, width: 3, seed: S() });
+      sk.poly(groundL, [[1392, 764], [1406, 768], [1404, CURB], [1394, CURB]], { fill: P.night, stroke: INK, width: 2, seed: S(), double: false });
+      lines(groundL, [[1346, 790, 1350, CURB - 2], [1452, 792, 1448, CURB - 2]], { stroke: P.storm, width: 1.6, opacity: 0.6 });
+      sk.poly(groundL, [[340, SIDE + 2], [430, SIDE - 10], [436, CURB - 2], [344, CURB]], { fill: P.mist, stroke: INK, width: 3, seed: S() });
+      const plank = (x, y, l, a, w) => {
+        const p = [[0, 0], [l, 0], [l, w], [0, w]].map((q) => rotPt([x + q[0], y + q[1]], x, y, a));
+        sk.poly(debrisG, p, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+        lines(debrisG, [[p[0][0] + (p[1][0] - p[0][0]) * 0.1, p[0][1] + (p[1][1] - p[0][1]) * 0.1 + w * 0.5, p[0][0] + (p[1][0] - p[0][0]) * 0.8, p[0][1] + (p[1][1] - p[0][1]) * 0.8 + w * 0.5]], { stroke: INK, width: 1.4, opacity: 0.5 });
+      };
+      plank(520, 838, 130, 12, 12); plank(1585, 900, 110, -9, 11); plank(1050, 826, 70, 24, 10);
+      // bricks fallen from the hardware parapet
+      [[1530, 800], [1546, 808], [1566, 796], [1582, 812], [1556, 820], [1520, 818], [1600, 804]].forEach(([x, y], i) => {
+        const p = [[0, 0], [22, 0], [22, 10], [0, 10]].map((q) => rotPt([x + q[0], y + q[1]], x, y, (i * 37) % 50 - 20));
+        sk.poly(debrisG, p, { fill: P.steel, stroke: INK, width: 2, seed: S(), double: false });
+      });
+      // glass shards under the broken windows
+      [[700, 820], [726, 828], [980, 824], [1010, 832], [1250, 822], [1470, 830], [1500, 822], [1690, 816], [1716, 824]].forEach(([x, y], i) => {
+        sk.poly(debrisG, [[x, y], [x + 10 + (i % 3) * 3, y - 4], [x + 6, y + 5]], { fill: P.fog, stroke: INK, width: 1.4, seed: S(), double: false });
+      });
+      sk.poly(debrisG, rotPtArr([[1150, 830], [1218, 830], [1218, 850], [1150, 850]], 1184, 840, -14), { fill: P.paper, stroke: INK, width: 2.5, seed: S() });
+      txt(debrisG, 1184, 846, "SALE", { size: 15, fill: P.storm, len: 40, rot: -14 });
+      // toppled trash can + spilled litter
+      sk.poly(debrisG, [[852, 824], [892, 806], [906, 832], [866, 850]], { fill: P.steel, stroke: INK, width: 3, seed: S() });
+      sk.path(debrisG, ellPts(899, 819, 7, 15, 10).map((p) => rotPt(p, 899, 819, -24)), { closed: true, fill: P.night, stroke: INK, width: 2, seed: S(), double: false });
+      sk.path(debrisG, [[866, 850], [838, 856], [824, 850]], { stroke: INK, width: 2, seed: S(), double: false });
+      sk.poly(debrisG, [[916, 836], [930, 832], [934, 842], [920, 846]], { fill: P.paper, stroke: INK, width: 1.6, seed: S(), double: false });
+      // fallen ladder on the sidewalk
+      sk.line(debrisG, 1480, 800, 1650, 786, { stroke: P.storm, width: 4, seed: S(), double: false });
+      sk.line(debrisG, 1482, 813, 1652, 799, { stroke: P.storm, width: 4, seed: S(), double: false });
+      const lr = [];
+      for (let x = 1492; x < 1650; x += 24) lr.push([x, 799 - (x - 1480) * 0.082, x + 1, 812 - (x - 1480) * 0.082]);
+      lines(debrisG, lr, { stroke: P.storm, width: 3, opacity: 0.95 });
+    }
+    function rotPtArr(arr, cx, cy, a) { return arr.map((p) => rotPt(p, cx, cy, a)); }
+
+    // ------------------------------------------------------------------ WATER (harbor + street flood), setLevel
+    const waterL = layer("water");
+    const waterG = el("g", { class: "ms-water" }, waterL);
+    const wFill = el("path", { fill: P.slate, stroke: "none" }, waterG);
+    const wHatch = el("path", { fill: "none", stroke: P.storm, "stroke-width": 1.6, opacity: 0.5, "stroke-linecap": "round" }, waterG);
+    const wRip = el("path", { fill: "none", stroke: P.mist, "stroke-width": 2, opacity: 0.55, "stroke-linecap": "round" }, waterG);
+    const wLine = el("path", { fill: "none", stroke: INK, "stroke-width": 3, opacity: 0.85, "stroke-linecap": "round", "stroke-linejoin": "round" }, waterG);
+    const wGlint = el("path", { fill: "none", stroke: P.fog, "stroke-width": 2, opacity: 0.7, "stroke-linecap": "round" }, waterG);
+    const fFill = el("path", { fill: P.slate, stroke: "none", opacity: 0.96 }, waterG);
+    const fRip = el("path", { fill: "none", stroke: P.mist, "stroke-width": 2, opacity: 0.5, "stroke-linecap": "round" }, waterG);
+    const fLine = el("path", { fill: "none", stroke: INK, "stroke-width": 3, opacity: 0.85, "stroke-linecap": "round", "stroke-linejoin": "round" }, waterG);
+    const fFoam = el("path", { fill: "none", stroke: P.paper, "stroke-width": 3, opacity: 0.85, "stroke-linecap": "round" }, waterG);
+    // shoreline x (right edge of harbor water) at height y: follows the riprap embankment
+    const shoreAt = (y) => {
+      if (y <= EMB[EMB.length - 1][1]) return 680;
+      for (let i = EMB.length - 1; i > 0; i--) {
+        const a = EMB[i], b = EMB[i - 1]; // a higher (smaller y) than b
+        if (y <= b[1]) return a[0] + ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]);
+      }
+      return EMB[0][0];
+    };
+    const surf = (x, y, amp) => y + Math.sin(x * 0.045) * amp + Math.sin(x * 0.11 + 1.3) * amp * 0.5;
+    function setLevel(y) {
+      y = +y;
+      // --- harbor water: from the surface y down to the seawall cap
+      if (y < WALL - 2) {
+        const xr = y < 640 ? 690 : Math.min(680, shoreAt(y));
+        const top = [];
+        for (let x = -20; x < xr; x += 18) top.push([x, surf(x, y, 2.2)]);
+        top.push([xr, y]);
+        // right edge: follow the riprap embankment below the surface (fully covered once the water tops it)
+        const down = y < 640 ? [[690, Math.max(y, 612)], [690, WALL]] : EMB.filter((p) => p[1] > y).sort((a, b) => a[1] - b[1]);
+        const poly = top.concat(down, [[-20, WALL], [-20, y]]);
+        wFill.setAttribute("d", D(poly, true));
+        wLine.setAttribute("d", D(top));
+        const gl = [], rp = [], ht = [];
+        for (let i = 0; i < 14; i++) {
+          const x = -10 + ((i * 97) % 600), x2 = x + 22 + (i % 3) * 8;
+          if (x2 < xr - 6) gl.push(`M${f1(x)} ${f1(surf(x, y, 2.2) + 4)} L${f1(x2)} ${f1(surf(x2, y, 2.2) + 4)}`);
+        }
+        for (let k = 1; k <= 6; k++) {
+          const yy = y + k * 17;
+          if (yy > WALL - 4) break;
+          for (let i = 0; i < 6; i++) {
+            const x = ((i * 113 + k * 59) % 560) - 10, l = 18 + k * 3;
+            if (x + l < shoreAt(yy) - 6) rp.push(`M${f1(x)} ${f1(yy)} L${f1(x + l)} ${f1(yy)}`);
+          }
+          ht.push(`M-20 ${f1(yy + 8)} L${f1(Math.min(shoreAt(yy + 8), 680) - 4)} ${f1(yy + 8)}`);
+        }
+        wGlint.setAttribute("d", gl.join(" "));
+        wRip.setAttribute("d", rp.join(" "));
+        wHatch.setAttribute("d", ht.join(" "));
+      } else {
+        [wFill, wLine, wGlint, wRip, wHatch].forEach((e) => e.setAttribute("d", ""));
+      }
+      // --- flood sheet over the seawall and along the street when the water tops the pier
+      if (y < FLOOD0) {
+        const over = FLOOD0 - y;
+        const depth = Math.min(260, over * 0.75);
+        const ft = SIDE + 8 - depth;
+        const reach = SHOREX + over * 14;
+        const top = [];
+        for (let x = -20; x < reach; x += 22) top.push([x, surf(x, ft, 2.5)]);
+        const fr = [];
+        const n = 8;
+        for (let i = 0; i <= n; i++) {
+          const yy = ft + ((1100 - ft) * i) / n;
+          fr.push([reach + (yy - ft) * 0.32 + Math.sin(i * 1.7) * 12, yy]);
+        }
+        const poly = top.concat(fr, [[-20, 1100]]);
+        fFill.setAttribute("d", D(poly, true));
+        fLine.setAttribute("d", D(top.concat(fr)));
+        const foam = [];
+        fr.forEach((p, i) => { if (i < n) foam.push(`M${f1(p[0] - 26)} ${f1(p[1] + 6)} Q${f1(p[0] - 10)} ${f1(p[1] - 4)} ${f1(p[0] + 4)} ${f1(p[1] + 10)}`); });
+        for (let i = 0; i < 10; i++) { const x = 40 + i * 190; if (x < reach - 40) foam.push(`M${f1(x)} ${f1(ft + 5)} Q${f1(x + 12)} ${f1(ft - 2)} ${f1(x + 26)} ${f1(ft + 5)}`); }
+        fFoam.setAttribute("d", foam.join(" "));
+        const rp = [];
+        for (let k = 1; k <= 12; k++) {
+          const yy = ft + k * 22;
+          if (yy > 1080) break;
+          for (let i = 0; i < 9; i++) {
+            const x = ((i * 233 + k * 71) % 1900) - 10, l = 24 + (k % 3) * 10;
+            if (x + l < reach + (yy - ft) * 0.32 - 20) rp.push(`M${f1(x)} ${f1(yy)} L${f1(x + l)} ${f1(yy)}`);
+          }
+        }
+        fRip.setAttribute("d", rp.join(" "));
+      } else {
+        fFill.setAttribute("d", ""); fLine.setAttribute("d", ""); fFoam.setAttribute("d", ""); fRip.setAttribute("d", "");
+      }
+      // --- ferry floats with the water; aground + listing when drained
+      if (floatFerry) {
+        const dy = Math.max(-420, Math.min(y, 690) - LEVEL);
+        const list = y > 690 ? Math.min(1, (y - 690) / 70) * 3.2 : 0;
+        floatG.setAttribute("transform", `translate(0 ${f1(dy)}) rotate(${list.toFixed(2)} 452 676)`);
+      }
+      harbor.level = y;
+      return harbor;
+    }
+
+    // ------------------------------------------------------------------ FRONT: railing, sign, poles + wires, street furniture
+    const frontL = layer("front");
+    // seawall railing + life ring
+    const rail = [[-20, 708, 540, 709], [-20, 738, 540, 739]];
+    for (let x = 10; x < 545; x += 58) rail.push([x, 700, x, 768]);
+    lines(frontL, rail, { stroke: INK, width: 3.5, opacity: 0.9 });
+    sk.path(frontL, ellPts(420, 738, 18, 18, 14), { closed: true, stroke: INK, width: 11, seed: S(), double: false });
+    sk.path(frontL, ellPts(420, 738, 18, 18, 14), { closed: true, stroke: P.paper, width: 6, seed: S(), double: false });
+    lines(frontL, [[406, 726, 411, 731], [434, 750, 429, 745], [433, 725, 428, 730], [407, 751, 412, 746]], { stroke: P.steel, width: 5, opacity: 1 });
+    // tsunami hazard zone sign (steel + paper; no yellow)
+    const SGX = 600, SGY = 300;
+    const signG = el("g", { class: "ms-tsunami-sign" }, frontL);
+    sk.rect(signG, SGX - 7, SGY + 190, 14, 800 - SGY - 190, { fill: P.mist, stroke: INK, width: 3, seed: S(), wobble: 0.4 });
+    sk.rect(signG, SGX - 100, SGY, 200, 190, { fill: P.steel, stroke: INK, width: LINE.main, seed: S(), wobble: 0.7 });
+    sk.rect(signG, SGX - 91, SGY + 9, 182, 172, { fill: "none", stroke: P.paper, width: 3, seed: S(), double: false, wobble: 0.5 });
+    // curling-wave icon
+    const wv = (dx, dy) => f1(SGX + dx) + " " + f1(SGY + dy);
+    el("path", { d: `M${wv(-62, 84)} Q${wv(-58, 36)} ${wv(-18, 24)} Q${wv(24, 16)} ${wv(36, 46)} Q${wv(40, 62)} ${wv(24, 62)} Q${wv(10, 62)} ${wv(14, 50)} Q${wv(18, 38)} ${wv(2, 42)} Q${wv(-22, 50)} ${wv(-26, 84)} Z`, fill: P.paper, stroke: INK, "stroke-width": 2, "stroke-linejoin": "round" }, signG);
+    sk.path(signG, [[SGX - 74, SGY + 90], [SGX - 56, SGY + 84], [SGX - 38, SGY + 90], [SGX - 20, SGY + 84], [SGX - 2, SGY + 90], [SGX + 16, SGY + 84], [SGX + 34, SGY + 90]], { stroke: P.paper, width: 3, seed: S(), double: false });
+    sk.path(signG, [[SGX + 42, SGY + 88], [SGX + 76, SGY + 40]], { stroke: P.paper, width: 3, seed: S(), double: false });
+    sk.path(signG, [[SGX + 64, SGY + 42], [SGX + 77, SGY + 38], [SGX + 78, SGY + 52]], { stroke: P.paper, width: 3, seed: S(), double: false });
+    txt(signG, SGX, SGY + 120, "ENTERING", { size: 24, fill: P.paper, len: 104, ls: 2 });
+    txt(signG, SGX, SGY + 150, "TSUNAMI HAZARD", { size: 32, fill: P.paper, len: 168, ls: 1 });
+    txt(signG, SGX, SGY + 178, "ZONE", { size: 28, fill: P.paper, len: 66, ls: 3 });
+    sk.rect(signG, SGX - 84, SGY + 200, 168, 44, { fill: P.paper, stroke: INK, width: 3, seed: S(), wobble: 0.5 });
+    txt(signG, SGX, SGY + 218, "IN CASE OF EARTHQUAKE", { size: 13, fill: P.storm, len: 140 });
+    txt(signG, SGX, SGY + 236, "GO TO HIGH GROUND OR INLAND", { size: 13, fill: P.storm, len: 150 });
+    if (DMG) signG.setAttribute("transform", `rotate(5 ${SGX} 800)`);
+
+    // power poles + wires
+    const wiresL = el("g", { class: "ms-wires" }, frontL);
+    const polesL = el("g", { class: "ms-poles" }, frontL);
+    const POLE_TOP = 96, POLE_BASE = 806, LEAN_I = 1;
+    const poleDefs = [{ x: 300, lean: 0 }, { x: 945, lean: DMG ? -8 : 0, tx: true }, { x: 1590, lean: DMG ? 2.5 : 0 }];
+    const poles = poleDefs.map((pd, i) => {
+      const pgr = el("g", { class: "ms-pole" }, polesL);
+      const x = pd.x;
+      sk.poly(pgr, [[x - 8, POLE_TOP], [x + 8, POLE_TOP], [x + 12, POLE_BASE], [x - 12, POLE_BASE]], { fill: P.storm, stroke: INK, width: 3, seed: S(), wobble: 0.6 });
+      const gr = [];
+      for (let y = POLE_TOP + 40; y < POLE_BASE; y += 34) gr.push([x - 3 + H(y + i) * 2, y, x - 2 + H(y + i + 5) * 2, y + 18]);
+      lines(pgr, gr, { stroke: P.mist, width: 1.4, opacity: 0.35 });
+      sk.rect(pgr, x - 70, POLE_TOP + 16, 140, 11, { fill: P.storm, stroke: INK, width: 3, seed: S(), wobble: 0.4 });
+      sk.rect(pgr, x - 48, POLE_TOP + 62, 96, 9, { fill: P.storm, stroke: INK, width: 2.5, seed: S(), wobble: 0.4, double: false });
+      [-60, -22, 22, 60].forEach((dx) => sk.rect(pgr, x + dx - 3, POLE_TOP + 6, 7, 11, { fill: P.fog, stroke: INK, width: 1.6, seed: S(), double: false, wobble: 0.2 }));
+      // climbing steps
+      const steps = [];
+      for (let y = POLE_TOP + 120; y < 620; y += 46) steps.push([x + (i % 2 ? -10 : 10), y, x + (i % 2 ? -22 : 22), y + 2]);
+      lines(pgr, steps, { stroke: INK, width: 3, opacity: 0.7 });
+      if (pd.tx) {
+        sk.rect(pgr, x + 12, POLE_TOP + 86, 30, 46, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.5 });
+        lines(pgr, [[x + 16, POLE_TOP + 98, x + 38, POLE_TOP + 98], [x + 16, POLE_TOP + 120, x + 38, POLE_TOP + 120]], { stroke: INK, width: 1.6, opacity: 0.6 });
+        sk.rect(pgr, x - 9, 600, 18, 26, { fill: P.paper, stroke: INK, width: 1.6, seed: S(), double: false, wobble: 0.3 });
+        lines(pgr, [[x - 5, 607, x + 5, 607], [x - 5, 614, x + 5, 614]], { stroke: INK, width: 1.2, opacity: 0.6 });
+      }
+      if (i === 0) {
+        sk.rect(pgr, x - 62, 330, 124, 24, { fill: P.steel, stroke: INK, width: 2.5, seed: S(), wobble: 0.3 });
+        txt(pgr, x, 348, "HARBOR WAY", { size: 17, fill: P.paper, len: 104, ls: 1 });
+      }
+      if (pd.lean) pgr.setAttribute("transform", `rotate(${pd.lean} ${x} ${POLE_BASE})`);
+      const att = [-60, -22, 22, 60].map((dx) => rotPt([x + dx, POLE_TOP + 7], x, POLE_BASE, pd.lean));
+      const low = [-44, 44].map((dx) => rotPt([x + dx, POLE_TOP + 62], x, POLE_BASE, pd.lean));
+      return { g: pgr, x, baseY: POLE_BASE, top: rotPt([x, POLE_TOP], x, POLE_BASE, pd.lean), att, low, lean: pd.lean };
+    });
+    const span = (a, b, sag, o) => {
+      const pts = [];
+      for (let i = 0; i <= 14; i++) { const t = i / 14; pts.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t + sag * 4 * t * (1 - t)]); }
+      sk.path(wiresL, pts, Object.assign({ stroke: INK, width: 2.2, seed: S(), wobble: 0.5, double: false, step: 60 }, o || {}));
+    };
+    const offL = { att: [-60, -22, 22, 60].map((dx) => [-40, POLE_TOP + 30 + dx * 0.1]), low: [[-40, POLE_TOP + 80], [-40, POLE_TOP + 88]] };
+    const offR = { att: [-60, -22, 22, 60].map((dx) => [1960, POLE_TOP - 6 + dx * 0.15]), low: [[1960, POLE_TOP + 48], [1960, POLE_TOP + 56]] };
+    const chain = [offL].concat(poles, [offR]);
+    for (let i = 0; i < chain.length - 1; i++) {
+      const a = chain[i], b = chain[i + 1];
+      const hurt = DMG && (a === poles[LEAN_I] || b === poles[LEAN_I]);
+      for (let k = 0; k < 4; k++) {
+        if (hurt && k === 3 && b === poles[LEAN_I]) continue; // this one snapped
+        span(a.att[k], b.att[k], hurt ? 80 + k * 16 : 26 + k * 3, {});
+      }
+      for (let k = 0; k < 2; k++) span(a.low[k], b.low[k], hurt ? 110 : 34, { width: 2.6 });
+    }
+    // service drops to buildings
+    span(poles[1].low[0], [918, 346], 10, { width: 1.8 });
+    span(poles[2].low[0], [1500, 200], 14, { width: 1.8 });
+    if (DMG) {
+      // snapped line dangling to the street from both ends
+      const a = poles[0].att[3], b = poles[LEAN_I].att[3];
+      sk.path(wiresL, [a, [a[0] + 70, a[1] + 140], [a[0] + 120, a[1] + 340], [a[0] + 130, 700], [a[0] + 150, 832], [a[0] + 190, 846], [a[0] + 206, 832]], { stroke: INK, width: 2.4, seed: S(), double: false, wobble: 1.5 });
+      sk.path(wiresL, [b, [b[0] - 40, b[1] + 180], [b[0] - 50, b[1] + 380], [b[0] - 80, 836], [b[0] - 120, 852], [b[0] - 136, 840]], { stroke: INK, width: 2.4, seed: S(), double: false, wobble: 1.5 });
+      lines(wiresL, [[a[0] + 206, 832, a[0] + 218, 818], [a[0] + 206, 832, a[0] + 224, 834], [a[0] + 206, 832, a[0] + 210, 814]], { stroke: P.paper, width: 2.4, opacity: 0.9 });
+    }
+    sittingGull(wiresL, poles[0].att[0][0] + 2, poles[0].att[0][1] - 1);
+    sittingGull(wiresL, poles[2].att[3][0] - 2, poles[2].att[3][1] - 1);
+    gull(frontL, 760, 210, 1.2, { opacity: 0.8 });
+
+    // street furniture (front; sized for scale-1.4 figures)
+    const furn = el("g", { class: "ms-furniture" }, frontL);
+    const mb = el("g", {}, furn);
+    sk.path(mb, [[700, 812], [704, 690], [700, 650], [716, 618], [774, 618], [790, 650], [786, 690], [790, 812]], { closed: true, fill: P.steel, stroke: INK, width: 3.5, seed: S(), wobble: 0.5 });
+    sk.line(mb, 712, 664, 778, 664, { stroke: INK, width: 4, seed: S(), double: false });
+    sk.rect(mb, 718, 690, 54, 36, { fill: P.paper, stroke: INK, width: 2, seed: S(), double: false, wobble: 0.3 });
+    txt(mb, 745, 714, "U.S. MAIL", { size: 12, fill: P.storm, len: 46 });
+    lines(mb, [[706, 790, 784, 790]], { stroke: INK, width: 3, opacity: 0.6 });
+    if (DMG) mb.setAttribute("transform", "rotate(-11 700 812)");
+    // fire hydrant
+    const hy = el("g", {}, furn);
+    sk.path(hy, [[1212, 812], [1216, 740], [1208, 730], [1218, 708], [1246, 708], [1256, 730], [1248, 740], [1252, 812]], { closed: true, fill: P.mist, stroke: INK, width: 3.5, seed: S(), wobble: 0.4 });
+    sk.line(hy, 1200, 756, 1264, 756, { stroke: INK, width: 7, seed: S(), double: false });
+    sk.rect(hy, 1226, 696, 12, 12, { fill: P.mist, stroke: INK, width: 2.5, seed: S(), double: false });
+    if (DMG) {
+      [[1264, 756, 1330, 700, 1380, 800], [1264, 752, 1320, 690, 1352, 790], [1262, 760, 1300, 728, 1324, 806]].forEach(([x0, y0, cx, cy, x1, y1]) =>
+        el("path", { d: `M${x0} ${y0} Q${cx} ${cy} ${x1} ${y1}`, stroke: P.fog, "stroke-width": 3, fill: "none", "stroke-dasharray": "8 7", "stroke-linecap": "round", opacity: 0.85 }, hy));
+    }
+    // trash can + bench
+    if (!DMG) {
+      sk.path(furn, [[860, 812], [856, 676], [906, 676], [902, 812]], { closed: true, fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.5 });
+      sk.rect(furn, 852, 666, 58, 12, { fill: P.slate, stroke: INK, width: 2.5, seed: S(), double: false });
+      lines(furn, [[870, 690, 871, 800], [881, 690, 881, 800], [892, 690, 891, 800]], { stroke: INK, width: 1.6, opacity: 0.6 });
+    }
+    const bench = el("g", {}, furn);
+    sk.rect(bench, 972, 724, 110, 12, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.4 });
+    sk.rect(bench, 972, 680, 110, 12, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.4 });
+    sk.rect(bench, 972, 698, 110, 12, { fill: P.steel, stroke: INK, width: 3, seed: S(), wobble: 0.4 });
+    lines(bench, [[980, 736, 978, 810], [1074, 736, 1076, 810], [982, 680, 982, 736], [1072, 680, 1072, 736]], { stroke: INK, width: 4, opacity: 1 });
+    if (DMG) bench.setAttribute("transform", "rotate(4 972 810)");
+
+    // vignette (moody edges)
+    const vg = el("radialGradient", { id: uid + "vig", cx: 0.5, cy: 0.45, r: 0.75 }, defs);
+    [[0.55, 0], [1, 0.5]].forEach(([o, a]) => el("stop", { offset: o, "stop-color": P.night, "stop-opacity": a }, vg));
+    el("rect", { x: -40, y: -40, width: 2000, height: 1160, fill: `url(#${uid}vig)`, "pointer-events": "none" }, g);
+
+    const harbor = { g: harborL, waterG, shoreX: SHOREX, levelY: LEVEL, drainedY: 790, lowY: 720, surgedY: 560, floodY: 480, wallY: WALL, deckY: DECK, level: LEVEL, setLevel };
+    setLevel(opts.level !== undefined ? opts.level : LEVEL);
+
+    return {
+      g,
+      groundY: GROUND,
+      sidewalkY: SIDE,
+      nearCurbY: NEAR,
+      harbor,
+      dock: { g: dockG, deckY: DECK, x0: 16, x1: 548, hut: { g: hutG } },
+      ferry: { g: ferryG, floatG, x: 240, waterline: LEVEL },
+      gasStation: { g: gas, canopyG, pumps, x: 1590, y: SIDE },
+      hill: { g: hillL, ridge, yAt: hillY },
+      school: { g: schoolG, x: SCHX, y: SCHY },
+      trail: { g: trailG, points: trailPts },
+      sign: { g: signG, x: SGX, y: SGY },
+      poles: poles.map((p) => ({ g: p.g, x: p.x, baseY: p.baseY, top: p.top })),
+      wires: { g: wiresL },
+      buildings: { postOffice: po, diner, hardware: hw },
+      debris: { g: debrisG },
+      layers: { sky: skyL, far: farL, hill: hillL, mid: midL, harbor: harborL, ground: groundL, water: waterL, front: frontL },
+    };
+  };
+})();
+
+    /* ===== ep01-s07 "The Harbor Leaves" — scene code ===== */
+    (function () {
+      const RD = window.RainyDay, BG = window.RainyDayBG;
+      const P = RD.palette, sk = RD.sk, el = RD.el, INK = P.ink, H = RD.hash;
+      const D = 20, SC = 1.4;
+      const tl = gsap.timeline({ paused: true });
+      const root = document.querySelector('[data-composition-id="ep01-s07"]') || document;
+      const $ = (id) => root.querySelector("#" + id) || document.getElementById(id);
+      const bgL = $("s07-bg"), midL = $("s07-mid"), charL = $("s07-chars"), fxL = $("s07-fx");
+      const f1 = (v) => (+v).toFixed(1);
+      const clamp01 = (u) => Math.min(1, Math.max(0, u));
+      const smooth = (a, b, x) => { const u = clamp01((x - a) / (b - a)); return u * u * (3 - 2 * u); };
+
+      // ---------- background: main street after the quake
+      const bg = BG.mainStreet(bgL, { damage: 1 });
+      const GY = bg.groundY, Y = GY - 116 * SC; // 697.6
+      const HB = bg.harbor;
+      // harbor level as a pure function of time: normal until 4s, drains to the mud by 14s
+      const levelAt = (t) => HB.levelY + (HB.drainedY - HB.levelY) * smooth(4.0, 14.0, t);
+
+      // ---------- stranded fish on the exposed mud (tiny ink marks, flopping)
+      const fishL = el("g", { id: "s07-fish" });
+      HB.g.appendChild(fishL); // inside the harbor layer, above the mud bed; the water layer covers them until it drains
+      const FISH = [[112, 728, 1], [236, 744, -1], [392, 712, 1], [486, 738, -1], [64, 744, 1]].map(([x, y, d], i) => {
+        const g = el("g", { class: "s07-fishg" }, fishL);
+        const inner = el("g", {}, g);
+        el("path", { d: "M-11 0 Q -2 -7 9 0 Q -2 7 -11 0 Z", fill: P.mist, stroke: INK, "stroke-width": 2, "stroke-linejoin": "round" }, inner);
+        el("path", { d: "M-10 0 L -18 -6 L -17 6 Z", fill: P.steel, stroke: INK, "stroke-width": 2, "stroke-linejoin": "round" }, inner);
+        el("circle", { cx: 4, cy: -1.5, r: 1.4, fill: INK }, inner);
+        const marks = el("path", { d: "M-6 -12 l -3 -6 M2 -13 l 0 -7 M9 -11 l 3 -6", stroke: INK, "stroke-width": 2, "stroke-linecap": "round", fill: "none" }, g);
+        return { g, inner, marks, x, y, d, ph: i * 1.37 };
+      });
+      const drawFish = (t, level) => FISH.forEach((f) => {
+        const vis = clamp01((level - f.y - 4) / 10);
+        f.g.setAttribute("opacity", vis.toFixed(3));
+        // flop in bursts: a few quick flips, then a rest
+        const cyc = (t * 0.9 + f.ph) % 1.6;
+        const on = cyc < 0.7 ? Math.sin((cyc / 0.7) * Math.PI * 3) : 0;
+        const hop = Math.abs(on) * 7;
+        f.g.setAttribute("transform", `translate(${f1(f.x)} ${f1(f.y - hop)})`);
+        f.inner.setAttribute("transform", `rotate(${f1(on * 28)}) scale(${1.5 * f.d} 1.5)`);
+        f.marks.setAttribute("opacity", (Math.abs(on) > 0.5 ? 0.8 : 0).toFixed(2));
+      });
+
+      // ---------- outgoing current: pale streaks sliding left (seaward) across the falling water
+      const curL = el("g", { id: "s07-current" });
+      HB.waterG.appendChild(curL);
+      const streaks = [];
+      for (let i = 0; i < 12; i++) streaks.push({ e: el("path", { fill: "none", stroke: P.fog, "stroke-width": 3, "stroke-linecap": "round" }, curL), x: (i * 151) % 560, dy: 8 + (i % 4) * 14, sp: 90 + (i % 3) * 40, len: 30 + (i % 3) * 14 });
+      const drawCurrent = (t, level) => {
+        const k = smooth(4.2, 5.2, t) * (1 - smooth(12.0, 13.6, t));
+        streaks.forEach((s, i) => {
+          const y = level + s.dy;
+          const x = 560 - ((s.x + t * s.sp) % 600);
+          const ok = y < HB.wallY - 6 && x > -20;
+          s.e.setAttribute("d", ok ? `M${f1(x)} ${f1(y)} l ${s.len} 0 M${f1(x)} ${f1(y)} l 8 -5 M${f1(x)} ${f1(y)} l 8 5` : "");
+          s.e.setAttribute("opacity", (0.7 * k).toFixed(3));
+        });
+      };
+
+      // ---------- neighbors: simple muted stick figures (mist/steel; no yellow)
+      const NB = (opts) => {
+        const g = el("g", { class: "s07-nb" }, opts.layer);
+        const st = { stroke: INK, "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" };
+        const shadow = el("ellipse", { fill: INK, opacity: 0.16 }, g);
+        const legs = el("path", st, g);
+        const armB = el("path", st, g);
+        const coat = el("path", { fill: opts.coat || P.steel, stroke: INK, "stroke-linejoin": "round" }, g);
+        const armF = el("path", st, g);
+        const glow = el("ellipse", { fill: P.fog, opacity: 0 }, g);
+        const phone = el("rect", { width: 12, height: 20, rx: 2, fill: P.fog, stroke: INK }, g);
+        const head = el("circle", { fill: P.fog, stroke: INK }, g);
+        const hat = el("path", { fill: opts.hat || P.slate, stroke: INK, opacity: opts.hat === null ? 0 : 1 }, g);
+        const eyes = el("path", { fill: INK }, g);
+        const mouth = el("path", { stroke: INK, "stroke-linecap": "round", fill: "none" }, g);
+        const keys = opts.keys;
+        const at = (t) => {
+          let i = 0;
+          while (i < keys.length - 1 && t >= keys[i + 1].t) i++;
+          const a = keys[i], b = keys[Math.min(i + 1, keys.length - 1)];
+          const u = b === a ? 1 : smooth(a.t, Math.min(b.t, a.t + 0.5), t);
+          const L = (k) => (a[k] !== undefined ? a[k] : 0) + ((b[k] !== undefined ? b[k] : 0) - (a[k] !== undefined ? a[k] : 0)) * u;
+          return { look: L("look"), phone: L("phone"), x: opts.x + L("dx"), facing: (u < 0.5 ? a : b).facing, talk: !!a.talk };
+        };
+        const draw = (t) => {
+          const s = at(t), sc = opts.scale, f = s.facing, gy = opts.gy;
+          const step = Math.floor(t * 8);
+          const j = (k) => H(step * 31 + k + opts.seed) * 1.1;
+          const P2 = (dx, dy, k) => [s.x + dx * sc * f + j(k), gy + dy * sc + j(k + 40)];
+          const pt = (p) => f1(p[0]) + " " + f1(p[1]);
+          const lw = 6 * sc;
+          const hip = P2(0, -116, 1), kL = P2(-7, -58, 2), kR = P2(9, -58, 3), fL = P2(-14, 0, 4), fR = P2(15, 0, 5);
+          legs.setAttribute("d", `M${pt(fL)} L${pt(kL)} L${pt(hip)} L${pt(kR)} L${pt(fR)}`);
+          legs.setAttribute("stroke-width", f1(lw));
+          const sh = P2(2, -206, 6);
+          const hemL = P2(-26, -100, 7), hemR = P2(26, -100, 8), shL = P2(-16, -206, 9), shR = P2(18, -206, 10);
+          coat.setAttribute("d", `M${pt(shL)} L${pt(shR)} L${pt(hemR)} L${pt(hemL)} Z`);
+          coat.setAttribute("stroke-width", f1(3.5 * sc));
+          // back arm hangs
+          armB.setAttribute("d", `M${pt(sh)} L${pt(P2(-12, -158, 11))} L${pt(P2(-10, -114, 12))}`);
+          armB.setAttribute("stroke-width", f1(lw));
+          // phone arm: at the chest (phone 0) → held up and out, screen toward Mags (phone 1)
+          const ph = s.phone;
+          const elb = P2(14 + 20 * ph, -160 - 30 * ph, 13), hand = P2(30 + 40 * ph, -176 - 52 * ph, 14);
+          armF.setAttribute("d", `M${pt(sh)} L${pt(elb)} L${pt(hand)}`);
+          armF.setAttribute("stroke-width", f1(lw));
+          phone.setAttribute("x", f1(hand[0] - 6 * sc)); phone.setAttribute("y", f1(hand[1] - 16 * sc));
+          phone.setAttribute("width", f1(12 * sc)); phone.setAttribute("height", f1(19 * sc));
+          phone.setAttribute("stroke-width", f1(2 * sc));
+          glow.setAttribute("cx", f1(hand[0])); glow.setAttribute("cy", f1(hand[1] - 7 * sc));
+          glow.setAttribute("rx", f1(26 * sc)); glow.setAttribute("ry", f1(24 * sc));
+          glow.setAttribute("opacity", (0.28 + 0.06 * Math.sin(t * 3 + opts.seed)).toFixed(3));
+          // head: tipped down to the phone (look 0) or up/out (look 1)
+          const lk = s.look;
+          const hc = P2(8 - 4 * lk, -240 + 6 * (1 - lk) - 4 * lk, 15);
+          const hr = 24 * sc;
+          head.setAttribute("cx", f1(hc[0])); head.setAttribute("cy", f1(hc[1])); head.setAttribute("r", f1(hr));
+          head.setAttribute("stroke-width", f1(3.5 * sc));
+          const hx = (dx, dy) => f1(hc[0] + dx * sc * f) + " " + f1(hc[1] + dy * sc);
+          hat.setAttribute("d", `M${hx(-24, -6)} Q${hx(-22, -30)} ${hx(0, -30)} Q${hx(22, -30)} ${hx(24, -6)} L${hx(30, -4)} L${hx(-26, -4)} Z`);
+          hat.setAttribute("stroke-width", f1(2.5 * sc));
+          const ey = 3 * (1 - lk) - 1;
+          const e1 = [hc[0] + 7 * sc * f, hc[1] + ey * sc], e2 = [hc[0] + 16 * sc * f, hc[1] + ey * sc], er = 2.8 * sc;
+          eyes.setAttribute("d", `M${f1(e1[0] - er)} ${f1(e1[1])} a ${f1(er)} ${f1(er)} 0 1 0 ${f1(2 * er)} 0 a ${f1(er)} ${f1(er)} 0 1 0 ${f1(-2 * er)} 0 M${f1(e2[0] - er)} ${f1(e2[1])} a ${f1(er)} ${f1(er)} 0 1 0 ${f1(2 * er)} 0 a ${f1(er)} ${f1(er)} 0 1 0 ${f1(-2 * er)} 0`);
+          const open = s.talk && H(Math.floor(t * 7) + opts.seed) > -0.2;
+          mouth.setAttribute("d", open ? `M${hx(6, 10)} Q${hx(11, 4)} ${hx(16, 10)} Q${hx(11, 17)} ${hx(6, 10)} Z` : `M${hx(6, 12 + ey)} L${hx(15, 12 + ey)}`);
+          mouth.setAttribute("fill", open ? INK : "none");
+          mouth.setAttribute("stroke-width", f1(3 * sc));
+          shadow.setAttribute("cx", f1(s.x)); shadow.setAttribute("cy", f1(gy + 4)); shadow.setAttribute("rx", f1(48 * sc)); shadow.setAttribute("ry", f1(7 * sc));
+        };
+        draw(0);
+        return { g, draw };
+      };
+      const backNb = el("g", { id: "s07-nb-back" }, midL);
+      const SW = bg.sidewalkY; // 782
+      const neighbors = [
+        // on the back sidewalk by the post office: phone, then turns to stare at the harbor
+        NB({ layer: backNb, x: 820, gy: SW + 4, scale: 1.12, seed: 11, hat: P.storm, keys: [
+          { t: 0, facing: 1, look: 0, phone: 0 }, { t: 6.2, facing: 1, look: 0.6, phone: 0 },
+          { t: 7.0, facing: -1, look: 1, phone: 0 }, { t: 20, facing: -1, look: 1, phone: 0 }] }),
+        // by the gas station: thumbing the phone the whole time (looks up once)
+        NB({ layer: backNb, x: 1700, gy: SW + 4, scale: 1.12, seed: 23, hat: null, coat: P.mist, keys: [
+          { t: 0, facing: -1, look: 0, phone: 0 }, { t: 9.0, facing: -1, look: 0, phone: 0 }, { t: 9.6, facing: -1, look: 1, phone: 0 },
+          { t: 12.6, facing: -1, look: 1, phone: 0 }, { t: 13.2, facing: -1, look: 0, phone: 0.2 }, { t: 20, facing: -1, look: 0, phone: 0.2 }] }),
+        // in the street: the one who talks ("No alert on my phone yet...")
+        NB({ layer: midL, x: 1430, gy: GY, scale: 1.3, seed: 37, hat: P.slate, keys: [
+          { t: 0, facing: 1, look: 0, phone: 0 }, { t: 5.0, facing: 1, look: 0, phone: 0 }, { t: 5.6, facing: -1, look: 0.8, phone: 0 },
+          { t: 9.0, facing: -1, look: 1, phone: 0 }, { t: 12.4, facing: -1, look: 0, phone: 0.1 },
+          { t: 14.4, facing: -1, look: 0.6, phone: 1, talk: true }, { t: 17.0, facing: -1, look: 0.6, phone: 1 },
+          { t: 18.2, facing: -1, look: 0.2, phone: 0.35 }, { t: 20, facing: -1, look: 0.1, phone: 0.3 }] }),
+      ];
+
+      // ---------- Drizzle + Mags step out of his house (from the right) and stop mid-street
+      const walk = (t0, t1, x0, x1, step, extra) => {
+        const out = [], n = Math.max(1, Math.round((t1 - t0) / step));
+        for (let i = 1; i <= n; i++) {
+          const t = t0 + ((t1 - t0) * i) / n;
+          out.push(Object.assign({ t: +t.toFixed(3), pose: i % 2 ? "walkA" : "walkB", x: x0 + ((x1 - x0) * i) / n, ease: "none" }, extra ? extra(t) : {}));
+        }
+        return out;
+      };
+      const DX = 960, MX = 1130;
+      const mags = RD.figure(charL, { character: "mags", x: 1880, y: Y, scale: SC, facing: -1, pose: "walkB" });
+      const drizzle = RD.figure(charL, { character: "drizzle", x: 1720, y: Y, scale: SC, facing: -1, bag: true, pose: "walkA" });
+      RD.animate(tl, drizzle, [
+        { t: 0, pose: "walkA", x: 1720, facing: -1, face: "worried", bag: true },
+        ...walk(0, 3.2, 1720, DX, 0.27),
+        { t: 3.5, pose: "idle", face: "worried" },
+        { t: 3.85, pose: RD.mix("idle", { head: 10, torso: 3 }), face: "o" },
+        // "Mags. Where's the water going?"
+        { t: 4.1, pose: RD.mix("point", { rsh: 88, head: 6 }), talk: true },
+        { t: 5.4, pose: RD.mix("point", { rsh: 80, head: 10, torso: 5 }), talk: true },
+        { t: 6.8, pose: RD.mix("point", { rsh: 76, head: 8 }), talk: false, face: "worried" },
+        { t: 7.4, pose: RD.mix("idle", { head: -2 }), facing: 1, face: "worried" },
+        { t: 9.6, pose: RD.mix("idle", { head: -6, torso: -2 }), face: "scared" },
+        // the sea keeps going out
+        { t: 10.8, pose: RD.mix("idle", { head: 8 }), facing: -1, face: "scared" },
+        { t: 12.0, pose: RD.mix("point", { rsh: 70, head: 12, torso: 6 }), face: "scared" },
+        { t: 13.6, pose: RD.mix("point", { rsh: 66, head: 12, torso: 6 }), face: "scared" },
+        { t: 14.3, pose: "idle", face: "worried" },
+        // the neighbor's phone
+        { t: 14.8, pose: RD.mix("idle", { head: 4 }), facing: 1, face: "worried" },
+        { t: 17.2, pose: RD.mix("idle", { head: -2 }), face: "worried" },
+        { t: 18.7, pose: RD.mix("idle", { head: 8 }), facing: -1, face: "scared" },
+        { t: 19.2, pose: RD.mix("point", { rsh: 86, head: 8, torso: 4 }), face: "worried" },
+        { t: 20, pose: RD.mix("point", { rsh: 84, head: 9, torso: 4 }), face: "worried" },
+      ], { start: 0, end: D });
+      RD.animate(tl, mags, [
+        { t: 0, pose: "walkB", x: 1880, facing: -1, face: "determined" },
+        ...walk(0, 3.5, 1880, MX, 0.29),
+        { t: 3.8, pose: "idle", face: "determined" },
+        { t: 4.6, pose: RD.mix("idle", { head: 8 }), face: "determined" },
+        // "Out. And it's coming back. Bigger."
+        { t: 7.2, pose: RD.mix("point", { rsh: 92 }), talk: true, face: "determined" },
+        { t: 8.3, pose: RD.mix("talk", { head: 4 }), talk: true },
+        { t: 9.3, pose: RD.mix("point", { rsh: 150, head: -6 }), talk: true },
+        { t: 10.6, pose: RD.mix("idle", { head: 4 }), talk: false, face: "determined" },
+        { t: 12.0, pose: RD.mix("idle", { head: 10 }), face: "determined" },
+        // the neighbor; then: "The shaking WAS the alert."
+        { t: 14.8, pose: "idle", facing: 1, face: "neutral" },
+        { t: 17.4, pose: RD.mix("talk", { head: 2 }), talk: true, face: "determined" },
+        { t: 18.4, pose: RD.mix("point", { rsh: 58, head: 8 }), talk: true },
+        { t: 19.8, pose: RD.mix("idle", { head: 4 }), talk: false, face: "determined" },
+        { t: 20, pose: RD.mix("idle", { head: 4 }), face: "determined" },
+      ], { start: 0, end: D });
+      charL.appendChild(drizzle.g);
+
+      // ---------- rain
+      RD.rain(tl, $("s07-rain"), { start: 0, end: D, count: 140, opacity: 0.45, seed: 71 }); // v3: screen space (stays fine-grained in close-ups)
+
+      // ---------- environment proxy: harbor level, fish, neighbors
+      const env = { t: 0 };
+      const drawEnv = (t) => {
+        const lv = levelAt(t);
+        HB.setLevel(lv);
+        drawFish(t, lv);
+        drawCurrent(t, lv);
+        neighbors.forEach((n) => n.draw(t));
+      };
+      drawEnv(0);
+      tl.fromTo(env, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawEnv(env.t) }, 0);
+
+      // ---------- camera (v3): shot list, cut on the caption cues. A shot is [t0, t1, from, to, ease] with views
+      // [scale, centreX, centreY, rotDeg] in world px; a discontinuous `from` = hard cut. One proxy tween writes the
+      // cam transform attribute (seek-safe); every view is clamped so the frame never leaves the 1920x1080 set.
+      const cam = $("s07-cam");
+      const SHOTS = [
+        [0.0, 4.32, [1.0, 960, 540, 0], [1.06, 1010, 528, 0], "sine"],        // WIDE: the wrong-looking street, they step in
+        [4.32, 7.17, [1.65, 840, 600, 0], [1.74, 815, 598, 0], "sine"],      // MEDIUM two-shot: Drizzle points at the harbor
+        [7.17, 9.4, [2.2, 1090, 590, 0], [2.32, 1084, 588, 0], "sine"],      // CLOSE-UP Mags: "Out. And it's coming back."
+        [9.4, 11.0, [2.1, 470, 628, 0], [2.22, 430, 640, 0], "sine"],       // CUT-IN: the harbor draining, ferry settling
+        [11.0, 14.6, [1.3, 760, 585, -2], [1.42, 700, 592, -2], "sine"],     // OVER-THE-SHOULDER wide on the drained harbor (tilted)
+        [14.6, 17.54, [1.75, 1330, 600, 3], [1.82, 1318, 598, 3], "sine"],   // MEDIUM on the neighbor's phone (tilted)
+        [17.54, 20.0, [2.3, 1195, 585, 0], [2.5, 1185, 580, 0], "sine"],     // CLOSE-UP Mags: "The shaking WAS the alert."
+      ];
+      const EASE = { none: (u) => u, sine: (u) => 0.5 - 0.5 * Math.cos(Math.PI * u), out: (u) => 1 - (1 - u) * (1 - u), inOut: (u) => u * u * (3 - 2 * u) };
+      const fitView = (v) => {
+        let [s, cx, cy, r] = v;
+        const a = Math.abs((r * Math.PI) / 180), c = Math.cos(a), sn = Math.sin(a);
+        s = Math.max(s, 1, c + (1080 / 1920) * sn, (1920 / 1080) * sn + c);
+        const hx = (1920 * c + 1080 * sn) / (2 * s), hy = (1920 * sn + 1080 * c) / (2 * s);
+        cx = Math.min(Math.max(cx, hx), 1920 - hx); cy = Math.min(Math.max(cy, hy), 1080 - hy);
+        return [s, cx, cy, r];
+      };
+      const camAt = (t) => {
+        let k = 0;
+        while (k < SHOTS.length - 1 && t >= SHOTS[k + 1][0]) k++;
+        const [t0, t1, A, B, ez] = SHOTS[k];
+        const u = EASE[ez || "sine"](clamp01((t - t0) / (t1 - t0)));
+        return fitView(A.map((a, i) => a + (B[i] - a) * u));
+      };
+      const drawCam = (t) => {
+        const [s, cx, cy, r] = camAt(t);
+        cam.setAttribute("transform", `translate(960 540) rotate(${r.toFixed(3)}) scale(${s.toFixed(4)}) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`);
+      };
+      const camP = { t: 0 };
+      drawCam(0);
+      tl.fromTo(camP, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawCam(camP.t) }, 0);
+
+      window.__timelines["ep01-s07"] = tl;
+    })();
+
+  </script>
+</template>
