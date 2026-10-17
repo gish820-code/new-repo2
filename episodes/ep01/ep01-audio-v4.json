@@ -1,0 +1,335 @@
+{
+ "version": 4,
+ "notes": "Voices: ElevenLabs v4 (elevenlabs_v4 via Higgsfield), voiced as whole multi-speaker exchanges (audio/ep01/vo/ep01-blocks-v4.json). Narrator reads the s15 lesson cards. SFX as v3 plus the new s13b (the second wave hits the lower town).",
+ "model": "elevenlabs_v4",
+ "cast": {
+  "NARRATOR": {
+   "name": "Arthur",
+   "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DRIZZLE": {
+   "name": "Dylan",
+   "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "MAGS": {
+   "name": "Mabel",
+   "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "RADIO": {
+   "name": "Grady",
+   "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+   "fx": "radio",
+   "gainDb": -2
+  },
+  "NEIGHBOR": {
+   "name": "Jake",
+   "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f",
+   "fx": "none",
+   "gainDb": -1
+  }
+ },
+ "ambience": {
+  "s01": "rain-out",
+  "s02": "rain-in",
+  "s03": "rain-in",
+  "s04": "rain-in",
+  "s05": "rain-in-quiet",
+  "s06": "rain-in",
+  "s07": "rain-out",
+  "s08": "rain-out",
+  "s09": "rain-out",
+  "s10": "rain-forest",
+  "s11": "rain-forest",
+  "s12": "rain-forest",
+  "s13": "rain-forest",
+  "s14": "rain-out-light",
+  "s15": "rain-out-light",
+  "s16": "rain-out-light",
+  "s13b": "rain-forest"
+ },
+ "sfx": {
+  "s02": [
+   {
+    "type": "door",
+    "t": 0.2
+   },
+   {
+    "type": "kettle",
+    "t": 0.0,
+    "d": 6.0
+   }
+  ],
+  "s03": [
+   {
+    "type": "rattle",
+    "t": 1.2,
+    "d": 5.2,
+    "level": 0.5
+   },
+   {
+    "type": "rumble",
+    "t": 6.4,
+    "d": 15.6,
+    "rampIn": 1.4,
+    "level": 1.0
+   },
+   {
+    "type": "rattle",
+    "t": 6.4,
+    "d": 15.6,
+    "level": 1.0
+   }
+  ],
+  "s04": [
+   {
+    "type": "rumble",
+    "t": 0.0,
+    "d": 20.0,
+    "rampIn": 0.0,
+    "level": 1.0
+   },
+   {
+    "type": "rattle",
+    "t": 0.0,
+    "d": 20.0,
+    "level": 1.0
+   },
+   {
+    "type": "crash",
+    "t": 5.0,
+    "level": 1.0
+   },
+   {
+    "type": "thud",
+    "t": 8.4,
+    "level": 0.8
+   },
+   {
+    "type": "crash",
+    "t": 11.0,
+    "level": 0.6
+   },
+   {
+    "type": "click",
+    "t": 16.6
+   },
+   {
+    "type": "click",
+    "t": 16.85
+   },
+   {
+    "type": "thunk",
+    "t": 17.08
+   }
+  ],
+  "s05": [
+   {
+    "type": "drip",
+    "t": 1.0,
+    "d": 16.0
+   }
+  ],
+  "s08": [
+   {
+    "type": "roar",
+    "t": 13.6,
+    "d": 4.4,
+    "level": 0.35,
+    "rampIn": 3.0
+   }
+  ],
+  "s09": [
+   {
+    "type": "horn",
+    "t": 1.0
+   },
+   {
+    "type": "horn",
+    "t": 4.6
+   },
+   {
+    "type": "horn",
+    "t": 9.2
+   },
+   {
+    "type": "door",
+    "t": 12.6
+   }
+  ],
+  "s10": [
+   {
+    "type": "rumble",
+    "t": 7.0,
+    "d": 6.0,
+    "rampIn": 0.3,
+    "level": 0.75
+   },
+   {
+    "type": "creak",
+    "t": 7.2,
+    "d": 5.8
+   }
+  ],
+  "s11": [
+   {
+    "type": "crank",
+    "t": 6.6,
+    "d": 3.3
+   },
+   {
+    "type": "static",
+    "t": 7.0,
+    "d": 3.0,
+    "level": 1.0
+   },
+   {
+    "type": "static",
+    "t": 10.0,
+    "d": 4.4,
+    "level": 0.35
+   }
+  ],
+  "s12": [
+   {
+    "type": "roar",
+    "t": 6.5,
+    "d": 11.5,
+    "level": 0.45,
+    "rampIn": 6.0
+   }
+  ],
+  "s13": [
+   {
+    "type": "roar",
+    "t": 0.0,
+    "d": 13.0,
+    "level": 1.0,
+    "rampIn": 3.4
+   },
+   {
+    "type": "rumble",
+    "t": 5.2,
+    "d": 3.4,
+    "rampIn": 1.2,
+    "level": 0.45
+   },
+   {
+    "type": "roar",
+    "t": 13.0,
+    "d": 7.0,
+    "level": 0.5,
+    "rampIn": 0.1
+   }
+  ],
+  "s16": [
+   {
+    "type": "crank",
+    "t": 0.3,
+    "d": 1.0
+   },
+   {
+    "type": "static",
+    "t": 0.6,
+    "d": 6.4,
+    "level": 0.35
+   },
+   {
+    "type": "pop",
+    "t": 13.4
+   }
+  ],
+  "s13b": [
+   {
+    "type": "roar",
+    "t": 0.5,
+    "d": 5.2,
+    "level": 0.9,
+    "rampIn": 4.5
+   },
+   {
+    "type": "rumble",
+    "t": 3.2,
+    "d": 2.4,
+    "rampIn": 1.5,
+    "level": 0.35
+   },
+   {
+    "type": "impact",
+    "t": 5.4,
+    "level": 1.0
+   },
+   {
+    "type": "rumble",
+    "t": 5.4,
+    "d": 3.4,
+    "rampIn": 0.05,
+    "level": 0.8
+   },
+   {
+    "type": "roar",
+    "t": 5.4,
+    "d": 8.6,
+    "level": 1.0,
+    "rampIn": 0.2
+   },
+   {
+    "type": "debris",
+    "t": 5.7,
+    "d": 8.0,
+    "level": 1.0,
+    "rampIn": 0.4
+   },
+   {
+    "type": "crash",
+    "t": 5.6,
+    "level": 0.7
+   },
+   {
+    "type": "snap",
+    "t": 6.3
+   },
+   {
+    "type": "snap",
+    "t": 7.1,
+    "level": 0.8
+   },
+   {
+    "type": "crash",
+    "t": 7.8,
+    "level": 0.5
+   },
+   {
+    "type": "snap",
+    "t": 8.6
+   },
+   {
+    "type": "snap",
+    "t": 9.8,
+    "level": 0.7
+   },
+   {
+    "type": "crash",
+    "t": 10.9,
+    "level": 0.4
+   },
+   {
+    "type": "snap",
+    "t": 12.0,
+    "level": 0.6
+   },
+   {
+    "type": "roar",
+    "t": 13.8,
+    "d": 8.1,
+    "level": 0.4,
+    "rampIn": 0.3
+   }
+  ]
+ }
+}
