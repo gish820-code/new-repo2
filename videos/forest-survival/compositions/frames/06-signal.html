@@ -1,0 +1,653 @@
+<template>
+  <style>
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+    @font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/Archivo-Variable.woff2") format("woff2"); font-weight: 400 600; }
+    @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-Regular.woff2") format("woff2"); font-weight: 400; }
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #1B2566; }
+    .f06-layer { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .f06-ground {
+      background-color: #E9E5DB;
+      background-image: radial-gradient(ellipse 48% 60% at 82% 20%, rgba(241,238,46,0.82) 0%, rgba(248,243,155,0.6) 34%, rgba(240,218,124,0.2) 62%, rgba(233,229,219,0) 100%);
+    }
+    .f06-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .f06-tag { position: absolute; left: 76px; top: 72px; font-family: "Archivo", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #1B2566; }
+    .f06-rule { position: absolute; left: 76px; top: 100px; width: 300px; height: 1px; background: #1B2566; transform-origin: 0 50%; }
+    .f06-hero { position: absolute; left: 70px; top: 118px; font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; font-size: 134px; line-height: 1.04; letter-spacing: -0.005em; color: #1B2566; white-space: nowrap; }
+    .f06-pagenum { position: absolute; right: 76px; top: 1012px; font-family: "JetBrains Mono", monospace; font-size: 14px; letter-spacing: 0.08em; color: #1B2566; opacity: 0.75; }
+  </style>
+
+  <div id="root" data-composition-id="06-signal" data-width="1920" data-height="1080" data-duration="7.637">
+    <div id="f06-bg" class="clip f06-layer f06-ground" data-start="0" data-duration="7.637" data-track-index="0"></div>
+    <div id="f06-scene" class="clip f06-layer" data-start="0" data-duration="7.637" data-track-index="1">
+      <svg id="f06-svg" class="f06-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+        <g id="f06-world">
+          <g id="f06-sun"></g>
+          <g id="f06-forest"></g>
+          <g id="f06-ground"></g>
+          <g id="f06-smoke"></g>
+          <g id="f06-fire"></g>
+          <g id="f06-jacket"></g>
+          <g id="f06-frame-trees"></g>
+          <g id="f06-fig"></g>
+          <g id="f06-whistle"></g>
+          <g id="f06-arcs"></g>
+          <g id="f06-labels"></g>
+        </g>
+        <g id="f06-sky">
+          <g id="f06-heli"></g>
+        </g>
+      </svg>
+      <div id="f06-tag" class="f06-tag">Step 4 · Signal</div>
+      <div id="f06-rule" class="f06-rule"></div>
+      <div id="f06-hero" class="f06-hero">Signal.</div>
+      <div class="f06-pagenum">06 / 08</div>
+    </div>
+  </div>
+
+  <script>
+/* Castaway rig — shared stick-figure character + island kit for every frame.
+ *
+ * Paste this file VERBATIM inside your frame's <template><script> (before your timeline code).
+ * It defines window.CastawayRig once (guarded) and draws everything in SVG, deterministic and
+ * seek-safe: all state is a pure function of timeline time.
+ *
+ * Coordinates: SVG user units = canvas px when the <svg> is 1920×1080 with viewBox "0 0 1920 1080".
+ *
+ *   const R = window.CastawayRig;
+ *   const guy = R.figure(svgGroupEl, { x: 900, y: 760, scale: 1, facing: 1 });
+ *   R.animate(tl, guy, [
+ *     { t: 0,   pose: "stand" },
+ *     { t: 0.8, pose: "wave",  x: 960, ease: "power2.inOut", face: "smile" },
+ *     { t: 2.0, pose: R.mix("stand", { rsh: -150, rel: 20 }) },
+ *   ], { start: 0, end: frameDuration, onDraw: (g) => { // move props to g.hand("r") } });
+ *
+ * x/y = the HIP position when standing; the GROUND line is y + 116*scale for every pose (sit/lie/kneel
+ * lower the hip via the pose's dy, so keep y fixed and switch poses).
+ * Angles (degrees): limbs measured from straight DOWN, positive = toward the facing direction
+ * (forward). Knee/elbow angles are RELATIVE bends added to the upper limb.
+ * torso: 0 = upright, positive = lean forward. head: tilt in degrees, positive = nod forward.
+ * faces: "neutral" | "smile" | "grin" | "o" | "worried" | "determined" | "closed".
+ */
+(function () {
+  if (window.CastawayRig) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const INK = "#1B2566";
+  const SUN = "#F1EE2E";
+  const PAPER = "#E9E5DB";
+  const PAPER_DEEP = "#DCD6C4";
+  const EMBER = "#E26B4A";
+  const STROKE = 9;
+  const L = { torso: 98, neck: 12, head: 27, upArm: 52, loArm: 50, upLeg: 60, loLeg: 58 };
+
+  const POSES = {
+    stand: { torso: 0, head: 0, lsh: -8, lel: 6, rsh: 8, rel: 6, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    wave: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 160, rel: 25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    waveB: { torso: -2, head: -6, lsh: -10, lel: 8, rsh: 150, rel: -25, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    walkA: { torso: 4, head: 0, lsh: 28, lel: 20, rsh: -24, rel: 10, lhip: -22, lkn: 8, rhip: 24, rkn: 20, dy: -3 },
+    walkB: { torso: 4, head: 0, lsh: -24, lel: 10, rsh: 28, rel: 20, lhip: 24, lkn: 20, rhip: -22, rkn: 8, dy: -3 },
+    sit: { torso: -10, head: 4, lsh: -32, lel: 4, rsh: 30, rel: 40, lhip: 84, lkn: -6, rhip: 70, rkn: 28, dy: 96 },
+    lie: { torso: -90, head: 0, lsh: 160, lel: 10, rsh: 10, rel: -60, lhip: 90, lkn: 0, rhip: 84, rkn: 8, dy: 88 },
+    kneel: { torso: 12, head: 14, lsh: 40, lel: 30, rsh: 55, rel: 35, lhip: 70, lkn: -90, rhip: -5, rkn: 100, dy: 50 },
+    crouch: { torso: 30, head: 16, lsh: 50, lel: 30, rsh: 62, rel: 30, lhip: 95, lkn: -120, rhip: 80, rkn: -115, dy: 58 },
+    reach: { torso: 18, head: 8, lsh: 70, lel: 10, rsh: 95, rel: 8, lhip: -10, lkn: 4, rhip: 12, rkn: 4, dy: 0 },
+    carry: { torso: 10, head: -4, lsh: 70, lel: 70, rsh: 80, rel: 65, lhip: -14, lkn: 10, rhip: 16, rkn: 10, dy: 0 },
+    pull: { torso: -18, head: -6, lsh: 60, lel: 5, rsh: 70, rel: 5, lhip: 22, lkn: 10, rhip: -18, rkn: 20, dy: 4 },
+    point: { torso: 0, head: -4, lsh: -8, lel: 6, rsh: 100, rel: 0, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    think: { torso: 0, head: 8, lsh: -8, lel: 6, rsh: 40, rel: 120, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    shrug: { torso: 0, head: -4, lsh: -45, lel: -70, rsh: 45, rel: 70, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: 0 },
+    cheer: { torso: -4, head: -10, lsh: -160, lel: -10, rsh: 160, rel: 10, lhip: -10, lkn: 2, rhip: 10, rkn: 2, dy: 0 },
+    breatheIn: { torso: -3, head: -8, lsh: -18, lel: 10, rsh: 18, rel: 10, lhip: -6, lkn: 2, rhip: 6, rkn: 2, dy: -4 },
+    drill: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 95, rel: -20, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+    drillB: { torso: 28, head: 18, lsh: 60, lel: 40, rsh: 70, rel: 10, lhip: 95, lkn: -110, rhip: -10, rkn: 105, dy: 52 },
+  };
+  const KEYS = Object.keys(POSES.stand);
+
+  function mix(base, over) {
+    const b = typeof base === "string" ? POSES[base] : base;
+    return Object.assign({}, b, over || {});
+  }
+
+  // deterministic hash → [-1, 1]
+  function hash(n) {
+    const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+    return (s - Math.floor(s)) * 2 - 1;
+  }
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  function dirDown(deg) {
+    const r = (deg * Math.PI) / 180;
+    return [Math.sin(r), Math.cos(r)];
+  }
+
+  // ---------------------------------------------------------------- figure
+  function figure(parent, opts) {
+    opts = opts || {};
+    const g = el("g", { class: "castaway" }, parent);
+    const shadow = el("ellipse", { rx: 70, ry: 10, fill: INK, opacity: 0.12 }, g);
+    const body = el("g", {}, g);
+    const common = { stroke: INK, "stroke-width": STROKE, "stroke-linecap": "round", "stroke-linejoin": "round", fill: "none" };
+    const limbs = {};
+    ["lleg", "larm", "torso", "rleg", "rarm"].forEach((k) => (limbs[k] = el("path", common, body)));
+    const headG = el("g", {}, body);
+    const head = el("circle", { r: L.head, fill: PAPER, stroke: INK, "stroke-width": STROKE }, headG);
+    const hair = el("path", Object.assign({}, common, { "stroke-width": 6 }), headG);
+    const eyeL = el("circle", { r: 3.6, fill: INK }, headG);
+    const eyeR = el("circle", { r: 3.6, fill: INK }, headG);
+    const mouth = el("path", Object.assign({}, common, { "stroke-width": 4.5 }), headG);
+    const lidL = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+    const lidR = el("path", Object.assign({}, common, { "stroke-width": 4 }), headG);
+
+    const fig = {
+      g,
+      state: Object.assign({ x: 960, y: 760, scale: 1, facing: 1, face: "neutral", shadow: 1 }, POSES.stand, opts.pose ? mix(opts.pose) : {}, opts),
+      joints: {},
+      boil: opts.boil !== false,
+      time: 0,
+      hand(side) {
+        return this.joints[side === "l" ? "lhand" : "rhand"];
+      },
+      foot(side) {
+        return this.joints[side === "l" ? "lfoot" : "rfoot"];
+      },
+      headPos() {
+        return this.joints.head;
+      },
+      draw(t) {
+        if (t !== undefined) this.time = t;
+        const s = this.state;
+        const f = s.facing >= 0 ? 1 : -1;
+        const step = Math.floor(this.time * 8); // 8 fps line boil
+        const j = (i) => (this.boil ? hash(step * 31 + i) * 1.3 : 0);
+        const sc = s.scale;
+        const P = (lx, ly) => [s.x + lx * sc * f, s.y + ly * sc];
+        const hipL = [0, -s.dy * -1];
+        // local skeleton (facing right), y down
+        const hip = [0, s.dy];
+        const td = [Math.sin((s.torso * Math.PI) / 180), -Math.cos((s.torso * Math.PI) / 180)];
+        const shoulder = [hip[0] + td[0] * L.torso, hip[1] + td[1] * L.torso];
+        const neckTop = [shoulder[0] + td[0] * L.neck, shoulder[1] + td[1] * L.neck];
+        const headC = [neckTop[0] + td[0] * L.head, neckTop[1] + td[1] * L.head];
+        const limb = (root, a1, a2, l1, l2) => {
+          const d1 = dirDown(a1);
+          const mid = [root[0] + d1[0] * l1, root[1] + d1[1] * l1];
+          const d2 = dirDown(a1 + a2);
+          const end = [mid[0] + d2[0] * l2, mid[1] + d2[1] * l2];
+          return [mid, end];
+        };
+        const sh = [shoulder[0] - td[0] * 8, shoulder[1] - td[1] * 8];
+        const [lelb, lhand] = limb(sh, s.lsh + s.torso, s.lel, L.upArm, L.loArm);
+        const [relb, rhand] = limb(sh, s.rsh + s.torso, s.rel, L.upArm, L.loArm);
+        const [lkn, lfoot] = limb(hip, s.lhip, s.lkn, L.upLeg, L.loLeg);
+        const [rkn, rfoot] = limb(hip, s.rhip, s.rkn, L.upLeg, L.loLeg);
+        let n = 0;
+        const W = (p) => {
+          const q = P(p[0], p[1]);
+          n += 1;
+          return [q[0] + j(n), q[1] + j(n + 50)];
+        };
+        const path = (pts) => "M" + pts.map((p) => W(p).map((v) => v.toFixed(1)).join(" ")).join(" L");
+        limbs.torso.setAttribute("d", path([hip, neckTop]));
+        limbs.larm.setAttribute("d", path([sh, lelb, lhand]));
+        limbs.rarm.setAttribute("d", path([sh, relb, rhand]));
+        limbs.lleg.setAttribute("d", path([hip, lkn, lfoot]));
+        limbs.rleg.setAttribute("d", path([hip, rkn, rfoot]));
+        // back limbs slightly lighter for depth
+        limbs.larm.setAttribute("opacity", 0.78);
+        limbs.lleg.setAttribute("opacity", 0.78);
+        const hc = W(headC);
+        const sw = STROKE * sc;
+        [limbs.torso, limbs.larm, limbs.rarm, limbs.lleg, limbs.rleg].forEach((p) => p.setAttribute("stroke-width", sw.toFixed(2)));
+        head.setAttribute("cx", hc[0].toFixed(1));
+        head.setAttribute("cy", hc[1].toFixed(1));
+        head.setAttribute("r", (L.head * sc).toFixed(1));
+        head.setAttribute("stroke-width", sw.toFixed(2));
+        // face, rotated by head tilt + torso
+        const tilt = (s.head + s.torso) * f;
+        headG.setAttribute("transform", "");
+        const fx = (dx, dy) => {
+          const r = (tilt * Math.PI) / 180;
+          const x = dx * f * sc, y = dy * sc;
+          return [hc[0] + x * Math.cos(r) - y * Math.sin(r), hc[1] + x * Math.sin(r) + y * Math.cos(r)];
+        };
+        const pt = (p) => p.map((v) => v.toFixed(1)).join(" ");
+        const eL = fx(4, -4), eR = fx(15, -4);
+        const closed = s.face === "closed";
+        eyeL.setAttribute("cx", eL[0].toFixed(1)); eyeL.setAttribute("cy", eL[1].toFixed(1));
+        eyeR.setAttribute("cx", eR[0].toFixed(1)); eyeR.setAttribute("cy", eR[1].toFixed(1));
+        eyeL.setAttribute("r", (3.6 * sc).toFixed(2)); eyeR.setAttribute("r", (3.6 * sc).toFixed(2));
+        eyeL.setAttribute("opacity", closed ? 0 : 1); eyeR.setAttribute("opacity", closed ? 0 : 1);
+        lidL.setAttribute("d", closed ? `M${pt(fx(0, -4))} Q${pt(fx(4, -1))} ${pt(fx(8, -4))}` : "");
+        lidR.setAttribute("d", closed ? `M${pt(fx(11, -4))} Q${pt(fx(15, -1))} ${pt(fx(19, -4))}` : "");
+        const m = {
+          neutral: `M${pt(fx(5, 9))} L${pt(fx(16, 9))}`,
+          smile: `M${pt(fx(3, 7))} Q${pt(fx(10, 15))} ${pt(fx(18, 7))}`,
+          grin: `M${pt(fx(2, 6))} Q${pt(fx(10, 19))} ${pt(fx(19, 6))} Z`,
+          o: `M${pt(fx(9, 7))} a ${(3.5 * sc).toFixed(1)} ${(4.5 * sc).toFixed(1)} 0 1 0 0.1 0`,
+          worried: `M${pt(fx(3, 12))} Q${pt(fx(10, 6))} ${pt(fx(18, 12))}`,
+          determined: `M${pt(fx(5, 10))} L${pt(fx(17, 8))}`,
+          closed: `M${pt(fx(5, 9))} Q${pt(fx(10, 12))} ${pt(fx(16, 9))}`,
+        }[s.face] || "";
+        mouth.setAttribute("d", m);
+        mouth.setAttribute("fill", s.face === "grin" ? INK : "none");
+        mouth.setAttribute("stroke-width", (4.5 * sc).toFixed(2));
+        // scruffy castaway hair tuft
+        hair.setAttribute("d", `M${pt(fx(-14, -20))} L${pt(fx(-6, -36))} L${pt(fx(0, -24))} L${pt(fx(8, -38))} L${pt(fx(12, -25))}`);
+        hair.setAttribute("stroke-width", (6 * sc).toFixed(2));
+        // ground shadow under the lower foot
+        const fl = P(lfoot[0], lfoot[1]), fr = P(rfoot[0], rfoot[1]);
+        const gy = Math.max(fl[1], fr[1]);
+        shadow.setAttribute("cx", ((fl[0] + fr[0]) / 2).toFixed(1));
+        shadow.setAttribute("cy", (gy + 6 * sc).toFixed(1));
+        shadow.setAttribute("rx", (70 * sc).toFixed(1));
+        shadow.setAttribute("ry", (10 * sc).toFixed(1));
+        shadow.setAttribute("opacity", (0.12 * s.shadow).toFixed(3));
+        this.joints = {
+          hip: P(hip[0], hip[1]), shoulder: P(sh[0], sh[1]), head: hc,
+          lhand: P(lhand[0], lhand[1]), rhand: P(rhand[0], rhand[1]),
+          lelbow: P(lelb[0], lelb[1]), relbow: P(relb[0], relb[1]),
+          lfoot: fl, rfoot: fr,
+        };
+        return this;
+      },
+    };
+    fig.draw(0);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- animate
+  // keyframes: [{ t, pose?: name|object, x?, y?, scale?, facing?, face?, ease? }]
+  // Interpolates numeric state between keyframes (ease applies to the segment ARRIVING at a key).
+  // face/facing switch discretely at their key. Seek-safe: driven by one proxy tween.
+  function animate(tl, fig, keys, opts) {
+    opts = opts || {};
+    const start = opts.start || 0;
+    const end = opts.end !== undefined ? opts.end : keys[keys.length - 1].t + 0.01;
+    // resolve full states
+    const states = [];
+    let prev = Object.assign({}, fig.state);
+    keys.forEach((k) => {
+      const s = Object.assign({}, prev);
+      if (k.pose) Object.assign(s, mix(k.pose));
+      ["x", "y", "scale", "facing", "face", "shadow"].forEach((p) => {
+        if (k[p] !== undefined) s[p] = k[p];
+      });
+      states.push(s);
+      prev = s;
+    });
+    const eases = keys.map((k) => (k.ease ? gsap.parseEase(k.ease) : gsap.parseEase("power2.inOut")));
+    const proxy = { t: 0 };
+    const apply = (lt) => {
+      let i = 0;
+      while (i < keys.length - 1 && lt >= keys[i + 1].t) i++;
+      const a = states[i];
+      const out = Object.assign({}, a);
+      if (i < keys.length - 1) {
+        const b = states[i + 1];
+        const span = keys[i + 1].t - keys[i].t;
+        const p = span > 0 ? eases[i + 1](Math.min(1, Math.max(0, (lt - keys[i].t) / span))) : 1;
+        KEYS.concat(["x", "y", "scale", "shadow"]).forEach((k) => {
+          out[k] = a[k] + (b[k] - a[k]) * p;
+        });
+      }
+      Object.assign(fig.state, out);
+      fig.draw(lt + start);
+      if (opts.onDraw) opts.onDraw(fig, lt + start);
+    };
+    apply(0);
+    tl.fromTo(proxy, { t: 0 }, { t: end - start, duration: end - start, ease: "none", onUpdate: () => apply(proxy.t) }, start);
+    return fig;
+  }
+
+  // ---------------------------------------------------------------- island kit
+  function palm(parent, x, y, scale, lean) {
+    scale = scale || 1;
+    lean = lean || 1;
+    const g = el("g", { class: "palm" }, parent);
+    const s = scale;
+    const top = [x + 70 * s * lean, y - 330 * s];
+    el("path", { d: `M${x} ${y} C ${x + 10 * s * lean} ${y - 120 * s}, ${x + 60 * s * lean} ${y - 220 * s}, ${top[0]} ${top[1]}`, stroke: INK, "stroke-width": 14 * s, "stroke-linecap": "round", fill: "none" }, g);
+    for (let i = 1; i < 7; i++) {
+      const tt = i / 7;
+      const bx = x + (top[0] - x) * tt * tt + 6 * s * lean;
+      const by = y + (top[1] - y) * tt;
+      el("path", { d: `M${bx - 9 * s} ${by + 4 * s} L${bx + 9 * s} ${by - 4 * s}`, stroke: INK, "stroke-width": 3 * s, "stroke-linecap": "round", opacity: 0.6 }, g);
+    }
+    const fronds = [-150, -115, -70, -30, 15, 55];
+    fronds.forEach((a, i) => {
+      const r = (a * Math.PI) / 180;
+      const len = (150 + (i % 2) * 30) * s;
+      const ex = top[0] + Math.cos(r) * len;
+      const ey = top[1] + Math.sin(r) * len * 0.55 + 40 * s;
+      const cx = top[0] + Math.cos(r) * len * 0.5;
+      const cy = top[1] + Math.sin(r) * len * 0.5 - 40 * s;
+      el("path", { d: `M${top[0]} ${top[1]} Q ${cx} ${cy} ${ex} ${ey}`, stroke: INK, "stroke-width": 9 * s, "stroke-linecap": "round", fill: "none" }, g);
+      for (let k = 1; k < 6; k++) {
+        const u = k / 6;
+        const px = (1 - u) * (1 - u) * top[0] + 2 * (1 - u) * u * cx + u * u * ex;
+        const py = (1 - u) * (1 - u) * top[1] + 2 * (1 - u) * u * cy + u * u * ey;
+        el("path", { d: `M${px} ${py} l ${-10 * s} ${22 * s * (1 - u * 0.4)}`, stroke: INK, "stroke-width": 4 * s, "stroke-linecap": "round" }, g);
+      }
+    });
+    [[-12, 18], [10, 22], [0, 34]].forEach(([dx, dy]) => el("circle", { cx: top[0] + dx * s, cy: top[1] + dy * s, r: 11 * s, fill: PAPER_DEEP, stroke: INK, "stroke-width": 4 * s }, g));
+    g.top = top;
+    return g;
+  }
+
+  function island(parent, opts) {
+    // sand mound centered at cx with given half-width, sitting on the waterline y
+    opts = opts || {};
+    const cx = opts.cx || 960, wy = opts.y || 820, hw = opts.halfWidth || 520, h = opts.height || 110;
+    const g = el("g", { class: "island" }, parent);
+    el("path", { d: `M${cx - hw} ${wy} C ${cx - hw * 0.6} ${wy - h}, ${cx + hw * 0.6} ${wy - h}, ${cx + hw} ${wy} Z`, fill: PAPER_DEEP, stroke: INK, "stroke-width": 5 }, g);
+    for (let i = 0; i < 14; i++) {
+      const px = cx - hw * 0.7 + ((i * 97) % (hw * 1.4));
+      const py = wy - 20 - ((i * 37) % (h * 0.6));
+      el("circle", { cx: px, cy: py, r: 2.2, fill: INK, opacity: 0.35 }, g);
+    }
+    return g;
+  }
+
+  function sea(parent, opts) {
+    // horizon line + wave strokes below it; returns { g, waves } (animate waves' x yourself)
+    opts = opts || {};
+    const wy = opts.y || 820, w = opts.width || 1920;
+    const g = el("g", { class: "sea" }, parent);
+    el("rect", { x: 0, y: wy, width: w, height: 1080 - wy, fill: INK, opacity: 0.06 }, g);
+    el("line", { x1: 0, y1: wy, x2: w, y2: wy, stroke: INK, "stroke-width": 1 }, g);
+    const waves = el("g", {}, g);
+    for (let r = 0; r < 4; r++) {
+      for (let i = -1; i < 12; i++) {
+        const x = i * 200 + (r % 2) * 100, y = wy + 28 + r * 40;
+        el("path", { d: `M${x} ${y} q 25 -14 50 0 q 25 14 50 0`, stroke: INK, "stroke-width": 3, fill: "none", opacity: 0.45 - r * 0.07, "stroke-linecap": "round" }, waves);
+      }
+    }
+    return { g, waves };
+  }
+
+  function sun(parent, x, y, r) {
+    const g = el("g", { class: "sun" }, parent);
+    el("circle", { cx: x, cy: y, r: r, fill: SUN }, g);
+    return g;
+  }
+
+
+  // ---------------------------------------------------------------- forest kit
+  function ground(parent, opts) {
+    // flat forest floor: paper-deep band below the ground line y, ink hairline, grass tufts
+    opts = opts || {};
+    const gy = opts.y || 820, w = opts.width || 1920;
+    const g = el("g", { class: "ground" }, parent);
+    el("rect", { x: -200, y: gy, width: w + 400, height: 1080 - gy + 200, fill: PAPER_DEEP }, g);
+    el("line", { x1: -200, y1: gy, x2: w + 200, y2: gy, stroke: INK, "stroke-width": 4, "stroke-linecap": "round" }, g);
+    for (let i = 0; i < 26; i++) {
+      const x = ((i * 173) % (w + 100)) - 40, y = gy + 18 + ((i * 53) % 150);
+      el("path", { d: `M${x} ${y} l 6 -16 M${x + 9} ${y} l 2 -20 M${x + 17} ${y} l -3 -14`, stroke: INK, "stroke-width": 3, "stroke-linecap": "round", opacity: 0.4 }, g);
+    }
+    return g;
+  }
+
+  function pine(parent, x, y, scale, opts) {
+    // ink pine standing on the ground at (x, y); opts.opacity for background depth
+    scale = scale || 1;
+    opts = opts || {};
+    const s = scale;
+    const g = el("g", { class: "pine", opacity: opts.opacity !== undefined ? opts.opacity : 1 }, parent);
+    el("path", { d: `M${x} ${y} L${x} ${y - 70 * s}`, stroke: opts.stroke || INK, "stroke-width": 12 * s, "stroke-linecap": "round" }, g);
+    const tiers = [[0, 150], [95, 120], [175, 90], [240, 60]];
+    tiers.forEach(([dy, hw], i) => {
+      const base = y - 60 * s - dy * s;
+      const tip = base - 150 * s;
+      el("path", { d: `M${x - hw * s} ${base} L${x} ${tip} L${x + hw * s} ${base} Z`, fill: opts.fill || PAPER, stroke: opts.stroke || INK, "stroke-width": 7 * s, "stroke-linejoin": "round" }, g);
+      el("path", { d: `M${x - hw * 0.55 * s} ${base - 4 * s} l ${10 * s} ${-14 * s} M${x + hw * 0.3 * s} ${base - 4 * s} l ${10 * s} ${-14 * s}`, stroke: INK, "stroke-width": 3 * s, "stroke-linecap": "round", opacity: 0.5 }, g);
+    });
+    g.top = [x, y - 60 * s - 240 * s - 150 * s];
+    return g;
+  }
+
+  function leafyTree(parent, x, y, scale, opts) {
+    scale = scale || 1;
+    opts = opts || {};
+    const s = scale;
+    const g = el("g", { class: "leafy-tree", opacity: opts.opacity !== undefined ? opts.opacity : 1 }, parent);
+    el("path", { d: `M${x - 14 * s} ${y} C ${x - 10 * s} ${y - 120 * s}, ${x - 8 * s} ${y - 200 * s}, ${x} ${y - 250 * s} M${x + 14 * s} ${y} C ${x + 10 * s} ${y - 120 * s}, ${x + 10 * s} ${y - 200 * s}, ${x + 4 * s} ${y - 250 * s} M${x} ${y - 190 * s} l ${40 * s} ${-50 * s}`, stroke: INK, "stroke-width": 8 * s, "stroke-linecap": "round", fill: "none" }, g);
+    const cy = y - 330 * s;
+    el("path", { d: `M${x - 150 * s} ${cy + 40 * s} c ${-40 * s} ${-80 * s}, ${40 * s} ${-160 * s}, ${100 * s} ${-120 * s} c ${20 * s} ${-70 * s}, ${140 * s} ${-70 * s}, ${150 * s} ${0} c ${70 * s} ${-10 * s}, ${100 * s} ${90 * s}, ${40 * s} ${130 * s} c ${10 * s} ${60 * s}, ${-110 * s} ${80 * s}, ${-140 * s} ${40 * s} c ${-60 * s} ${40 * s}, ${-170 * s} ${10 * s}, ${-150 * s} ${-50 * s} Z`, fill: opts.fill || PAPER, stroke: INK, "stroke-width": 8 * s, "stroke-linejoin": "round" }, g);
+    return g;
+  }
+
+  function forest(parent, opts) {
+    // a full forest backdrop on a ground line: two dim back rows + a front row of pines.
+    // opts: { y, seed, skip: [x ranges to keep clear as [x0, x1]] }
+    opts = opts || {};
+    const gy = opts.y || 820, seed = opts.seed || 1, skip = opts.skip || [];
+    const g = el("g", { class: "forest" }, parent);
+    const clear = (x) => skip.some(([a, b]) => x > a && x < b);
+    const rows = [
+      { n: 14, y: gy - 40, s: 0.55, c: "#C3C1C4" },
+      { n: 10, y: gy - 18, s: 0.8, c: "#9EA0B6" },
+    ];
+    rows.forEach((r, ri) => {
+      for (let i = 0; i < r.n; i++) {
+        const x = (i + 0.5) * (1920 / r.n) + hash(seed * 7 + i + ri * 31) * 40;
+        if (!clear(x)) pine(g, x, r.y, r.s * (1 + hash(seed + i * 3 + ri) * 0.12), { stroke: r.c });
+      }
+    });
+    return g;
+  }
+
+  function stream(parent, d, opts) {
+    // a stream along an SVG path d: wide paper-deep band + ink banks + current ticks
+    opts = opts || {};
+    const g = el("g", { class: "stream" }, parent);
+    el("path", { d, stroke: INK, "stroke-width": (opts.width || 70) + 10, fill: "none", "stroke-linecap": "round" }, g);
+    el("path", { d, stroke: "#CBD0D8", "stroke-width": opts.width || 70, fill: "none", "stroke-linecap": "round" }, g);
+    el("path", { d, stroke: INK, "stroke-width": 3, fill: "none", "stroke-dasharray": "18 26", opacity: 0.5, "stroke-linecap": "round" }, g);
+    return g;
+  }
+
+  window.CastawayRig = { figure, animate, mix, POSES, palm, island, sea, sun, ground, pine, leafyTree, forest, stream, el, hash, INK, SUN, PAPER, PAPER_DEEP, EMBER };
+})();
+
+    (function () {
+      const FID = "06-signal";
+      const DUR = 7.637;
+      const R = window.CastawayRig;
+      const INK = R.INK, PAPER = R.PAPER, PAPER_DEEP = R.PAPER_DEEP, EMBER = R.EMBER;
+      const root = document.querySelector('[data-composition-id="' + FID + '"]');
+      const $ = (id) => root.querySelector("#" + id);
+      const el = R.el;
+      const tl = gsap.timeline({ paused: true });
+      const GY = 820;
+      const drawOn = (node) => { node.setAttribute("pathLength", "1"); node.setAttribute("stroke-dasharray", "1 2"); node.setAttribute("stroke-dashoffset", "1"); return node; };
+
+      // ------------------------------------------------ stage: the wide clearing
+      R.sun($("f06-sun"), 1640, 196, 76);
+      R.forest($("f06-forest"), { y: GY, seed: 6, skip: [[470, 1250]] });
+      R.ground($("f06-ground"), { y: GY });
+      const trees = $("f06-frame-trees");
+      R.leafyTree(trees, 150, GY, 1.0);
+      R.pine(trees, 1840, GY + 10, 1.15);
+
+      // ------------------------------------------------ the fire at the clearing edge + smoke column
+      const FX = 1330;
+      const fire = $("f06-fire");
+      const stones = [];
+      [-46, -24, 24, 46].forEach((dx, i) => stones.push(el("ellipse", { cx: FX + dx, cy: GY - 6, rx: 15, ry: 10, fill: PAPER_DEEP, stroke: INK, "stroke-width": 5 }, fire)));
+      const flame = el("path", { d: "", fill: EMBER, stroke: INK, "stroke-width": 5, "stroke-linejoin": "round" }, fire);
+      const logs = [
+        drawOn(el("path", { d: `M${FX - 40} ${GY - 2} L${FX + 6} ${GY - 66}`, stroke: INK, "stroke-width": 9, fill: "none", "stroke-linecap": "round" }, fire)),
+        drawOn(el("path", { d: `M${FX + 40} ${GY - 2} L${FX - 6} ${GY - 66}`, stroke: INK, "stroke-width": 9, fill: "none", "stroke-linecap": "round" }, fire)),
+        drawOn(el("path", { d: `M${FX - 4} ${GY} L${FX} ${GY - 70}`, stroke: INK, "stroke-width": 9, fill: "none", "stroke-linecap": "round" }, fire)),
+      ];
+      const flameShape = (step) => {
+        const h = 64 + R.hash(step) * 9, w = 24 + R.hash(step + 17) * 4, lean = R.hash(step + 41) * 7;
+        const bx = FX, by = GY - 12;
+        return `M${bx - w} ${by} C ${bx - w - 6} ${by - h * 0.45}, ${bx - 6 + lean} ${by - h * 0.7}, ${bx + lean} ${by - h} C ${bx + 8 + lean} ${by - h * 0.62}, ${bx + w + 6} ${by - h * 0.42}, ${bx + w} ${by} Z`;
+      };
+      flame.setAttribute("d", flameShape(0));
+
+      const smoke = $("f06-smoke");
+      const smokeSway = el("g", {}, smoke);
+      const smokePaths = [
+        `M${FX} ${GY - 80} C ${FX - 40} ${GY - 150}, ${FX + 40} ${GY - 200}, ${FX} ${GY - 270} S ${FX - 30} ${GY - 380}, ${FX + 20} ${GY - 440} S ${FX + 60} ${GY - 520}, ${FX + 30} ${GY - 580}`,
+        `M${FX + 12} ${GY - 90} C ${FX + 50} ${GY - 160}, ${FX - 10} ${GY - 230}, ${FX + 30} ${GY - 300} S ${FX + 70} ${GY - 400}, ${FX + 45} ${GY - 470} S ${FX + 20} ${GY - 540}, ${FX + 65} ${GY - 600}`,
+        `M${FX - 10} ${GY - 100} C ${FX - 50} ${GY - 170}, ${FX - 20} ${GY - 240}, ${FX - 35} ${GY - 310} S ${FX - 10} ${GY - 420}, ${FX - 25} ${GY - 500}`,
+      ].map((d, i) => drawOn(el("path", { d, stroke: INK, "stroke-width": 7 - i, fill: "none", "stroke-linecap": "round", opacity: 0.62 - i * 0.12 }, smokeSway)));
+      // curls: little hooks peeling off the column
+      const curls = [[FX - 20, GY - 230, 1], [FX + 50, GY - 360, -1], [FX - 10, GY - 470, 1], [FX + 60, GY - 560, -1]].map(([x, y, s], i) =>
+        drawOn(el("path", { d: `M${x} ${y} c ${-26 * s} -6, ${-34 * s} -34, ${-12 * s} -42 c ${16 * s} -6, ${26 * s} 10, ${12 * s} 20`, stroke: INK, "stroke-width": 5, fill: "none", "stroke-linecap": "round", opacity: 0.5 }, smokeSway)));
+
+      // ------------------------------------------------ the bright jacket, spread flat on the ground
+      const JX = 1035, JY = GY + 44;
+      const jacketWrap = el("g", { transform: `translate(${JX} ${JY}) scale(1 0.42)` }, $("f06-jacket"));
+      const ticksG = el("g", {}, jacketWrap);
+      const jacket = el("g", {}, jacketWrap);
+      el("path", { d: "M-42 -78 L-14 -62 L14 -62 L42 -78 L72 -64 L156 -8 L140 20 L64 -18 L64 78 L-64 78 L-64 -18 L-140 20 L-156 -8 L-72 -64 Z", fill: EMBER, stroke: INK, "stroke-width": 7, "stroke-linejoin": "round" }, jacket);
+      el("path", { d: "M0 -62 L0 78 M-42 -78 L0 -40 L42 -78 M-64 30 L-30 30 M64 30 L30 30", stroke: INK, "stroke-width": 5, fill: "none", "stroke-linecap": "round", "stroke-linejoin": "round" }, jacket);
+      const ticks = [];
+      for (let i = 0; i < 10; i++) {
+        const a = (i / 10) * Math.PI * 2 + 0.3;
+        const r1x = 205, r1y = 120, r2x = 245, r2y = 160;
+        ticks.push(drawOn(el("path", { d: `M${(Math.cos(a) * r1x).toFixed(1)} ${(Math.sin(a) * r1y).toFixed(1)} L${(Math.cos(a) * r2x).toFixed(1)} ${(Math.sin(a) * r2y).toFixed(1)}`, stroke: INK, "stroke-width": 9, fill: "none", "stroke-linecap": "round" }, ticksG)));
+      }
+
+      // ------------------------------------------------ labels (micro-label + hairline)
+      const labels = $("f06-labels");
+      const microLabel = (x, y, txt, w) => {
+        const g = el("g", {}, labels);
+        const t = el("text", { x, y, "font-family": "Archivo, sans-serif", "font-weight": 600, "font-size": 17, "letter-spacing": "0.18em", fill: INK }, g);
+        t.textContent = txt;
+        const rule = el("line", { x1: x, y1: y + 12, x2: x + w, y2: y + 12, stroke: INK, "stroke-width": 1 }, g);
+        return { g, rule };
+      };
+      const lblThree = microLabel(1000, 392, "× 3", 64);
+      const lblBright = microLabel(1206, 772, "BRIGHT", 110);
+
+      // ------------------------------------------------ the whistle + three blasts
+      const whistle = el("g", {}, $("f06-whistle"));
+      el("path", { d: "M-4 -9 L22 -9 L22 9 L6 9 C -4 9, -10 4, -10 -1 Z", fill: PAPER, stroke: INK, "stroke-width": 5, "stroke-linejoin": "round" }, whistle);
+      el("circle", { cx: 4, cy: 0, r: 3.5, fill: INK }, whistle);
+      el("path", { d: "M-6 -9 C -14 -16, -22 -6, -16 4", stroke: INK, "stroke-width": 3, fill: "none", "stroke-linecap": "round" }, whistle);
+      const WX = 830, WY = 418; // whistle mouth while blowing
+      const arcsRoot = el("g", { transform: `translate(${WX} ${WY})` }, $("f06-arcs"));
+      const arcPath = (r) => {
+        const a = 38 * Math.PI / 180;
+        return `M${(Math.cos(-a) * r).toFixed(1)} ${(Math.sin(-a) * r).toFixed(1)} A ${r} ${r} 0 0 1 ${(Math.cos(a) * r).toFixed(1)} ${(Math.sin(a) * r).toFixed(1)}`;
+      };
+      const blasts = [0, 1, 2].map((b) => {
+        const g = el("g", {}, arcsRoot);
+        const base = 46 + b * 52;
+        [0, 14, 28].forEach((dr, k) => el("path", { d: arcPath(base + dr), stroke: INK, "stroke-width": 7 - k * 1.5, fill: "none", "stroke-linecap": "round", opacity: 1 - k * 0.25 }, g));
+        return g;
+      });
+
+      // ------------------------------------------------ the hiker
+      const SC = 1.5;
+      const HX = 690;
+      const fig = R.figure($("f06-fig"), { x: HX, y: GY - 116 * SC, scale: SC, facing: 1 });
+      const lookUp = R.mix("stand", { head: -22 });
+      const blow = R.mix("stand", { rsh: 62, rel: 118, head: -4, torso: -2 });
+      const blowHard = R.mix("stand", { rsh: 62, rel: 118, head: -8, torso: -6, lsh: -16, lel: 10 });
+      const pointJacket = R.mix("point", { rsh: 62, rel: 0, head: 14, torso: 4 });
+      const pointFire = R.mix("point", { rsh: 112, head: -12 });
+      const waveUp = R.mix("wave", { head: -18 });
+      const waveUpB = R.mix("waveB", { head: -18 });
+      const blastT = [1.9, 2.3, 2.7];
+      const keys = [
+        { t: 0, pose: lookUp, face: "neutral" },
+        { t: 1.55, pose: lookUp },
+        { t: 1.86, pose: blow, face: "o", ease: "power3.out" },
+      ];
+      blastT.forEach((bt) => {
+        keys.push({ t: bt + 0.06, pose: blowHard, ease: "power2.out" });
+        keys.push({ t: bt + 0.3, pose: blow, ease: "power2.inOut" });
+      });
+      keys.push(
+        { t: 3.45, pose: blow },
+        { t: 3.85, pose: pointJacket, face: "smile", ease: "power3.out" },
+        { t: 5.3, pose: pointJacket },
+        { t: 5.7, pose: pointFire, face: "determined", ease: "power3.out" },
+        { t: 6.42, pose: pointFire },
+        { t: 6.66, pose: waveUp, face: "grin", ease: "power3.out" }
+      );
+      let wt = 6.66, wb = true;
+      while (wt + 0.24 < DUR) { wt += 0.24; keys.push({ t: +wt.toFixed(3), pose: wb ? waveUpB : waveUp }); wb = !wb; }
+
+      // whistle shown only when raised; deterministic flame + smoke sway from the same clock
+      const heliRotor = { el: null };
+      R.animate(tl, fig, keys, {
+        start: 0, end: DUR,
+        onDraw: (g, t) => {
+          const h = g.hand("r");
+          whistle.setAttribute("transform", `translate(${h[0].toFixed(1)} ${(h[1] - 4).toFixed(1)})`);
+          const step = Math.floor(t * 10);
+          flame.setAttribute("d", flameShape(step));
+          smokeSway.setAttribute("transform", `translate(${(Math.sin(t * 1.7) * 6).toFixed(2)} 0)`);
+          if (heliRotor.el) heliRotor.el.setAttribute("transform", `scale(${step % 2 ? 0.45 : 1} 1)`);
+        },
+      });
+
+      // whistle pops into the hand
+      tl.fromTo(whistle, { opacity: 0 }, { opacity: 1, duration: 0.16, ease: "power2.out" }, 1.72);
+      // three blasts pulse out one after another
+      blastT.forEach((bt, b) => {
+        tl.fromTo(blasts[b], { scale: 0.45, opacity: 0, svgOrigin: "0 0" }, { scale: 1, opacity: 1, duration: 0.34, ease: "power3.out" }, bt);
+        tl.to(blasts[b], { opacity: 0.55 - b * 0.05, duration: 0.3, ease: "power2.out" }, bt + 0.38);
+      });
+      tl.fromTo(lblThree.g, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.72);
+      tl.fromTo(lblThree.rule, { scaleX: 0, svgOrigin: "1000 404" }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 2.8);
+
+      // jacket drops in folded, then unfolds flat; visibility ticks radiate
+      tl.fromTo(jacket, { scaleX: 0.18, scaleY: 0.6, y: -120, opacity: 0, svgOrigin: "0 0" }, { scaleY: 0.6, y: 0, opacity: 1, duration: 0.3, ease: "power2.in" }, 3.66);
+      tl.to(jacket, { scaleX: 1, duration: 0.42, ease: "back.out(1.6)" }, 3.96);
+      tl.to(jacket, { scaleY: 1, duration: 0.3, ease: "power3.out" }, 4.08);
+      tl.fromTo(ticks, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.22, ease: "power2.out", stagger: 0.03 }, 4.3);
+      tl.fromTo(lblBright.g, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 4.45);
+      tl.fromTo(lblBright.rule, { scaleX: 0, svgOrigin: "1206 784" }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 4.52);
+
+      // fire: logs, stones, flame, then a tall curling smoke column
+      tl.fromTo(stones, { scale: 0, svgOrigin: `${FX} ${GY}` }, { scale: 1, duration: 0.22, ease: "power3.out", stagger: 0.04 }, 5.47);
+      tl.fromTo(logs, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.18, ease: "power2.out", stagger: 0.06 }, 5.55);
+      tl.fromTo(flame, { scale: 0, opacity: 0, svgOrigin: `${FX} ${GY - 12}` }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 5.78);
+      tl.fromTo(smokePaths, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.1, ease: "power1.inOut", stagger: 0.14 }, 5.95);
+      tl.fromTo(curls, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out", stagger: 0.22 }, 6.15);
+
+      // ------------------------------------------------ tiny helicopter: in from the top-right, banks toward the smoke
+      const heli = $("f06-heli");
+      const hb = el("g", {}, heli); // body, nose pointing left (-x)
+      el("path", { d: "M28 -4 L96 -10 L96 -2 L28 8 Z", fill: PAPER, stroke: INK, "stroke-width": 4, "stroke-linejoin": "round" }, hb);
+      el("path", { d: "M88 -6 L100 -26 L106 -26 L100 -2 Z", fill: PAPER, stroke: INK, "stroke-width": 4, "stroke-linejoin": "round" }, hb);
+      el("circle", { cx: 100, cy: -8, r: 9, fill: "none", stroke: INK, "stroke-width": 3, opacity: 0.6 }, hb);
+      el("path", { d: "M-40 2 C -40 -18, -18 -24, 6 -22 C 26 -20, 36 -8, 34 6 C 32 16, 10 20, -14 20 C -32 20, -40 12, -40 2 Z", fill: PAPER, stroke: INK, "stroke-width": 5, "stroke-linejoin": "round" }, hb);
+      el("path", { d: "M-36 0 C -34 -12, -22 -17, -8 -16 L -8 2 Z", fill: PAPER_DEEP, stroke: INK, "stroke-width": 3.5, "stroke-linejoin": "round" }, hb);
+      el("path", { d: "M-26 20 L-30 32 M14 20 L18 32 M-46 32 L30 32", stroke: INK, "stroke-width": 4, fill: "none", "stroke-linecap": "round" }, hb);
+      el("path", { d: "M0 -22 L0 -32", stroke: INK, "stroke-width": 5, "stroke-linecap": "round" }, hb);
+      const rotorWrap = el("g", { transform: "translate(0 -33)" }, hb);
+      const rotor = el("path", { d: "M-70 0 L70 0", stroke: INK, "stroke-width": 5, "stroke-linecap": "round" }, rotorWrap);
+      heliRotor.el = rotor;
+      tl.fromTo(heli, { x: 2080, y: 112 }, { x: 1700, y: 120, duration: 0.6, ease: "none" }, 6.45);
+      tl.to(heli, { x: 1515, y: 210, duration: 0.55, ease: "power2.out" }, 7.05);
+      tl.fromTo(hb, { rotation: 0, svgOrigin: "0 0" }, { rotation: -13, duration: 0.42, ease: "power2.inOut" }, 6.9);
+
+      // ------------------------------------------------ camera: wide pull-back, then a slow push
+      const world = $("f06-world");
+      tl.fromTo(world, { scale: 1.14, y: -40, svgOrigin: "960 600" }, { scale: 1, y: 0, duration: 1.6, ease: "power2.inOut" }, 0);
+      tl.to(world, { scale: 1.035, duration: DUR - 1.6, ease: "none", svgOrigin: "960 600" }, 1.6);
+
+      // ------------------------------------------------ type: step tag + hero word
+      tl.fromTo($("f06-tag"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+      tl.fromTo($("f06-rule"), { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 0.18);
+      tl.fromTo($("f06-hero"), { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.32);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>
