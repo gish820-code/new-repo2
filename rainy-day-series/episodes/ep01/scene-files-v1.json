@@ -1,0 +1,146 @@
+[
+ {
+  "part": 1,
+  "id": "s01",
+  "compId": "ep01-s01",
+  "file": "compositions/ep01/scenes/ep01-s01-gull-harbor-v1.html",
+  "duration": 12,
+  "partStart": 0,
+  "epStart": 0
+ },
+ {
+  "part": 1,
+  "id": "s02",
+  "compId": "ep01-s02",
+  "file": "compositions/ep01/scenes/ep01-s02-the-snack-bag-v1.html",
+  "duration": 22,
+  "partStart": 12,
+  "epStart": 12
+ },
+ {
+  "part": 1,
+  "id": "s03",
+  "compId": "ep01-s03",
+  "file": "compositions/ep01/scenes/ep01-s03-the-rattle-v1.html",
+  "duration": 22,
+  "partStart": 34,
+  "epStart": 34
+ },
+ {
+  "part": 1,
+  "id": "s04",
+  "compId": "ep01-s04",
+  "file": "compositions/ep01/scenes/ep01-s04-it-keeps-going-v1.html",
+  "duration": 20,
+  "partStart": 56,
+  "epStart": 56
+ },
+ {
+  "part": 2,
+  "id": "s05",
+  "compId": "ep01-s05",
+  "file": "compositions/ep01/scenes/ep01-s05-silence-v1.html",
+  "duration": 18,
+  "partStart": 0,
+  "epStart": 76
+ },
+ {
+  "part": 2,
+  "id": "s06",
+  "compId": "ep01-s06",
+  "file": "compositions/ep01/scenes/ep01-s06-go-bag-not-stuff-v1.html",
+  "duration": 20,
+  "partStart": 18,
+  "epStart": 94
+ },
+ {
+  "part": 2,
+  "id": "s07",
+  "compId": "ep01-s07",
+  "file": "compositions/ep01/scenes/ep01-s07-the-harbor-leaves-v1.html",
+  "duration": 20,
+  "partStart": 38,
+  "epStart": 114
+ },
+ {
+  "part": 2,
+  "id": "s08",
+  "compId": "ep01-s08",
+  "file": "compositions/ep01/scenes/ep01-s08-be-the-siren-v1.html",
+  "duration": 18,
+  "partStart": 58,
+  "epStart": 134
+ },
+ {
+  "part": 3,
+  "id": "s09",
+  "compId": "ep01-s09",
+  "file": "compositions/ep01/scenes/ep01-s09-walk-don-t-drive-v1.html",
+  "duration": 18,
+  "partStart": 0,
+  "epStart": 152
+ },
+ {
+  "part": 3,
+  "id": "s10",
+  "compId": "ep01-s10",
+  "file": "compositions/ep01/scenes/ep01-s10-aftershock-v1.html",
+  "duration": 20,
+  "partStart": 18,
+  "epStart": 170
+ },
+ {
+  "part": 3,
+  "id": "s11",
+  "compId": "ep01-s11",
+  "file": "compositions/ep01/scenes/ep01-s11-the-radio-v1.html",
+  "duration": 20,
+  "partStart": 38,
+  "epStart": 190
+ },
+ {
+  "part": 3,
+  "id": "s12",
+  "compId": "ep01-s12",
+  "file": "compositions/ep01/scenes/ep01-s12-look-back-v1.html",
+  "duration": 18,
+  "partStart": 58,
+  "epStart": 210
+ },
+ {
+  "part": 4,
+  "id": "s13",
+  "compId": "ep01-s13",
+  "file": "compositions/ep01/scenes/ep01-s13-the-wave-v1.html",
+  "duration": 20,
+  "partStart": 0,
+  "epStart": 228
+ },
+ {
+  "part": 4,
+  "id": "s14",
+  "compId": "ep01-s14",
+  "file": "compositions/ep01/scenes/ep01-s14-assembly-area-v1.html",
+  "duration": 20,
+  "partStart": 20,
+  "epStart": 248
+ },
+ {
+  "part": 4,
+  "id": "s15",
+  "compId": "ep01-s15",
+  "file": "compositions/ep01/scenes/ep01-s15-three-things-v1.html",
+  "duration": 18,
+  "partStart": 40,
+  "epStart": 268
+ },
+ {
+  "part": 4,
+  "id": "s16",
+  "compId": "ep01-s16",
+  "file": "compositions/ep01/scenes/ep01-s16-cut-off-v1.html",
+  "duration": 18,
+  "partStart": 58,
+  "epStart": 286
+ }
+]
