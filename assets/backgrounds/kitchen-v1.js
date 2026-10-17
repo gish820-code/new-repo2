@@ -22,7 +22,7 @@
  *                       floorY: 880 }
  *                     topY = front edge of the tabletop; underY = underside of the apron (clear height 320px).
  *                     Under-table clear span between the front legs: x 392 – 948. Two crouched/cover figures at
- *                     scale 1.4 fit, e.g. x 480 (facing 1) and x 760 (facing 1) with y 717.6.
+ *                     scale 1.4 fit side by side, e.g. x 470 (facing 1) and x 870 (facing -1), both y 717.6.
  *                     frontLegsG = the two front legs as their own <g>: re-append it ABOVE the figure layer to
  *                     make figures read as "under" the table (optional).
  *   lamp              { g, pivotX: 670, pivotY: 0 } pendant lamp + glow; rotate about the pivot
@@ -430,7 +430,8 @@
     const KNX = DX + 26, KNY = 590;
     sk.circle(doorG, KNX, KNY, 10, { fill: P.fog, width: DET + 1, seed: S() });
     sk.circle(doorG, KNX, KNY - 40, 7, { fill: P.mist, width: DET + 1, seed: S() });
-    sk.path(doorG, [[DX + 12, 512], [DX + 30, 530], [DX + 46, 516]], { width: DET, stroke: P.fog, seed: S(), double: false });
+    sk.rect(doorG, DX + 8, 506, 8, 14, { fill: P.mist, width: DET, seed: S() }); // chain guard
+    for (let k = 0; k < 7; k++) el("circle", { cx: DX + 14 + k * 5, cy: 520 + Math.sin((k / 6) * Math.PI) * 12, r: 2.6, fill: "none", stroke: P.fog, "stroke-width": 1.6 }, doorG);
     sk.poly(doorG, [[DX + 116, DY + 176], [DX + 176, DY + 172], [DX + 178, DY + 240], [DX + 118, DY + 244]], { fill: P.paper, width: DET, seed: S() });
     text(doorG, DX + 147, DY + 194, "KEYS", { size: 13, rotate: -3 });
     text(doorG, DX + 147, DY + 212, "BAG", { size: 13, rotate: -3 });
@@ -476,9 +477,9 @@
       if (!mess) draw(fg);
       else {
         // knocked off the sill onto the table: tipped on its side with spilled soil
-        const tg = el("g", { transform: `translate(${-x + 820} ${-y + 498}) rotate(-96 ${x} ${y - 20})` }, fg);
+        const tg = el("g", { transform: `translate(${-x + 800} ${-y + 518}) rotate(-90 ${x} ${y - 20})` }, fg);
         draw(tg);
-        el("path", { d: "M700 500 q 20 -10 40 -2 q 18 -8 34 0 l 0 3 l -74 0 Z", fill: P.night, opacity: 0.8 }, fg);
+        el("path", { d: "M690 514 q 20 -10 40 -2 q 18 -8 34 0 l 0 3 l -74 0 Z", fill: P.night, opacity: 0.8 }, fg);
       }
     }
     // plates stacked upright on the top shelf
@@ -493,13 +494,13 @@
         sk.rect(fg, 1028, 286, 66, 14, { fill: P.slate, width: DET, seed: S() }); // plate rack lip
       } else {
         // smashed on the floor in front of the counter
-        const shards = [[1090, 846, 0], [1128, 858, 1], [1160, 842, 2], [1060, 866, 3], [1200, 860, 4], [1112, 832, 5], [1236, 846, 6], [1176, 872, 7]];
+        const shards = [[1030, 892, 0], [1072, 902, 1], [1110, 886, 2], [1006, 910, 3], [1150, 904, 4], [1062, 880, 5], [1190, 890, 6], [1124, 914, 7], [1214, 908, 8]];
         shards.forEach(([sx, sy, k]) => {
           const a = k * 0.9;
           const pts = [[sx, sy], [sx + 20 * Math.cos(a), sy + 8 * Math.sin(a) - 6], [sx + 14 + 4 * Math.sin(a), sy + 8], [sx - 4, sy + 7]];
           sk.poly(fg, pts, { fill: k % 3 ? P.fog : P.paper, width: DET + 1, seed: S() });
         });
-        el("ellipse", { cx: 1150, cy: 878, rx: 120, ry: 8, fill: INK, opacity: 0.12 }, fg);
+        el("ellipse", { cx: 1110, cy: 916, rx: 120, ry: 8, fill: INK, opacity: 0.12 }, fg);
         sk.rect(fg, 1028, 286, 66, 14, { fill: P.slate, width: DET, seed: S() });
       }
     }
@@ -569,41 +570,56 @@
         sk.circle(fg, x, y - 50, 4, { fill: INK, width: 1, seed: S() });
       } else {
         // on the floor beside the stove, on its side, lid rolled away
-        sk.poly(fg, [[1268, 812], [1306, 812], [1306, 868], [1268, 868]], { fill: P.steel, width: MAIN, seed: S() });
-        el("ellipse", { cx: 1306, cy: 840, rx: 9, ry: 28, fill: P.night, stroke: INK, "stroke-width": 3 }, fg);
-        el("ellipse", { cx: 1352, cy: 868, rx: 30, ry: 7, fill: P.slate, stroke: INK, "stroke-width": 3 }, fg);
+        sk.poly(fg, [[1418, 852], [1460, 852], [1460, 900], [1418, 900]], { fill: P.steel, width: MAIN, seed: S() });
+        el("ellipse", { cx: 1460, cy: 876, rx: 8, ry: 24, fill: P.night, stroke: INK, "stroke-width": 3 }, fg);
+        el("ellipse", { cx: 1508, cy: 906, rx: 28, ry: 7, fill: P.slate, stroke: INK, "stroke-width": 3 }, fg);
       }
     }
 
     // =====================================================================================================
     // CHAIRS (behind the table plane, at the table ends)
     const chairs = [];
-    const chair = (x, facing, tipped) => {
+    const chair = (x, tipped) => {
+      // a ladder-back chair pulled out at the table end, facing the camera
       const cg = el("g", { class: "rd-k-chair" }, g);
-      const f = facing;
-      const seatY = 696, seatW = 96, back = x - f * 40;
+      const seatY = 700, hw = 50;
       const draw = (par) => {
-        sk.poly(par, [[back, seatY], [back + f * seatW, seatY], [back + f * seatW, seatY + 14], [back, seatY + 14]], { fill: P.steel, width: MAIN, seed: S() });
-        sk.line(par, back, seatY + 14, back - f * 6, GROUND, { width: MAIN + 2, seed: S() });
-        sk.line(par, back + f * seatW, seatY + 14, back + f * (seatW + 4), GROUND, { width: MAIN + 2, seed: S() });
-        sk.line(par, back + f * 14, seatY + 14, back + f * 16, GROUND - 26, { width: MAIN, seed: S(), opacity: 0.6 });
-        sk.line(par, back, seatY + 80, back + f * seatW, seatY + 80, { width: DET + 1, seed: S() });
-        sk.line(par, back, seatY, back - f * 14, seatY - 210, { width: MAIN + 2, seed: S() });
-        sk.poly(par, [[back - f * 12, seatY - 196], [back - f * 15, seatY - 214], [back + f * 28, seatY - 216], [back + f * 26, seatY - 198]], { fill: P.slate, width: DET + 1, seed: S() });
-        sk.line(par, back - f * 6, seatY - 100, back + f * 2, seatY - 100, { width: DET + 1, seed: S() });
-        for (let k = 0; k < 2; k++) sk.line(par, back - f * (4 + k * 3), seatY - 120 - k * 40, back + f * 16, seatY - 120 - k * 40, { width: DET, seed: S(), double: false, opacity: 0.6 });
+        // back legs (behind, darker)
+        sk.line(par, x - hw + 10, seatY, x - hw + 12, GROUND - 16, { width: MAIN + 3, stroke: P.night, seed: S() });
+        sk.line(par, x + hw - 10, seatY, x + hw - 12, GROUND - 16, { width: MAIN + 3, stroke: P.night, seed: S() });
+        // back posts + slats + top rail
+        sk.line(par, x - hw + 8, seatY - 8, x - hw + 2, seatY - 196, { width: MAIN + 4, seed: S() });
+        sk.line(par, x + hw - 8, seatY - 8, x + hw - 2, seatY - 196, { width: MAIN + 4, seed: S() });
+        sk.poly(par, [[x - hw - 4, seatY - 212], [x + hw + 4, seatY - 212], [x + hw + 2, seatY - 186], [x - hw - 2, seatY - 186]], { fill: P.steel, width: MAIN, seed: S() });
+        [seatY - 150, seatY - 112, seatY - 74].forEach((yy) => sk.poly(par, [[x - hw + 6, yy], [x + hw - 6, yy], [x + hw - 6, yy + 12], [x - hw + 6, yy + 12]], { fill: P.slate, width: DET + 1, seed: S() }));
+        // seat (top visible) + front apron
+        sk.poly(par, [[x - hw + 6, seatY - 12], [x + hw - 6, seatY - 12], [x + hw + 4, seatY + 6], [x - hw - 4, seatY + 6]], { fill: P.mist, width: MAIN, seed: S() });
+        sk.poly(par, [[x - hw - 4, seatY + 6], [x + hw + 4, seatY + 6], [x + hw + 4, seatY + 20], [x - hw - 4, seatY + 20]], { fill: P.steel, width: MAIN, seed: S() });
+        // front legs + rung
+        sk.line(par, x - hw + 2, seatY + 20, x - hw - 2, GROUND, { width: MAIN + 4, seed: S() });
+        sk.line(par, x + hw - 2, seatY + 20, x + hw + 2, GROUND, { width: MAIN + 4, seed: S() });
+        sk.line(par, x - hw + 2, seatY + 112, x + hw - 2, seatY + 112, { width: MAIN, seed: S() });
       };
       if (!tipped) draw(cg);
       else {
-        // tipped over backwards onto the floor
-        const tg = el("g", { transform: `rotate(${f * -92} ${back + f * seatW / 2} ${GROUND}) translate(${f * 30} 6)` }, cg);
-        draw(tg);
+        void draw;
+        // knocked over backwards: backrest flat on the floor (pointing right), seat on edge, legs in the air
+        const tg = el("g", { transform: `rotate(2 1400 ${GROUND - 4})` }, cg);
+        const sx = 1180, fy = GROUND - 6;
+        sk.poly(tg, [[sx, fy - 4], [1386, fy - 2], [1390, fy - 14], [sx, fy - 16]], { fill: P.steel, width: MAIN, seed: S() }); // back post on floor
+        sk.poly(tg, [[1372, fy + 2], [1400, fy + 2], [1400, fy - 40], [1372, fy - 40]], { fill: P.steel, width: MAIN, seed: S() }); // top rail on edge
+        [1236, 1280, 1324].forEach((xx) => sk.line(tg, xx, fy - 14, xx + 2, fy - 36, { width: MAIN, stroke: P.slate, seed: S() })); // slats edge-on
+        sk.poly(tg, [[sx - 16, fy], [sx, fy], [sx, fy - 104], [sx - 16, fy - 104]], { fill: P.mist, width: MAIN, seed: S() }); // seat on edge
+        sk.poly(tg, [[sx - 16, fy - 2], [1008, fy + 2], [1008, fy - 10], [sx - 16, fy - 14]], { fill: P.slate, width: MAIN, seed: S() }); // back legs on the floor
+        sk.poly(tg, [[sx - 16, fy - 92], [1014, fy - 98], [1014, fy - 110], [sx - 16, fy - 104]], { fill: P.steel, width: MAIN, seed: S() }); // front legs in the air
+        sk.line(tg, 1070, fy - 4, 1072, fy - 100, { width: MAIN, seed: S() }); // rung
+        sk.hatch(tg, sx - 14, fy - 102, 12, 98, { gap: 6, angle: 60, opacity: 0.3, seed: S() });
       }
       chairs.push({ g: cg, x, y: GROUND });
       return cg;
     };
-    chair(280, 1, false);
-    chair(1070, -1, !!mess);
+    chair(280, false);
+    chair(1070, !!mess);
 
     // =====================================================================================================
     // TABLE (center-left) — sturdy farmhouse table, top front edge y 528, apron underside y 560
@@ -654,6 +670,9 @@
     });
     el("ellipse", { cx: 376, cy: 902, rx: 26, ry: 5, fill: INK, opacity: 0.25 }, frontLegsG);
     el("ellipse", { cx: 964, cy: 902, rx: 26, ry: 5, fill: INK, opacity: 0.25 }, frontLegsG);
+
+    // after the quake the plant lies on the tabletop, so it must draw above the table
+    if (mess) fallables.forEach((f) => { if (f.kind === "plant") g.appendChild(f.g); });
 
     // =====================================================================================================
     // CRACKS (mess only)
