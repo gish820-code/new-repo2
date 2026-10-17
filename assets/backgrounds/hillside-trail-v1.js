@@ -26,10 +26,12 @@
  *                  waterfront houses). Sensible range 405 (surged, town swamped) … 470 (normal) … 545 (drained).
  *                  floatG (ferry + boats) rides the surface and settles on the mud when drained.
  *   horizon      — { y: 330, x0: 0, x1: 560, g } ocean horizon (visible through the harbor mouth, x 0–560).
- *   waveLine     — { g, x0: 0, x1: 560, y: 330, cx: 280, cy: 330 } a thin dark line + foam on the horizon,
- *                  opacity 0 by default. Reveal with opacity, grow with scaleY / translate down (transform-origin
- *                  is set to cx cy via the inner group, so gsap.to(waveLine.g, { opacity:1, scaleY:3 }) works).
- *   sign         — { g, x: 1585, y: 395, postX: 1585, postY: 652 } evacuation route sign: x/y = board center,
+ *   waveLine     — { g, scaleG, x0: 50, x1: 570, y: 330, cx: 300, cy: 330 } a thin dark swell line with a pale
+ *                  crest on the horizon, opacity 0 by default. Reveal: gsap.to(waveLine.g, { opacity: 1 }).
+ *                  Grow / approach: tween waveLine.scaleG — its local origin IS (cx, cy), so
+ *                  gsap.to(waveLine.scaleG, { scaleX: 1.4, scaleY: 4, y: 30 }) swells it in place and moves it
+ *                  toward shore (y: +px). (Or scale waveLine.g with svgOrigin: "300 330".)
+ *   sign         — { g, x: 1585, y: 395, postX: 1585, postY: 649 } evacuation route sign: x/y = board center,
  *                  postY = where the post meets the trail.
  *   rail         — { g } wooden handrail (uphill side of the trail, behind the figures).
  *   hill         — { g } the uphill slope mass with the big firs.
@@ -55,10 +57,18 @@
       stops.forEach(([o, c, a]) => el("stop", { offset: o, "stop-color": c, "stop-opacity": a === undefined ? 1 : a }, lg));
       return "url(#" + id + name + ")";
     }
+    let clipN = 0;
+    function clipTo(par, pts) { // group clipped to a polygon (keeps rect-shaped hatching inside its shape)
+      const cid = id + "clip" + (clipN++);
+      const cp = el("clipPath", { id: cid }, defs);
+      el("path", { d: "M" + pts.map((q) => f1(q[0]) + " " + f1(q[1])).join(" L") + " Z" }, cp);
+      return el("g", { "clip-path": "url(#" + cid + ")" }, par);
+    }
     const skyFill = grad("sky", [[0, P.night], [0.35, P.storm], [0.72, P.slate], [1, P.steel]]);
     const seaFill = grad("sea", [[0, P.mist], [0.5, P.steel], [1, P.slate]]);
     const bayFill = grad("bay", [[0, P.steel], [1, P.slate]]);
     const fogFill = grad("fog", [[0, P.fog, 0], [0.5, P.fog, 0.35], [1, P.fog, 0]]);
+    const glowFill = grad("glow", [[0, P.fog, 0], [1, P.fog, 0.5]]);
     const bankFill = grad("bank", [[0, P.slate], [0.45, P.storm], [1, P.night]]);
     const hillFill = grad("hill", [[0, P.slate], [1, P.storm]]);
 
@@ -181,50 +191,53 @@
       sk.line(skyG, x, 255 + hash(i) * 8, x - 16, 326, { stroke: P.mist, width: 1.5, seed: 60 + i, wobble: 0.5, double: false, opacity: 0.35 });
     }
     // pale glow band at the horizon
-    sk.rect(skyG, -20, 286, 1000, 44, { fill: fogFill, stroke: "none", wobble: 0, double: false });
+    sk.rect(skyG, -20, 270, 1400, 60, { fill: glowFill, stroke: "none", wobble: 0, double: false });
 
     // ------------------------------------------------------------------ DISTANT VIEW (sea, far shore, town, bay)
     const viewG = el("g", { class: "view" }, g);
     const HORIZON = 330;
     // ocean to the horizon
     const seaG = el("g", {}, viewG);
-    sk.rect(seaG, -20, HORIZON, 1040, 200, { fill: seaFill, stroke: "none", wobble: 0, double: false });
-    sk.line(seaG, -20, HORIZON, 1000, HORIZON, { stroke: P.slate, width: LINE.detail, seed: 70, wobble: 0.6 });
+    sk.rect(seaG, -20, HORIZON, 1440, 200, { fill: seaFill, stroke: "none", wobble: 0, double: false });
+    sk.line(seaG, -20, HORIZON, 1400, HORIZON, { stroke: P.slate, width: LINE.detail, seed: 70, wobble: 0.6 });
     for (let i = 0; i < 18; i++) {
       const y = HORIZON + 8 + i * 7 + i * i * 0.35, x = 20 + ((i * 137) % 420);
       sk.line(seaG, x, y, x + 60 + (i % 4) * 30, y, { stroke: i % 3 ? P.fog : P.slate, width: 1.5, seed: 80 + i, wobble: 0.4, double: false, opacity: 0.5 });
     }
-    // far headland at the harbor mouth (left) with a small light
-    sk.poly(seaG, [[-20, 352], [30, 336], [70, 340], [96, 352], [120, 372], [-20, 380]], { fill: P.mist, stroke: P.steel, width: LINE.detail, seed: 90 });
-    for (let i = 0; i < 6; i++) tinyFir(seaG, 0 + i * 13, 344 + i * 1.5, 14 + (i % 3) * 4, P.steel, 91 + i);
-    sk.rect(seaG, 98, 340, 6, 18, { fill: P.paper, stroke: P.slate, width: 1.5, seed: 97, wobble: 0.3, double: false });
-    sk.poly(seaG, [[96, 340], [101, 333], [106, 340]], { fill: P.slate, stroke: P.slate, width: 1.5, seed: 98, wobble: 0.2, double: false });
-
     // the horizon handle + hidden incoming-wave line
     const horizonG = el("g", { class: "horizon" }, viewG);
     sk.line(horizonG, -20, HORIZON, 560, HORIZON, { stroke: P.steel, width: 1.5, seed: 99, wobble: 0.3, double: false, opacity: 0.8 });
     const waveOuter = el("g", { class: "wave-line", opacity: 0 }, viewG);
-    const waveInner = el("g", { style: "transform-box: view-box; transform-origin: 280px 330px;" }, waveOuter);
-    sk.path(waveInner, [[130, HORIZON + 1], [200, HORIZON - 2], [300, HORIZON - 3], [420, HORIZON - 2], [540, HORIZON]], { stroke: P.night, width: 5, seed: 101, wobble: 0.8 });
-    sk.path(waveInner, [[150, HORIZON + 5], [260, HORIZON + 3], [380, HORIZON + 3], [520, HORIZON + 5]], { stroke: P.paper, width: 2, seed: 102, wobble: 0.6, double: false, opacity: 0.7 });
-    sk.path(waveInner, [[160, HORIZON - 5], [300, HORIZON - 7], [480, HORIZON - 5]], { stroke: P.storm, width: 2, seed: 103, wobble: 0.5, double: false });
+    const WCX = 300;
+    const wavePos = el("g", { transform: "translate(" + WCX + " " + HORIZON + ")" }, waveOuter);
+    const waveInner = el("g", { class: "wave-line-scale" }, wavePos); // local origin = (WCX, HORIZON)
+    sk.poly(waveInner, [[-250, 1], [-150, -3], [0, -5], [150, -4], [270, 1], [270, 4], [-250, 4]], { fill: P.night, stroke: P.night, width: 2, seed: 101, wobble: 0.5 });
+    sk.path(waveInner, [[-240, -1], [-120, -4], [0, -5], [140, -5], [260, -1]], { stroke: P.paper, width: 2, seed: 102, wobble: 0.6, double: false, opacity: 0.75 });
+    sk.path(waveInner, [[-200, 6], [0, 7], [220, 6]], { stroke: P.storm, width: 2, seed: 103, wobble: 0.5, double: false, opacity: 0.6 });
+
+    // far headland at the harbor mouth (left) with a small light — in front of the wave line
+    const headG = el("g", {}, viewG);
+    sk.poly(headG, [[-20, 352], [30, 336], [70, 340], [96, 352], [120, 372], [-20, 380]], { fill: P.mist, stroke: P.steel, width: LINE.detail, seed: 90 });
+    for (let i = 0; i < 6; i++) tinyFir(headG, 0 + i * 13, 344 + i * 1.5, 14 + (i % 3) * 4, P.steel, 91 + i);
+    sk.rect(headG, 98, 340, 6, 18, { fill: P.paper, stroke: P.slate, width: 1.5, seed: 97, wobble: 0.3, double: false });
+    sk.poly(headG, [[96, 340], [101, 333], [106, 340]], { fill: P.slate, stroke: P.slate, width: 1.5, seed: 98, wobble: 0.2, double: false });
 
     // far hills behind the town (right part of the view), with tiny firs
     const farHillG = el("g", {}, viewG);
-    sk.poly(farHillG, [[300, 470], [380, 440], [470, 418], [560, 392], [660, 368], [760, 338], [880, 308], [1010, 280], [1010, 480]],
-      { fill: P.mist, stroke: P.steel, width: LINE.detail, seed: 110 });
-    sk.poly(farHillG, [[520, 470], [600, 446], [700, 420], [800, 396], [900, 372], [1010, 350], [1010, 480]],
+    const farHillPts = [[300, 470], [380, 440], [470, 418], [560, 392], [660, 368], [760, 338], [880, 308], [1010, 280], [1200, 250], [1400, 240], [1400, 480]];
+    sk.poly(farHillG, farHillPts, { fill: P.mist, stroke: P.steel, width: LINE.detail, seed: 110 });
+    sk.poly(farHillG, [[520, 470], [600, 446], [700, 420], [800, 396], [900, 372], [1010, 350], [1400, 300], [1400, 480]],
       { fill: P.steel, stroke: P.slate, width: LINE.detail, seed: 111, opacity: 0.55 });
     for (let i = 0; i < 38; i++) {
       const x = 470 + i * 14 + hash(i + 120) * 5;
       const top = 470 - (x - 300) * 0.27;
       tinyFir(farHillG, x, top + 12 + Math.abs(hash(i)) * 22, 14 + Math.abs(hash(i + 7)) * 10, i % 3 ? P.steel : P.slate, 130 + i);
     }
-    sk.hatch(farHillG, 600, 330, 410, 90, { gap: 10, angle: 120, stroke: P.slate, width: 1.5, opacity: 0.15, seed: 112 });
+    sk.hatch(clipTo(farHillG, farHillPts), 560, 290, 840, 160, { gap: 10, angle: 120, stroke: P.slate, width: 1.5, opacity: 0.15, seed: 112 });
 
     // seabed — normally under water, exposed when the harbor drains
     const seabedG = el("g", { class: "seabed" }, viewG);
-    sk.poly(seabedG, [[-20, 470], [200, 474], [500, 470], [1010, 466], [1010, 640], [-20, 640]], { fill: P.slate, stroke: P.storm, width: LINE.detail, seed: 140, wobble: 1 });
+    sk.poly(seabedG, [[-20, 470], [200, 474], [500, 470], [1010, 466], [1400, 460], [1400, 640], [-20, 640]], { fill: P.slate, stroke: P.storm, width: LINE.detail, seed: 140, wobble: 1 });
     sk.hatch(seabedG, -20, 476, 1030, 160, { gap: 9, angle: 8, stroke: P.storm, width: 1.5, opacity: 0.45, seed: 141 });
     for (let i = 0; i < 16; i++) {
       const x = 30 + i * 61 + hash(i + 150) * 20, y = 490 + Math.abs(hash(i + 151)) * 70;
@@ -241,7 +254,7 @@
 
     // far shore: beach + waterfront town
     const townG = el("g", { class: "town" }, viewG);
-    sk.poly(townG, [[150, 474], [250, 466], [420, 462], [700, 458], [1010, 452], [1010, 476], [150, 478]], { fill: P.fog, stroke: P.mist, width: 1.5, seed: 200, wobble: 0.6 });
+    sk.poly(townG, [[150, 474], [250, 466], [420, 462], [700, 458], [1010, 452], [1400, 446], [1400, 476], [150, 478]], { fill: P.fog, stroke: P.mist, width: 1.5, seed: 200, wobble: 0.6 });
     sk.hatch(townG, 150, 462, 860, 16, { gap: 7, angle: 30, stroke: P.mist, width: 1.5, opacity: 0.6, seed: 201 });
     sk.line(townG, 230, 466, 1010, 452, { stroke: P.steel, width: 2, seed: 202, wobble: 0.5, double: false });
     // back rows climbing the far hill
@@ -302,8 +315,8 @@
       levelNow = y;
       let d = "M-20 " + f1(y), ink = "M-20 " + f1(y), foam = "";
       const pts = [];
-      for (let x = -20; x <= 1020; x += 24) pts.push([x, y + Math.sin(x * 0.045) * 1.2 + hash(x * 0.31) * 0.8]);
-      d = "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + " L1020 700 L-20 700 Z";
+      for (let x = -20; x <= 1404; x += 24) pts.push([x, y + Math.sin(x * 0.045) * 1.2 + hash(x * 0.31) * 0.8]);
+      d = "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + " L1404 700 L-20 700 Z";
       ink = "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L");
       foam = "M" + pts.filter((p, i) => i % 1 === 0).map((p) => f1(p[0]) + " " + f1(p[1] + 3)).join(" L");
       waterPath.setAttribute("d", d);
@@ -316,11 +329,12 @@
     setLevel(opts.level !== undefined ? opts.level : LEVEL0);
 
     // atmospheric fog over the distant view (keeps it low-contrast behind the figures)
-    sk.rect(viewG, -20, 420, 1040, 120, { fill: fogFill, stroke: "none", wobble: 0, double: false, opacity: 0.8 });
+    sk.rect(viewG, -20, 420, 1440, 120, { fill: fogFill, stroke: "none", wobble: 0, double: false, opacity: 0.8 });
 
     // ------------------------------------------------------------------ NEAR FLANK: fir tops rising from below the trail
     const flankG = el("g", { class: "flank" }, g);
-    sk.poly(flankG, [[-20, 640], [200, 640], [500, 660], [800, 700], [1000, 760], [1000, 960], [-20, 960]], { fill: P.steel, stroke: "none", wobble: 0, double: false });
+    const flankPts = [[-20, 640], [200, 640], [500, 660], [800, 700], [1000, 760], [1000, 960], [-20, 960]];
+    sk.poly(flankG, flankPts, { fill: P.steel, stroke: "none", wobble: 0, double: false });
     const topsBack = [];
     for (let i = 0; i < 22; i++) topsBack.push([-10 + i * 46 + hash(i + 400) * 12, 590 + Math.abs(hash(i + 401)) * 30 + i * 4.5, 70 + Math.abs(hash(i + 402)) * 40]);
     topsBack.forEach(([x, apex, h], i) => fir(flankG, x, apex + h, h, h * 0.55, { fill: P.mist, stroke: P.steel, width: 1.6, seed: 410 + i, tiers: 3, double: false, wobble: 1, trunk: P.steel }));
@@ -328,13 +342,13 @@
     const topsFront = [];
     for (let i = 0; i < 17; i++) topsFront.push([10 + i * 56 + hash(i + 450) * 14, 650 + Math.abs(hash(i + 451)) * 30 + i * 6.5, 90 + Math.abs(hash(i + 452)) * 50]);
     topsFront.forEach(([x, apex, h], i) => fir(flankG, x, apex + h, h, h * 0.55, { fill: P.steel, stroke: P.slate, width: 2, seed: 460 + i, tiers: 3, double: false, wobble: 1.2, trunk: P.slate }));
-    sk.hatch(flankG, -20, 700, 1000, 220, { gap: 12, angle: 125, stroke: P.slate, width: 1.5, opacity: 0.25, seed: 490 });
+    sk.hatch(clipTo(flankG, flankPts), -20, 700, 1000, 220, { gap: 12, angle: 125, stroke: P.slate, width: 1.5, opacity: 0.25, seed: 490 });
 
     // ------------------------------------------------------------------ UPHILL MASS (right) with big firs
     const hillG = el("g", { class: "hill" }, g);
     const ridge = [[760, 880], [840, 760], [930, 650], [1050, 520], [1170, 410], [1300, 330], [1450, 262], [1650, 205], [1800, 175], [1950, 150]];
     sk.poly(hillG, ridge.concat([[1950, 900], [760, 900]]), { fill: hillFill, stroke: P.storm, width: LINE.main, seed: 500, wobble: 2.4 });
-    sk.hatch(hillG, 900, 300, 1060, 600, { gap: 15, angle: 55, stroke: P.storm, width: 2, opacity: 0.28, seed: 501 });
+    sk.hatch(clipTo(hillG, ridge.concat([[1950, 900], [760, 900]])), 760, 140, 1200, 760, { gap: 15, angle: 55, stroke: P.storm, width: 2, opacity: 0.28, seed: 501 });
     // distant firs along the ridge line (behind the big ones)
     for (let i = 0; i < 16; i++) {
       const x = 900 + i * 66 + hash(i + 510) * 15;
@@ -443,17 +457,17 @@
     sk.path(signG, [[SIGN_X - 92, SIGN_Y - 14], [SIGN_X - 40, SIGN_Y - 14]], { stroke: P.paper, width: 3, seed: 1113, wobble: 0.5, double: false });
     // big uphill arrow (up and to the right)
     sk.poly(signG, [[SIGN_X + 10, SIGN_Y - 14], [SIGN_X + 50, SIGN_Y - 54], [SIGN_X + 38, SIGN_Y - 64], [SIGN_X + 88, SIGN_Y - 72], [SIGN_X + 80, SIGN_Y - 22], [SIGN_X + 68, SIGN_Y - 34], [SIGN_X + 28, SIGN_Y + 6]], { fill: P.paper, stroke: INK, width: 2.5, seed: 1114, wobble: 0.6 });
-    const txt = (s, y, size) => {
-      const t = el("text", { x: SIGN_X, y, "text-anchor": "middle", "font-family": "League Gothic, Oswald, Impact, sans-serif", "font-size": size, fill: P.paper, "letter-spacing": 1.5 }, signG);
+    const txt = (s, y, size, w) => {
+      const t = el("text", { x: SIGN_X, y, textLength: w, lengthAdjust: "spacingAndGlyphs", "text-anchor": "middle", "font-family": "League Gothic, Oswald, Impact, sans-serif", "font-size": size, fill: P.paper, "letter-spacing": 1.5 }, signG);
       t.textContent = s;
       return t;
     };
-    txt("TSUNAMI", SIGN_Y + 22, 30);
-    txt("EVACUATION ROUTE", SIGN_Y + 54, 27);
+    txt("TSUNAMI", SIGN_Y + 24, 34, 120);
+    txt("EVACUATION ROUTE", SIGN_Y + 58, 28, 184);
     // little distance plate under the sign
     sk.rect(signG, SIGN_X - 64, SIGN_Y + 98, 128, 34, { fill: P.paper, stroke: INK, width: 3, seed: 1120, wobble: 0.6 });
-    const t2 = el("text", { x: SIGN_X, y: SIGN_Y + 123, "text-anchor": "middle", "font-family": "League Gothic, Oswald, Impact, sans-serif", "font-size": 22, fill: P.storm, "letter-spacing": 1 }, signG);
-    t2.textContent = "HILLTOP  0.4 MI";
+    const t2 = el("text", { x: SIGN_X, y: SIGN_Y + 123, "text-anchor": "middle", "font-family": "League Gothic, Oswald, Impact, sans-serif", "font-size": 22, fill: P.storm, textLength: 108, lengthAdjust: "spacingAndGlyphs" }, signG);
+    t2.textContent = "HILLTOP 0.4 MI";
     sk.hatch(signG, SIGN_X - 112, SIGN_Y - 88, 224, 176, { gap: 18, angle: 135, stroke: P.slate, width: 1.5, opacity: 0.25, seed: 1130 });
 
     // ------------------------------------------------------------------ DOWNHILL BANK + FOREGROUND (below the trail)
@@ -505,7 +519,7 @@
       trail: { g: trailG, x0: 0, y0: Math.round(trailY(0)), x1: 1920, y1: Math.round(trailY(1920)) },
       harbor: { g: viewG, waterG, floatG, levelY: LEVEL0, drainedY: 545, surgedY: 405, setLevel, get currentY() { return levelNow; } },
       horizon: { y: HORIZON, x0: 0, x1: 560, g: horizonG },
-      waveLine: { g: waveOuter, inner: waveInner, x0: 0, x1: 560, y: HORIZON, cx: 280, cy: HORIZON },
+      waveLine: { g: waveOuter, scaleG: waveInner, x0: 50, x1: 570, y: HORIZON, cx: WCX, cy: HORIZON },
       sign: { g: signG, x: SIGN_X, y: SIGN_Y, postX: SIGN_X, postY: Math.round(postY) },
       rail: { g: railG },
       hill: { g: hillG },
