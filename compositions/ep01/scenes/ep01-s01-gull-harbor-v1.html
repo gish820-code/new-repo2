@@ -7,7 +7,7 @@
     .s01-card { position: absolute; left: 0; width: 1920px; text-align: center; white-space: nowrap; }
     #s01-title-card { top: 150px; }
     #s01-day-card { top: 96px; }
-    .s01-word { font-family: "League Gothic", "Oswald", "Arial Narrow", sans-serif; color: #F2C230; paint-order: stroke fill; line-height: 1; display: inline-block; }
+    .s01-word { font-family: "League Gothic", "Oswald", sans-serif; color: #F2C230; paint-order: stroke fill; line-height: 1; display: inline-block; }
     #s01-title-word { font-size: 300px; letter-spacing: 0.04em; -webkit-text-stroke: 9px #10161F; text-shadow: 9px 12px 0 #10161F; }
     #s01-day-word { font-size: 158px; letter-spacing: 0.05em; -webkit-text-stroke: 6px #10161F; text-shadow: 6px 8px 0 #10161F; }
     .s01-t-l, .s01-d-l { display: inline-block; transform-origin: 50% 80%; }
@@ -582,7 +582,7 @@
 
     const GROUND = 860, SIDE = 782, CURB = 812, NEAR = 1000, HORIZON = 560;
     const SHOREX = 545, LEVEL = 650, WALL = 768, DECK = 612, FLOOD0 = 625;
-    const FONT_SIGN = "'League Gothic', Oswald, Impact, 'Arial Narrow', sans-serif";
+    const FONT_SIGN = "'League Gothic', Oswald, Impact, sans-serif";
     const FONT_HAND = "Kalam, 'Comic Sans MS', cursive";
     const f1 = (v) => (+v).toFixed(1);
     const D = (pts, close) => "M" + pts.map((p) => f1(p[0]) + " " + f1(p[1])).join(" L") + (close ? " Z" : "");
