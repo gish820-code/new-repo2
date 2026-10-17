@@ -483,7 +483,8 @@
     opts = opts || {};
     const start = opts.start || 0, end = opts.end || 2, amp = opts.amp || 14, rot = opts.rot || 0.6, freq = opts.freq || 11;
     const rin = opts.rampIn !== undefined ? opts.rampIn : 0.6, rout = opts.rampOut !== undefined ? opts.rampOut : 0.8;
-    const elx = typeof target === "string" ? document.querySelector(target) : target;
+    const elx = typeof target === "string" ? (document.getElementById(target.replace(/^#/, "")) || document.querySelector(target)) : target;
+    if (!elx) return;
     const isSvg = elx && elx.namespaceURI === NS;
     const proxy = { t: 0 };
     const apply = (t) => {
