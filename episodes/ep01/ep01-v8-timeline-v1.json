@@ -1,0 +1,3592 @@
+{
+ "version": "v1",
+ "total": 332.36,
+ "parts": [
+  {
+   "t0": 0.0,
+   "t1": 92.462,
+   "dur": 92.462,
+   "part": 1
+  },
+  {
+   "t0": 92.462,
+   "t1": 176.794,
+   "dur": 84.332,
+   "part": 2
+  },
+  {
+   "t0": 176.794,
+   "t1": 248.516,
+   "dur": 71.722,
+   "part": 3
+  },
+  {
+   "t0": 248.516,
+   "t1": 332.36,
+   "dur": 83.844,
+   "part": 4
+  }
+ ],
+ "narration": [
+  {
+   "n": 1,
+   "t0": 2.7,
+   "dur": 10.867,
+   "text": "This is Drizzle. He lives in Gull Harbor, Washington. Two thousand people, one road out, and one of the most dangerous fault lines in North America just off the coast."
+  },
+  {
+   "n": 2,
+   "t0": 16.617,
+   "dur": 9.953,
+   "text": "Drizzle wasn't a prepper. But one fact had stuck with him. On this coast, if the ground shakes hard, the ocean can arrive in about fifteen minutes."
+  },
+  {
+   "n": 3,
+   "t0": 29.42,
+   "dur": 5.825,
+   "text": "At 10:42 on a Tuesday, his coffee started to shiver. Then the floor moved."
+  },
+  {
+   "n": 4,
+   "t0": 35.695,
+   "dur": 10.606,
+   "text": "His first instinct was the doorway. Most people's is. But in a modern house, a doorway is no stronger than the rest of the wall, and it's exactly where things fall."
+  },
+  {
+   "n": 5,
+   "t0": 46.751,
+   "dur": 2.273,
+   "text": "So he did what the drills teach."
+  },
+  {
+   "n": 6,
+   "t0": 51.873,
+   "dur": 9.378,
+   "text": "Drop before the quake drops you. Cover your head under something sturdy. Hold on to it, because the table will move, and you need to move with it."
+  },
+  {
+   "n": 7,
+   "t0": 61.701,
+   "dur": 8.333,
+   "text": "Mags, his neighbor, was already under there. She'd come over for coffee. She'd done this drill every October for thirty years."
+  },
+  {
+   "n": 8,
+   "t0": 70.484,
+   "dur": 6.818,
+   "text": "Ten seconds. Thirty. A minute. Small quakes end fast. This one kept going."
+  },
+  {
+   "n": 9,
+   "t0": 80.152,
+   "dur": 8.673,
+   "text": "Four minutes of shaking. That told Drizzle everything. This was the big one. And the clock in his head started counting down."
+  },
+  {
+   "n": 10,
+   "t0": 89.275,
+   "dur": 1.437,
+   "text": "Then the lights went out."
+  },
+  {
+   "n": 11,
+   "t0": 92.462,
+   "dur": 10.162,
+   "text": "The shaking stopped at 10:46. If the ocean came in fifteen minutes, it would arrive around 11:01. The walk to high ground took twelve."
+  },
+  {
+   "n": 12,
+   "t0": 105.873,
+   "dur": 5.642,
+   "text": "Three minutes. No time to pack a life. No time to look for keys or check the news."
+  },
+  {
+   "n": 13,
+   "t0": 111.966,
+   "dur": 5.93,
+   "text": "He grabbed his laptop. His photo album. A plant. Then he put them all down."
+  },
+  {
+   "n": 14,
+   "t0": 120.746,
+   "dur": 10.762,
+   "text": "The go-bag by the door was packed for exactly this. Water, a flashlight, a radio, medicine, a warm layer. One bag. Three seconds."
+  },
+  {
+   "n": 15,
+   "t0": 134.758,
+   "dur": 7.68,
+   "text": "She was right. With the power out, the sirens might never sound. On this coast, the shaking is the warning."
+  },
+  {
+   "n": 16,
+   "t0": 142.888,
+   "dur": 5.642,
+   "text": "Outside, the street had cracked open. And down at the harbor, the water was leaving."
+  },
+  {
+   "n": 17,
+   "t0": 151.78,
+   "dur": 10.031,
+   "text": "Boats sat in the mud. A few people walked out to look. That's the deadliest mistake on the coast. When the sea pulls back, it comes back bigger."
+  },
+  {
+   "n": 18,
+   "t0": 162.261,
+   "dur": 7.863,
+   "text": "Harbor Way was already jammed. One crack in the road can stop a thousand cars. It can't stop two people on foot."
+  },
+  {
+   "n": 19,
+   "t0": 172.974,
+   "dur": 3.37,
+   "text": "So they walked. Uphill. Right now."
+  },
+  {
+   "n": 20,
+   "t0": 176.794,
+   "dur": 6.844,
+   "text": "The evacuation route was point four miles of steep, muddy trail. Twelve minutes, on a good day."
+  },
+  {
+   "n": 21,
+   "t0": 186.888,
+   "dur": 8.516,
+   "text": "Halfway up, an aftershock hit. No table out here. So they got low, covered their heads, and stayed clear of the trees."
+  },
+  {
+   "n": 22,
+   "t0": 195.854,
+   "dur": 8.542,
+   "text": "Then Mags' knees gave out. Drizzle didn't argue. He gave her his shoulder, and they kept moving. Slower, but moving."
+  },
+  {
+   "n": 23,
+   "t0": 211.846,
+   "dur": 7.158,
+   "text": "The official warning came twenty minutes after the shaking started. Anyone who waited for it was already out of time."
+  },
+  {
+   "n": 24,
+   "t0": 219.454,
+   "dur": 5.486,
+   "text": "At the switchback, Drizzle looked back. A gray line stretched across the horizon."
+  },
+  {
+   "n": 25,
+   "t0": 227.989,
+   "dur": 7.262,
+   "text": "At 11:04, the first wave hit Gull Harbor. It took the dock. The ferry. Then Main Street."
+  },
+  {
+   "n": 26,
+   "t0": 238.601,
+   "dur": 9.064,
+   "text": "And the first wave is rarely the last. Tsunamis come in sets, for hours. You don't go back down until officials say it's safe."
+  },
+  {
+   "n": 27,
+   "t0": 248.916,
+   "dur": 5.721,
+   "text": "The hilltop was cold, crowded, and above the water. Drizzle checked what he had."
+  },
+  {
+   "n": 28,
+   "t0": 257.487,
+   "dur": 6.06,
+   "text": "Water first. One gallon per person, per day. His bag held three days."
+  },
+  {
+   "n": 29,
+   "t0": 266.397,
+   "dur": 9.012,
+   "text": "Food second. About two thousand calories a day, for three days. That's the minimum. Out here, they tell you to plan for two weeks."
+  },
+  {
+   "n": 30,
+   "t0": 278.259,
+   "dur": 2.038,
+   "text": "Drizzle counted what he'd done right."
+  },
+  {
+   "n": 31,
+   "t0": 280.747,
+   "dur": 12.199,
+   "text": "One. Drop, cover, hold on. Two. On the coast, the shaking is your warning. Walk uphill, now. Three. Grab the go-bag, not your stuff."
+  },
+  {
+   "n": 32,
+   "t0": 293.396,
+   "dur": 4.598,
+   "text": "And four. He'd packed snacks. Mags took one without a word."
+  },
+  {
+   "n": 33,
+   "t0": 298.444,
+   "dur": 1.855,
+   "text": "Then the radio spoke again."
+  },
+  {
+   "n": 34,
+   "t0": 305.948,
+   "dur": 8.856,
+   "text": "The only road out was gone. The whole coast had been hit at once, so help would come by air and sea, and it would take days."
+  },
+  {
+   "n": 35,
+   "t0": 318.054,
+   "dur": 9.456,
+   "text": "Below them, the water was still rising. Night was coming. And somewhere down in the dark, a light flickered on where no one should be."
+  }
+ ],
+ "shots": [
+  {
+   "id": "p1s01",
+   "t0": 0.0,
+   "dur": 2.2,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "Cold open: the wave cresting over Gull Harbor's rooftops (push-in + shake)"
+  },
+  {
+   "id": "p1s02",
+   "t0": 2.2,
+   "dur": 0.5,
+   "bg": null,
+   "kind": "shot",
+   "desc": "Black"
+  },
+  {
+   "id": "p1s03",
+   "t0": 2.7,
+   "dur": 4.074,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Kitchen wide: this is Drizzle"
+  },
+  {
+   "id": "p1s04",
+   "t0": 6.774,
+   "dur": 3.848,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "Gull Harbor from above: two thousand people, one road out"
+  },
+  {
+   "id": "p1s05",
+   "t0": 10.622,
+   "dur": 3.395,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Through the window: the sea — the fault is just off the coast"
+  },
+  {
+   "id": "p1s06",
+   "t0": 14.017,
+   "dur": 2.6,
+   "bg": null,
+   "kind": "day",
+   "desc": "DAY: DAY 0 · 10:42 AM"
+  },
+  {
+   "id": "p1s07",
+   "t0": 16.617,
+   "dur": 5.201,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Drizzle at the table, thinking: not a prepper, but one fact stuck"
+  },
+  {
+   "id": "p1s08",
+   "t0": 21.818,
+   "dur": 5.201,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The gray sea in the window: on this coast the ocean can arrive in ~15 minutes"
+  },
+  {
+   "id": "p1s09",
+   "t0": 27.02,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: First wave: ~15 minutes"
+  },
+  {
+   "id": "p1s10",
+   "t0": 29.42,
+   "dur": 1.757,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Insert: the wall clock — 10:42"
+  },
+  {
+   "id": "p1s11",
+   "t0": 31.177,
+   "dur": 2.134,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Insert: the coffee starts to shiver"
+  },
+  {
+   "id": "p1s12",
+   "t0": 33.31,
+   "dur": 2.385,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Wide: the floor moves — Drizzle flinches"
+  },
+  {
+   "id": "p1s13",
+   "t0": 35.695,
+   "dur": 3.317,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Drizzle runs for the doorway — most people's instinct"
+  },
+  {
+   "id": "p1s14",
+   "t0": 39.012,
+   "dur": 3.869,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Drizzle in the doorway, looking up: no stronger than the rest of the wall"
+  },
+  {
+   "id": "p1s15",
+   "t0": 42.881,
+   "dur": 3.869,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Plaster falls right where he stands"
+  },
+  {
+   "id": "p1s16",
+   "t0": 46.751,
+   "dur": 2.723,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "He turns back: what the drills teach"
+  },
+  {
+   "id": "p1s17",
+   "t0": 49.473,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: Drop · Cover · Hold on"
+  },
+  {
+   "id": "p1s18",
+   "t0": 51.873,
+   "dur": 3.145,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "DROP: down on his knees, in under the table"
+  },
+  {
+   "id": "p1s19",
+   "t0": 55.018,
+   "dur": 3.538,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "COVER: head and neck covered, under the tabletop"
+  },
+  {
+   "id": "p1s20",
+   "t0": 58.556,
+   "dur": 3.145,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "HOLD ON: the table moves, he moves with it"
+  },
+  {
+   "id": "p1s21",
+   "t0": 61.701,
+   "dur": 4.392,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Mags, his neighbor, is already under there"
+  },
+  {
+   "id": "p1s22",
+   "t0": 66.093,
+   "dur": 4.392,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Two-shot under the table: she's done this drill for thirty years"
+  },
+  {
+   "id": "p1s23",
+   "t0": 70.484,
+   "dur": 3.634,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The clock: ten seconds, thirty, a minute…"
+  },
+  {
+   "id": "p1s24",
+   "t0": 74.118,
+   "dur": 3.634,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The kitchen keeps shaking — this one kept going"
+  },
+  {
+   "id": "p1s25",
+   "t0": 77.752,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 4 minutes"
+  },
+  {
+   "id": "p1s26",
+   "t0": 80.152,
+   "dur": 4.561,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Close on Drizzle: four minutes means the big one"
+  },
+  {
+   "id": "p1s27",
+   "t0": 84.714,
+   "dur": 4.561,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The clock in his head starts counting down"
+  },
+  {
+   "id": "p1s28",
+   "t0": 89.275,
+   "dur": 3.187,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The lights go out (end of Part 1)"
+  },
+  {
+   "id": "p2s01",
+   "t0": 92.462,
+   "dur": 3.82,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Daylight only: the wrecked kitchen. They come out from under the table"
+  },
+  {
+   "id": "p2s02",
+   "t0": 96.282,
+   "dur": 2.971,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The clock: 10:46"
+  },
+  {
+   "id": "p2s03",
+   "t0": 99.253,
+   "dur": 3.82,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Drizzle does the math: ocean at 11:01, the walk takes twelve"
+  },
+  {
+   "id": "p2s04",
+   "t0": 103.073,
+   "dur": 2.8,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 15 min − 12 min walk = 3 minutes"
+  },
+  {
+   "id": "p2s05",
+   "t0": 105.873,
+   "dur": 3.046,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Three minutes: no time to pack a life"
+  },
+  {
+   "id": "p2s06",
+   "t0": 108.919,
+   "dur": 3.046,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "No time for keys, or the news"
+  },
+  {
+   "id": "p2s07",
+   "t0": 111.966,
+   "dur": 3.955,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "He grabs his laptop, his photo album, a plant"
+  },
+  {
+   "id": "p2s08",
+   "t0": 115.921,
+   "dur": 2.424,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "…then puts them all down"
+  },
+  {
+   "id": "p2s09",
+   "t0": 118.346,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: Go-bag, not belongings"
+  },
+  {
+   "id": "p2s10",
+   "t0": 120.746,
+   "dur": 3.139,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The go-bag on its hook by the door, packed for exactly this"
+  },
+  {
+   "id": "p2s11",
+   "t0": 123.885,
+   "dur": 3.027,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "He walks to the door and takes it"
+  },
+  {
+   "id": "p2s12",
+   "t0": 126.912,
+   "dur": 3.027,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Water, flashlight, radio, medicine, a warm layer"
+  },
+  {
+   "id": "p2s13",
+   "t0": 129.94,
+   "dur": 2.018,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "One bag. Three seconds"
+  },
+  {
+   "id": "p2s14",
+   "t0": 131.958,
+   "dur": 2.8,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Mags: speech bubble"
+  },
+  {
+   "id": "p2s15",
+   "t0": 134.758,
+   "dur": 4.065,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The dead lamp: with the power out, sirens might never sound"
+  },
+  {
+   "id": "p2s16",
+   "t0": 138.823,
+   "dur": 4.065,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The shaking is the warning: out the door"
+  },
+  {
+   "id": "p2s17",
+   "t0": 142.888,
+   "dur": 3.351,
+   "bg": "street",
+   "kind": "shot",
+   "desc": "Main Street: cracked open, windows out, lines down"
+  },
+  {
+   "id": "p2s18",
+   "t0": 146.239,
+   "dur": 2.742,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "Down at the harbor, the water is leaving"
+  },
+  {
+   "id": "p2s19",
+   "t0": 148.98,
+   "dur": 2.8,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: Sea pulls back = tsunami coming"
+  },
+  {
+   "id": "p2s20",
+   "t0": 151.78,
+   "dur": 3.144,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "Boats sitting in the mud"
+  },
+  {
+   "id": "p2s21",
+   "t0": 154.925,
+   "dur": 3.564,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "A few people walk out to look — the deadliest mistake"
+  },
+  {
+   "id": "p2s22",
+   "t0": 158.488,
+   "dur": 3.773,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "When the sea pulls back, it comes back bigger: Mags pulls Drizzle away"
+  },
+  {
+   "id": "p2s23",
+   "t0": 162.261,
+   "dur": 4.156,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "Harbor Way: already jammed"
+  },
+  {
+   "id": "p2s24",
+   "t0": 166.418,
+   "dur": 4.156,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "A crack can stop a thousand cars, not two people on foot"
+  },
+  {
+   "id": "p2s25",
+   "t0": 170.574,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: Walk, don't drive"
+  },
+  {
+   "id": "p2s26",
+   "t0": 172.974,
+   "dur": 3.82,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "At the evacuation sign: uphill, right now (end of Part 2)"
+  },
+  {
+   "id": "p3s01",
+   "t0": 176.794,
+   "dur": 3.647,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "The evacuation trail: steep and muddy"
+  },
+  {
+   "id": "p3s02",
+   "t0": 180.441,
+   "dur": 3.647,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Twelve minutes, on a good day"
+  },
+  {
+   "id": "p3s03",
+   "t0": 184.088,
+   "dur": 2.8,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 0.4 miles uphill = 12 minutes"
+  },
+  {
+   "id": "p3s04",
+   "t0": 186.888,
+   "dur": 4.483,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Halfway up: an aftershock — they get low"
+  },
+  {
+   "id": "p3s05",
+   "t0": 191.371,
+   "dur": 4.483,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Heads covered, clear of the trees"
+  },
+  {
+   "id": "p3s06",
+   "t0": 195.854,
+   "dur": 4.046,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Mags' knees give out; Drizzle gives her his shoulder"
+  },
+  {
+   "id": "p3s07",
+   "t0": 199.9,
+   "dur": 4.946,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Slower, but moving"
+  },
+  {
+   "id": "p3s08",
+   "t0": 204.846,
+   "dur": 1.8,
+   "bg": null,
+   "kind": "shot",
+   "desc": "INSERT: the hand-crank radio — cranking, static"
+  },
+  {
+   "id": "p3s09",
+   "t0": 206.646,
+   "dur": 5.2,
+   "bg": null,
+   "kind": "shot",
+   "desc": "Radio bubble: the official warning"
+  },
+  {
+   "id": "p3s10",
+   "t0": 211.846,
+   "dur": 3.804,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "Twenty minutes after the shaking — the people who waited are still in their cars"
+  },
+  {
+   "id": "p3s11",
+   "t0": 215.65,
+   "dur": 3.804,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Drizzle and Mags already climbing"
+  },
+  {
+   "id": "p3s12",
+   "t0": 219.454,
+   "dur": 2.671,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "At the switchback, Drizzle looks back"
+  },
+  {
+   "id": "p3s13",
+   "t0": 222.125,
+   "dur": 3.265,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "A gray line across the horizon"
+  },
+  {
+   "id": "p3s14",
+   "t0": 225.389,
+   "dur": 2.6,
+   "bg": null,
+   "kind": "day",
+   "desc": "DAY: DAY 0 · 11:04 AM"
+  },
+  {
+   "id": "p3s15",
+   "t0": 227.989,
+   "dur": 2.622,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "11:04: the first wave hits Gull Harbor"
+  },
+  {
+   "id": "p3s16",
+   "t0": 230.611,
+   "dur": 2.545,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "It takes the dock, the ferry"
+  },
+  {
+   "id": "p3s17",
+   "t0": 233.156,
+   "dur": 2.545,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "…then Main Street"
+  },
+  {
+   "id": "p3s18",
+   "t0": 235.701,
+   "dur": 2.9,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: The first wave is often not the biggest"
+  },
+  {
+   "id": "p3s19",
+   "t0": 238.601,
+   "dur": 4.957,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "Tsunamis come in sets, for hours: Mags gets him moving"
+  },
+  {
+   "id": "p3s20",
+   "t0": 243.559,
+   "dur": 4.957,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "You don't go back down until officials say it's safe (end of Part 3)"
+  },
+  {
+   "id": "p4s01",
+   "t0": 248.516,
+   "dur": 3.614,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "The hilltop: cold, crowded, above the water"
+  },
+  {
+   "id": "p4s02",
+   "t0": 252.13,
+   "dur": 2.957,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Drizzle checks what he has"
+  },
+  {
+   "id": "p4s03",
+   "t0": 255.087,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 1 gallon a day × 3 days"
+  },
+  {
+   "id": "p4s04",
+   "t0": 257.487,
+   "dur": 3.255,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Water first: one gallon per person, per day"
+  },
+  {
+   "id": "p4s05",
+   "t0": 260.742,
+   "dur": 3.255,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "His bag held three days"
+  },
+  {
+   "id": "p4s06",
+   "t0": 263.997,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 6,000 calories = 3 days"
+  },
+  {
+   "id": "p4s07",
+   "t0": 266.397,
+   "dur": 4.731,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Food second: about 2,000 calories a day, for three days"
+  },
+  {
+   "id": "p4s08",
+   "t0": 271.128,
+   "dur": 4.731,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Volunteers at the check-in table: out here, plan for two weeks"
+  },
+  {
+   "id": "p4s09",
+   "t0": 275.859,
+   "dur": 2.4,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: Be 2 Weeks Ready"
+  },
+  {
+   "id": "p4s10",
+   "t0": 278.259,
+   "dur": 2.488,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Drizzle counts what he did right"
+  },
+  {
+   "id": "p4s11",
+   "t0": 280.747,
+   "dur": 3.35,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 1. Drop, cover, hold on (cut on the spoken number)"
+  },
+  {
+   "id": "p4s12",
+   "t0": 284.097,
+   "dur": 5.72,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 2. Coast + shaking = walk uphill now (cut on the spoken number)"
+  },
+  {
+   "id": "p4s13",
+   "t0": 289.817,
+   "dur": 3.579,
+   "bg": null,
+   "kind": "card",
+   "desc": "CARD: 3. Go-bag, not belongings (cut on the spoken number)"
+  },
+  {
+   "id": "p4s14",
+   "t0": 293.396,
+   "dur": 5.048,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "And four: snacks. Mags takes one without a word"
+  },
+  {
+   "id": "p4s15",
+   "t0": 298.444,
+   "dur": 2.305,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Dusk on the hill: the radio again"
+  },
+  {
+   "id": "p4s16",
+   "t0": 300.748,
+   "dur": 5.2,
+   "bg": null,
+   "kind": "shot",
+   "desc": "Radio bubble: the bridge is gone"
+  },
+  {
+   "id": "p4s17",
+   "t0": 305.948,
+   "dur": 4.653,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "The flooded town: the only road out is gone"
+  },
+  {
+   "id": "p4s18",
+   "t0": 310.601,
+   "dur": 4.653,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Help would come by air and sea, and it would take days"
+  },
+  {
+   "id": "p4s19",
+   "t0": 315.254,
+   "dur": 2.8,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Drizzle: speech bubble"
+  },
+  {
+   "id": "p4s20",
+   "t0": 318.054,
+   "dur": 3.998,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Below them, the water still rising"
+  },
+  {
+   "id": "p4s21",
+   "t0": 322.052,
+   "dur": 3.11,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Night coming"
+  },
+  {
+   "id": "p4s22",
+   "t0": 325.162,
+   "dur": 3.998,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Push-in: a light flickers on where no one should be"
+  },
+  {
+   "id": "p4s23",
+   "t0": 329.16,
+   "dur": 3.2,
+   "bg": null,
+   "kind": "day",
+   "desc": "DAY: NEXT: DAY 1"
+  }
+ ],
+ "chips": [
+  {
+   "t0": 2.75,
+   "t1": 2.93,
+   "text": "THIS"
+  },
+  {
+   "t0": 2.93,
+   "t1": 3.48,
+   "text": "IS DRIZZLE"
+  },
+  {
+   "t0": 3.48,
+   "t1": 4.61,
+   "text": "HE LIVES"
+  },
+  {
+   "t0": 4.61,
+   "t1": 4.98,
+   "text": "IN GULL"
+  },
+  {
+   "t0": 4.98,
+   "t1": 5.36,
+   "text": "HARBOR"
+  },
+  {
+   "t0": 5.36,
+   "t1": 5.95,
+   "text": "WASHINGTON"
+  },
+  {
+   "t0": 5.95,
+   "t1": 7.1,
+   "text": "TWO THOUSAND"
+  },
+  {
+   "t0": 7.1,
+   "t1": 7.57,
+   "text": "PEOPLE"
+  },
+  {
+   "t0": 7.57,
+   "t1": 8.22,
+   "text": "ONE ROAD"
+  },
+  {
+   "t0": 8.22,
+   "t1": 8.41,
+   "text": "OUT"
+  },
+  {
+   "t0": 8.41,
+   "t1": 9.57,
+   "text": "AND ONE OF THE"
+  },
+  {
+   "t0": 9.57,
+   "t1": 9.75,
+   "text": "MOST"
+  },
+  {
+   "t0": 9.75,
+   "t1": 10.33,
+   "text": "DANGEROUS"
+  },
+  {
+   "t0": 10.33,
+   "t1": 10.51,
+   "text": "FAULT"
+  },
+  {
+   "t0": 10.51,
+   "t1": 11.0,
+   "text": "LINES"
+  },
+  {
+   "t0": 11.0,
+   "t1": 11.37,
+   "text": "IN NORTH"
+  },
+  {
+   "t0": 11.37,
+   "t1": 12.22,
+   "text": "AMERICA"
+  },
+  {
+   "t0": 12.22,
+   "t1": 12.51,
+   "text": "JUST"
+  },
+  {
+   "t0": 12.51,
+   "t1": 13.63,
+   "text": "OFF THE COAST"
+  },
+  {
+   "t0": 16.667,
+   "t1": 17.057,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 17.057,
+   "t1": 17.247,
+   "text": "WASN'T"
+  },
+  {
+   "t0": 17.247,
+   "t1": 18.227,
+   "text": "A PREPPER"
+  },
+  {
+   "t0": 18.677,
+   "t1": 19.307,
+   "text": "BUT ONE FACT"
+  },
+  {
+   "t0": 19.307,
+   "t1": 19.787,
+   "text": "HAD STUCK"
+  },
+  {
+   "t0": 19.787,
+   "t1": 20.047,
+   "text": "WITH"
+  },
+  {
+   "t0": 20.047,
+   "t1": 20.527,
+   "text": "HIM"
+  },
+  {
+   "t0": 20.937,
+   "t1": 21.457,
+   "text": "ON THIS"
+  },
+  {
+   "t0": 21.457,
+   "t1": 21.937,
+   "text": "COAST"
+  },
+  {
+   "t0": 22.067,
+   "t1": 22.757,
+   "text": "IF THE GROUND"
+  },
+  {
+   "t0": 22.757,
+   "t1": 23.197,
+   "text": "SHAKES"
+  },
+  {
+   "t0": 23.197,
+   "t1": 23.677,
+   "text": "HARD"
+  },
+  {
+   "t0": 23.837,
+   "t1": 24.277,
+   "text": "THE OCEAN"
+  },
+  {
+   "t0": 24.277,
+   "t1": 24.747,
+   "text": "CAN ARRIVE"
+  },
+  {
+   "t0": 24.747,
+   "t1": 25.187,
+   "text": "IN ABOUT"
+  },
+  {
+   "t0": 25.187,
+   "t1": 25.817,
+   "text": "FIFTEEN"
+  },
+  {
+   "t0": 25.817,
+   "t1": 26.637,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 29.47,
+   "t1": 30.67,
+   "text": "AT 10:42"
+  },
+  {
+   "t0": 30.67,
+   "t1": 31.67,
+   "text": "ON A TUESDAY"
+  },
+  {
+   "t0": 31.75,
+   "t1": 32.18,
+   "text": "HIS COFFEE"
+  },
+  {
+   "t0": 32.18,
+   "t1": 32.66,
+   "text": "STARTED"
+  },
+  {
+   "t0": 32.66,
+   "t1": 33.5,
+   "text": "TO SHIVER"
+  },
+  {
+   "t0": 33.99,
+   "t1": 34.17,
+   "text": "THEN"
+  },
+  {
+   "t0": 34.17,
+   "t1": 34.63,
+   "text": "THE FLOOR"
+  },
+  {
+   "t0": 34.63,
+   "t1": 35.38,
+   "text": "MOVED"
+  },
+  {
+   "t0": 35.755,
+   "t1": 36.355,
+   "text": "HIS FIRST"
+  },
+  {
+   "t0": 36.355,
+   "t1": 36.905,
+   "text": "INSTINCT"
+  },
+  {
+   "t0": 36.905,
+   "t1": 38.005,
+   "text": "WAS THE DOORWAY"
+  },
+  {
+   "t0": 38.295,
+   "t1": 38.465,
+   "text": "MOST"
+  },
+  {
+   "t0": 38.465,
+   "t1": 38.925,
+   "text": "PEOPLE'S"
+  },
+  {
+   "t0": 38.925,
+   "t1": 39.365,
+   "text": "IS"
+  },
+  {
+   "t0": 39.825,
+   "t1": 40.765,
+   "text": "BUT IN A MODERN"
+  },
+  {
+   "t0": 40.765,
+   "t1": 41.205,
+   "text": "HOUSE"
+  },
+  {
+   "t0": 41.215,
+   "t1": 41.795,
+   "text": "A DOORWAY"
+  },
+  {
+   "t0": 41.795,
+   "t1": 42.625,
+   "text": "IS NO STRONGER"
+  },
+  {
+   "t0": 42.625,
+   "t1": 42.825,
+   "text": "THAN"
+  },
+  {
+   "t0": 42.825,
+   "t1": 43.205,
+   "text": "THE REST"
+  },
+  {
+   "t0": 43.205,
+   "t1": 44.105,
+   "text": "OF THE WALL"
+  },
+  {
+   "t0": 44.295,
+   "t1": 45.405,
+   "text": "AND IT'S EXACTLY"
+  },
+  {
+   "t0": 45.405,
+   "t1": 45.675,
+   "text": "WHERE"
+  },
+  {
+   "t0": 45.675,
+   "t1": 45.935,
+   "text": "THINGS"
+  },
+  {
+   "t0": 45.935,
+   "t1": 46.435,
+   "text": "FALL"
+  },
+  {
+   "t0": 46.801,
+   "t1": 47.941,
+   "text": "SO HE DID WHAT"
+  },
+  {
+   "t0": 47.941,
+   "t1": 48.471,
+   "text": "THE DRILLS"
+  },
+  {
+   "t0": 48.471,
+   "t1": 49.081,
+   "text": "TEACH"
+  },
+  {
+   "t0": 51.923,
+   "t1": 52.143,
+   "text": "DROP"
+  },
+  {
+   "t0": 52.143,
+   "t1": 52.833,
+   "text": "BEFORE"
+  },
+  {
+   "t0": 52.833,
+   "t1": 53.323,
+   "text": "THE QUAKE"
+  },
+  {
+   "t0": 53.323,
+   "t1": 53.583,
+   "text": "DROPS"
+  },
+  {
+   "t0": 53.583,
+   "t1": 54.093,
+   "text": "YOU"
+  },
+  {
+   "t0": 54.443,
+   "t1": 54.753,
+   "text": "COVER"
+  },
+  {
+   "t0": 54.753,
+   "t1": 54.913,
+   "text": "YOUR"
+  },
+  {
+   "t0": 54.913,
+   "t1": 55.073,
+   "text": "HEAD"
+  },
+  {
+   "t0": 55.073,
+   "t1": 55.393,
+   "text": "UNDER"
+  },
+  {
+   "t0": 55.393,
+   "t1": 55.923,
+   "text": "SOMETHING"
+  },
+  {
+   "t0": 55.923,
+   "t1": 56.573,
+   "text": "STURDY"
+  },
+  {
+   "t0": 56.873,
+   "t1": 57.043,
+   "text": "HOLD"
+  },
+  {
+   "t0": 57.043,
+   "t1": 57.833,
+   "text": "ON TO IT"
+  },
+  {
+   "t0": 57.963,
+   "t1": 58.423,
+   "text": "BECAUSE"
+  },
+  {
+   "t0": 58.423,
+   "t1": 58.973,
+   "text": "THE TABLE"
+  },
+  {
+   "t0": 58.973,
+   "t1": 59.153,
+   "text": "WILL"
+  },
+  {
+   "t0": 59.153,
+   "t1": 59.593,
+   "text": "MOVE"
+  },
+  {
+   "t0": 59.683,
+   "t1": 60.243,
+   "text": "AND YOU NEED"
+  },
+  {
+   "t0": 60.243,
+   "t1": 60.643,
+   "text": "TO MOVE"
+  },
+  {
+   "t0": 60.643,
+   "t1": 60.833,
+   "text": "WITH"
+  },
+  {
+   "t0": 60.833,
+   "t1": 61.373,
+   "text": "IT"
+  },
+  {
+   "t0": 61.751,
+   "t1": 62.491,
+   "text": "MAGS"
+  },
+  {
+   "t0": 62.491,
+   "t1": 63.341,
+   "text": "HIS NEIGHBOR"
+  },
+  {
+   "t0": 63.341,
+   "t1": 63.961,
+   "text": "WAS ALREADY"
+  },
+  {
+   "t0": 63.961,
+   "t1": 64.271,
+   "text": "UNDER"
+  },
+  {
+   "t0": 64.271,
+   "t1": 64.701,
+   "text": "THERE"
+  },
+  {
+   "t0": 65.011,
+   "t1": 65.171,
+   "text": "SHE'D"
+  },
+  {
+   "t0": 65.171,
+   "t1": 65.371,
+   "text": "COME"
+  },
+  {
+   "t0": 65.371,
+   "t1": 65.801,
+   "text": "OVER"
+  },
+  {
+   "t0": 65.801,
+   "t1": 66.441,
+   "text": "FOR COFFEE"
+  },
+  {
+   "t0": 66.811,
+   "t1": 66.981,
+   "text": "SHE'D"
+  },
+  {
+   "t0": 66.981,
+   "t1": 67.161,
+   "text": "DONE"
+  },
+  {
+   "t0": 67.161,
+   "t1": 67.341,
+   "text": "THIS"
+  },
+  {
+   "t0": 67.341,
+   "t1": 67.551,
+   "text": "DRILL"
+  },
+  {
+   "t0": 67.551,
+   "t1": 68.181,
+   "text": "EVERY"
+  },
+  {
+   "t0": 68.181,
+   "t1": 68.891,
+   "text": "OCTOBER"
+  },
+  {
+   "t0": 68.891,
+   "t1": 69.611,
+   "text": "FOR THIRTY"
+  },
+  {
+   "t0": 69.611,
+   "t1": 70.131,
+   "text": "YEARS"
+  },
+  {
+   "t0": 70.534,
+   "t1": 71.544,
+   "text": "TEN SECONDS"
+  },
+  {
+   "t0": 71.954,
+   "t1": 72.504,
+   "text": "THIRTY"
+  },
+  {
+   "t0": 72.844,
+   "t1": 73.424,
+   "text": "A MINUTE"
+  },
+  {
+   "t0": 73.924,
+   "t1": 74.204,
+   "text": "SMALL"
+  },
+  {
+   "t0": 74.204,
+   "t1": 74.934,
+   "text": "QUAKES"
+  },
+  {
+   "t0": 74.934,
+   "t1": 75.914,
+   "text": "END FAST"
+  },
+  {
+   "t0": 76.074,
+   "t1": 76.344,
+   "text": "THIS"
+  },
+  {
+   "t0": 76.344,
+   "t1": 76.904,
+   "text": "ONE KEPT"
+  },
+  {
+   "t0": 76.904,
+   "t1": 77.434,
+   "text": "GOING"
+  },
+  {
+   "t0": 80.282,
+   "t1": 80.442,
+   "text": "FOUR"
+  },
+  {
+   "t0": 80.442,
+   "t1": 80.982,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 80.982,
+   "t1": 81.812,
+   "text": "OF SHAKING"
+  },
+  {
+   "t0": 82.332,
+   "t1": 82.552,
+   "text": "THAT"
+  },
+  {
+   "t0": 82.552,
+   "t1": 82.712,
+   "text": "TOLD"
+  },
+  {
+   "t0": 82.712,
+   "t1": 83.032,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 83.032,
+   "t1": 84.202,
+   "text": "EVERYTHING"
+  },
+  {
+   "t0": 84.522,
+   "t1": 84.752,
+   "text": "THIS"
+  },
+  {
+   "t0": 84.752,
+   "t1": 86.052,
+   "text": "WAS THE BIG ONE"
+  },
+  {
+   "t0": 86.412,
+   "t1": 87.042,
+   "text": "AND THE CLOCK"
+  },
+  {
+   "t0": 87.042,
+   "t1": 87.642,
+   "text": "IN HIS HEAD"
+  },
+  {
+   "t0": 87.642,
+   "t1": 88.062,
+   "text": "STARTED"
+  },
+  {
+   "t0": 88.062,
+   "t1": 88.422,
+   "text": "COUNTING"
+  },
+  {
+   "t0": 88.422,
+   "t1": 88.872,
+   "text": "DOWN"
+  },
+  {
+   "t0": 89.325,
+   "t1": 89.545,
+   "text": "THEN"
+  },
+  {
+   "t0": 89.545,
+   "t1": 89.995,
+   "text": "THE LIGHTS"
+  },
+  {
+   "t0": 89.995,
+   "t1": 90.255,
+   "text": "WENT"
+  },
+  {
+   "t0": 90.255,
+   "t1": 90.825,
+   "text": "OUT"
+  },
+  {
+   "t0": 92.512,
+   "t1": 93.012,
+   "text": "THE SHAKING"
+  },
+  {
+   "t0": 93.012,
+   "t1": 93.372,
+   "text": "STOPPED"
+  },
+  {
+   "t0": 93.372,
+   "t1": 94.962,
+   "text": "AT 10:46"
+  },
+  {
+   "t0": 95.382,
+   "t1": 96.042,
+   "text": "IF THE OCEAN"
+  },
+  {
+   "t0": 96.042,
+   "t1": 96.192,
+   "text": "CAME"
+  },
+  {
+   "t0": 96.192,
+   "t1": 96.852,
+   "text": "IN FIFTEEN"
+  },
+  {
+   "t0": 96.852,
+   "t1": 97.622,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 97.742,
+   "t1": 98.112,
+   "text": "IT WOULD"
+  },
+  {
+   "t0": 98.112,
+   "t1": 98.482,
+   "text": "ARRIVE"
+  },
+  {
+   "t0": 98.482,
+   "t1": 98.852,
+   "text": "AROUND"
+  },
+  {
+   "t0": 98.852,
+   "t1": 100.122,
+   "text": "11:01"
+  },
+  {
+   "t0": 100.572,
+   "t1": 101.102,
+   "text": "THE WALK"
+  },
+  {
+   "t0": 101.102,
+   "t1": 101.552,
+   "text": "TO HIGH"
+  },
+  {
+   "t0": 101.552,
+   "t1": 101.822,
+   "text": "GROUND"
+  },
+  {
+   "t0": 101.822,
+   "t1": 102.152,
+   "text": "TOOK"
+  },
+  {
+   "t0": 102.152,
+   "t1": 102.632,
+   "text": "TWELVE"
+  },
+  {
+   "t0": 105.973,
+   "t1": 106.123,
+   "text": "THREE"
+  },
+  {
+   "t0": 106.123,
+   "t1": 106.923,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 107.123,
+   "t1": 107.513,
+   "text": "NO TIME"
+  },
+  {
+   "t0": 107.513,
+   "t1": 107.913,
+   "text": "TO PACK"
+  },
+  {
+   "t0": 107.913,
+   "t1": 108.573,
+   "text": "A LIFE"
+  },
+  {
+   "t0": 108.833,
+   "t1": 109.253,
+   "text": "NO TIME"
+  },
+  {
+   "t0": 109.253,
+   "t1": 109.813,
+   "text": "TO LOOK"
+  },
+  {
+   "t0": 109.813,
+   "t1": 110.213,
+   "text": "FOR KEYS"
+  },
+  {
+   "t0": 110.213,
+   "t1": 110.813,
+   "text": "OR CHECK"
+  },
+  {
+   "t0": 110.813,
+   "t1": 111.613,
+   "text": "THE NEWS"
+  },
+  {
+   "t0": 112.016,
+   "t1": 112.516,
+   "text": "HE GRABBED"
+  },
+  {
+   "t0": 112.516,
+   "t1": 113.386,
+   "text": "HIS LAPTOP"
+  },
+  {
+   "t0": 113.646,
+   "t1": 114.196,
+   "text": "HIS PHOTO"
+  },
+  {
+   "t0": 114.196,
+   "t1": 114.806,
+   "text": "ALBUM"
+  },
+  {
+   "t0": 114.966,
+   "t1": 115.796,
+   "text": "A PLANT"
+  },
+  {
+   "t0": 116.076,
+   "t1": 116.296,
+   "text": "THEN"
+  },
+  {
+   "t0": 116.296,
+   "t1": 117.216,
+   "text": "HE PUT THEM"
+  },
+  {
+   "t0": 117.216,
+   "t1": 117.956,
+   "text": "ALL DOWN"
+  },
+  {
+   "t0": 120.796,
+   "t1": 121.386,
+   "text": "THE GO-BAG"
+  },
+  {
+   "t0": 121.386,
+   "t1": 121.986,
+   "text": "BY THE DOOR"
+  },
+  {
+   "t0": 121.986,
+   "t1": 122.826,
+   "text": "WAS PACKED"
+  },
+  {
+   "t0": 122.826,
+   "t1": 123.696,
+   "text": "FOR EXACTLY"
+  },
+  {
+   "t0": 123.696,
+   "t1": 124.216,
+   "text": "THIS"
+  },
+  {
+   "t0": 124.486,
+   "t1": 125.206,
+   "text": "WATER"
+  },
+  {
+   "t0": 125.216,
+   "t1": 126.176,
+   "text": "A FLASHLIGHT"
+  },
+  {
+   "t0": 126.226,
+   "t1": 127.156,
+   "text": "A RADIO"
+  },
+  {
+   "t0": 127.166,
+   "t1": 128.026,
+   "text": "MEDICINE"
+  },
+  {
+   "t0": 128.096,
+   "t1": 128.626,
+   "text": "A WARM"
+  },
+  {
+   "t0": 128.626,
+   "t1": 129.166,
+   "text": "LAYER"
+  },
+  {
+   "t0": 129.486,
+   "t1": 130.346,
+   "text": "ONE BAG"
+  },
+  {
+   "t0": 130.626,
+   "t1": 130.816,
+   "text": "THREE"
+  },
+  {
+   "t0": 130.816,
+   "t1": 131.626,
+   "text": "SECONDS"
+  },
+  {
+   "t0": 134.808,
+   "t1": 135.778,
+   "text": "SHE WAS RIGHT"
+  },
+  {
+   "t0": 136.168,
+   "t1": 136.368,
+   "text": "WITH"
+  },
+  {
+   "t0": 136.368,
+   "t1": 136.888,
+   "text": "THE POWER"
+  },
+  {
+   "t0": 136.888,
+   "t1": 137.298,
+   "text": "OUT"
+  },
+  {
+   "t0": 137.428,
+   "t1": 138.118,
+   "text": "THE SIRENS"
+  },
+  {
+   "t0": 138.118,
+   "t1": 138.348,
+   "text": "MIGHT"
+  },
+  {
+   "t0": 138.348,
+   "t1": 138.808,
+   "text": "NEVER"
+  },
+  {
+   "t0": 138.808,
+   "t1": 139.348,
+   "text": "SOUND"
+  },
+  {
+   "t0": 139.768,
+   "t1": 140.258,
+   "text": "ON THIS"
+  },
+  {
+   "t0": 140.258,
+   "t1": 140.788,
+   "text": "COAST"
+  },
+  {
+   "t0": 140.828,
+   "t1": 141.448,
+   "text": "THE SHAKING"
+  },
+  {
+   "t0": 141.448,
+   "t1": 142.528,
+   "text": "IS THE WARNING"
+  },
+  {
+   "t0": 142.938,
+   "t1": 143.908,
+   "text": "OUTSIDE"
+  },
+  {
+   "t0": 143.908,
+   "t1": 144.278,
+   "text": "THE STREET"
+  },
+  {
+   "t0": 144.278,
+   "t1": 144.908,
+   "text": "HAD CRACKED"
+  },
+  {
+   "t0": 144.908,
+   "t1": 145.538,
+   "text": "OPEN"
+  },
+  {
+   "t0": 145.888,
+   "t1": 146.248,
+   "text": "AND DOWN"
+  },
+  {
+   "t0": 146.248,
+   "t1": 147.288,
+   "text": "AT THE HARBOR"
+  },
+  {
+   "t0": 147.288,
+   "t1": 147.828,
+   "text": "THE WATER"
+  },
+  {
+   "t0": 147.828,
+   "t1": 148.638,
+   "text": "WAS LEAVING"
+  },
+  {
+   "t0": 151.83,
+   "t1": 152.08,
+   "text": "BOATS"
+  },
+  {
+   "t0": 152.08,
+   "t1": 153.44,
+   "text": "SAT IN THE MUD"
+  },
+  {
+   "t0": 153.84,
+   "t1": 154.53,
+   "text": "A FEW PEOPLE"
+  },
+  {
+   "t0": 154.53,
+   "t1": 154.88,
+   "text": "WALKED"
+  },
+  {
+   "t0": 154.88,
+   "t1": 155.6,
+   "text": "OUT TO LOOK"
+  },
+  {
+   "t0": 156.07,
+   "t1": 156.31,
+   "text": "THAT'S"
+  },
+  {
+   "t0": 156.31,
+   "t1": 157.02,
+   "text": "THE DEADLIEST"
+  },
+  {
+   "t0": 157.02,
+   "t1": 157.55,
+   "text": "MISTAKE"
+  },
+  {
+   "t0": 157.55,
+   "t1": 158.61,
+   "text": "ON THE COAST"
+  },
+  {
+   "t0": 158.98,
+   "t1": 159.18,
+   "text": "WHEN"
+  },
+  {
+   "t0": 159.18,
+   "t1": 159.84,
+   "text": "THE SEA PULLS"
+  },
+  {
+   "t0": 159.84,
+   "t1": 160.3,
+   "text": "BACK"
+  },
+  {
+   "t0": 160.49,
+   "t1": 161.07,
+   "text": "IT COMES"
+  },
+  {
+   "t0": 161.07,
+   "t1": 161.25,
+   "text": "BACK"
+  },
+  {
+   "t0": 161.25,
+   "t1": 161.89,
+   "text": "BIGGER"
+  },
+  {
+   "t0": 162.311,
+   "t1": 162.711,
+   "text": "HARBOR"
+  },
+  {
+   "t0": 162.711,
+   "t1": 163.801,
+   "text": "WAY WAS ALREADY"
+  },
+  {
+   "t0": 163.801,
+   "t1": 164.531,
+   "text": "JAMMED"
+  },
+  {
+   "t0": 164.831,
+   "t1": 165.271,
+   "text": "ONE CRACK"
+  },
+  {
+   "t0": 165.271,
+   "t1": 165.961,
+   "text": "IN THE ROAD"
+  },
+  {
+   "t0": 165.961,
+   "t1": 166.521,
+   "text": "CAN STOP"
+  },
+  {
+   "t0": 166.521,
+   "t1": 167.351,
+   "text": "A THOUSAND"
+  },
+  {
+   "t0": 167.351,
+   "t1": 167.891,
+   "text": "CARS"
+  },
+  {
+   "t0": 168.161,
+   "t1": 168.561,
+   "text": "IT CAN'T"
+  },
+  {
+   "t0": 168.561,
+   "t1": 168.781,
+   "text": "STOP"
+  },
+  {
+   "t0": 168.781,
+   "t1": 169.481,
+   "text": "TWO PEOPLE"
+  },
+  {
+   "t0": 169.481,
+   "t1": 170.251,
+   "text": "ON FOOT"
+  },
+  {
+   "t0": 173.024,
+   "t1": 173.414,
+   "text": "SO THEY"
+  },
+  {
+   "t0": 173.414,
+   "t1": 174.204,
+   "text": "WALKED"
+  },
+  {
+   "t0": 174.574,
+   "t1": 175.284,
+   "text": "UPHILL"
+  },
+  {
+   "t0": 175.654,
+   "t1": 175.924,
+   "text": "RIGHT"
+  },
+  {
+   "t0": 175.924,
+   "t1": 176.464,
+   "text": "NOW"
+  },
+  {
+   "t0": 176.844,
+   "t1": 177.894,
+   "text": "THE EVACUATION"
+  },
+  {
+   "t0": 177.894,
+   "t1": 178.134,
+   "text": "ROUTE"
+  },
+  {
+   "t0": 178.134,
+   "t1": 178.814,
+   "text": "WAS POINT"
+  },
+  {
+   "t0": 178.814,
+   "t1": 179.014,
+   "text": "FOUR"
+  },
+  {
+   "t0": 179.014,
+   "t1": 179.414,
+   "text": "MILES"
+  },
+  {
+   "t0": 179.414,
+   "t1": 179.904,
+   "text": "OF STEEP"
+  },
+  {
+   "t0": 179.904,
+   "t1": 180.524,
+   "text": "MUDDY"
+  },
+  {
+   "t0": 180.524,
+   "t1": 180.764,
+   "text": "TRAIL"
+  },
+  {
+   "t0": 180.764,
+   "t1": 180.964,
+   "text": "TWELVE"
+  },
+  {
+   "t0": 180.964,
+   "t1": 182.294,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 182.294,
+   "t1": 183.264,
+   "text": "ON A GOOD"
+  },
+  {
+   "t0": 183.264,
+   "t1": 183.744,
+   "text": "DAY"
+  },
+  {
+   "t0": 186.938,
+   "t1": 187.398,
+   "text": "HALFWAY"
+  },
+  {
+   "t0": 187.398,
+   "t1": 187.918,
+   "text": "UP"
+  },
+  {
+   "t0": 187.958,
+   "t1": 188.778,
+   "text": "AN AFTERSHOCK"
+  },
+  {
+   "t0": 188.778,
+   "t1": 189.378,
+   "text": "HIT"
+  },
+  {
+   "t0": 189.668,
+   "t1": 190.348,
+   "text": "NO TABLE"
+  },
+  {
+   "t0": 190.348,
+   "t1": 191.038,
+   "text": "OUT HERE"
+  },
+  {
+   "t0": 191.378,
+   "t1": 191.828,
+   "text": "SO THEY"
+  },
+  {
+   "t0": 191.828,
+   "t1": 192.518,
+   "text": "GOT LOW"
+  },
+  {
+   "t0": 192.518,
+   "t1": 193.028,
+   "text": "COVERED"
+  },
+  {
+   "t0": 193.028,
+   "t1": 193.198,
+   "text": "THEIR"
+  },
+  {
+   "t0": 193.198,
+   "t1": 193.628,
+   "text": "HEADS"
+  },
+  {
+   "t0": 193.648,
+   "t1": 194.208,
+   "text": "AND STAYED"
+  },
+  {
+   "t0": 194.208,
+   "t1": 194.438,
+   "text": "CLEAR"
+  },
+  {
+   "t0": 194.438,
+   "t1": 195.518,
+   "text": "OF THE TREES"
+  },
+  {
+   "t0": 195.894,
+   "t1": 196.204,
+   "text": "THEN"
+  },
+  {
+   "t0": 196.204,
+   "t1": 196.524,
+   "text": "MAGS'"
+  },
+  {
+   "t0": 196.524,
+   "t1": 196.834,
+   "text": "KNEES"
+  },
+  {
+   "t0": 196.834,
+   "t1": 197.204,
+   "text": "GAVE"
+  },
+  {
+   "t0": 197.204,
+   "t1": 197.864,
+   "text": "OUT"
+  },
+  {
+   "t0": 198.264,
+   "t1": 198.764,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 198.764,
+   "t1": 199.014,
+   "text": "DIDN'T"
+  },
+  {
+   "t0": 199.014,
+   "t1": 199.564,
+   "text": "ARGUE"
+  },
+  {
+   "t0": 199.964,
+   "t1": 200.324,
+   "text": "HE GAVE"
+  },
+  {
+   "t0": 200.324,
+   "t1": 201.274,
+   "text": "HER HIS SHOULDER"
+  },
+  {
+   "t0": 201.274,
+   "t1": 201.624,
+   "text": "AND THEY"
+  },
+  {
+   "t0": 201.624,
+   "t1": 201.814,
+   "text": "KEPT"
+  },
+  {
+   "t0": 201.814,
+   "t1": 202.414,
+   "text": "MOVING"
+  },
+  {
+   "t0": 202.794,
+   "t1": 203.634,
+   "text": "SLOWER"
+  },
+  {
+   "t0": 203.674,
+   "t1": 204.514,
+   "text": "BUT MOVING"
+  },
+  {
+   "t0": 211.896,
+   "t1": 212.586,
+   "text": "THE OFFICIAL"
+  },
+  {
+   "t0": 212.586,
+   "t1": 212.916,
+   "text": "WARNING"
+  },
+  {
+   "t0": 212.916,
+   "t1": 213.076,
+   "text": "CAME"
+  },
+  {
+   "t0": 213.076,
+   "t1": 213.496,
+   "text": "TWENTY"
+  },
+  {
+   "t0": 213.496,
+   "t1": 214.016,
+   "text": "MINUTES"
+  },
+  {
+   "t0": 214.016,
+   "t1": 214.396,
+   "text": "AFTER"
+  },
+  {
+   "t0": 214.396,
+   "t1": 214.926,
+   "text": "THE SHAKING"
+  },
+  {
+   "t0": 214.926,
+   "t1": 215.556,
+   "text": "STARTED"
+  },
+  {
+   "t0": 216.046,
+   "t1": 216.396,
+   "text": "ANYONE"
+  },
+  {
+   "t0": 216.396,
+   "t1": 216.936,
+   "text": "WHO WAITED"
+  },
+  {
+   "t0": 216.936,
+   "t1": 217.676,
+   "text": "FOR IT WAS"
+  },
+  {
+   "t0": 217.676,
+   "t1": 218.216,
+   "text": "ALREADY"
+  },
+  {
+   "t0": 218.216,
+   "t1": 219.076,
+   "text": "OUT OF TIME"
+  },
+  {
+   "t0": 219.504,
+   "t1": 220.634,
+   "text": "AT THE SWITCHBACK"
+  },
+  {
+   "t0": 220.684,
+   "t1": 221.004,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 221.004,
+   "t1": 221.434,
+   "text": "LOOKED"
+  },
+  {
+   "t0": 221.434,
+   "t1": 221.864,
+   "text": "BACK"
+  },
+  {
+   "t0": 222.344,
+   "t1": 222.744,
+   "text": "A GRAY"
+  },
+  {
+   "t0": 222.744,
+   "t1": 222.944,
+   "text": "LINE"
+  },
+  {
+   "t0": 222.944,
+   "t1": 223.394,
+   "text": "STRETCHED"
+  },
+  {
+   "t0": 223.394,
+   "t1": 223.934,
+   "text": "ACROSS"
+  },
+  {
+   "t0": 223.934,
+   "t1": 225.054,
+   "text": "THE HORIZON"
+  },
+  {
+   "t0": 228.039,
+   "t1": 229.419,
+   "text": "AT 11:04"
+  },
+  {
+   "t0": 229.469,
+   "t1": 230.039,
+   "text": "THE FIRST"
+  },
+  {
+   "t0": 230.039,
+   "t1": 230.259,
+   "text": "WAVE"
+  },
+  {
+   "t0": 230.259,
+   "t1": 230.779,
+   "text": "HIT GULL"
+  },
+  {
+   "t0": 230.779,
+   "t1": 231.479,
+   "text": "HARBOR"
+  },
+  {
+   "t0": 231.849,
+   "t1": 232.279,
+   "text": "IT TOOK"
+  },
+  {
+   "t0": 232.279,
+   "t1": 232.829,
+   "text": "THE DOCK"
+  },
+  {
+   "t0": 233.099,
+   "t1": 233.869,
+   "text": "THE FERRY"
+  },
+  {
+   "t0": 234.149,
+   "t1": 234.429,
+   "text": "THEN"
+  },
+  {
+   "t0": 234.429,
+   "t1": 234.709,
+   "text": "MAIN"
+  },
+  {
+   "t0": 234.709,
+   "t1": 235.299,
+   "text": "STREET"
+  },
+  {
+   "t0": 238.651,
+   "t1": 239.381,
+   "text": "AND THE FIRST"
+  },
+  {
+   "t0": 239.381,
+   "t1": 239.601,
+   "text": "WAVE"
+  },
+  {
+   "t0": 239.601,
+   "t1": 240.511,
+   "text": "IS RARELY"
+  },
+  {
+   "t0": 240.511,
+   "t1": 241.301,
+   "text": "THE LAST"
+  },
+  {
+   "t0": 241.611,
+   "t1": 242.311,
+   "text": "TSUNAMIS"
+  },
+  {
+   "t0": 242.311,
+   "t1": 242.531,
+   "text": "COME"
+  },
+  {
+   "t0": 242.531,
+   "t1": 243.341,
+   "text": "IN SETS"
+  },
+  {
+   "t0": 243.481,
+   "t1": 244.541,
+   "text": "FOR HOURS"
+  },
+  {
+   "t0": 244.821,
+   "t1": 245.181,
+   "text": "YOU DON'T"
+  },
+  {
+   "t0": 245.181,
+   "t1": 245.551,
+   "text": "GO BACK"
+  },
+  {
+   "t0": 245.551,
+   "t1": 245.741,
+   "text": "DOWN"
+  },
+  {
+   "t0": 245.741,
+   "t1": 246.131,
+   "text": "UNTIL"
+  },
+  {
+   "t0": 246.131,
+   "t1": 246.761,
+   "text": "OFFICIALS"
+  },
+  {
+   "t0": 246.761,
+   "t1": 247.611,
+   "text": "SAY IT'S SAFE"
+  },
+  {
+   "t0": 248.966,
+   "t1": 249.886,
+   "text": "THE HILLTOP"
+  },
+  {
+   "t0": 249.886,
+   "t1": 250.626,
+   "text": "WAS COLD"
+  },
+  {
+   "t0": 250.626,
+   "t1": 251.416,
+   "text": "CROWDED"
+  },
+  {
+   "t0": 251.416,
+   "t1": 251.896,
+   "text": "AND ABOVE"
+  },
+  {
+   "t0": 251.896,
+   "t1": 252.646,
+   "text": "THE WATER"
+  },
+  {
+   "t0": 253.076,
+   "t1": 253.416,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 253.416,
+   "t1": 253.916,
+   "text": "CHECKED"
+  },
+  {
+   "t0": 253.916,
+   "t1": 254.086,
+   "text": "WHAT"
+  },
+  {
+   "t0": 254.086,
+   "t1": 254.686,
+   "text": "HE HAD"
+  },
+  {
+   "t0": 257.537,
+   "t1": 258.137,
+   "text": "WATER"
+  },
+  {
+   "t0": 258.137,
+   "t1": 258.997,
+   "text": "FIRST"
+  },
+  {
+   "t0": 258.997,
+   "t1": 259.797,
+   "text": "ONE GALLON"
+  },
+  {
+   "t0": 259.797,
+   "t1": 260.777,
+   "text": "PER PERSON"
+  },
+  {
+   "t0": 260.777,
+   "t1": 261.977,
+   "text": "PER DAY"
+  },
+  {
+   "t0": 261.977,
+   "t1": 262.787,
+   "text": "HIS BAG HELD"
+  },
+  {
+   "t0": 262.787,
+   "t1": 263.037,
+   "text": "THREE"
+  },
+  {
+   "t0": 263.037,
+   "t1": 263.657,
+   "text": "DAYS"
+  },
+  {
+   "t0": 266.487,
+   "t1": 266.707,
+   "text": "FOOD"
+  },
+  {
+   "t0": 266.707,
+   "t1": 267.527,
+   "text": "SECOND"
+  },
+  {
+   "t0": 267.787,
+   "t1": 268.187,
+   "text": "ABOUT"
+  },
+  {
+   "t0": 268.187,
+   "t1": 268.747,
+   "text": "TWO THOUSAND"
+  },
+  {
+   "t0": 268.747,
+   "t1": 269.247,
+   "text": "CALORIES"
+  },
+  {
+   "t0": 269.247,
+   "t1": 269.847,
+   "text": "A DAY"
+  },
+  {
+   "t0": 269.937,
+   "t1": 270.437,
+   "text": "FOR THREE"
+  },
+  {
+   "t0": 270.437,
+   "t1": 270.947,
+   "text": "DAYS"
+  },
+  {
+   "t0": 271.217,
+   "t1": 271.357,
+   "text": "THAT'S"
+  },
+  {
+   "t0": 271.357,
+   "t1": 272.267,
+   "text": "THE MINIMUM"
+  },
+  {
+   "t0": 272.587,
+   "t1": 273.427,
+   "text": "OUT HERE"
+  },
+  {
+   "t0": 273.477,
+   "t1": 273.677,
+   "text": "THEY"
+  },
+  {
+   "t0": 273.677,
+   "t1": 273.847,
+   "text": "TELL"
+  },
+  {
+   "t0": 273.847,
+   "t1": 274.467,
+   "text": "YOU TO PLAN"
+  },
+  {
+   "t0": 274.467,
+   "t1": 275.467,
+   "text": "FOR TWO WEEKS"
+  },
+  {
+   "t0": 278.309,
+   "t1": 278.779,
+   "text": "DRIZZLE"
+  },
+  {
+   "t0": 278.779,
+   "t1": 279.219,
+   "text": "COUNTED"
+  },
+  {
+   "t0": 279.219,
+   "t1": 279.439,
+   "text": "WHAT"
+  },
+  {
+   "t0": 279.439,
+   "t1": 279.869,
+   "text": "HE'D DONE"
+  },
+  {
+   "t0": 279.869,
+   "t1": 280.429,
+   "text": "RIGHT"
+  },
+  {
+   "t0": 280.797,
+   "t1": 281.427,
+   "text": "ONE"
+  },
+  {
+   "t0": 281.597,
+   "t1": 282.237,
+   "text": "DROP"
+  },
+  {
+   "t0": 282.287,
+   "t1": 282.927,
+   "text": "COVER"
+  },
+  {
+   "t0": 282.987,
+   "t1": 283.257,
+   "text": "HOLD"
+  },
+  {
+   "t0": 283.257,
+   "t1": 283.797,
+   "text": "ON"
+  },
+  {
+   "t0": 284.217,
+   "t1": 284.787,
+   "text": "TWO"
+  },
+  {
+   "t0": 285.107,
+   "t1": 286.067,
+   "text": "ON THE COAST"
+  },
+  {
+   "t0": 286.087,
+   "t1": 286.627,
+   "text": "THE SHAKING"
+  },
+  {
+   "t0": 286.627,
+   "t1": 286.967,
+   "text": "IS YOUR"
+  },
+  {
+   "t0": 286.967,
+   "t1": 287.597,
+   "text": "WARNING"
+  },
+  {
+   "t0": 287.767,
+   "t1": 288.017,
+   "text": "WALK"
+  },
+  {
+   "t0": 288.017,
+   "t1": 288.727,
+   "text": "UPHILL"
+  },
+  {
+   "t0": 288.767,
+   "t1": 289.397,
+   "text": "NOW"
+  },
+  {
+   "t0": 289.937,
+   "t1": 290.507,
+   "text": "THREE"
+  },
+  {
+   "t0": 290.737,
+   "t1": 290.977,
+   "text": "GRAB"
+  },
+  {
+   "t0": 290.977,
+   "t1": 291.947,
+   "text": "THE GO-BAG"
+  },
+  {
+   "t0": 291.997,
+   "t1": 292.447,
+   "text": "NOT YOUR"
+  },
+  {
+   "t0": 292.447,
+   "t1": 292.977,
+   "text": "STUFF"
+  },
+  {
+   "t0": 293.446,
+   "t1": 294.316,
+   "text": "AND FOUR"
+  },
+  {
+   "t0": 294.646,
+   "t1": 295.376,
+   "text": "HE'D PACKED"
+  },
+  {
+   "t0": 295.376,
+   "t1": 295.956,
+   "text": "SNACKS"
+  },
+  {
+   "t0": 296.246,
+   "t1": 296.446,
+   "text": "MAGS"
+  },
+  {
+   "t0": 296.446,
+   "t1": 296.716,
+   "text": "TOOK"
+  },
+  {
+   "t0": 296.716,
+   "t1": 297.376,
+   "text": "ONE WITHOUT"
+  },
+  {
+   "t0": 297.376,
+   "t1": 298.056,
+   "text": "A WORD"
+  },
+  {
+   "t0": 298.494,
+   "t1": 298.704,
+   "text": "THEN"
+  },
+  {
+   "t0": 298.704,
+   "t1": 299.354,
+   "text": "THE RADIO"
+  },
+  {
+   "t0": 299.354,
+   "t1": 299.644,
+   "text": "SPOKE"
+  },
+  {
+   "t0": 299.644,
+   "t1": 300.364,
+   "text": "AGAIN"
+  },
+  {
+   "t0": 305.998,
+   "t1": 306.778,
+   "text": "THE ONLY"
+  },
+  {
+   "t0": 306.778,
+   "t1": 307.088,
+   "text": "ROAD"
+  },
+  {
+   "t0": 307.088,
+   "t1": 308.198,
+   "text": "OUT WAS GONE"
+  },
+  {
+   "t0": 308.548,
+   "t1": 309.208,
+   "text": "THE WHOLE"
+  },
+  {
+   "t0": 309.208,
+   "t1": 309.438,
+   "text": "COAST"
+  },
+  {
+   "t0": 309.438,
+   "t1": 309.838,
+   "text": "HAD BEEN"
+  },
+  {
+   "t0": 309.838,
+   "t1": 310.738,
+   "text": "HIT AT ONCE"
+  },
+  {
+   "t0": 310.948,
+   "t1": 311.488,
+   "text": "SO HELP"
+  },
+  {
+   "t0": 311.488,
+   "t1": 311.768,
+   "text": "WOULD"
+  },
+  {
+   "t0": 311.768,
+   "t1": 312.008,
+   "text": "COME"
+  },
+  {
+   "t0": 312.008,
+   "t1": 313.298,
+   "text": "BY AIR AND SEA"
+  },
+  {
+   "t0": 313.498,
+   "t1": 314.148,
+   "text": "AND IT WOULD"
+  },
+  {
+   "t0": 314.148,
+   "t1": 314.348,
+   "text": "TAKE"
+  },
+  {
+   "t0": 314.348,
+   "t1": 314.908,
+   "text": "DAYS"
+  },
+  {
+   "t0": 318.104,
+   "t1": 318.604,
+   "text": "BELOW"
+  },
+  {
+   "t0": 318.604,
+   "t1": 319.064,
+   "text": "THEM"
+  },
+  {
+   "t0": 319.064,
+   "t1": 319.694,
+   "text": "THE WATER"
+  },
+  {
+   "t0": 319.694,
+   "t1": 320.194,
+   "text": "WAS STILL"
+  },
+  {
+   "t0": 320.194,
+   "t1": 320.904,
+   "text": "RISING"
+  },
+  {
+   "t0": 321.334,
+   "t1": 321.514,
+   "text": "NIGHT"
+  },
+  {
+   "t0": 321.514,
+   "t1": 322.424,
+   "text": "WAS COMING"
+  },
+  {
+   "t0": 322.894,
+   "t1": 323.674,
+   "text": "AND SOMEWHERE"
+  },
+  {
+   "t0": 323.674,
+   "t1": 323.864,
+   "text": "DOWN"
+  },
+  {
+   "t0": 323.864,
+   "t1": 324.794,
+   "text": "IN THE DARK"
+  },
+  {
+   "t0": 324.944,
+   "t1": 325.474,
+   "text": "A LIGHT"
+  },
+  {
+   "t0": 325.474,
+   "t1": 326.124,
+   "text": "FLICKERED"
+  },
+  {
+   "t0": 326.124,
+   "t1": 326.524,
+   "text": "ON WHERE"
+  },
+  {
+   "t0": 326.524,
+   "t1": 327.124,
+   "text": "NO ONE SHOULD"
+  },
+  {
+   "t0": 327.124,
+   "t1": 327.674,
+   "text": "BE"
+  }
+ ],
+ "captions": [
+  {
+   "t0": 2.75,
+   "t1": 5.9,
+   "text": "This is Drizzle. He lives in Gull Harbor, Washington.",
+   "kind": "narration"
+  },
+  {
+   "t0": 5.95,
+   "t1": 10.46,
+   "text": "Two thousand people, one road out, and one of the most dangerous fault",
+   "kind": "narration"
+  },
+  {
+   "t0": 10.51,
+   "t1": 13.58,
+   "text": "lines in North America just off the coast.",
+   "kind": "narration"
+  },
+  {
+   "t0": 16.667,
+   "t1": 20.477,
+   "text": "Drizzle wasn't a prepper. But one fact had stuck with him.",
+   "kind": "narration"
+  },
+  {
+   "t0": 20.937,
+   "t1": 25.137,
+   "text": "On this coast, if the ground shakes hard, the ocean can arrive in about",
+   "kind": "narration"
+  },
+  {
+   "t0": 25.187,
+   "t1": 26.587,
+   "text": "fifteen minutes.",
+   "kind": "narration"
+  },
+  {
+   "t0": 29.47,
+   "t1": 33.45,
+   "text": "At 10:42 on a Tuesday, his coffee started to shiver.",
+   "kind": "narration"
+  },
+  {
+   "t0": 33.99,
+   "t1": 35.33,
+   "text": "Then the floor moved.",
+   "kind": "narration"
+  },
+  {
+   "t0": 35.755,
+   "t1": 37.955,
+   "text": "His first instinct was the doorway.",
+   "kind": "narration"
+  },
+  {
+   "t0": 38.295,
+   "t1": 42.775,
+   "text": "Most people's is. But in a modern house, a doorway is no stronger than",
+   "kind": "narration"
+  },
+  {
+   "t0": 42.825,
+   "t1": 46.385,
+   "text": "the rest of the wall, and it's exactly where things fall.",
+   "kind": "narration"
+  },
+  {
+   "t0": 46.801,
+   "t1": 49.031,
+   "text": "So he did what the drills teach.",
+   "kind": "narration"
+  },
+  {
+   "t0": 51.923,
+   "t1": 54.043,
+   "text": "Drop before the quake drops you.",
+   "kind": "narration"
+  },
+  {
+   "t0": 54.443,
+   "t1": 56.523,
+   "text": "Cover your head under something sturdy.",
+   "kind": "narration"
+  },
+  {
+   "t0": 56.873,
+   "t1": 61.323,
+   "text": "Hold on to it, because the table will move, and you need to move with it.",
+   "kind": "narration"
+  },
+  {
+   "t0": 61.751,
+   "t1": 64.651,
+   "text": "Mags, his neighbor, was already under there.",
+   "kind": "narration"
+  },
+  {
+   "t0": 65.011,
+   "t1": 69.561,
+   "text": "She'd come over for coffee. She'd done this drill every October for thirty",
+   "kind": "narration"
+  },
+  {
+   "t0": 69.611,
+   "t1": 70.081,
+   "text": "years.",
+   "kind": "narration"
+  },
+  {
+   "t0": 70.534,
+   "t1": 73.374,
+   "text": "Ten seconds. Thirty. A minute.",
+   "kind": "narration"
+  },
+  {
+   "t0": 73.924,
+   "t1": 77.384,
+   "text": "Small quakes end fast. This one kept going.",
+   "kind": "narration"
+  },
+  {
+   "t0": 80.282,
+   "t1": 84.152,
+   "text": "Four minutes of shaking. That told Drizzle everything.",
+   "kind": "narration"
+  },
+  {
+   "t0": 84.522,
+   "t1": 88.822,
+   "text": "This was the big one. And the clock in his head started counting down.",
+   "kind": "narration"
+  },
+  {
+   "t0": 89.325,
+   "t1": 90.775,
+   "text": "Then the lights went out.",
+   "kind": "narration"
+  },
+  {
+   "t0": 92.512,
+   "t1": 94.912,
+   "text": "The shaking stopped at 10:46.",
+   "kind": "narration"
+  },
+  {
+   "t0": 95.382,
+   "t1": 100.072,
+   "text": "If the ocean came in fifteen minutes, it would arrive around 11:01.",
+   "kind": "narration"
+  },
+  {
+   "t0": 100.572,
+   "t1": 102.582,
+   "text": "The walk to high ground took twelve.",
+   "kind": "narration"
+  },
+  {
+   "t0": 105.973,
+   "t1": 108.523,
+   "text": "Three minutes. No time to pack a life.",
+   "kind": "narration"
+  },
+  {
+   "t0": 108.833,
+   "t1": 111.563,
+   "text": "No time to look for keys or check the news.",
+   "kind": "narration"
+  },
+  {
+   "t0": 112.016,
+   "t1": 114.756,
+   "text": "He grabbed his laptop. His photo album.",
+   "kind": "narration"
+  },
+  {
+   "t0": 114.966,
+   "t1": 117.906,
+   "text": "A plant. Then he put them all down.",
+   "kind": "narration"
+  },
+  {
+   "t0": 120.796,
+   "t1": 124.166,
+   "text": "The go-bag by the door was packed for exactly this.",
+   "kind": "narration"
+  },
+  {
+   "t0": 124.486,
+   "t1": 129.116,
+   "text": "Water, a flashlight, a radio, medicine, a warm layer.",
+   "kind": "narration"
+  },
+  {
+   "t0": 129.486,
+   "t1": 131.576,
+   "text": "One bag. Three seconds.",
+   "kind": "narration"
+  },
+  {
+   "t0": 132.108,
+   "t1": 134.658,
+   "text": "No siren's coming. We go now.",
+   "kind": "bubble",
+   "who": "MAGS"
+  },
+  {
+   "t0": 134.808,
+   "t1": 139.298,
+   "text": "She was right. With the power out, the sirens might never sound.",
+   "kind": "narration"
+  },
+  {
+   "t0": 139.768,
+   "t1": 142.478,
+   "text": "On this coast, the shaking is the warning.",
+   "kind": "narration"
+  },
+  {
+   "t0": 142.938,
+   "t1": 145.488,
+   "text": "Outside, the street had cracked open.",
+   "kind": "narration"
+  },
+  {
+   "t0": 145.888,
+   "t1": 148.588,
+   "text": "And down at the harbor, the water was leaving.",
+   "kind": "narration"
+  },
+  {
+   "t0": 151.83,
+   "t1": 155.55,
+   "text": "Boats sat in the mud. A few people walked out to look.",
+   "kind": "narration"
+  },
+  {
+   "t0": 156.07,
+   "t1": 158.56,
+   "text": "That's the deadliest mistake on the coast.",
+   "kind": "narration"
+  },
+  {
+   "t0": 158.98,
+   "t1": 161.84,
+   "text": "When the sea pulls back, it comes back bigger.",
+   "kind": "narration"
+  },
+  {
+   "t0": 162.311,
+   "t1": 164.481,
+   "text": "Harbor Way was already jammed.",
+   "kind": "narration"
+  },
+  {
+   "t0": 164.831,
+   "t1": 167.841,
+   "text": "One crack in the road can stop a thousand cars.",
+   "kind": "narration"
+  },
+  {
+   "t0": 168.161,
+   "t1": 170.201,
+   "text": "It can't stop two people on foot.",
+   "kind": "narration"
+  },
+  {
+   "t0": 173.024,
+   "t1": 176.414,
+   "text": "So they walked. Uphill. Right now.",
+   "kind": "narration"
+  },
+  {
+   "t0": 176.844,
+   "t1": 180.714,
+   "text": "The evacuation route was point four miles of steep, muddy trail.",
+   "kind": "narration"
+  },
+  {
+   "t0": 180.764,
+   "t1": 183.694,
+   "text": "Twelve minutes, on a good day.",
+   "kind": "narration"
+  },
+  {
+   "t0": 186.938,
+   "t1": 189.328,
+   "text": "Halfway up, an aftershock hit.",
+   "kind": "narration"
+  },
+  {
+   "t0": 189.668,
+   "t1": 194.388,
+   "text": "No table out here. So they got low, covered their heads, and stayed clear",
+   "kind": "narration"
+  },
+  {
+   "t0": 194.438,
+   "t1": 195.468,
+   "text": "of the trees.",
+   "kind": "narration"
+  },
+  {
+   "t0": 195.894,
+   "t1": 199.514,
+   "text": "Then Mags' knees gave out. Drizzle didn't argue.",
+   "kind": "narration"
+  },
+  {
+   "t0": 199.964,
+   "t1": 202.364,
+   "text": "He gave her his shoulder, and they kept moving.",
+   "kind": "narration"
+  },
+  {
+   "t0": 202.794,
+   "t1": 204.464,
+   "text": "Slower, but moving.",
+   "kind": "narration"
+  },
+  {
+   "t0": 206.796,
+   "t1": 211.746,
+   "text": "…tsunami warning for the entire Washington coast… move to high ground immediately…",
+   "kind": "bubble",
+   "who": "RADIO"
+  },
+  {
+   "t0": 211.896,
+   "t1": 215.506,
+   "text": "The official warning came twenty minutes after the shaking started.",
+   "kind": "narration"
+  },
+  {
+   "t0": 216.046,
+   "t1": 219.026,
+   "text": "Anyone who waited for it was already out of time.",
+   "kind": "narration"
+  },
+  {
+   "t0": 219.504,
+   "t1": 221.814,
+   "text": "At the switchback, Drizzle looked back.",
+   "kind": "narration"
+  },
+  {
+   "t0": 222.344,
+   "t1": 225.004,
+   "text": "A gray line stretched across the horizon.",
+   "kind": "narration"
+  },
+  {
+   "t0": 228.039,
+   "t1": 231.429,
+   "text": "At 11:04, the first wave hit Gull Harbor.",
+   "kind": "narration"
+  },
+  {
+   "t0": 231.849,
+   "t1": 233.819,
+   "text": "It took the dock. The ferry.",
+   "kind": "narration"
+  },
+  {
+   "t0": 234.149,
+   "t1": 235.249,
+   "text": "Then Main Street.",
+   "kind": "narration"
+  },
+  {
+   "t0": 238.651,
+   "t1": 241.251,
+   "text": "And the first wave is rarely the last.",
+   "kind": "narration"
+  },
+  {
+   "t0": 241.611,
+   "t1": 244.491,
+   "text": "Tsunamis come in sets, for hours.",
+   "kind": "narration"
+  },
+  {
+   "t0": 244.821,
+   "t1": 247.561,
+   "text": "You don't go back down until officials say it's safe.",
+   "kind": "narration"
+  },
+  {
+   "t0": 248.966,
+   "t1": 252.596,
+   "text": "The hilltop was cold, crowded, and above the water.",
+   "kind": "narration"
+  },
+  {
+   "t0": 253.076,
+   "t1": 254.636,
+   "text": "Drizzle checked what he had.",
+   "kind": "narration"
+  },
+  {
+   "t0": 257.537,
+   "t1": 261.927,
+   "text": "Water first. One gallon per person, per day.",
+   "kind": "narration"
+  },
+  {
+   "t0": 261.977,
+   "t1": 263.607,
+   "text": "His bag held three days.",
+   "kind": "narration"
+  },
+  {
+   "t0": 266.487,
+   "t1": 270.897,
+   "text": "Food second. About two thousand calories a day, for three days.",
+   "kind": "narration"
+  },
+  {
+   "t0": 271.217,
+   "t1": 275.417,
+   "text": "That's the minimum. Out here, they tell you to plan for two weeks.",
+   "kind": "narration"
+  },
+  {
+   "t0": 278.309,
+   "t1": 280.379,
+   "text": "Drizzle counted what he'd done right.",
+   "kind": "narration"
+  },
+  {
+   "t0": 280.797,
+   "t1": 284.737,
+   "text": "One. Drop, cover, hold on. Two.",
+   "kind": "narration"
+  },
+  {
+   "t0": 285.107,
+   "t1": 287.547,
+   "text": "On the coast, the shaking is your warning.",
+   "kind": "narration"
+  },
+  {
+   "t0": 287.767,
+   "t1": 292.927,
+   "text": "Walk uphill, now. Three. Grab the go-bag, not your stuff.",
+   "kind": "narration"
+  },
+  {
+   "t0": 293.446,
+   "t1": 295.906,
+   "text": "And four. He'd packed snacks.",
+   "kind": "narration"
+  },
+  {
+   "t0": 296.246,
+   "t1": 298.006,
+   "text": "Mags took one without a word.",
+   "kind": "narration"
+  },
+  {
+   "t0": 298.494,
+   "t1": 300.314,
+   "text": "Then the radio spoke again.",
+   "kind": "narration"
+  },
+  {
+   "t0": 300.898,
+   "t1": 305.848,
+   "text": "…Highway 101 bridge at Gull Creek has collapsed… coastal roads closed…",
+   "kind": "bubble",
+   "who": "RADIO"
+  },
+  {
+   "t0": 305.998,
+   "t1": 311.438,
+   "text": "The only road out was gone. The whole coast had been hit at once, so help",
+   "kind": "narration"
+  },
+  {
+   "t0": 311.488,
+   "t1": 314.858,
+   "text": "would come by air and sea, and it would take days.",
+   "kind": "narration"
+  },
+  {
+   "t0": 315.404,
+   "t1": 317.954,
+   "text": "So… nobody's coming?",
+   "kind": "bubble",
+   "who": "DRIZZLE"
+  },
+  {
+   "t0": 318.104,
+   "t1": 320.854,
+   "text": "Below them, the water was still rising.",
+   "kind": "narration"
+  },
+  {
+   "t0": 321.334,
+   "t1": 326.274,
+   "text": "Night was coming. And somewhere down in the dark, a light flickered on",
+   "kind": "narration"
+  },
+  {
+   "t0": 326.324,
+   "t1": 327.574,
+   "text": "where no one should be.",
+   "kind": "narration"
+  }
+ ]
+}

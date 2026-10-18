@@ -1,0 +1,118 @@
+# Episode 1 v8 — review stills (v1)
+
+All stills come from the finished renders (`renders/ep01/ep01-v8-*-v1.mp4`): one per shot mid-shot (cards 0.7 in), 1280 px wide; 9:16 stills 540 px wide. The style-frame images (`styleframe-*-v1.png`) are from the earlier approval step.
+
+## One still per shot (16:9)
+
+- `shots/shot-01-v1.jpg` — 0:01.3 · Cold open: the wave cresting over Gull Harbor's rooftops (push-in + shake)
+- `shots/shot-02-v1.jpg` — 0:02.5 · Black
+- `shots/shot-03-v1.jpg` — 0:05.1 · Kitchen wide: this is Drizzle
+- `shots/shot-04-v1.jpg` — 0:09.1 · Gull Harbor from above: two thousand people, one road out
+- `shots/shot-05-v1.jpg` — 0:12.7 · Through the window: the sea — the fault is just off the coast
+- `shots/shot-06-v1.jpg` — 0:15.8 · DAY: DAY 0 · 10:42 AM
+- `shots/shot-07-v1.jpg` — 0:19.7 · Drizzle at the table, thinking: not a prepper, but one fact stuck
+- `shots/shot-08-v1.jpg` — 0:24.9 · The gray sea in the window: on this coast the ocean can arrive in ~15 minutes
+- `shots/shot-09-v1.jpg` — 0:28.7 · CARD: First wave: ~15 minutes
+- `shots/shot-10-v1.jpg` — 0:30.5 · Insert: the wall clock — 10:42
+- `shots/shot-11-v1.jpg` — 0:32.5 · Insert: the coffee starts to shiver
+- `shots/shot-12-v1.jpg` — 0:34.7 · Wide: the floor moves — Drizzle flinches
+- `shots/shot-13-v1.jpg` — 0:37.7 · Drizzle runs for the doorway — most people's instinct
+- `shots/shot-14-v1.jpg` — 0:41.3 · Drizzle in the doorway, looking up: no stronger than the rest of the wall
+- `shots/shot-15-v1.jpg` — 0:45.2 · Plaster falls right where he stands
+- `shots/shot-16-v1.jpg` — 0:48.4 · He turns back: what the drills teach
+- `shots/shot-17-v1.jpg` — 0:51.2 · CARD: Drop · Cover · Hold on
+- `shots/shot-18-v1.jpg` — 0:53.8 · DROP: down on his knees, in under the table
+- `shots/shot-19-v1.jpg` — 0:57.1 · COVER: head and neck covered, under the tabletop
+- `shots/shot-20-v1.jpg` — 1:00.4 · HOLD ON: the table moves, he moves with it
+- `shots/shot-21-v1.jpg` — 1:04.3 · Mags, his neighbor, is already under there
+- `shots/shot-22-v1.jpg` — 1:08.7 · Two-shot under the table: she's done this drill for thirty years
+- `shots/shot-23-v1.jpg` — 1:12.7 · The clock: ten seconds, thirty, a minute…
+- `shots/shot-24-v1.jpg` — 1:16.3 · The kitchen keeps shaking — this one kept going
+- `shots/shot-25-v1.jpg` — 1:19.4 · CARD: 4 minutes
+- `shots/shot-26-v1.jpg` — 1:22.9 · Close on Drizzle: four minutes means the big one
+- `shots/shot-27-v1.jpg` — 1:27.5 · The clock in his head starts counting down
+- `shots/shot-28-v1.jpg` — 1:31.2 · The lights go out (end of Part 1)
+- `shots/shot-29-v1.jpg` — 1:34.8 · Daylight only: the wrecked kitchen. They come out from under the table
+- `shots/shot-30-v1.jpg` — 1:38.1 · The clock: 10:46
+- `shots/shot-31-v1.jpg` — 1:41.5 · Drizzle does the math: ocean at 11:01, the walk takes twelve
+- `shots/shot-32-v1.jpg` — 1:45.0 · CARD: 15 min − 12 min walk = 3 minutes
+- `shots/shot-33-v1.jpg` — 1:47.7 · Three minutes: no time to pack a life
+- `shots/shot-34-v1.jpg` — 1:50.7 · No time for keys, or the news
+- `shots/shot-35-v1.jpg` — 1:54.3 · He grabs his laptop, his photo album, a plant
+- `shots/shot-36-v1.jpg` — 1:57.4 · …then puts them all down
+- `shots/shot-37-v1.jpg` — 2:00.0 · CARD: Go-bag, not belongings
+- `shots/shot-38-v1.jpg` — 2:02.6 · The go-bag on its hook by the door, packed for exactly this
+- `shots/shot-39-v1.jpg` — 2:05.7 · He walks to the door and takes it
+- `shots/shot-40-v1.jpg` — 2:08.7 · Water, flashlight, radio, medicine, a warm layer
+- `shots/shot-41-v1.jpg` — 2:11.2 · One bag. Three seconds
+- `shots/shot-42-v1.jpg` — 2:13.6 · Mags: speech bubble
+- `shots/shot-43-v1.jpg` — 2:17.2 · The dead lamp: with the power out, sirens might never sound
+- `shots/shot-44-v1.jpg` — 2:21.3 · The shaking is the warning: out the door
+- `shots/shot-45-v1.jpg` — 2:24.9 · Main Street: cracked open, windows out, lines down
+- `shots/shot-46-v1.jpg` — 2:27.9 · Down at the harbor, the water is leaving
+- `shots/shot-47-v1.jpg` — 2:30.9 · CARD: Sea pulls back = tsunami coming
+- `shots/shot-48-v1.jpg` — 2:33.7 · Boats sitting in the mud
+- `shots/shot-49-v1.jpg` — 2:37.1 · A few people walk out to look — the deadliest mistake
+- `shots/shot-50-v1.jpg` — 2:40.8 · When the sea pulls back, it comes back bigger: Mags pulls Drizzle away
+- `shots/shot-51-v1.jpg` — 2:44.8 · Harbor Way: already jammed
+- `shots/shot-52-v1.jpg` — 2:48.9 · A crack can stop a thousand cars, not two people on foot
+- `shots/shot-53-v1.jpg` — 2:52.3 · CARD: Walk, don't drive
+- `shots/shot-54-v1.jpg` — 2:55.3 · At the evacuation sign: uphill, right now (end of Part 2)
+- `shots/shot-55-v1.jpg` — 2:59.0 · The evacuation trail: steep and muddy
+- `shots/shot-56-v1.jpg` — 3:02.6 · Twelve minutes, on a good day
+- `shots/shot-57-v1.jpg` — 3:06.0 · CARD: 0.4 miles uphill = 12 minutes
+- `shots/shot-58-v1.jpg` — 3:09.6 · Halfway up: an aftershock — they get low
+- `shots/shot-59-v1.jpg` — 3:14.1 · Heads covered, clear of the trees
+- `shots/shot-60-v1.jpg` — 3:18.3 · Mags' knees give out; Drizzle gives her his shoulder
+- `shots/shot-61-v1.jpg` — 3:22.9 · Slower, but moving
+- `shots/shot-62-v1.jpg` — 3:25.9 · INSERT: the hand-crank radio — cranking, static
+- `shots/shot-63-v1.jpg` — 3:29.8 · Radio bubble: the official warning
+- `shots/shot-64-v1.jpg` — 3:34.1 · Twenty minutes after the shaking — the people who waited are still in their cars
+- `shots/shot-65-v1.jpg` — 3:37.9 · Drizzle and Mags already climbing
+- `shots/shot-66-v1.jpg` — 3:41.1 · At the switchback, Drizzle looks back
+- `shots/shot-67-v1.jpg` — 3:44.1 · A gray line across the horizon
+- `shots/shot-68-v1.jpg` — 3:47.2 · DAY: DAY 0 · 11:04 AM
+- `shots/shot-69-v1.jpg` — 3:49.6 · 11:04: the first wave hits Gull Harbor
+- `shots/shot-70-v1.jpg` — 3:52.1 · It takes the dock, the ferry
+- `shots/shot-71-v1.jpg` — 3:54.7 · …then Main Street
+- `shots/shot-72-v1.jpg` — 3:57.7 · CARD: The first wave is often not the biggest
+- `shots/shot-73-v1.jpg` — 4:01.6 · Tsunamis come in sets, for hours: Mags gets him moving
+- `shots/shot-74-v1.jpg` — 4:06.5 · You don't go back down until officials say it's safe (end of Part 3)
+- `shots/shot-75-v1.jpg` — 4:10.7 · The hilltop: cold, crowded, above the water
+- `shots/shot-76-v1.jpg` — 4:13.9 · Drizzle checks what he has
+- `shots/shot-77-v1.jpg` — 4:16.8 · CARD: 1 gallon a day × 3 days
+- `shots/shot-78-v1.jpg` — 4:19.4 · Water first: one gallon per person, per day
+- `shots/shot-79-v1.jpg` — 4:22.7 · His bag held three days
+- `shots/shot-80-v1.jpg` — 4:25.7 · CARD: 6,000 calories = 3 days
+- `shots/shot-81-v1.jpg` — 4:29.2 · Food second: about 2,000 calories a day, for three days
+- `shots/shot-82-v1.jpg` — 4:34.0 · Volunteers at the check-in table: out here, plan for two weeks
+- `shots/shot-83-v1.jpg` — 4:37.5 · CARD: Be 2 Weeks Ready
+- `shots/shot-84-v1.jpg` — 4:39.8 · Drizzle counts what he did right
+- `shots/shot-85-v1.jpg` — 4:43.1 · CARD: 1. Drop, cover, hold on (cut on the spoken number)
+- `shots/shot-86-v1.jpg` — 4:48.1 · CARD: 2. Coast + shaking = walk uphill now (cut on the spoken number)
+- `shots/shot-87-v1.jpg` — 4:52.3 · CARD: 3. Go-bag, not belongings (cut on the spoken number)
+- `shots/shot-88-v1.jpg` — 4:56.4 · And four: snacks. Mags takes one without a word
+- `shots/shot-89-v1.jpg` — 4:59.8 · Dusk on the hill: the radio again
+- `shots/shot-90-v1.jpg` — 5:03.9 · Radio bubble: the bridge is gone
+- `shots/shot-91-v1.jpg` — 5:08.7 · The flooded town: the only road out is gone
+- `shots/shot-92-v1.jpg` — 5:13.4 · Help would come by air and sea, and it would take days
+- `shots/shot-93-v1.jpg` — 5:16.9 · Drizzle: speech bubble
+- `shots/shot-94-v1.jpg` — 5:20.5 · Below them, the water still rising
+- `shots/shot-95-v1.jpg` — 5:23.9 · Night coming
+- `shots/shot-96-v1.jpg` — 5:27.6 · Push-in: a light flickers on where no one should be
+- `shots/shot-97-v1.jpg` — 5:31.4 · DAY: NEXT: DAY 1
+
+## Vertical parts (9:16), 3 stills each
+
+- `vertical/part1-a-v1.jpg` — part 1 at 0:18.5 · Drizzle at the table, thinking: not a prepper, but one fact stuck
+- `vertical/part1-b-v1.jpg` — part 1 at 0:50.9 · CARD: Drop · Cover · Hold on
+- `vertical/part1-c-v1.jpg` — part 1 at 1:18.6 · CARD: 4 minutes
+- `vertical/part2-a-v1.jpg` — part 2 at 0:16.9 · No time for keys, or the news
+- `vertical/part2-b-v1.jpg` — part 2 at 0:46.4 · The shaking is the warning: out the door
+- `vertical/part2-c-v1.jpg` — part 2 at 1:11.7 · Harbor Way: already jammed
+- `vertical/part3-a-v1.jpg` — part 3 at 0:14.3 · Halfway up: an aftershock — they get low
+- `vertical/part3-b-v1.jpg` — part 3 at 0:39.4 · Drizzle and Mags already climbing
+- `vertical/part3-c-v1.jpg` — part 3 at 1:01.0 · CARD: The first wave is often not the biggest
+- `vertical/part4-a-v1.jpg` — part 4 at 0:16.8 · CARD: 6,000 calories = 3 days
+- `vertical/part4-b-v1.jpg` — part 4 at 0:46.1 · And four: snacks. Mags takes one without a word
+- `vertical/part4-c-v1.jpg` — part 4 at 1:11.3 · Below them, the water still rising
