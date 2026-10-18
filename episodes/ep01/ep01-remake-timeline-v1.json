@@ -1,0 +1,1462 @@
+{
+ "version": "v1",
+ "total": 312.061,
+ "parts": [
+  {
+   "t0": 0.0,
+   "t1": 76.95,
+   "dur": 76.95,
+   "part": 1
+  },
+  {
+   "t0": 76.95,
+   "t1": 173.272,
+   "dur": 96.323,
+   "part": 2
+  },
+  {
+   "t0": 173.272,
+   "t1": 244.792,
+   "dur": 71.52,
+   "part": 3
+  },
+  {
+   "t0": 244.792,
+   "t1": 312.061,
+   "dur": 67.269,
+   "part": 4
+  }
+ ],
+ "narration": [
+  {
+   "n": 1,
+   "t0": 2.8,
+   "dur": 6.191,
+   "text": "In Gull Harbor, it rains two hundred days a year. Drizzle was ready for every one of them."
+  },
+  {
+   "n": 2,
+   "t0": 12.041,
+   "dur": 3.605,
+   "text": "He was ready for rain. He was not ready for this."
+  },
+  {
+   "n": 3,
+   "t0": 16.096,
+   "dur": 6.792,
+   "text": "At 10:42 on a Tuesday morning, his coffee cup started to shiver. Then the floor moved."
+  },
+  {
+   "n": 4,
+   "t0": 23.338,
+   "dur": 11.729,
+   "text": "Every instinct told him to run for the doorway. That's an old myth. In a modern house, a doorway is no stronger than any other part of the wall, and it's right where things fall on you."
+  },
+  {
+   "n": 5,
+   "t0": 35.517,
+   "dur": 2.194,
+   "text": "So he did the thing that works."
+  },
+  {
+   "n": 6,
+   "t0": 40.761,
+   "dur": 5.12,
+   "text": "Under the table. One hand gripping a leg. One arm over his head."
+  },
+  {
+   "n": 7,
+   "t0": 46.331,
+   "dur": 6.4,
+   "text": "Mags from next door was already under there with him. She'd come over for coffee. She was staying for this."
+  },
+  {
+   "n": 8,
+   "t0": 53.181,
+   "dur": 6.766,
+   "text": "Ten seconds. Twenty. A minute. Small earthquakes end fast. This one didn't."
+  },
+  {
+   "n": 9,
+   "t0": 62.997,
+   "dur": 10.266,
+   "text": "The shaking lasted four minutes. Long enough to know exactly what it was. The Cascadia fault, seven hundred miles of it, had finally let go."
+  },
+  {
+   "n": 10,
+   "t0": 73.713,
+   "dur": 1.437,
+   "text": "Then the lights went out."
+  },
+  {
+   "n": 11,
+   "t0": 76.95,
+   "dur": 7.314,
+   "text": "When the shaking stopped, the kitchen was full of broken glass and one very loud question. Now what?"
+  },
+  {
+   "n": 12,
+   "t0": 84.714,
+   "dur": 7.758,
+   "text": "Gull Harbor sits right on the coast. And on the coast, a quake that long means one thing. The ocean is coming."
+  },
+  {
+   "n": 13,
+   "t0": 95.722,
+   "dur": 6.243,
+   "text": "She was right. On the coast, the shaking is the warning. There may never be a siren."
+  },
+  {
+   "n": 14,
+   "t0": 102.416,
+   "dur": 6.374,
+   "text": "Drizzle grabbed his laptop. His photo album. A plant. Then he put them all down."
+  },
+  {
+   "n": 15,
+   "t0": 111.839,
+   "dur": 13.897,
+   "text": "The go-bag by the door had everything that mattered. Water. A flashlight. A radio. Medicine. A warm layer. Packed months ago, for exactly this. It took three seconds to grab."
+  },
+  {
+   "n": 16,
+   "t0": 126.187,
+   "dur": 8.856,
+   "text": "Outside, Gull Harbor looked wrong. Windows shattered. Power lines down. The street cracked open like a dropped plate."
+  },
+  {
+   "n": 17,
+   "t0": 135.492,
+   "dur": 4.624,
+   "text": "And down at the harbor, something stranger. The water was leaving."
+  },
+  {
+   "n": 18,
+   "t0": 143.566,
+   "dur": 11.807,
+   "text": "Boats sat in the mud. Fish flopped on the sand. A few people walked out to look. That's the deadliest mistake on the coast. When the sea pulls back, it comes back bigger."
+  },
+  {
+   "n": 19,
+   "t0": 155.823,
+   "dur": 5.642,
+   "text": "Cars were already jammed on Harbor Way. Horns blaring. Going nowhere."
+  },
+  {
+   "n": 20,
+   "t0": 164.516,
+   "dur": 8.307,
+   "text": "Cracked roads. Fallen lines. Gridlock. Feet don't get stuck in traffic. Drizzle and Mags walked uphill."
+  },
+  {
+   "n": 21,
+   "t0": 173.272,
+   "dur": 5.433,
+   "text": "The evacuation trail was steep, muddy, and exactly where the signs said it would be."
+  },
+  {
+   "n": 22,
+   "t0": 181.756,
+   "dur": 6.922,
+   "text": "Point four miles to the hilltop. On a normal day, ten minutes. With aftershocks, longer."
+  },
+  {
+   "n": 23,
+   "t0": 189.128,
+   "dur": 6.034,
+   "text": "Halfway up, Mags' knees gave out. Drizzle gave her his shoulder. They kept moving."
+  },
+  {
+   "n": 24,
+   "t0": 202.313,
+   "dur": 6.844,
+   "text": "Official word, finally. But by then, everyone who'd listened to the shaking was already climbing."
+  },
+  {
+   "n": 25,
+   "t0": 209.607,
+   "dur": 6.296,
+   "text": "Drizzle looked back. A gray line stretched across the whole horizon. It wasn't a cloud."
+  },
+  {
+   "n": 26,
+   "t0": 218.952,
+   "dur": 8.856,
+   "text": "Twenty-two minutes after the shaking stopped, the first wave hit Gull Harbor. It took the dock. The ferry. Then Main Street."
+  },
+  {
+   "n": 27,
+   "t0": 228.258,
+   "dur": 3.553,
+   "text": "Drizzle wanted to stop and watch. Mags didn't let him."
+  },
+  {
+   "n": 28,
+   "t0": 235.46,
+   "dur": 8.882,
+   "text": "Tsunamis come in waves, for hours. The first one is often not the biggest. You don't go back down until officials say it's safe."
+  },
+  {
+   "n": 29,
+   "t0": 245.392,
+   "dur": 5.669,
+   "text": "The hilltop was cold, crowded, and above the water. That was all that mattered."
+  },
+  {
+   "n": 30,
+   "t0": 251.511,
+   "dur": 7.732,
+   "text": "Town volunteers had a tarp up and a check-in table running. The school had walked every kid up the hill. They'd practiced."
+  },
+  {
+   "n": 31,
+   "t0": 259.693,
+   "dur": 2.038,
+   "text": "Drizzle counted what he'd done right."
+  },
+  {
+   "n": 32,
+   "t0": 262.18,
+   "dur": 12.199,
+   "text": "One. Drop, cover, hold on. Two. On the coast, the shaking is your warning. Walk uphill, now. Three. Grab the go-bag, not your stuff."
+  },
+  {
+   "n": 33,
+   "t0": 274.83,
+   "dur": 2.482,
+   "text": "And four. He'd brought snacks."
+  },
+  {
+   "n": 34,
+   "t0": 277.761,
+   "dur": 1.855,
+   "text": "Then the radio spoke again."
+  },
+  {
+   "n": 35,
+   "t0": 285.066,
+   "dur": 9.038,
+   "text": "The only road out was gone. The whole coast had been hit at once. Help would come. Just not today. Maybe not this week."
+  },
+  {
+   "n": 36,
+   "t0": 297.354,
+   "dur": 9.456,
+   "text": "Below them, the water was still rising. Night was coming. And somewhere down in the dark, a light flickered on where no one should be."
+  }
+ ],
+ "shots": [
+  {
+   "id": "p1s01",
+   "t0": 0.0,
+   "dur": 2.2,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "Cold open: the wave cresting over Gull Harbor's rooftops, push-in + shake"
+  },
+  {
+   "id": "p1s02",
+   "t0": 2.2,
+   "dur": 0.6,
+   "bg": null,
+   "kind": "shot",
+   "desc": "Black"
+  },
+  {
+   "id": "p1s03",
+   "t0": 2.8,
+   "dur": 3.321,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Rain streaking the kitchen window, the gray sea beyond"
+  },
+  {
+   "id": "p1s04",
+   "t0": 6.121,
+   "dur": 3.321,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Kitchen wide (pull-out); Drizzle by the table, smiling"
+  },
+  {
+   "id": "p1s05",
+   "t0": 9.441,
+   "dur": 2.6,
+   "bg": "kitchen",
+   "kind": "card",
+   "desc": "CARD: DAY 0 · 10:42 AM (over the blurred scene)"
+  },
+  {
+   "id": "p1s06",
+   "t0": 12.041,
+   "dur": 4.055,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Slow push-in on Drizzle, content, coffee on the table"
+  },
+  {
+   "id": "p1s07",
+   "t0": 16.096,
+   "dur": 2.317,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Insert: the wall clock — 10:42 (clean vector hands)"
+  },
+  {
+   "id": "p1s08",
+   "t0": 18.413,
+   "dur": 2.462,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Insert: the coffee cup starts to shiver"
+  },
+  {
+   "id": "p1s09",
+   "t0": 20.876,
+   "dur": 2.462,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Wide: the floor moves — Drizzle flinches"
+  },
+  {
+   "id": "p1s10",
+   "t0": 23.338,
+   "dur": 3.045,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Drizzle runs for the doorway (fast procedural walk)"
+  },
+  {
+   "id": "p1s11",
+   "t0": 26.382,
+   "dur": 3.41,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Medium: Drizzle in the doorway, looking up — the myth"
+  },
+  {
+   "id": "p1s12",
+   "t0": 29.793,
+   "dur": 2.923,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Close: the door frame — plaster and glass falling right where he stands"
+  },
+  {
+   "id": "p1s13",
+   "t0": 32.716,
+   "dur": 2.801,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Wide: Drizzle turns back toward the table"
+  },
+  {
+   "id": "p1s14",
+   "t0": 35.517,
+   "dur": 2.644,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Drizzle dives for the table"
+  },
+  {
+   "id": "p1s15",
+   "t0": 38.161,
+   "dur": 2.6,
+   "bg": "kitchen",
+   "kind": "card",
+   "desc": "CARD: DROP · COVER · HOLD ON (over the blurred scene)"
+  },
+  {
+   "id": "p1s16",
+   "t0": 40.761,
+   "dur": 3.064,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Under the table: Drizzle crouched, one hand gripping the leg, one arm over his head"
+  },
+  {
+   "id": "p1s17",
+   "t0": 43.825,
+   "dur": 2.507,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Close: his grip on the table leg"
+  },
+  {
+   "id": "p1s18",
+   "t0": 46.331,
+   "dur": 3.425,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Pan: Mags is already under there, head covered"
+  },
+  {
+   "id": "p1s19",
+   "t0": 49.756,
+   "dur": 3.425,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Two-shot under the table"
+  },
+  {
+   "id": "p1s20",
+   "t0": 53.181,
+   "dur": 3.608,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "The empty kitchen shaking hard — things falling"
+  },
+  {
+   "id": "p1s21",
+   "t0": 56.789,
+   "dur": 3.608,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Under the table: holding on"
+  },
+  {
+   "id": "p1s22",
+   "t0": 60.397,
+   "dur": 2.6,
+   "bg": "under",
+   "kind": "card",
+   "desc": "CARD: 4 MINUTES (over the blurred scene)"
+  },
+  {
+   "id": "p1s23",
+   "t0": 62.997,
+   "dur": 3.643,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Under the table, still shaking"
+  },
+  {
+   "id": "p1s24",
+   "t0": 66.64,
+   "dur": 3.536,
+   "bg": "kitchen",
+   "kind": "shot",
+   "desc": "Through the window: the sea — seven hundred miles of fault offshore"
+  },
+  {
+   "id": "p1s25",
+   "t0": 70.177,
+   "dur": 3.536,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "Close on Drizzle, eyes wide"
+  },
+  {
+   "id": "p1s26",
+   "t0": 73.713,
+   "dur": 3.237,
+   "bg": "under",
+   "kind": "shot",
+   "desc": "The lights flicker and go out — faint detail stays (end of Part 1)"
+  },
+  {
+   "id": "p2s01",
+   "t0": 76.95,
+   "dur": 3.882,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Daylight only — the wrecked kitchen; they get up"
+  },
+  {
+   "id": "p2s02",
+   "t0": 80.832,
+   "dur": 3.882,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Broken glass at his feet — Now what?"
+  },
+  {
+   "id": "p2s03",
+   "t0": 84.714,
+   "dur": 4.104,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The cracked window — the sea right there"
+  },
+  {
+   "id": "p2s04",
+   "t0": 88.818,
+   "dur": 4.104,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Mags points at the door"
+  },
+  {
+   "id": "p2s05",
+   "t0": 92.922,
+   "dur": 2.8,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Mags: speech bubble"
+  },
+  {
+   "id": "p2s06",
+   "t0": 95.722,
+   "dur": 3.347,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Close on Mags, steady"
+  },
+  {
+   "id": "p2s07",
+   "t0": 99.069,
+   "dur": 3.347,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "The clock: 10:46 — no siren, no alert"
+  },
+  {
+   "id": "p2s08",
+   "t0": 102.416,
+   "dur": 4.231,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Drizzle grabs his laptop, photo album, a plant"
+  },
+  {
+   "id": "p2s09",
+   "t0": 106.646,
+   "dur": 2.593,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "…then puts them all down"
+  },
+  {
+   "id": "p2s10",
+   "t0": 109.239,
+   "dur": 2.6,
+   "bg": "wrecked",
+   "kind": "card",
+   "desc": "CARD: GO-BAG, NOT BELONGINGS (over the blurred scene)"
+  },
+  {
+   "id": "p2s11",
+   "t0": 111.839,
+   "dur": 4.304,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Close: the go-bag on its hook by the door"
+  },
+  {
+   "id": "p2s12",
+   "t0": 116.144,
+   "dur": 3.587,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Drizzle walks to the door and grabs it (three seconds)"
+  },
+  {
+   "id": "p2s13",
+   "t0": 119.73,
+   "dur": 3.587,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Close: go-bag on — water, flashlight, radio, medicine, warm layer"
+  },
+  {
+   "id": "p2s14",
+   "t0": 123.317,
+   "dur": 2.869,
+   "bg": "wrecked",
+   "kind": "shot",
+   "desc": "Out the door, both of them"
+  },
+  {
+   "id": "p2s15",
+   "t0": 126.187,
+   "dur": 4.653,
+   "bg": "street",
+   "kind": "shot",
+   "desc": "Main Street: windows shattered, lines down; they walk in"
+  },
+  {
+   "id": "p2s16",
+   "t0": 130.839,
+   "dur": 4.653,
+   "bg": "street",
+   "kind": "shot",
+   "desc": "Push-in on the cracked road"
+  },
+  {
+   "id": "p2s17",
+   "t0": 135.492,
+   "dur": 5.074,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "The harbor: the water is leaving"
+  },
+  {
+   "id": "p2s18",
+   "t0": 140.566,
+   "dur": 3.0,
+   "bg": "harbor",
+   "kind": "card",
+   "desc": "CARD: SEA DRAINING AWAY = TSUNAMI COMING (over the blurred scene)"
+  },
+  {
+   "id": "p2s19",
+   "t0": 143.566,
+   "dur": 4.045,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "Boats sitting in the mud"
+  },
+  {
+   "id": "p2s20",
+   "t0": 147.611,
+   "dur": 4.167,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "A few people walk out onto the mud to look"
+  },
+  {
+   "id": "p2s21",
+   "t0": 151.778,
+   "dur": 4.045,
+   "bg": "harbor",
+   "kind": "shot",
+   "desc": "Mags pulls Drizzle back from the edge"
+  },
+  {
+   "id": "p2s22",
+   "t0": 155.823,
+   "dur": 3.046,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "Harbor Way: cars jammed, horns, going nowhere"
+  },
+  {
+   "id": "p2s23",
+   "t0": 158.869,
+   "dur": 3.046,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "Down the line of stalled cars"
+  },
+  {
+   "id": "p2s24",
+   "t0": 161.916,
+   "dur": 2.6,
+   "bg": "jam",
+   "kind": "card",
+   "desc": "CARD: WALK, DON'T DRIVE (over the blurred scene)"
+  },
+  {
+   "id": "p2s25",
+   "t0": 164.516,
+   "dur": 4.378,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "They walk past the jam (procedural walk, tracking)"
+  },
+  {
+   "id": "p2s26",
+   "t0": 168.894,
+   "dur": 4.378,
+   "bg": "jam",
+   "kind": "shot",
+   "desc": "At the evacuation sign: uphill (end of Part 2)"
+  },
+  {
+   "id": "p3s01",
+   "t0": 173.272,
+   "dur": 5.883,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "The evacuation trail: steep, muddy, signed"
+  },
+  {
+   "id": "p3s02",
+   "t0": 179.156,
+   "dur": 2.6,
+   "bg": "trail",
+   "kind": "card",
+   "desc": "CARD: HIGH GROUND · 0.4 MILES (over the blurred scene)"
+  },
+  {
+   "id": "p3s03",
+   "t0": 181.756,
+   "dur": 3.686,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Climbing"
+  },
+  {
+   "id": "p3s04",
+   "t0": 185.442,
+   "dur": 3.686,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Aftershock: both get low, heads covered"
+  },
+  {
+   "id": "p3s05",
+   "t0": 189.128,
+   "dur": 3.242,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Mags' knees give out; Drizzle offers his shoulder"
+  },
+  {
+   "id": "p3s06",
+   "t0": 192.371,
+   "dur": 3.242,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Shared walk: Mags leaning on Drizzle"
+  },
+  {
+   "id": "p3s07",
+   "t0": 195.613,
+   "dur": 1.7,
+   "bg": "wood",
+   "kind": "shot",
+   "desc": "INSERT: the hand-crank radio — cranking, static"
+  },
+  {
+   "id": "p3s08",
+   "t0": 197.313,
+   "dur": 5.0,
+   "bg": "wood",
+   "kind": "shot",
+   "desc": "Radio bubble: the official warning"
+  },
+  {
+   "id": "p3s09",
+   "t0": 202.313,
+   "dur": 3.647,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Others already climbing ahead"
+  },
+  {
+   "id": "p3s10",
+   "t0": 205.96,
+   "dur": 3.647,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Drizzle and Mags keep climbing"
+  },
+  {
+   "id": "p3s11",
+   "t0": 209.607,
+   "dur": 3.238,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "At the bend, Drizzle looks back"
+  },
+  {
+   "id": "p3s12",
+   "t0": 212.845,
+   "dur": 3.508,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "Push-in: a gray line across the whole horizon"
+  },
+  {
+   "id": "p3s13",
+   "t0": 216.352,
+   "dur": 2.6,
+   "bg": "view",
+   "kind": "card",
+   "desc": "CARD: 22 MINUTES (over the blurred scene)"
+  },
+  {
+   "id": "p3s14",
+   "t0": 218.952,
+   "dur": 3.164,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "The first wave hits Gull Harbor"
+  },
+  {
+   "id": "p3s15",
+   "t0": 222.116,
+   "dur": 3.071,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "It takes the dock, the ferry"
+  },
+  {
+   "id": "p3s16",
+   "t0": 225.187,
+   "dur": 3.071,
+   "bg": "wave",
+   "kind": "shot",
+   "desc": "…then Main Street's rooftops"
+  },
+  {
+   "id": "p3s17",
+   "t0": 228.258,
+   "dur": 4.003,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "Drizzle wants to watch; Mags doesn't let him"
+  },
+  {
+   "id": "p3s18",
+   "t0": 232.26,
+   "dur": 3.2,
+   "bg": "view",
+   "kind": "card",
+   "desc": "CARD: THE FIRST WAVE IS OFTEN NOT THE BIGGEST (over the blurred scene)"
+  },
+  {
+   "id": "p3s19",
+   "t0": 235.46,
+   "dur": 4.666,
+   "bg": "trail",
+   "kind": "shot",
+   "desc": "Up the trail again — you don't go back down"
+  },
+  {
+   "id": "p3s20",
+   "t0": 240.126,
+   "dur": 4.666,
+   "bg": "view",
+   "kind": "shot",
+   "desc": "The sea keeps coming: waves for hours (end of Part 3)"
+  },
+  {
+   "id": "p4s01",
+   "t0": 244.792,
+   "dur": 3.359,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "The hilltop: cold, crowded, above the water"
+  },
+  {
+   "id": "p4s02",
+   "t0": 248.151,
+   "dur": 3.359,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Drizzle and Mags arrive"
+  },
+  {
+   "id": "p4s03",
+   "t0": 251.511,
+   "dur": 4.091,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Volunteers: the tarp and the check-in table"
+  },
+  {
+   "id": "p4s04",
+   "t0": 255.602,
+   "dur": 4.091,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "The school's kids, all of them — they practiced"
+  },
+  {
+   "id": "p4s05",
+   "t0": 259.693,
+   "dur": 2.488,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "Drizzle counts on his fingers"
+  },
+  {
+   "id": "p4s06",
+   "t0": 262.18,
+   "dur": 3.47,
+   "bg": "hill",
+   "kind": "card",
+   "desc": "CARD: 1 · DROP, COVER, HOLD ON (synced to the narration)"
+  },
+  {
+   "id": "p4s07",
+   "t0": 265.65,
+   "dur": 5.66,
+   "bg": "hill",
+   "kind": "card",
+   "desc": "CARD: 2 · COAST + SHAKING = WALK UPHILL NOW (synced to the narration)"
+  },
+  {
+   "id": "p4s08",
+   "t0": 271.31,
+   "dur": 3.519,
+   "bg": "hill",
+   "kind": "card",
+   "desc": "CARD: 3 · GO-BAG, NOT BELONGINGS (synced to the narration)"
+  },
+  {
+   "id": "p4s09",
+   "t0": 274.83,
+   "dur": 2.932,
+   "bg": "hill",
+   "kind": "shot",
+   "desc": "And four: snacks — a granola bar for Mags"
+  },
+  {
+   "id": "p4s10",
+   "t0": 277.761,
+   "dur": 2.305,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Dusk on the hill. The radio again"
+  },
+  {
+   "id": "p4s11",
+   "t0": 280.066,
+   "dur": 5.0,
+   "bg": "wood",
+   "kind": "shot",
+   "desc": "Radio bubble: the bridge is gone"
+  },
+  {
+   "id": "p4s12",
+   "t0": 285.066,
+   "dur": 4.744,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Two-shot at the edge"
+  },
+  {
+   "id": "p4s13",
+   "t0": 289.81,
+   "dur": 4.744,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "The flooded town below — no road out"
+  },
+  {
+   "id": "p4s14",
+   "t0": 294.554,
+   "dur": 2.8,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Drizzle: speech bubble"
+  },
+  {
+   "id": "p4s15",
+   "t0": 297.354,
+   "dur": 4.07,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "The final look down at the town"
+  },
+  {
+   "id": "p4s16",
+   "t0": 301.425,
+   "dur": 3.392,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "The water still rising; night coming"
+  },
+  {
+   "id": "p4s17",
+   "t0": 304.816,
+   "dur": 3.844,
+   "bg": "dusk",
+   "kind": "shot",
+   "desc": "Push-in: a light flickers on where no one should be"
+  },
+  {
+   "id": "p4s18",
+   "t0": 308.661,
+   "dur": 3.4,
+   "bg": "dusk",
+   "kind": "card",
+   "desc": "CARD: NEXT: DAY 1 (over the blurred scene)"
+  }
+ ],
+ "captions": [
+  {
+   "t0": 2.8,
+   "t1": 6.258,
+   "text": "In Gull Harbor, it rains two hundred days a year.",
+   "kind": "narration"
+  },
+  {
+   "t0": 6.308,
+   "t1": 9.241,
+   "text": "Drizzle was ready for every one of them.",
+   "kind": "narration"
+  },
+  {
+   "t0": 12.041,
+   "t1": 15.896,
+   "text": "He was ready for rain. He was not ready for this.",
+   "kind": "narration"
+  },
+  {
+   "t0": 16.096,
+   "t1": 20.85,
+   "text": "At 10:42 on a Tuesday morning, his coffee cup started to shiver.",
+   "kind": "narration"
+  },
+  {
+   "t0": 20.9,
+   "t1": 23.138,
+   "text": "Then the floor moved.",
+   "kind": "narration"
+  },
+  {
+   "t0": 23.338,
+   "t1": 26.429,
+   "text": "Every instinct told him to run for the doorway.",
+   "kind": "narration"
+  },
+  {
+   "t0": 26.479,
+   "t1": 28.045,
+   "text": "That's an old myth.",
+   "kind": "narration"
+  },
+  {
+   "t0": 28.095,
+   "t1": 35.317,
+   "text": "In a modern house, a doorway is no stronger than any other part of the wall, and it's right where things fall on you.",
+   "kind": "narration"
+  },
+  {
+   "t0": 35.517,
+   "t1": 37.961,
+   "text": "So he did the thing that works.",
+   "kind": "narration"
+  },
+  {
+   "t0": 40.761,
+   "t1": 43.999,
+   "text": "Under the table. One hand gripping a leg.",
+   "kind": "narration"
+  },
+  {
+   "t0": 44.049,
+   "t1": 46.131,
+   "text": "One arm over his head.",
+   "kind": "narration"
+  },
+  {
+   "t0": 46.331,
+   "t1": 49.452,
+   "text": "Mags from next door was already under there with him.",
+   "kind": "narration"
+  },
+  {
+   "t0": 49.502,
+   "t1": 52.981,
+   "text": "She'd come over for coffee. She was staying for this.",
+   "kind": "narration"
+  },
+  {
+   "t0": 53.181,
+   "t1": 58.761,
+   "text": "Ten seconds. Twenty. A minute. Small earthquakes end fast.",
+   "kind": "narration"
+  },
+  {
+   "t0": 58.811,
+   "t1": 60.197,
+   "text": "This one didn't.",
+   "kind": "narration"
+  },
+  {
+   "t0": 62.997,
+   "t1": 65.325,
+   "text": "The shaking lasted four minutes.",
+   "kind": "narration"
+  },
+  {
+   "t0": 65.375,
+   "t1": 68.228,
+   "text": "Long enough to know exactly what it was.",
+   "kind": "narration"
+  },
+  {
+   "t0": 68.278,
+   "t1": 73.513,
+   "text": "The Cascadia fault, seven hundred miles of it, had finally let go.",
+   "kind": "narration"
+  },
+  {
+   "t0": 73.713,
+   "t1": 75.4,
+   "text": "Then the lights went out.",
+   "kind": "narration"
+  },
+  {
+   "t0": 76.95,
+   "t1": 83.125,
+   "text": "When the shaking stopped, the kitchen was full of broken glass and one very loud question.",
+   "kind": "narration"
+  },
+  {
+   "t0": 83.175,
+   "t1": 84.514,
+   "text": "Now what?",
+   "kind": "narration"
+  },
+  {
+   "t0": 84.714,
+   "t1": 87.064,
+   "text": "Gull Harbor sits right on the coast.",
+   "kind": "narration"
+  },
+  {
+   "t0": 87.114,
+   "t1": 90.915,
+   "text": "And on the coast, a quake that long means one thing.",
+   "kind": "narration"
+  },
+  {
+   "t0": 90.965,
+   "t1": 92.722,
+   "text": "The ocean is coming.",
+   "kind": "narration"
+  },
+  {
+   "t0": 93.072,
+   "t1": 95.622,
+   "text": "We're not waiting for a siren.",
+   "kind": "bubble",
+   "who": "MAGS"
+  },
+  {
+   "t0": 95.722,
+   "t1": 99.946,
+   "text": "She was right. On the coast, the shaking is the warning.",
+   "kind": "narration"
+  },
+  {
+   "t0": 99.996,
+   "t1": 102.216,
+   "text": "There may never be a siren.",
+   "kind": "narration"
+  },
+  {
+   "t0": 102.416,
+   "t1": 106.828,
+   "text": "Drizzle grabbed his laptop. His photo album. A plant.",
+   "kind": "narration"
+  },
+  {
+   "t0": 106.878,
+   "t1": 109.039,
+   "text": "Then he put them all down.",
+   "kind": "narration"
+  },
+  {
+   "t0": 111.839,
+   "t1": 117.063,
+   "text": "The go-bag by the door had everything that mattered. Water.",
+   "kind": "narration"
+  },
+  {
+   "t0": 117.113,
+   "t1": 120.474,
+   "text": "A flashlight. A radio. Medicine. A warm layer.",
+   "kind": "narration"
+  },
+  {
+   "t0": 120.524,
+   "t1": 123.649,
+   "text": "Packed months ago, for exactly this.",
+   "kind": "narration"
+  },
+  {
+   "t0": 123.699,
+   "t1": 125.987,
+   "text": "It took three seconds to grab.",
+   "kind": "narration"
+  },
+  {
+   "t0": 126.187,
+   "t1": 130.644,
+   "text": "Outside, Gull Harbor looked wrong. Windows shattered.",
+   "kind": "narration"
+  },
+  {
+   "t0": 130.694,
+   "t1": 132.307,
+   "text": "Power lines down.",
+   "kind": "narration"
+  },
+  {
+   "t0": 132.357,
+   "t1": 135.292,
+   "text": "The street cracked open like a dropped plate.",
+   "kind": "narration"
+  },
+  {
+   "t0": 135.492,
+   "t1": 138.453,
+   "text": "And down at the harbor, something stranger.",
+   "kind": "narration"
+  },
+  {
+   "t0": 138.503,
+   "t1": 140.366,
+   "text": "The water was leaving.",
+   "kind": "narration"
+  },
+  {
+   "t0": 143.566,
+   "t1": 147.138,
+   "text": "Boats sat in the mud. Fish flopped on the sand.",
+   "kind": "narration"
+  },
+  {
+   "t0": 147.188,
+   "t1": 149.299,
+   "text": "A few people walked out to look.",
+   "kind": "narration"
+  },
+  {
+   "t0": 149.349,
+   "t1": 152.185,
+   "text": "That's the deadliest mistake on the coast.",
+   "kind": "narration"
+  },
+  {
+   "t0": 152.235,
+   "t1": 155.623,
+   "text": "When the sea pulls back, it comes back bigger.",
+   "kind": "narration"
+  },
+  {
+   "t0": 155.823,
+   "t1": 160.06,
+   "text": "Cars were already jammed on Harbor Way. Horns blaring.",
+   "kind": "narration"
+  },
+  {
+   "t0": 160.11,
+   "t1": 161.716,
+   "text": "Going nowhere.",
+   "kind": "narration"
+  },
+  {
+   "t0": 164.516,
+   "t1": 167.122,
+   "text": "Cracked roads. Fallen lines. Gridlock.",
+   "kind": "narration"
+  },
+  {
+   "t0": 167.172,
+   "t1": 170.495,
+   "text": "Feet don't get stuck in traffic.",
+   "kind": "narration"
+  },
+  {
+   "t0": 170.545,
+   "t1": 173.072,
+   "text": "Drizzle and Mags walked uphill.",
+   "kind": "narration"
+  },
+  {
+   "t0": 173.272,
+   "t1": 178.956,
+   "text": "The evacuation trail was steep, muddy, and exactly where the signs said it would be.",
+   "kind": "narration"
+  },
+  {
+   "t0": 181.756,
+   "t1": 186.457,
+   "text": "Point four miles to the hilltop. On a normal day, ten minutes.",
+   "kind": "narration"
+  },
+  {
+   "t0": 186.507,
+   "t1": 188.928,
+   "text": "With aftershocks, longer.",
+   "kind": "narration"
+  },
+  {
+   "t0": 189.128,
+   "t1": 191.851,
+   "text": "Halfway up, Mags' knees gave out.",
+   "kind": "narration"
+  },
+  {
+   "t0": 191.901,
+   "t1": 195.413,
+   "text": "Drizzle gave her his shoulder. They kept moving.",
+   "kind": "narration"
+  },
+  {
+   "t0": 197.463,
+   "t1": 202.213,
+   "text": "…tsunami warning for the entire Washington coast… move to high ground immediately…",
+   "kind": "bubble",
+   "who": "RADIO"
+  },
+  {
+   "t0": 202.313,
+   "t1": 203.472,
+   "text": "Official word, finally.",
+   "kind": "narration"
+  },
+  {
+   "t0": 203.522,
+   "t1": 209.407,
+   "text": "But by then, everyone who'd listened to the shaking was already climbing.",
+   "kind": "narration"
+  },
+  {
+   "t0": 209.607,
+   "t1": 210.912,
+   "text": "Drizzle looked back.",
+   "kind": "narration"
+  },
+  {
+   "t0": 210.962,
+   "t1": 214.387,
+   "text": "A gray line stretched across the whole horizon.",
+   "kind": "narration"
+  },
+  {
+   "t0": 214.437,
+   "t1": 216.152,
+   "text": "It wasn't a cloud.",
+   "kind": "narration"
+  },
+  {
+   "t0": 218.952,
+   "t1": 223.875,
+   "text": "Twenty-two minutes after the shaking stopped, the first wave hit Gull Harbor.",
+   "kind": "narration"
+  },
+  {
+   "t0": 223.925,
+   "t1": 228.058,
+   "text": "It took the dock. The ferry. Then Main Street.",
+   "kind": "narration"
+  },
+  {
+   "t0": 228.258,
+   "t1": 232.06,
+   "text": "Drizzle wanted to stop and watch. Mags didn't let him.",
+   "kind": "narration"
+  },
+  {
+   "t0": 235.46,
+   "t1": 237.306,
+   "text": "Tsunamis come in waves, for hours.",
+   "kind": "narration"
+  },
+  {
+   "t0": 237.356,
+   "t1": 241.235,
+   "text": "The first one is often not the biggest.",
+   "kind": "narration"
+  },
+  {
+   "t0": 241.285,
+   "t1": 244.592,
+   "text": "You don't go back down until officials say it's safe.",
+   "kind": "narration"
+  },
+  {
+   "t0": 245.392,
+   "t1": 249.253,
+   "text": "The hilltop was cold, crowded, and above the water.",
+   "kind": "narration"
+  },
+  {
+   "t0": 249.303,
+   "t1": 251.311,
+   "text": "That was all that mattered.",
+   "kind": "narration"
+  },
+  {
+   "t0": 251.511,
+   "t1": 255.137,
+   "text": "Town volunteers had a tarp up and a check-in table running.",
+   "kind": "narration"
+  },
+  {
+   "t0": 255.187,
+   "t1": 259.493,
+   "text": "The school had walked every kid up the hill. They'd practiced.",
+   "kind": "narration"
+  },
+  {
+   "t0": 259.693,
+   "t1": 261.98,
+   "text": "Drizzle counted what he'd done right.",
+   "kind": "narration"
+  },
+  {
+   "t0": 262.18,
+   "t1": 265.274,
+   "text": "One. Drop, cover, hold on. Two.",
+   "kind": "narration"
+  },
+  {
+   "t0": 265.324,
+   "t1": 270.914,
+   "text": "On the coast, the shaking is your warning. Walk uphill, now. Three.",
+   "kind": "narration"
+  },
+  {
+   "t0": 270.964,
+   "t1": 274.63,
+   "text": "Grab the go-bag, not your stuff.",
+   "kind": "narration"
+  },
+  {
+   "t0": 274.83,
+   "t1": 277.561,
+   "text": "And four. He'd brought snacks.",
+   "kind": "narration"
+  },
+  {
+   "t0": 277.761,
+   "t1": 279.866,
+   "text": "Then the radio spoke again.",
+   "kind": "narration"
+  },
+  {
+   "t0": 280.216,
+   "t1": 284.966,
+   "text": "…Highway 101 bridge at Gull Creek has collapsed… coastal roads closed…",
+   "kind": "bubble",
+   "who": "RADIO"
+  },
+  {
+   "t0": 285.066,
+   "t1": 287.264,
+   "text": "The only road out was gone.",
+   "kind": "narration"
+  },
+  {
+   "t0": 287.314,
+   "t1": 291.228,
+   "text": "The whole coast had been hit at once. Help would come.",
+   "kind": "narration"
+  },
+  {
+   "t0": 291.278,
+   "t1": 294.354,
+   "text": "Just not today. Maybe not this week.",
+   "kind": "narration"
+  },
+  {
+   "t0": 294.704,
+   "t1": 297.254,
+   "text": "So… nobody's coming?",
+   "kind": "bubble",
+   "who": "DRIZZLE"
+  },
+  {
+   "t0": 297.354,
+   "t1": 301.825,
+   "text": "Below them, the water was still rising. Night was coming.",
+   "kind": "narration"
+  },
+  {
+   "t0": 301.875,
+   "t1": 307.061,
+   "text": "And somewhere down in the dark, a light flickered on where no one should be.",
+   "kind": "narration"
+  }
+ ]
+}
