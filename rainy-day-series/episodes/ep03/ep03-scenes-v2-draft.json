@@ -1,0 +1,852 @@
+{
+ "episode": 3,
+ "title": "DAY 1 · NIGHT: THE FIRE BELOW",
+ "version": 2,
+ "lessons": [
+  "Burns: cool the burn under cool (not ice-cold) running water for at least 10 minutes; no ice, butter or ointments; remove rings before swelling; cover loosely with a clean dressing or cling wrap; don't pop blisters; large, deep or face/hand burns need medical care as soon as it can be reached.",
+  "Accountability: after any incident, count everyone, keep a written list of who is here and who is missing, and use the buddy system — nobody goes anywhere alone, especially at night.",
+  "Hypothermia on a wet night: get out of wet clothes into dry layers, insulate from the ground, cover the head, share body heat, give warm sweet drinks — never alcohol.",
+  "Rumor and blame: in a crisis, accusing people without evidence splits a group; check facts before acting."
+ ],
+ "cast_notes": "New speaking roles (all muted-gray extras from rig v3): WES PRUITT (Cal's twin — same look as Episode 2's PRUITT: cap + rain jacket, mist coat), ROY (Episode 2's volunteer V1: steel coat, storm hood — burned right hand), DANA (Episode 2's volunteer V2: slate coat, steel beanie, long night hair — burned forearm). MILO (Tess's son, kid extra) speaks for the first time. CAL PRUITT (Episode 2's PRUITT) is missing — never shown.",
+ "parts": [
+  {
+   "part": 1,
+   "title": "Who Came Back",
+   "hook": "Gord: Nobody goes down in the dark.",
+   "scenes": [
+    {
+     "id": "h1",
+     "title": "Cold Open",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 2,
+     "action": "v2 COLD OPEN (2 s, flash-forward from s17): Gord's flashlight snaps on and lands on Drizzle and Milo at the tent; Gord's line.",
+     "start": "Dark tent; Drizzle's hand on the strap.",
+     "end": "Drizzle frozen in the beam.",
+     "captions": [
+      {
+       "t0": 0.2,
+       "t1": 1.95,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Can't sleep, Drizzle?",
+       "tag": "GORD PIKE"
+      }
+     ]
+    },
+    {
+     "id": "s01",
+     "title": "Previously",
+     "bg": "townView",
+     "bgOpts": {
+      "fog": 0.4
+     },
+     "duration": 5,
+     "action": "RECAP of Episode 2 (5 s, fast, slight film-flicker/vignette): the town view with the thick BLACK SMOKE column rising from Dale's (as at the end of Episode 2 s16) — quick push-in toward the smoke; at ~2.6 s a hard flash-cut to a close insert drawn on the same set: the empty go-bag spot (a dark empty patch of tarp floor with muddy boot prints, drawn as an overlay panel over the frame). 'PREVIOUSLY' sign.",
+     "start": "Smoke column over the town.",
+     "end": "The empty spot.",
+     "captions": [
+      {
+       "t0": 0.2,
+       "t1": 1.8,
+       "kind": "sign",
+       "text": "PREVIOUSLY: DAY 1"
+      },
+      {
+       "t0": 1.9,
+       "t1": 4.9,
+       "kind": "narration",
+       "text": "A supply run. An explosion. An empty spot."
+      }
+     ]
+    },
+    {
+     "id": "s02",
+     "title": "Dusk",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 16,
+     "action": "Title open. 0–4 s: the 'RAINY DAY' title sting (yellow League Gothic, hand-drawn underline, exactly like Episode 2's s02) over the camp at DUSK, then a 'DAY 1 · NIGHT' card (League Gothic, paper/yellow) with a small 'THE FIRE BELOW' subtitle; both fade by ~4.5 s. Dusk light: a darkening grade that deepens over the scene (night overlay opacity ~0.35 → 0.6), a pale gray-white glow low on the horizon at right where the town is (Dale's still smoldering — NO orange: paper/fog whites only), the thin smoke column still visible in the view. The crowd stands near the trailhead edge (right) with a few flashlight beams switching on. Drizzle stands at the front of the crowd (hood up, NO go-bag — it is gone), arms wrapped around himself; Mags beside him with her radio, checking an imaginary watch on her wrist on her line. Light rain.",
+     "start": "Camp at dusk; title over it.",
+     "end": "Drizzle and Mags at the front of the waiting crowd, flashlights on.",
+     "captions": [
+      {
+       "t0": 4.7,
+       "t1": 8.4,
+       "kind": "narration",
+       "text": "By dusk, the smoke over Dale's still hadn't stopped."
+      },
+      {
+       "t0": 8.8,
+       "t1": 11.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "They've been gone six hours."
+      },
+      {
+       "t0": 12.0,
+       "t1": 15.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Five and a half. I'm counting."
+      }
+     ]
+    },
+    {
+     "id": "s03",
+     "title": "The Return",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 22,
+     "action": "NIGHT at the trailhead edge of the camp (right side, by the cars). Flashlight beams from the crowd point down the hill (off right). At ~1 s three figures climb up into the light from the right edge: GORD first, carrying a shrink-wrapped case of water bottles on his shoulder (clipboard tucked in his vest), soot-gray smudges on his vest; then ROY (steel coat, hood) holding his right hand up against his chest, wincing; then DANA (slate coat, beanie, long hair) with her forearm wrapped in a torn shirt, limping. The crowd surges toward them. At ~6.4 s WES PRUITT (cap, rain jacket — looks exactly like Episode 2's PRUITT, his twin) pushes through the crowd, scanning the faces behind them, then grabs Gord's arm. Gord sets the water case down. Roy shakes his head on his line; the whole crowd goes still and turns to Gord on 'He wasn't behind us'. Drizzle and Mags at left of the crowd, watching; Mags' eyes go to Gord. Slow push-in on Gord's face at the end.",
+     "start": "Crowd with flashlights at the edge.",
+     "end": "Everyone staring at Gord; Wes holding Gord's arm.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.4,
+       "kind": "narration",
+       "text": "Four went down the hill. Three came back."
+      },
+      {
+       "t0": 6.4,
+       "t1": 8.8,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Cal? Where's Cal?",
+       "tag": "WES PRUITT · Cal's twin"
+      },
+      {
+       "t0": 9.2,
+       "t1": 12.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "He was right behind us. Right behind us."
+      },
+      {
+       "t0": 13.0,
+       "t1": 16.0,
+       "kind": "dialogue",
+       "speaker": "ROY",
+       "text": "He wasn't behind us, Gord.",
+       "tag": "ROY · back from Dale's"
+      },
+      {
+       "t0": 16.6,
+       "t1": 21.4,
+       "kind": "narration",
+       "text": "Nobody said anything. Everybody looked at Gord."
+      }
+     ]
+    },
+    {
+     "id": "s04",
+     "title": "Two Stories",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 20,
+     "action": "Continuous from s03, same positions, night, flashlights. Gord talks with big gestures (pointing back down the hill, a 'boom' with both hands on 'whole place went up'). DANA, holding her wrapped arm, answers him sharply, stepping forward. Gord turns on her, louder, jabbing a finger (no contact). Wes looks from one to the other. Mags (at left) narrows her eyes, a slow head shake. Camera cuts between the two sides with slow push-ins (one continuous scene with camera moves).",
+     "start": "Gord facing the crowd.",
+     "end": "Gord and Dana facing off; Wes between them.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "The wire sparked. The whole place went up."
+      },
+      {
+       "t0": 4.6,
+       "t1": 7.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Cal ran out the back. He'll turn up."
+      },
+      {
+       "t0": 7.8,
+       "t1": 11.2,
+       "kind": "dialogue",
+       "speaker": "DANA",
+       "text": "You told him to grab the water first.",
+       "tag": "DANA REYES · back from Dale's"
+      },
+      {
+       "t0": 11.6,
+       "t1": 14.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "I told everyone to get OUT."
+      },
+      {
+       "t0": 15.2,
+       "t1": 19.4,
+       "kind": "narration",
+       "text": "Two stories. One missing man. And it was getting dark."
+      }
+     ]
+    },
+    {
+     "id": "s05",
+     "title": "Not in the Dark",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 12,
+     "action": "Wes grabs a flashlight from a neighbor and starts toward the trailhead (right). Gord steps across his path, hand up. Wes squares up to him (tense, no contact). Mags walks in and puts herself beside Wes, calm; she says her line to Wes, not Gord, and points at the sky/east (first light). Wes' shoulders drop; he lowers the flashlight. Part 1 ends on Wes' face in the beam.",
+     "start": "Wes heading for the trail.",
+     "end": "Wes stopped, flashlight lowered; Mags beside him; Gord blocking.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 2.6,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Then I'm going down there."
+      },
+      {
+       "t0": 2.8,
+       "t1": 5.0,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Nobody goes down in the dark."
+      },
+      {
+       "t0": 5.2,
+       "t1": 7.2,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "That's my BROTHER."
+      },
+      {
+       "t0": 7.6,
+       "t1": 11.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "First light. With a buddy. Not alone."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "title": "Cool Water",
+   "hook": "Gord: Open the bag, Tess.",
+   "scenes": [
+    {
+     "id": "s06",
+     "title": "Cool Water",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.2
+     },
+     "duration": 20,
+     "action": "NIGHT at the shelter, lit by the pale fire in the fire ring (front right) and one flashlight hung from the tarp (a cold white cone). Mags sits ROY on the crate under the tarp. Drizzle reaches for his back for the first-aid kit — and remembers: the go-bag is gone (hand pats an empty back; a deflated face). Mags points at the BUCKET of water-heater water (from Episode 2). Drizzle lifts the bucket and pours a thin steady stream over Roy's hand held out over the ground (animate the stream and splashes); Roy flinches, then relaxes. Mags slips a ring off Roy's finger on her line about rings. Roy looks at the bucket on 'That's our drinking water'. Hold the pour for the sign.",
+     "start": "Roy sitting on the crate, hand up.",
+     "end": "Drizzle still pouring; Mags kneeling, holding Roy's wrist.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "First-aid kit, it's in my— oh."
+      },
+      {
+       "t0": 3.6,
+       "t1": 7.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Cool water. Not ice. Ten minutes, at least."
+      },
+      {
+       "t0": 8.0,
+       "t1": 10.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "And that ring comes off before it swells."
+      },
+      {
+       "t0": 11.2,
+       "t1": 13.6,
+       "kind": "dialogue",
+       "speaker": "ROY",
+       "text": "That's our drinking water."
+      },
+      {
+       "t0": 13.8,
+       "t1": 15.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Then we drink less tonight."
+      },
+      {
+       "t0": 16.0,
+       "t1": 19.8,
+       "kind": "sign",
+       "text": "BURNS: COOL RUNNING WATER, 10+ MINUTES. NO ICE."
+      }
+     ]
+    },
+    {
+     "id": "s07",
+     "title": "Cover It Loosely",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.2
+     },
+     "duration": 18,
+     "action": "Same set, night, continuous. DANA sits on a sleeping bag with her forearm out; a NEIGHBOR (extra, cap) holds out a small tub (butter) toward her arm; Mags waves it away flatly. Drizzle looks around helplessly for a bandage. At ~8 s TESS steps out of the dark at left with her padlocked duffel, crouches, opens only a small side pocket (the main zip stays padlocked), hands Mags a roll of white gauze without a word, and walks back into the dark. Mags wraps Dana's arm loosely (animate the white wrap going around). The neighbor leans to another extra and mutters on his line, eyes following Tess.",
+     "start": "Dana with her arm out; neighbor with the butter.",
+     "end": "Dana's arm wrapped; neighbors staring after Tess.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "dialogue",
+       "speaker": "BENNY",
+       "text": "Butter. My grandma swore by it.",
+       "tag": "BENNY OCHOA"
+      },
+      {
+       "t0": 3.8,
+       "t1": 5.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Your grandma was wrong."
+      },
+      {
+       "t0": 6.0,
+       "t1": 8.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "We've got nothing to wrap it with."
+      },
+      {
+       "t0": 10.6,
+       "t1": 13.2,
+       "kind": "dialogue",
+       "speaker": "DARLA",
+       "text": "What ELSE is in that bag?",
+       "tag": "DARLA FINCH"
+      },
+      {
+       "t0": 13.6,
+       "t1": 17.8,
+       "kind": "sign",
+       "text": "COVER LOOSELY WITH A CLEAN DRESSING. DON'T POP BLISTERS."
+      }
+     ]
+    },
+    {
+     "id": "s08",
+     "title": "Headcount",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 20,
+     "action": "NIGHT under the canopy, lit by flashlights. Drizzle stands at the missing-persons whiteboard (canopy.board) with a marker; the crowd gathers in a half circle. On his first line the extras turn to each other and pair up (pairs step together, a few touch shoulders). Mags holds a flashlight on the board. Drizzle 'writes' as names are called (draw short ink scribble lines appearing on the board one by one; the board can be shown in a close insert panel). On 'Cal Pruitt?' — silence; Wes, at the back, looks down. Drizzle writes a last line under the board's MISSING column and underlines it. Slow push-in on the board.",
+     "start": "Drizzle at the board, crowd gathering.",
+     "end": "The board close: a new name under MISSING; Wes looking down.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Okay. Everybody find a buddy. Say their name."
+      },
+      {
+       "t0": 4.8,
+       "t1": 8.6,
+       "kind": "narration",
+       "text": "After a disaster, the first job is knowing who's here."
+      },
+      {
+       "t0": 9.0,
+       "t1": 11.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Dale? ...Still missing."
+      },
+      {
+       "t0": 11.4,
+       "t1": 13.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Cal Pruitt?"
+      },
+      {
+       "t0": 15.4,
+       "t1": 19.8,
+       "kind": "sign",
+       "text": "COUNT EVERYONE. WRITE IT DOWN. NOBODY GOES ANYWHERE ALONE."
+      }
+     ]
+    },
+    {
+     "id": "s09",
+     "title": "Who Stayed Behind",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 18,
+     "action": "Night, by the picnic table. Gord sits on the table edge with a flashlight lighting his face from below, clipboard on his knee, the case of water beside him. A NEIGHBOR_F (extra, long hair) steps forward and asks her question to the crowd. Heads slowly turn, one by one, toward TESS, who sits on her padlocked duffel at the camp edge (left) with MILO beside her. A second NEIGHBOR points at the duffel. Gord stands up slowly on his line, and on the last line points his flashlight beam straight at Tess (she squints into it, arm around Milo). Drizzle, at the side, steps half a step forward, uneasy. End on Tess in the beam (Part 2 hook).",
+     "start": "Gord on the table edge.",
+     "end": "Gord's flashlight beam on Tess; crowd turned toward her.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.2,
+       "kind": "dialogue",
+       "speaker": "DARLA",
+       "text": "Drizzle's bag went missing while they were gone."
+      },
+      {
+       "t0": 4.4,
+       "t1": 6.6,
+       "kind": "dialogue",
+       "speaker": "DARLA",
+       "text": "So who stayed up here?"
+      },
+      {
+       "t0": 7.4,
+       "t1": 10.4,
+       "kind": "dialogue",
+       "speaker": "LYLE",
+       "text": "She won't open hers. Why not?",
+       "tag": "LYLE KEMPER"
+      },
+      {
+       "t0": 10.8,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Good question."
+      },
+      {
+       "t0": 14.4,
+       "t1": 17.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Open the bag, Tess."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "title": "The Cold",
+   "hook": "Far below, a light blinked back.",
+   "scenes": [
+    {
+     "id": "s10",
+     "title": "The Padlock",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.2
+     },
+     "duration": 18,
+     "action": "Continuous standoff at the camp edge, night. Tess stands up off the duffel, grips the strap, Milo behind her coat. The crowd edges a step closer (a ring of muted figures and flashlight beams). Drizzle steps in between Tess and the crowd, hands up, on his lines (nervous but firm; points at the padlock, then at his own empty back). Mags joins him on her line. Gord (back by the table) lowers his flashlight slowly on his last line, staring at Drizzle; Drizzle has no answer — his face falls.",
+     "start": "Tess in the beam, crowd closing in.",
+     "end": "Drizzle between Tess and the crowd; Gord's beam lowered.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.2,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "It's not his bag. And it's not yours.",
+       "tag": "TESS VARGA"
+      },
+      {
+       "t0": 3.6,
+       "t1": 7.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Hers has a padlock. Mine didn't. Mine was... a snack bag."
+      },
+      {
+       "t0": 7.8,
+       "t1": 11.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Pointing fingers in the dark is how camps fall apart."
+      },
+      {
+       "t0": 12.2,
+       "t1": 14.8,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Then who took it, Drizzle?"
+      },
+      {
+       "t0": 15.2,
+       "t1": 17.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "...I don't know. Yet."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "Wet Through",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.2
+     },
+     "duration": 20,
+     "action": "Later that night, heavier rain (RD.rain count up, wind slant). At the shelter: ROY sits hunched on the ground at the tarp edge, soaked, shaking hard (fast small jitter), arms wrapped around himself, bandaged hand. Mags kneels to him and checks him. Drizzle unzips his slicker halfway on his joke line, then zips it straight back up (the slicker never comes off) and instead grabs the second sleeping bag and the pad. They slide the pad under Roy (off the wet ground), wrap the sleeping bag around his shoulders, and Mags pulls a knit hat onto his head (draw the hat appearing). Roy's shaking slows over the sign.",
+     "start": "Roy shaking at the tarp edge in heavy rain.",
+     "end": "Roy on the pad, wrapped, hat on, shaking less.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.6,
+       "kind": "narration",
+       "text": "The rain got colder. And everyone was wet."
+      },
+      {
+       "t0": 4.0,
+       "t1": 7.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "He's soaked through. Wet clothes off, dry on."
+      },
+      {
+       "t0": 7.6,
+       "t1": 11.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "I'd give him my slicker, but... it's kind of my whole thing."
+      },
+      {
+       "t0": 11.4,
+       "t1": 14.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Then get him off the ground. And a hat."
+      },
+      {
+       "t0": 15.0,
+       "t1": 19.8,
+       "kind": "sign",
+       "text": "HYPOTHERMIA: GET DRY. INSULATE FROM THE GROUND. COVER THE HEAD."
+      }
+     ]
+    },
+    {
+     "id": "s12",
+     "title": "Warm, Not Booze",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.2
+     },
+     "duration": 18,
+     "action": "Same set, night, rain. A NEIGHBOR (cap) comes over and holds out a small flask toward Roy; Mags takes it off him and sets it on the crate, unimpressed. Drizzle ladles warm water from the pot at the fire ring into a mug (steam curls), stirs in a sugar packet, and hands it to Roy (both hands around it). Then Tess (at far left, by the dome tent) pulls Milo in close under her long coat; Drizzle notices, takes his own blanket off the crate and quietly puts it around the two of them; Tess gives a small nod — the first warm moment between them.",
+     "start": "Neighbor offering the flask.",
+     "end": "Drizzle's blanket around Tess and Milo; Roy holding the warm mug.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "HANK",
+       "text": "Here. This'll warm him up.",
+       "tag": "HANK DORSEY"
+      },
+      {
+       "t0": 3.0,
+       "t1": 6.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "No. Alcohol makes you lose heat faster."
+      },
+      {
+       "t0": 6.6,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Warm and sweet. And huddle up."
+      },
+      {
+       "t0": 12.0,
+       "t1": 14.4,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "...Thank you."
+      },
+      {
+       "t0": 14.6,
+       "t1": 17.8,
+       "kind": "sign",
+       "text": "WARM SWEET DRINKS. SHARE BODY HEAT. NEVER ALCOHOL."
+      }
+     ]
+    },
+    {
+     "id": "s13",
+     "title": "Three Blinks",
+     "bg": "townView",
+     "bgOpts": {
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "NIGHT at the hill lip (town view graded to night; the town below almost black; Dale's a faint pale smoldering glow with a thin smoke wisp — no orange). WES sits at the lip with a flashlight; Drizzle sits down beside him. Wes clicks his flashlight three times toward the town (three short beam flashes). Silence; rain. He tries again. Then, far below in the dark flooded streets (left of Dale's), a TINY pale light blinks — once… twice… and goes dark before a third. Wes rises to his knees; Drizzle grabs his arm. Hold on the dark town. Part 3 hook.",
+     "start": "Wes alone at the lip with a flashlight.",
+     "end": "Both staring down at the dark town where the light was.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.2,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Three blinks. Cal and I did it as kids."
+      },
+      {
+       "t0": 4.4,
+       "t1": 6.6,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "It means 'I'm okay.'"
+      },
+      {
+       "t0": 11.0,
+       "t1": 14.4,
+       "kind": "narration",
+       "text": "Far below, a light blinked back."
+      },
+      {
+       "t0": 15.4,
+       "t1": 17.6,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "...Only twice."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 4,
+   "title": "Whose Tent",
+   "hook": "Drizzle: The first-aid kit was in it. Roy needed it.",
+   "scenes": [
+    {
+     "id": "s14",
+     "title": "Lights Out",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 12,
+     "action": "NIGHT, the camp from the table. Gord stands on the picnic table with his clipboard and flashlight and announces; the crowd's flashlights click off one by one (beams vanish), people drift toward the tents and lean-tos. Gord climbs down and walks toward the mid-right dome tent (tents[1]) — his tent — and zips himself in (a glow inside goes off). Drizzle and Mags remain by the cold fire ring (left foreground), the only two still up.",
+     "start": "Gord on the table, crowd with flashlights.",
+     "end": "Camp dark; Drizzle and Mags by the fire ring.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.2,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Lights out. Save your batteries. Water's locked up with me."
+      },
+      {
+       "t0": 4.6,
+       "t1": 7.8,
+       "kind": "narration",
+       "text": "Gord kept the water case in his own tent."
+      },
+      {
+       "t0": 8.2,
+       "t1": 11.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "'With me.' Remember he said that."
+      }
+     ]
+    },
+    {
+     "id": "s15",
+     "title": "Night Watch",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 20,
+     "action": "Close, quiet two-shot at the fire ring (firePit, left foreground) lit by small pale flames Mags has coaxed back up (pale flames, no warm colors); the dark camp behind. Drizzle sits hugging his knees; Mags on a camp chair with the radio in her lap. He counts the day's lessons on his fingers (one finger per item), then trails off. Mags speaks her lines looking at the tents, not at him. Slow push-in. At ~16 s a small figure (MILO) appears out of the dark behind them at right, flashlight off, creeping up.",
+     "start": "Drizzle and Mags at the fire.",
+     "end": "Milo right behind Drizzle.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 5.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Cool water for burns. Count everyone. Stay dry."
+      },
+      {
+       "t0": 5.6,
+       "t1": 7.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "And trust... carefully?"
+      },
+      {
+       "t0": 8.4,
+       "t1": 12.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Someone took your bag while we all watched the smoke."
+      },
+      {
+       "t0": 13.0,
+       "t1": 16.4,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Not everyone on Gord's side went down the hill."
+      },
+      {
+       "t0": 17.0,
+       "t1": 19.8,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "Psst. Drizzle.",
+       "tag": "MILO VARGA"
+      }
+     ]
+    },
+    {
+     "id": "s16",
+     "title": "Milo Saw",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 18,
+     "action": "Milo tugs the sleeve of Drizzle's slicker and whispers. Drizzle crouches to his level. Milo points across the dark camp toward Gord's tent (tents[1], mid right). Drizzle looks back at Mags; Mags gives one small nod and stays by the fire. Drizzle and Milo creep across the camp in the dark (crouched walk, Milo leading, Drizzle's yellow slicker the only color, a single dim flashlight pointed at the ground). Camera follows them right. They reach the side of Gord's tent; a zipper pull glints.",
+     "start": "Milo tugging Drizzle's sleeve.",
+     "end": "Drizzle and Milo crouched at the side of Gord's tent.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 3.8,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "I saw where your snack bag went."
+      },
+      {
+       "t0": 4.2,
+       "t1": 6.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "You... what?"
+      },
+      {
+       "t0": 6.6,
+       "t1": 9.8,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "Lyle carried it. While the smoke was going."
+      },
+      {
+       "t0": 10.2,
+       "t1": 13.4,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "He put it in the big tent. That one."
+      },
+      {
+       "t0": 14.0,
+       "t1": 17.6,
+       "kind": "narration",
+       "text": "Drizzle had prepared for an earthquake. Not for this."
+      }
+     ]
+    },
+    {
+     "id": "s17",
+     "title": "Inside",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 30,
+     "action": "At Gord's tent, night. Drizzle lifts the tent's side vent/flap a few inches; Milo shines the dim flashlight inside (draw an inset/close panel over the frame: inside the tent, by flashlight, Drizzle's own slate go-bag — the same drawing as RD.goBag — sitting on top of the water cases from Dale's, half under a sleeping bag; Gord asleep with his back to them). Drizzle's face: shock, then hurt. On the narration, he reaches for the bag strap. A beat later a second flashlight snaps ON behind them (a hard white beam from the left lands on Drizzle and Milo) — it is GORD, standing outside the tent behind them, not asleep (the shape in the tent was a bundled sleeping bag). Gord's flat, quiet line. Drizzle freezes, hand on the strap, Milo behind him. Hold on Drizzle in the beam. 'NEXT: DAY 2' sting at the end (League Gothic, paper/yellow on a dark panel, like Episode 2's NEXT card). v2: after Gord's line he answers flatly (\"Keeping it safe. Keeping the peace.\"), Drizzle answers, then a one-beat hold on Gord's face, then the 'NEXT: DAY 4' card (title only, no caption copy).",
+     "start": "Drizzle lifting the flap.",
+     "end": "Hold on Gord's face; NEXT: DAY 4 card.",
+     "captions": [
+      {
+       "t0": 0.8,
+       "t1": 3.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "That's... that's my bag."
+      },
+      {
+       "t0": 3.8,
+       "t1": 7.6,
+       "kind": "narration",
+       "text": "And under it, the water everyone else was rationing."
+      },
+      {
+       "t0": 8.0,
+       "t1": 10.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Milo, stay behind me."
+      },
+      {
+       "t0": 13.0,
+       "t1": 15.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Can't sleep, Drizzle?"
+      },
+      {
+       "t0": 16.0,
+       "t1": 18.8,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Keeping it safe. Keeping the peace."
+      },
+      {
+       "t0": 19.2,
+       "t1": 22.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "The first-aid kit was in it. Roy needed it."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
