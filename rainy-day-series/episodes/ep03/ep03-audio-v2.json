@@ -1,0 +1,412 @@
+{
+ "version": 2,
+ "model": "elevenlabs_v4",
+ "notes": "Episode 3 v2 voices: one ElevenLabs v4 take per line (via Higgsfield), voices and settings from docs/voice-cast-v1.md (stability/similarity omitted = provider defaults). Lines: audio/ep03/lines/ (log LINES-v1.md). SFX: the Episode 1-2 ffmpeg synthesizer (same kinds) + the Episode 1 remake library file footsteps-mud-v1. No music (Episodes 1-2 had none; slot reserved).",
+ "cast": {
+  "NARRATOR": {
+   "name": "Arthur",
+   "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DRIZZLE": {
+   "name": "Dylan",
+   "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "MAGS": {
+   "name": "Mabel",
+   "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "RADIO": {
+   "name": "Grady",
+   "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+   "fx": "radio",
+   "gainDb": -2
+  },
+  "GORD": {
+   "name": "Gideon",
+   "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "TESS": {
+   "name": "Sloane",
+   "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DARLA": {
+   "name": "Juno",
+   "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+   "fx": "none",
+   "gainDb": -1
+  },
+  "LYLE": {
+   "name": "Jake",
+   "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f",
+   "fx": "none",
+   "gainDb": -1
+  },
+  "MILO": {
+   "name": "Leo",
+   "voice_id": "73a45c18-0c56-4642-a61e-f6b303f8ded1",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "WES": {
+   "name": "Ken",
+   "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DANA": {
+   "name": "Karen",
+   "voice_id": "b483a172-2776-559b-b138-8853559b20ee",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "HANK": {
+   "name": "Bob",
+   "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "BENNY": {
+   "name": "Marcus",
+   "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "ROY": {
+   "name": "Harrison",
+   "voice_id": "573e5163-59b3-4926-aab1-951ef2985f81",
+   "fx": "none",
+   "gainDb": 0
+  }
+ },
+ "ambience": {
+  "h1": "rain-out-light",
+  "s01": "rain-out-light",
+  "s02": "rain-out-light",
+  "s03": "rain-out-light",
+  "s04": "rain-out-light",
+  "s05": "rain-out-light",
+  "s06": "rain-in",
+  "s07": "rain-in",
+  "s08": "rain-out-light",
+  "s09": "rain-out-light",
+  "s10": "rain-out-light",
+  "s11": "rain-out",
+  "s12": "rain-out",
+  "s13": "rain-out-light",
+  "s14": "rain-out-light",
+  "s15": "rain-out-light",
+  "s16": "rain-out-light",
+  "s17": "rain-out-light"
+ },
+ "sfx": {
+  "h1": [
+   {
+    "type": "click",
+    "t": 0.38
+   }
+  ],
+  "s01": [
+   {
+    "type": "roar",
+    "t": 0,
+    "d": 5,
+    "level": 0.25,
+    "rampIn": 0.5
+   }
+  ],
+  "s02": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 16,
+    "level": 0.45,
+    "rampIn": 1.0
+   },
+   {
+    "type": "roar",
+    "t": 4.5,
+    "d": 11.5,
+    "level": 0.16,
+    "rampIn": 1.5
+   },
+   {
+    "type": "click",
+    "t": 6.0
+   },
+   {
+    "type": "click",
+    "t": 7.8
+   },
+   {
+    "type": "click",
+    "t": 10.6
+   }
+  ],
+  "s03": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 22,
+    "level": 0.55,
+    "rampIn": 0.4
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0.8,
+    "d": 5.5,
+    "level": 0.35
+   },
+   {
+    "type": "thud",
+    "t": 10.4,
+    "level": 0.5
+   }
+  ],
+  "s04": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 20,
+    "level": 0.4,
+    "rampIn": 0.2
+   }
+  ],
+  "s05": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 12,
+    "level": 0.3,
+    "rampIn": 0.2
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0.4,
+    "d": 2.2,
+    "level": 0.35
+   }
+  ],
+  "s06": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 20,
+    "level": 0.8,
+    "rampIn": 0.3
+   },
+   {
+    "type": "pour",
+    "t": 7.1,
+    "d": 12.9,
+    "level": 0.7,
+    "rampIn": 0.15
+   }
+  ],
+  "s07": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 18,
+    "level": 0.8,
+    "rampIn": 0.1
+   },
+   {
+    "type": "pour",
+    "t": 0,
+    "d": 18,
+    "level": 0.55,
+    "rampIn": 0.05
+   },
+   {
+    "type": "murmur",
+    "t": 9,
+    "d": 9,
+    "level": 0.25,
+    "rampIn": 1
+   }
+  ],
+  "s08": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 20,
+    "level": 0.5,
+    "rampIn": 0.3
+   }
+  ],
+  "s09": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 18,
+    "level": 0.45,
+    "rampIn": 0.3
+   },
+   {
+    "type": "click",
+    "t": 14.2
+   }
+  ],
+  "s10": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 18,
+    "level": 0.4,
+    "rampIn": 0.2
+   }
+  ],
+  "s11": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 20,
+    "level": 0.6,
+    "rampIn": 0.3
+   },
+   {
+    "type": "drip",
+    "t": 0,
+    "d": 20
+   }
+  ],
+  "s12": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 18,
+    "level": 0.65,
+    "rampIn": 0.2
+   },
+   {
+    "type": "boil",
+    "t": 3.5,
+    "d": 4,
+    "level": 0.25,
+    "rampIn": 0.5
+   },
+   {
+    "type": "pour",
+    "t": 5.0,
+    "d": 1.4,
+    "level": 0.6
+   },
+   {
+    "type": "drip",
+    "t": 0,
+    "d": 18
+   }
+  ],
+  "s13": [
+   {
+    "type": "roar",
+    "t": 0,
+    "d": 18,
+    "level": 0.12,
+    "rampIn": 1
+   },
+   {
+    "type": "click",
+    "t": 6.85
+   },
+   {
+    "type": "click",
+    "t": 7.6
+   },
+   {
+    "type": "click",
+    "t": 8.33
+   },
+   {
+    "type": "click",
+    "t": 9.55
+   },
+   {
+    "type": "click",
+    "t": 10.3
+   },
+   {
+    "type": "click",
+    "t": 11.03
+   }
+  ],
+  "s14": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 6,
+    "level": 0.35
+   },
+   {
+    "type": "click",
+    "t": 1.75
+   },
+   {
+    "type": "click",
+    "t": 2.6
+   },
+   {
+    "type": "click",
+    "t": 3.4
+   },
+   {
+    "type": "click",
+    "t": 4.25
+   },
+   {
+    "type": "click",
+    "t": 6.6
+   }
+  ],
+  "s15": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 20,
+    "level": 0.7,
+    "rampIn": 0.3
+   }
+  ],
+  "s16": [
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 9,
+    "level": 0.5
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 11.5,
+    "d": 5.5,
+    "level": 0.22
+   }
+  ],
+  "s17": [
+   {
+    "type": "click",
+    "t": 11.6,
+    "level": 1.4
+   },
+   {
+    "type": "crackle",
+    "t": 0,
+    "d": 30,
+    "level": 0.2,
+    "rampIn": 1
+   }
+  ]
+ },
+ "minSign": {
+  "s01": 1.0
+ }
+}

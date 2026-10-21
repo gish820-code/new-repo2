@@ -45,8 +45,8 @@
      "bgOpts": {
       "fog": 0.4
      },
-     "duration": 5,
-     "action": "RECAP of Episode 2 (5 s, fast, slight film-flicker/vignette): the town view with the thick BLACK SMOKE column rising from Dale's (as at the end of Episode 2 s16) — quick push-in toward the smoke; at ~2.6 s a hard flash-cut to a close insert drawn on the same set: the empty go-bag spot (a dark empty patch of tarp floor with muddy boot prints, drawn as an overlay panel over the frame). 'PREVIOUSLY' sign.",
+     "duration": 6.2,
+     "action": "RECAP of Episode 2 (5 s, fast, slight film-flicker/vignette): the town view with the thick BLACK SMOKE column rising from Dale's (as at the end of Episode 2 s16) — quick push-in toward the smoke; at ~2.6 s a hard flash-cut to a close insert drawn on the same set: the empty go-bag spot (a dark empty patch of tarp floor with muddy boot prints, drawn as an overlay panel over the frame). 'PREVIOUSLY' sign. v2: played 6.2 s (the 5 s v1 recap slowed to 0.81x) so the recorded narration fits at natural speed.",
      "start": "Smoke column over the town.",
      "end": "The empty spot.",
      "captions": [
@@ -62,7 +62,8 @@
        "kind": "narration",
        "text": "A supply run. An explosion. An empty spot."
       }
-     ]
+     ],
+     "stretchFrom": 5
     },
     {
      "id": "s02",

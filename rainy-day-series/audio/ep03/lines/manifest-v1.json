@@ -1,0 +1,733 @@
+[
+ {
+  "sid": "h1",
+  "cap": 0,
+  "speaker": "GORD",
+  "text": "Can't sleep, Drizzle?",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/h1-gord-v1.mp3",
+  "reuse": "audio/ep03/lines/s17-gord-v1.mp3",
+  "job": "1ff80834-ef18-40ea-9771-0ef9bbbbc052",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150054_1ff80834-ef18-40ea-9771-0ef9bbbbc052.mp3"
+ },
+ {
+  "sid": "s01",
+  "cap": 1,
+  "speaker": "NARRATOR",
+  "text": "A supply run. An explosion. An empty spot.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s01-narrator-v1.mp3",
+  "job": "18e247ed-903f-4655-afa9-e3c7f9e80b9c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144757_18e247ed-903f-4655-afa9-e3c7f9e80b9c.mp3"
+ },
+ {
+  "sid": "s02",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "By dusk, the smoke over Dale's still hadn't stopped.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s02-narrator-v1.mp3",
+  "job": "01b6f8e1-234c-4453-b66c-701ec5933470",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144757_01b6f8e1-234c-4453-b66c-701ec5933470.mp3"
+ },
+ {
+  "sid": "s02",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "They've been gone six hours.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s02-drizzle-v1.mp3",
+  "job": "a54c3ddb-d8c7-40ea-964a-ade9f5dc975d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144758_a54c3ddb-d8c7-40ea-964a-ade9f5dc975d.mp3"
+ },
+ {
+  "sid": "s02",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Five and a half. I'm counting.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s02-mags-v1.mp3",
+  "job": "93ca5247-85a6-4581-a978-6ec6158c352e",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144820_93ca5247-85a6-4581-a978-6ec6158c352e.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "Four went down the hill. Three came back.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s03-narrator-v1.mp3",
+  "job": "bb94b6ff-9150-41b8-95a8-835809425a6d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144822_bb94b6ff-9150-41b8-95a8-835809425a6d.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 1,
+  "speaker": "WES",
+  "text": "Cal? Where's Cal?",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s03-wes-v1.mp3",
+  "job": "475a2cdd-71a3-43cd-890a-8ff0ede6087c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144821_475a2cdd-71a3-43cd-890a-8ff0ede6087c.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 2,
+  "speaker": "GORD",
+  "text": "He was right behind us. Right behind us.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s03-gord-v1.mp3",
+  "job": "4ef0f3cd-eb7f-4d64-a473-181c02fa35a9",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144841_4ef0f3cd-eb7f-4d64-a473-181c02fa35a9.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 3,
+  "speaker": "ROY",
+  "text": "He wasn't behind us, Gord.",
+  "voice_id": "573e5163-59b3-4926-aab1-951ef2985f81",
+  "file": "audio/ep03/lines/s03-roy-v1.mp3",
+  "job": "96f3203c-de8d-4e19-8197-073f1aae787b",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144842_96f3203c-de8d-4e19-8197-073f1aae787b.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 4,
+  "speaker": "NARRATOR",
+  "text": "Nobody said anything. Everybody looked at Gord.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s03-narrator2-v1.mp3",
+  "job": "218469a8-1238-4826-ae76-969410149eec",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144842_218469a8-1238-4826-ae76-969410149eec.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 0,
+  "speaker": "GORD",
+  "text": "The wire sparked. The whole place went up.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s04-gord-v1.mp3",
+  "job": "51897e20-96eb-41d6-a8ec-0dd8cb2b8fb1",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144901_51897e20-96eb-41d6-a8ec-0dd8cb2b8fb1.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 1,
+  "speaker": "GORD",
+  "text": "Cal ran out the back. He'll turn up.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s04-gord2-v1.mp3",
+  "job": "21fe7e2b-c809-4585-8fa2-827dab9f53a5",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144901_21fe7e2b-c809-4585-8fa2-827dab9f53a5.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 2,
+  "speaker": "DANA",
+  "text": "You told him to grab the water first.",
+  "voice_id": "b483a172-2776-559b-b138-8853559b20ee",
+  "file": "audio/ep03/lines/s04-dana-v1.mp3",
+  "job": "28355a60-51f3-4b74-ae80-bdad15077084",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144901_28355a60-51f3-4b74-ae80-bdad15077084.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 3,
+  "speaker": "GORD",
+  "text": "I told everyone to get OUT.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s04-gord3-v1.mp3",
+  "job": "6110c631-4a0c-4ed0-8993-a46b20173dc6",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144921_6110c631-4a0c-4ed0-8993-a46b20173dc6.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 4,
+  "speaker": "NARRATOR",
+  "text": "Two stories. One missing man. And it was getting dark.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s04-narrator-v1.mp3",
+  "job": "32a8c875-fcd9-40cf-834b-9bd332d807fe",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144921_32a8c875-fcd9-40cf-834b-9bd332d807fe.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 0,
+  "speaker": "WES",
+  "text": "Then I'm going down there.",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s05-wes-v1.mp3",
+  "job": "d07fbe01-81b2-46d3-8c5e-bf3955763a0c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144922_d07fbe01-81b2-46d3-8c5e-bf3955763a0c.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 1,
+  "speaker": "GORD",
+  "text": "Nobody goes down in the dark.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s05-gord-v1.mp3",
+  "job": "a24efc8b-a2cb-4097-8bfa-7e71f1b2c4ac",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144938_a24efc8b-a2cb-4097-8bfa-7e71f1b2c4ac.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 2,
+  "speaker": "WES",
+  "text": "That's my BROTHER.",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s05-wes2-v1.mp3",
+  "job": "e29f23ca-d2c3-4429-bc35-c1a56ad0fa40",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144938_e29f23ca-d2c3-4429-bc35-c1a56ad0fa40.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "First light. With a buddy. Not alone.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s05-mags-v1.mp3",
+  "job": "f0c3d678-5081-4a31-b9c1-30de37fc6842",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144939_f0c3d678-5081-4a31-b9c1-30de37fc6842.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "First-aid kit, it's in my— oh.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s06-drizzle-v1.mp3",
+  "job": "ea61459a-a0f2-43f1-8dad-2dc6be4a45b2",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144955_ea61459a-a0f2-43f1-8dad-2dc6be4a45b2.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Cool water. Not ice. Ten minutes, at least.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s06-mags-v1.mp3",
+  "job": "8e6c9222-6ccb-4bf2-b343-df301663c753",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144955_8e6c9222-6ccb-4bf2-b343-df301663c753.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "And that ring comes off before it swells.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s06-mags2-v1.mp3",
+  "job": "7c3faeb0-c197-464f-a7ae-b3d6d47fb548",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_144956_7c3faeb0-c197-464f-a7ae-b3d6d47fb548.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 3,
+  "speaker": "ROY",
+  "text": "That's our drinking water.",
+  "voice_id": "573e5163-59b3-4926-aab1-951ef2985f81",
+  "file": "audio/ep03/lines/s06-roy-v1.mp3",
+  "job": "7a9b8311-ada3-470b-bb09-41b3fa0a844d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145013_7a9b8311-ada3-470b-bb09-41b3fa0a844d.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 4,
+  "speaker": "MAGS",
+  "text": "Then we drink less tonight.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s06-mags3-v1.mp3",
+  "job": "488f3f7d-73db-4c62-82a6-cea6ea692df8",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145013_488f3f7d-73db-4c62-82a6-cea6ea692df8.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 0,
+  "speaker": "BENNY",
+  "text": "Butter. My grandma swore by it.",
+  "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd",
+  "file": "audio/ep03/lines/s07-benny-v1.mp3",
+  "job": "49f8a075-e1c9-4827-8033-a6006807c081",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145014_49f8a075-e1c9-4827-8033-a6006807c081.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Your grandma was wrong.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s07-mags-v1.mp3",
+  "job": "fe2e8dba-3e13-4a63-bf89-b9fea9bc70ad",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145031_fe2e8dba-3e13-4a63-bf89-b9fea9bc70ad.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 2,
+  "speaker": "DRIZZLE",
+  "text": "We've got nothing to wrap it with.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s07-drizzle-v1.mp3",
+  "job": "928f64a0-5515-463f-88f9-bb9f9c3616de",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145031_928f64a0-5515-463f-88f9-bb9f9c3616de.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 3,
+  "speaker": "DARLA",
+  "text": "What ELSE is in that bag?",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep03/lines/s07-darla-v1.mp3",
+  "job": "ed4e1045-864b-4feb-9569-a56b4b4a3f00",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145031_ed4e1045-864b-4feb-9569-a56b4b4a3f00.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Okay. Everybody find a buddy. Say their name.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s08-drizzle-v1.mp3",
+  "job": "7c6d431e-a5cd-41f6-8321-f5859fd0bf15",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145048_7c6d431e-a5cd-41f6-8321-f5859fd0bf15.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 1,
+  "speaker": "NARRATOR",
+  "text": "After a disaster, the first job is knowing who's here.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s08-narrator-v1.mp3",
+  "job": "b2a30701-7119-42c0-8b92-17d46776d1aa",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145048_b2a30701-7119-42c0-8b92-17d46776d1aa.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Dale? ...Still missing.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s08-mags-v1.mp3",
+  "job": "e06cdcc5-ef0a-41e9-b550-edf079cf5ffd",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145048_e06cdcc5-ef0a-41e9-b550-edf079cf5ffd.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Cal Pruitt?",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s08-mags2-v1.mp3",
+  "job": "c8523209-1fe7-46a7-b068-0cb3711f363c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145106_c8523209-1fe7-46a7-b068-0cb3711f363c.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 0,
+  "speaker": "DARLA",
+  "text": "Drizzle's bag went missing while they were gone.",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep03/lines/s09-darla-v1.mp3",
+  "job": "344204eb-02b2-44f1-95bf-0570fb2940c3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145106_344204eb-02b2-44f1-95bf-0570fb2940c3.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 1,
+  "speaker": "DARLA",
+  "text": "So who stayed up here?",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep03/lines/s09-darla2-v1.mp3",
+  "job": "36138855-d676-4363-8007-a8a68a01000a",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145107_36138855-d676-4363-8007-a8a68a01000a.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 2,
+  "speaker": "LYLE",
+  "text": "She won't open hers. Why not?",
+  "voice_id": "76fe86d8-bf3a-5ed8-ba52-f793b29cf71f",
+  "file": "audio/ep03/lines/s09-lyle-v1.mp3",
+  "job": "b611c347-3402-4edd-8649-ada28737121e",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145125_b611c347-3402-4edd-8649-ada28737121e.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 3,
+  "speaker": "GORD",
+  "text": "Good question.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s09-gord-v1.mp3",
+  "job": "0d8c04d7-dfd1-449e-839f-a0dac2793817",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145124_0d8c04d7-dfd1-449e-839f-a0dac2793817.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 4,
+  "speaker": "GORD",
+  "text": "Open the bag, Tess.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s09-gord2-v1.mp3",
+  "job": "9609158c-cdf8-436e-a6f5-906d3846c104",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145125_9609158c-cdf8-436e-a6f5-906d3846c104.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 0,
+  "speaker": "TESS",
+  "text": "It's not his bag. And it's not yours.",
+  "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+  "file": "audio/ep03/lines/s10-tess-v1.mp3",
+  "job": "697e2289-5cdb-420f-8846-ddeb1e4ca096",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145144_697e2289-5cdb-420f-8846-ddeb1e4ca096.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "Hers has a padlock. Mine didn't. Mine was... a snack bag.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s10-drizzle-v1.mp3",
+  "job": "553c8f69-f5e2-4f28-8ab9-53b2cef0aa0a",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145142_553c8f69-f5e2-4f28-8ab9-53b2cef0aa0a.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Pointing fingers in the dark is how camps fall apart.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s10-mags-v1.mp3",
+  "job": "28f4552d-51fc-49a1-822c-452e79c67723",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145143_28f4552d-51fc-49a1-822c-452e79c67723.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 3,
+  "speaker": "GORD",
+  "text": "Then who took it, Drizzle?",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s10-gord-v1.mp3",
+  "job": "db1a68db-4196-4e4d-b00b-e74ca58ab889",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145203_db1a68db-4196-4e4d-b00b-e74ca58ab889.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 4,
+  "speaker": "DRIZZLE",
+  "text": "...I don't know. Yet.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s10-drizzle2-v1.mp3",
+  "job": "e431120f-a46c-469c-a18b-890b542e8bb1",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145202_e431120f-a46c-469c-a18b-890b542e8bb1.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "The rain got colder. And everyone was wet.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s11-narrator-v1.mp3",
+  "job": "3ae36664-e057-486e-bce1-7bb337d30877",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145203_3ae36664-e057-486e-bce1-7bb337d30877.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "He's soaked through. Wet clothes off, dry on.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s11-mags-v1.mp3",
+  "job": "312fd98d-383a-4cbd-aa31-ac113b5d7c0d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145220_312fd98d-383a-4cbd-aa31-ac113b5d7c0d.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 2,
+  "speaker": "DRIZZLE",
+  "text": "I'd give him my slicker, but... it's kind of my whole thing.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s11-drizzle-v1.mp3",
+  "job": "49f1b8a8-c3a6-462a-9748-5b836f6fedca",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145220_49f1b8a8-c3a6-462a-9748-5b836f6fedca.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Then get him off the ground. And a hat.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s11-mags2-v1.mp3",
+  "job": "df415a45-844b-4f36-bda0-f60f05c48dff",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145220_df415a45-844b-4f36-bda0-f60f05c48dff.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 0,
+  "speaker": "HANK",
+  "text": "Here. This'll warm him up.",
+  "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+  "file": "audio/ep03/lines/s12-hank-v1.mp3",
+  "job": "22e5ace2-000e-4b2f-90bb-6e8155ffb9fe",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145238_22e5ace2-000e-4b2f-90bb-6e8155ffb9fe.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "No. Alcohol makes you lose heat faster.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s12-mags-v1.mp3",
+  "job": "12e5bebe-5ec8-4c13-979d-7d62cc1cc82d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145238_12e5bebe-5ec8-4c13-979d-7d62cc1cc82d.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Warm and sweet. And huddle up.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s12-mags2-v1.mp3",
+  "job": "9e6ade89-a896-4d7f-a20b-a409f80ed91a",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145238_9e6ade89-a896-4d7f-a20b-a409f80ed91a.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 3,
+  "speaker": "TESS",
+  "text": "...Thank you.",
+  "voice_id": "b57b22a0-f287-405b-bc82-6f08f5e6bb1f",
+  "file": "audio/ep03/lines/s12-tess-v1.mp3",
+  "job": "3e36f5e4-599c-44be-af52-b0ec0e208dfe",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145256_3e36f5e4-599c-44be-af52-b0ec0e208dfe.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 0,
+  "speaker": "WES",
+  "text": "Three blinks. Cal and I did it as kids.",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s13-wes-v1.mp3",
+  "job": "39a20664-a585-4b31-a82f-baa88b9d5a01",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145256_39a20664-a585-4b31-a82f-baa88b9d5a01.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 1,
+  "speaker": "WES",
+  "text": "It means 'I'm okay.'",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s13-wes2-v1.mp3",
+  "job": "7a9615df-b3cc-4f0d-8876-fee36e34d29b",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145257_7a9615df-b3cc-4f0d-8876-fee36e34d29b.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 2,
+  "speaker": "NARRATOR",
+  "text": "Far below, a light blinked back.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s13-narrator-v1.mp3",
+  "job": "cbe724d4-04c8-4f14-992d-67e053fe0831",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145317_cbe724d4-04c8-4f14-992d-67e053fe0831.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 3,
+  "speaker": "WES",
+  "text": "...Only twice.",
+  "voice_id": "ceee41dc-0ee8-59a7-b3e8-2744116fcb5e",
+  "file": "audio/ep03/lines/s13-wes3-v1.mp3",
+  "job": "0514b14a-91ce-400f-a423-0e50930dd01d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145317_0514b14a-91ce-400f-a423-0e50930dd01d.mp3"
+ },
+ {
+  "sid": "s14",
+  "cap": 0,
+  "speaker": "GORD",
+  "text": "Lights out. Save your batteries. Water's locked up with me.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s14-gord-v1.mp3",
+  "job": "f7b8ab2c-fd62-48e0-8c05-3ea8fde6b8d1",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145318_f7b8ab2c-fd62-48e0-8c05-3ea8fde6b8d1.mp3"
+ },
+ {
+  "sid": "s14",
+  "cap": 1,
+  "speaker": "NARRATOR",
+  "text": "Gord kept the water case in his own tent.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s14-narrator-v1.mp3",
+  "job": "e23837b4-74c8-42a4-97b4-ec4638b108e1",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145336_e23837b4-74c8-42a4-97b4-ec4638b108e1.mp3"
+ },
+ {
+  "sid": "s14",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "'With me.' Remember he said that.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s14-mags-v1.mp3",
+  "job": "c9d666fe-a4cd-4108-9215-bd689ff066a3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145337_c9d666fe-a4cd-4108-9215-bd689ff066a3.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Cool water for burns. Count everyone. Stay dry.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s15-drizzle-v1.mp3",
+  "job": "e1a59113-dba0-46dc-9fbf-d4c5317250f3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145336_e1a59113-dba0-46dc-9fbf-d4c5317250f3.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "And trust... carefully?",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s15-drizzle2-v1.mp3",
+  "job": "d0d04c28-2553-45a4-9a1b-1bf321cd0dbc",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150225_d0d04c28-2553-45a4-9a1b-1bf321cd0dbc.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Someone took your bag while we all watched the smoke.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s15-mags-v1.mp3",
+  "job": "97751755-245a-44d8-be30-87acadabbfae",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145355_97751755-245a-44d8-be30-87acadabbfae.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Not everyone on Gord's side went down the hill.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep03/lines/s15-mags2-v1.mp3",
+  "job": "02e79461-e3ef-4f96-84f1-944794fe4e98",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150239_02e79461-e3ef-4f96-84f1-944794fe4e98.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 4,
+  "speaker": "MILO",
+  "text": "Psst. Drizzle.",
+  "voice_id": "73a45c18-0c56-4642-a61e-f6b303f8ded1",
+  "file": "audio/ep03/lines/s15-milo-v1.mp3",
+  "job": "aed667c4-5403-4823-9f25-16a7325228e3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145619_aed667c4-5403-4823-9f25-16a7325228e3.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 0,
+  "speaker": "MILO",
+  "text": "I saw where your snack bag went.",
+  "voice_id": "73a45c18-0c56-4642-a61e-f6b303f8ded1",
+  "file": "audio/ep03/lines/s16-milo-v1.mp3",
+  "job": "5e7e2e24-297a-4022-a7e1-7532f1947cf6",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145650_5e7e2e24-297a-4022-a7e1-7532f1947cf6.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "You... what?",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s16-drizzle-v1.mp3",
+  "job": "76136270-872b-4726-98b8-e1d42d5cc1bc",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145755_76136270-872b-4726-98b8-e1d42d5cc1bc.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 2,
+  "speaker": "MILO",
+  "text": "Lyle carried it. While the smoke was going.",
+  "voice_id": "73a45c18-0c56-4642-a61e-f6b303f8ded1",
+  "file": "audio/ep03/lines/s16-milo2-v1.mp3",
+  "job": "b265cb49-1c10-4e22-a359-6db33952e7a5",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145723_b265cb49-1c10-4e22-a359-6db33952e7a5.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 3,
+  "speaker": "MILO",
+  "text": "He put it in the big tent. That one.",
+  "voice_id": "73a45c18-0c56-4642-a61e-f6b303f8ded1",
+  "file": "audio/ep03/lines/s16-milo3-v1.mp3",
+  "job": "f5af2a2d-c061-4cb0-934d-3dae1ed79b79",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145825_f5af2a2d-c061-4cb0-934d-3dae1ed79b79.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 4,
+  "speaker": "NARRATOR",
+  "text": "Drizzle had prepared for an earthquake. Not for this.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s16-narrator-v1.mp3",
+  "job": "019e4c16-d0b5-4196-93b8-2c3e3fcf72a8",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145855_019e4c16-d0b5-4196-93b8-2c3e3fcf72a8.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "That's... that's my bag.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s17-drizzle-v1.mp3",
+  "job": "176ec997-3f65-4aee-8502-4032a2591ac9",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145923_176ec997-3f65-4aee-8502-4032a2591ac9.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 1,
+  "speaker": "NARRATOR",
+  "text": "And under it, the water everyone else was rationing.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep03/lines/s17-narrator-v1.mp3",
+  "job": "f8c0eb9e-5e68-4a62-91fe-ba016e818dfd",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_145952_f8c0eb9e-5e68-4a62-91fe-ba016e818dfd.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 2,
+  "speaker": "DRIZZLE",
+  "text": "Milo, stay behind me.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s17-drizzle2-v1.mp3",
+  "job": "493780c3-09c1-4e91-9b6d-15c3da73e149",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150021_493780c3-09c1-4e91-9b6d-15c3da73e149.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 3,
+  "speaker": "GORD",
+  "text": "Can't sleep, Drizzle?",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s17-gord-v1.mp3",
+  "job": "1ff80834-ef18-40ea-9771-0ef9bbbbc052",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150054_1ff80834-ef18-40ea-9771-0ef9bbbbc052.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 4,
+  "speaker": "GORD",
+  "text": "Keeping it safe. Keeping the peace.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep03/lines/s17-gord2-v1.mp3",
+  "job": "b34bb6a3-5e20-4fb2-b79e-636bbff9f33c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150124_b34bb6a3-5e20-4fb2-b79e-636bbff9f33c.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 5,
+  "speaker": "DRIZZLE",
+  "text": "The first-aid kit was in it. Roy needed it.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep03/lines/s17-drizzle3-v1.mp3",
+  "job": "35c37bbc-28c2-4218-8843-51331e9bcf3a",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261021_150154_35c37bbc-28c2-4218-8843-51331e9bcf3a.mp3"
+ }
+]
