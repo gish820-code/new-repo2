@@ -1,0 +1,771 @@
+{
+ "episode": 4,
+ "title": "DAY 4: THE CAMP",
+ "version": 1,
+ "lessons": [
+  "Sanitation: put the latrine at least ~200 ft (60 m) from water and from camp, downhill; wash hands with soap (or sanitizer) after every use.",
+  "Safe drinking water: bring clear water to a rolling boil for 1 minute; or disinfect clear water with UNSCENTED household bleach — the number of drops is on the label (about 8 drops per gallon for 6% bleach), stir, wait 30 minutes.",
+  "Disaster communities: in the first days people usually cooperate — organize shifts and give everyone a job, including kids.",
+  "Mark and protect the water source: rope it off, label it, no washing or rinsing near it."
+ ],
+ "cast_notes": "First lines: MS. ORTEGA (new look: rig extra — steel coat, short fog hair, coach's whistle on a lanyard drawn as a prop), CAL PRUITT (same look as Wes — identical cap — plus an ankle splint and a branch crutch from s10 on), BENNY OCHOA (Ep 3 v2 look), DARLA FINCH (Ep 3 v2 look), LEO (Benny's son, kid extra, silent). Drizzle has NO go-bag on his back (the bag came back from Gord's tent empty-handed off screen; its first-aid kit goes to Dana in s10). Voices: docs/voice-cast-v1.md.",
+ "parts": [
+  {
+   "part": 1,
+   "title": "First Light",
+   "hook": "Gord: And what you've got goes on my list too.",
+   "scenes": [
+    {
+     "id": "h1",
+     "title": "Cold Open",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 2.6,
+     "action": "COLD OPEN (flash-forward to s18, NIGHT): extreme close on the sign-up board under the canopy, lit by one flashlight. Gord's big hand (steel vest sleeve) peels the sheet headed 'WHO HAS WHAT' off the board; the drawing pin pops. Mags' radio static rides under it.",
+     "start": "The board, the sheet pinned.",
+     "end": "The sheet gone; a bare pin.",
+     "captions": [
+      {
+       "t0": 0.2,
+       "t1": 2.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...population centers first..."
+      }
+     ]
+    },
+    {
+     "id": "s01",
+     "title": "Previously",
+     "bg": "townView",
+     "bgOpts": {
+      "fog": 0.4
+     },
+     "duration": 7,
+     "action": "RECAP of Episode 3 (fast, slight film-flicker/vignette like Ep 3 s01): NIGHT town view; the hardware store far below; THREE pale blinks of a flashlight on its roof (hard white dots at 0.8, 1.2 and 1.6 s); at ~3 s a flash-cut to the inside of Gord's tent (the go-bag in a beam). 'PREVIOUSLY' sign.",
+     "start": "Dark town, the roof.",
+     "end": "The bag in Gord's tent.",
+     "captions": [
+      {
+       "t0": 0.2,
+       "t1": 1.6,
+       "kind": "sign",
+       "text": "PREVIOUSLY: DAY 1 · NIGHT"
+      },
+      {
+       "t0": 1.7,
+       "t1": 6.8,
+       "kind": "narration",
+       "text": "A fire. A missing man. Three blinks from a roof."
+      }
+     ]
+    },
+    {
+     "id": "s02",
+     "title": "First Light",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 5,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Title open: 0–3 s the 'RAINY DAY' title sting (yellow League Gothic, hand-drawn underline, exactly like Ep 3 s02) over the trail at grey first light; under it Wes, Drizzle and Benny walk DOWN the trail (right→left), roped together at the waist, Wes in front with a coil of rope on his shoulder.",
+     "start": "Title over the empty trail.",
+     "end": "Three roped figures heading down.",
+     "captions": [
+      {
+       "t0": 1.0,
+       "t1": 4.8,
+       "kind": "narration",
+       "text": "First light, Day 2. Three buddies. One rope."
+      }
+     ]
+    },
+    {
+     "id": "s03",
+     "title": "The Roof",
+     "bg": "mainStreet",
+     "bgOpts": {
+      "damage": 1
+     },
+     "duration": 20,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Main Street after the water: mud, debris, the harbor low (harbor.setLevel near lowY/drainedY). The hardware store (buildings.hardware, GULL HARBOR wall sign). CAL PRUITT sits on the edge of the flat roof/parapet, one leg out stiff (ankle), waving his cap. Wes runs in below and shouts up; Drizzle and Benny follow, still roped. Wes climbs a fallen ladder/debris pile; they pass a rope up; Cal ties on; Wes and Benny take his weight and Drizzle braces at the back of the line (comic strain). Cal is lowered down onto Wes' shoulder. Ends with Cal standing on one foot between Wes and Benny, arms over their shoulders; Drizzle flops back in the mud.",
+     "start": "Cal on the roof edge.",
+     "end": "Cal down, propped between Wes and Benny; Drizzle sitting in the mud.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 2.0,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Cal! CAL!",
+       "tag": "WES PRUITT"
+      },
+      {
+       "t0": 2.6,
+       "t1": 4.6,
+       "kind": "dialogue",
+       "speaker": "CAL",
+       "text": "Took you long enough.",
+       "tag": "CAL PRUITT · Wes's twin"
+      },
+      {
+       "t0": 5.0,
+       "t1": 7.6,
+       "kind": "dialogue",
+       "speaker": "CAL",
+       "text": "Ankle's gone. Rest of me's fine."
+      },
+      {
+       "t0": 8.6,
+       "t1": 10.8,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Rope on. Nobody unclips."
+      },
+      {
+       "t0": 15.2,
+       "t1": 19.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Good news: he's alive. Bad news: he's heavy."
+      }
+     ]
+    },
+    {
+     "id": "s04",
+     "title": "Day Four",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 9,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). 0–2.6 s: the big DAY card — 'DAY 4' in League Gothic slicker yellow with the hand-drawn underline and a small subtitle 'THE CAMP' (same treatment as Ep 2's DAY 1 card) over the camp. Then the 'since last time' MONTAGE: 5 hard cuts of ~1.25 s, each a tight framing on ONE concrete change in the camp: (1) the BOILING STATION — Benny's two-burner stove on a flat rock outside, a big pot with steam; (2) a LATRINE SCREEN (tarp on poles) far downhill with a hand-lettered sign 'LATRINE →'; (3) a FIRST-AID corner — a crate with a hand-lettered paper cross sign 'FIRST AID' under the canopy; (4) the SIGN-UP BOARD — a sheet 'SHIFTS: WATER / WOOD / LATRINE / WATCH' with names; (5) two kids carrying a water jug between them. No dialogue.",
+     "start": "DAY 4 card.",
+     "end": "Kids with the jug.",
+     "captions": [
+      {
+       "t0": 2.8,
+       "t1": 8.6,
+       "kind": "narration",
+       "text": "Three days. No helicopter. But the camp had a toilet."
+      }
+     ]
+    },
+    {
+     "id": "s05",
+     "title": "The Count",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 6,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). The three TRACKER CARDS (bible §3.2) slide in stacked at left over the busy camp (paper cards on a dark panel, League Gothic numbers, ink labels): WATER LEFT 6 DAYS · FOOD LEFT 10 DAYS · PEOPLE IN CAMP 212. Each card lands with a small bounce, 0.4 s apart. Behind, the camp works (extras carrying wood, water).",
+     "start": "Camp at work.",
+     "end": "Three cards up.",
+     "captions": [
+      {
+       "t0": 1.2,
+       "t1": 5.8,
+       "kind": "narration",
+       "text": "Two hundred twelve people. Every one of them with a job."
+      }
+     ]
+    },
+    {
+     "id": "s06",
+     "title": "By Twos",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.3
+     },
+     "duration": 14,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Under/in front of the canopy. MS. ORTEGA (new: the teacher; steel rain shell, short fog-gray hair, a coach's whistle on a lanyard at her chest) blows the whistle at 0.1–0.6 s (two short blasts; draw small puff lines) and a line of kids and a few adults forms in pairs in front of her. Drizzle hops into line, looks around for a partner, grabs Mags' arm; Mags looks at him over her glasses.",
+     "start": "Ortega with the whistle; people milling.",
+     "end": "A neat double line; Drizzle arm-in-arm with Mags.",
+     "captions": [
+      {
+       "t0": 1.0,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "MS. ORTEGA",
+       "text": "Line up by twos!",
+       "tag": "MS. ORTEGA · the teacher"
+      },
+      {
+       "t0": 2.8,
+       "t1": 5.8,
+       "kind": "dialogue",
+       "speaker": "MS. ORTEGA",
+       "text": "Buddy's name, out loud. Adults too."
+      },
+      {
+       "t0": 6.4,
+       "t1": 10.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Drizzle! My buddy is... Mags."
+      },
+      {
+       "t0": 10.6,
+       "t1": 12.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Lucky me."
+      }
+     ]
+    },
+    {
+     "id": "s07",
+     "title": "The Board",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 15,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Gord at his BEST: standing by the sign-up board in the canopy (canopy.board = the old missing-persons whiteboard, now with a paper SHIFTS sheet and a second sheet 'WHO HAS WHAT' pinned beside it), clipboard in hand, upbeat, pointing people to the sheets; extras queue and write their names. Drizzle signs up (big flourish). Last line: Gord taps the WHO HAS WHAT sheet with his pen and smiles a little too long (hold on him).",
+     "start": "Gord at the board.",
+     "end": "Gord tapping the WHO HAS WHAT sheet, smiling.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 2.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Folks! Shifts are on the board.",
+       "tag": "GORD PIKE"
+      },
+      {
+       "t0": 3.0,
+       "t1": 6.0,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Water, wood, latrine, watch. Sign up."
+      },
+      {
+       "t0": 6.6,
+       "t1": 9.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Latrine. Somebody has to."
+      },
+      {
+       "t0": 9.8,
+       "t1": 14.4,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "And what you've got goes on my list too."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "title": "Clean Water",
+   "hook": "Tess: Come with me. Alone.",
+   "scenes": [
+    {
+     "id": "s08",
+     "title": "Boiling Station",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Shelter set: BENNY OCHOA's boiling station OUTSIDE in the open on the flat rock (front right): the two-burner camp stove (pale flame), a big pot with a rolling boil (bubbles + steam), a row of jugs. Benny stands proudly by it with a wind-up kitchen timer; his son LEO (kid extra) beside him. Drizzle arrives with two jugs. Benny turns the timer; the boil keeps rolling through the sign.",
+     "start": "Benny by the stove.",
+     "end": "Pot at a rolling boil, timer ticking.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "BENNY",
+       "text": "Stove stays outside. Learned that one.",
+       "tag": "BENNY OCHOA"
+      },
+      {
+       "t0": 3.6,
+       "t1": 7.0,
+       "kind": "dialogue",
+       "speaker": "BENNY",
+       "text": "Rolling boil. One full minute."
+      },
+      {
+       "t0": 7.6,
+       "t1": 9.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "And the timer?"
+      },
+      {
+       "t0": 10.0,
+       "t1": 12.6,
+       "kind": "dialogue",
+       "speaker": "BENNY",
+       "text": "Nothing else to do up here."
+      },
+      {
+       "t0": 13.2,
+       "t1": 17.6,
+       "kind": "sign",
+       "text": "BOIL: A ROLLING BOIL FOR 1 FULL MINUTE"
+      }
+     ]
+    },
+    {
+     "id": "s09",
+     "title": "Bleach",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Under the tarp: Mags at the crate with the rain-catch BUCKET (clear water) and a white jug of household bleach with a hand-drawn label 'BLEACH · UNSCENTED' (no brand). She holds up the jug and taps the label, counts drops (tiny drops from the cap), stirs with a stick, then holds up a hand: wait. Drizzle crouches by the bucket, staring at it.",
+     "start": "Mags with the jug.",
+     "end": "Drizzle staring at the bucket, waiting.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Clear water, no fuel? Bleach."
+      },
+      {
+       "t0": 3.4,
+       "t1": 6.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Unscented. The label tells you how many drops."
+      },
+      {
+       "t0": 7.2,
+       "t1": 8.8,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Then we drink?"
+      },
+      {
+       "t0": 9.2,
+       "t1": 11.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Stir. Then wait thirty minutes."
+      },
+      {
+       "t0": 12.4,
+       "t1": 17.6,
+       "kind": "sign",
+       "text": "BLEACH: UNSCENTED ONLY · DROPS PER LABEL · WAIT 30 MIN"
+      }
+     ]
+    },
+    {
+     "id": "s10",
+     "title": "First Aid",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.3
+     },
+     "duration": 21,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). The FIRST-AID corner in the left bay of the canopy: a crate table with a paper cross sign 'FIRST AID'. DANA REYES (forearm in white gauze) kneels by CAL, who sits on a cooler with his ankle splinted (two boards + strips of cloth), leg up on a crate. Drizzle walks in carrying HIS first-aid kit (his go-bag is back — Gord handed it over this morning, empty of nothing but the water; the 'found' is said with air quotes: Drizzle does finger quotes) (the red-cross pouch from his go-bag, drawn in muted gray/paper with an ink cross — no red) and sets it on the crate. Dana raises an eyebrow; Drizzle pats it.",
+     "start": "Dana and Cal at the crate.",
+     "end": "The kit open on the crate; Drizzle proud.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "DANA",
+       "text": "Sit. Foot up. Don't look.",
+       "tag": "DANA REYES · first aid"
+      },
+      {
+       "t0": 3.2,
+       "t1": 5.2,
+       "kind": "dialogue",
+       "speaker": "CAL",
+       "text": "Wasn't gonna look."
+      },
+      {
+       "t0": 6.0,
+       "t1": 8.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Here. The whole kit."
+      },
+      {
+       "t0": 8.8,
+       "t1": 11.0,
+       "kind": "dialogue",
+       "speaker": "DANA",
+       "text": "Gord gave your bag back?"
+      },
+      {
+       "t0": 11.4,
+       "t1": 13.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "He \"found\" it."
+      },
+      {
+       "t0": 13.8,
+       "t1": 19.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "It's not a snack bag anymore. It's the camp's."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "Not Here",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.3
+     },
+     "duration": 15,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). By the tents (tents[0..1] area). TESS (padlocked duffel on her shoulder) has been watching Drizzle from her tent; MILO (with a small flashlight on a lanyard round his neck) tugs her coat. Tess walks over to Drizzle, glances at the crowd near the canopy, keeps her voice low; she nods toward the back of the shelter/cabin (off left). Drizzle looks back at Mags, then follows.",
+     "start": "Tess watching, Milo tugging.",
+     "end": "Tess walking off; Drizzle following.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.6,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "Mom. Tell him.",
+       "tag": "MILO VARGA"
+      },
+      {
+       "t0": 4.2,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "Drizzle. Not here.",
+       "tag": "TESS VARGA"
+      },
+      {
+       "t0": 7.6,
+       "t1": 11.0,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "Come with me. Alone."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "title": "Downhill",
+   "hook": "Radio: ...this is the emergency... ",
+   "scenes": [
+    {
+     "id": "s12",
+     "title": "The Duffel",
+     "bg": "shelter",
+     "bgOpts": {
+      "fog": 0.4
+     },
+     "duration": 22,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Behind the cabin by the utility shed (shelter set, right side), out of sight of the camp. Tess kneels, unlocks the padlock with a small key on a cord, unzips the duffel: inside, neatly packed, a small insulated pouch; she opens it — small vials and pens (draw as paper/fog rounded shapes with ink caps). Close insert panel on the vials. Drizzle crouches, serious for once. On his promise he draws an X over his heart. Milo watches from the corner.",
+     "start": "Tess kneeling at the duffel.",
+     "end": "Duffel zipped again; Drizzle's hand on his heart.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 2.8,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "Insulin. Milo's."
+      },
+      {
+       "t0": 4.6,
+       "t1": 6.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Does it need a fridge?"
+      },
+      {
+       "t0": 7.2,
+       "t1": 10.6,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "It lasts a few weeks out of one."
+      },
+      {
+       "t0": 11.4,
+       "t1": 14.4,
+       "kind": "dialogue",
+       "speaker": "TESS",
+       "text": "If they know, they'll want it."
+      },
+      {
+       "t0": 15.4,
+       "t1": 20.6,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Then nobody knows. Promise."
+      }
+     ]
+    },
+    {
+     "id": "s13",
+     "title": "Two Hundred Feet",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 20,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Below the camp on the slope (the hillside trail, the water tank / creek NOT on this side — keep the bay far left). Mags (radio on her hip) and Drizzle walk DOWNHILL (right→left along trailY), Drizzle counting giant steps out loud with a shovel over his shoulder; Mags points back uphill (toward the camp and its water) and then down at a spot well below. Drizzle drives the shovel in. A small hand-lettered stake 'LATRINE' goes in.",
+     "start": "Mags and Drizzle leaving the camp edge.",
+     "end": "The shovel in the ground, the LATRINE stake.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 3.2,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Downhill. Well away from the water."
+      },
+      {
+       "t0": 4.0,
+       "t1": 6.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Seventy-one. Seventy-two."
+      },
+      {
+       "t0": 7.0,
+       "t1": 10.0,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Two hundred feet. Then dig."
+      },
+      {
+       "t0": 11.0,
+       "t1": 19.4,
+       "kind": "sign",
+       "text": "LATRINE: 200 FT / 60 M FROM WATER AND CAMP, DOWNHILL"
+      }
+     ]
+    },
+    {
+     "id": "s14",
+     "title": "Soap",
+     "bg": "hillsideTrail",
+     "bgOpts": {},
+     "duration": 16,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). Same place, an hour later: a tarp LATRINE SCREEN on three poles; beside it a HAND-WASH station — a jug hung on a post with a stick tap, a bar of soap on a string, a basin below. Drizzle steps out from behind the screen, proud, and gives a thumbs up; Mags points at the soap without a word; Drizzle washes his hands (water stream from the jug), then shakes them dry.",
+     "start": "Screen up; Drizzle stepping out.",
+     "end": "Drizzle washing his hands.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 5.0,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Good news: I'm still waterproof. Bad news: so is the latrine."
+      },
+      {
+       "t0": 5.8,
+       "t1": 8.6,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Soap after. Every time. Everyone."
+      },
+      {
+       "t0": 9.2,
+       "t1": 15.6,
+       "kind": "sign",
+       "text": "WASH HANDS WITH SOAP AFTER EVERY USE"
+      }
+     ]
+    },
+    {
+     "id": "s15",
+     "title": "Protect It",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 18,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). The water tank (far left, the taped crack) and a rain-catch tarp funneling into barrels beside it. WES strings a rope barrier on stakes around it; CAL (one foot, a crutch made of a branch) hangs a hand-lettered sign 'DRINKING WATER ONLY · NO WASHING'. A kid starts to rinse a muddy boot in a barrel — Wes gently steers him away. At ~15 s Mags' radio (she is passing by) crackles: she stops, lifts it (static squiggles).",
+     "start": "Wes with rope and stakes.",
+     "end": "Rope + sign up; Mags lifting the crackling radio.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 3.0,
+       "kind": "dialogue",
+       "speaker": "WES",
+       "text": "Rope it off. Nobody washes here."
+      },
+      {
+       "t0": 3.6,
+       "t1": 5.6,
+       "kind": "dialogue",
+       "speaker": "CAL",
+       "text": "Drinking only. Sign says so."
+      },
+      {
+       "t0": 6.4,
+       "t1": 12.0,
+       "kind": "sign",
+       "text": "MARK AND PROTECT THE WATER SOURCE"
+      },
+      {
+       "t0": 14.8,
+       "t1": 17.6,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...this is the emergency..."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "part": 4,
+   "title": "The List",
+   "hook": "NEXT: DAY 9",
+   "scenes": [
+    {
+     "id": "s16",
+     "title": "Population Centers",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": true,
+      "fog": 0.3
+     },
+     "duration": 22,
+     "action": "DAY (Episode 4 is the series' first daylight episode since Episode 2: flat gray overcast, light rain, no night grade). (late afternoon, a little darker). Under the canopy the crowd presses around Mags, who sits cranking the radio (crank circling, static squiggles). Faces lean in. DARLA (dead phone in her hand, checking it) turns to the crowd, scared. Gord climbs onto the picnic table with his clipboard and raises both hands, steady and calm (he is good at this).",
+     "start": "Crowd around the radio.",
+     "end": "Gord on the table, hands up; the crowd settling.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 4.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...relief prioritized... for population centers..."
+      },
+      {
+       "t0": 5.0,
+       "t1": 8.4,
+       "kind": "dialogue",
+       "speaker": "RADIO",
+       "text": "...smaller coastal communities... to follow..."
+      },
+      {
+       "t0": 9.2,
+       "t1": 12.0,
+       "kind": "dialogue",
+       "speaker": "DARLA",
+       "text": "To follow? Follow when?",
+       "tag": "DARLA FINCH"
+      },
+      {
+       "t0": 13.0,
+       "t1": 15.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "Folks. We're fine."
+      },
+      {
+       "t0": 16.0,
+       "t1": 18.6,
+       "kind": "dialogue",
+       "speaker": "GORD",
+       "text": "We have a plan. We have a list."
+      }
+     ]
+    },
+    {
+     "id": "s17",
+     "title": "Everybody Gets a Job",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 22,
+     "action": "EVENING (dusk grade like Ep 3 s02): the fire ring (firePit) with small pale flames; Drizzle, Mags and Milo sit around it, Milo playing his lanyard flashlight over the ground. In-character recap of the lessons. On 'Head of flashlights' Milo clicks the light on under his chin and grins.",
+     "start": "Three at the fire.",
+     "end": "Milo grinning, light under his chin.",
+     "captions": [
+      {
+       "t0": 0.4,
+       "t1": 4.6,
+       "kind": "narration",
+       "text": "In most disasters, people help each other first."
+      },
+      {
+       "t0": 5.2,
+       "t1": 8.4,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Boil one minute. Latrine downhill."
+      },
+      {
+       "t0": 9.0,
+       "t1": 11.8,
+       "kind": "dialogue",
+       "speaker": "MAGS",
+       "text": "Soap. And everybody gets a job."
+      },
+      {
+       "t0": 12.6,
+       "t1": 14.0,
+       "kind": "dialogue",
+       "speaker": "MILO",
+       "text": "Even me?"
+      },
+      {
+       "t0": 14.6,
+       "t1": 18.2,
+       "kind": "dialogue",
+       "speaker": "DRIZZLE",
+       "text": "Especially you. Head of flashlights."
+      }
+     ]
+    },
+    {
+     "id": "s18",
+     "title": "The List",
+     "bg": "hilltopCamp",
+     "bgOpts": {
+      "crowd": false,
+      "fog": 0.4
+     },
+     "duration": 24,
+     "action": "NIGHT (night grade like Ep 3, figures lit by one flashlight). The empty canopy; the sign-up board with the SHIFTS sheet and the WHO HAS WHAT sheet. Gord comes in with a flashlight, looks over his shoulder at the dark camp, and peels the WHO HAS WHAT sheet off the board (pin pops; same framing as the cold open), folds it, tucks it into his clipboard, and walks to his tent (tents[1] with the G. PIKE sign and clipboard from Ep 3 v2), ducks inside; the tent glows, then goes dark. Across the camp, Drizzle (by the fire ring, small) looks up. At 20.4 s the NEXT sting: 'NEXT: DAY 9' (same card treatment as Ep 3 v2 s17: big title once, no caption copy) over the dark camp.",
+     "start": "The empty board at night.",
+     "end": "Gord's tent dark; NEXT: DAY 9.",
+     "captions": [
+      {
+       "t0": 0.6,
+       "t1": 4.6,
+       "kind": "narration",
+       "text": "That night, the list of who had what..."
+      },
+      {
+       "t0": 9.0,
+       "t1": 12.6,
+       "kind": "narration",
+       "text": "...went into Gord's tent."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

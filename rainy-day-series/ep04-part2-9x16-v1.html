@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      /* Rainy Day — shared visual style, v1.
+       * Palette: stormy blues and grays; the yellow slicker is the ONLY saturated color.
+       * Fonts: Kalam (hand-lettered captions + dialogue), League Gothic (DAY cards, signage; bundled by HyperFrames).
+       * The same tokens are exported to JS as window.RainyDay.palette / .LINE in assets/characters/rainy-day-rig-v1.js.
+       */
+      @font-face { font-family: "Kalam"; src: url("assets/fonts/Kalam-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+      @font-face { font-family: "Kalam"; src: url("assets/fonts/Kalam-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+      
+      :root {
+        /* — palette — */
+        --rd-night: #141B26;       /* deepest shadow, letterbox, 9:16 chrome */
+        --rd-storm: #24303F;       /* storm sky, deep water */
+        --rd-slate: #3A4A5E;       /* mid shadows, wet asphalt */
+        --rd-steel: #5B6E85;       /* buildings, hills (mid) */
+        --rd-mist: #8FA0B4;        /* distant layers, rain */
+        --rd-fog: #C3CDD8;         /* light surfaces, sky glow */
+        --rd-paper: #E6EAEE;       /* brightest neutral: faces, highlights, caption text */
+        --rd-ink: #10161F;         /* every outline and the stick figures */
+        --rd-slicker: #F2C230;     /* Drizzle's slicker — the only saturated color */
+        --rd-slicker-shade: #C99A16;
+      
+        /* — line weights (px at 1920×1080) — */
+        --rd-line-figure: 8px;     /* stick-figure limbs */
+        --rd-line-main: 4px;       /* object outlines in backgrounds */
+        --rd-line-detail: 2px;     /* hatching, texture, small detail */
+      
+        /* — caption type — */
+        --rd-caption-font: "Kalam", "Comic Sans MS", cursive;
+        --rd-caption-size-16x9: 44px;
+        --rd-caption-size-9x16: 52px;
+        --rd-title-font: "League Gothic", "Oswald", sans-serif;
+      }
+      
+      /* Caption block (used by the generated caption tracks). */
+      .rd-caption {
+        font-family: var(--rd-caption-font);
+        font-weight: 700;
+        color: var(--rd-paper);
+        line-height: 1.2;
+        text-align: center;
+      }
+      .rd-caption .rd-speaker { color: var(--rd-slicker); font-weight: 700; margin-right: 0.35em; }
+      .rd-caption.rd-narration { font-weight: 400; font-style: normal; color: var(--rd-fog); }
+      .rd-caption.rd-sign { font-family: var(--rd-title-font); letter-spacing: 0.04em; color: var(--rd-slicker); }
+      
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #141B26; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #141B26; }
+      #hdr { position: absolute; left: 0; top: 0; width: 1080px; height: 330px; background: #10161F; border-bottom: 6px solid #F2C230; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+      #hdr .part { font-family: var(--rd-title-font); font-size: 150px; line-height: 0.9; letter-spacing: 0.04em; color: #F2C230; }
+      #hdr .series { font-family: var(--rd-caption-font); font-weight: 700; font-size: 44px; color: #C3CDD8; letter-spacing: 0.02em; }
+      #frame-wrap { position: absolute; left: 0; top: 380px; width: 1080px; height: 608px; overflow: hidden; background: #000; border-top: 3px solid #3A4A5E; border-bottom: 3px solid #3A4A5E; }
+      #frame { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; transform: scale(0.5625); overflow: hidden; }
+      #cap-area { position: absolute; left: 0; top: 1000px; width: 1080px; height: 560px; }
+      .rd-cap9 { position: absolute; left: 50px; top: 1030px; width: 980px; height: 420px; display: flex; align-items: center; justify-content: center; }
+      .rd-cap9 .rd-cap-inner { max-width: 980px; font-size: 60px; line-height: 1.22; }
+      .rd-cap9 .rd-speaker { display: block; font-size: 44px; margin: 0 0 8px; letter-spacing: 0.06em; }
+      .rd-cap9 .rd-sign { font-size: 86px; line-height: 1.04; letter-spacing: 0.04em; }
+      #foot { position: absolute; left: 0; top: 1500px; width: 1080px; height: 60px; text-align: center; font-family: var(--rd-caption-font); font-size: 30px; color: #5B6E85; }
+      .rd-tag { display: block; width: max-content; margin: 0 auto 8px; padding: 2px 14px 4px; border: 3px solid #F2C230; border-radius: 8px; background: #10161F; color: #E6EAEE; font-family: var(--rd-caption-font); font-weight: 700; letter-spacing: 0.06em; }
+      .rd-cap16 .rd-tag { font-size: 28px; }
+      .rd-cap9 .rd-tag { font-size: 36px; margin-bottom: 12px; }
+    </style>
+  </head>
+  <body>
+    <!-- Rainy Day · Episode 4 · PART 2 of 4 · TikTok 9:16 (72s) — generated by tools/build-ep04-v1.mjs
+         Layout: header bar (0–330) · the 16:9 scene centered at 1080×608 (y 380–988) · caption area (y 1000–1560).
+         Audio: VO + SFX are mounted in compositions/ep04/parts/ep04-part2-v1.html (mounted below). -->
+    <div id="root" data-composition-id="ep04-part2-9x16" data-start="0" data-duration="72" data-width="1080" data-height="1920">
+      <div id="hdr" class="clip" data-start="0" data-duration="72" data-track-index="2">
+        <div class="part">PART 2</div>
+        <div class="series">RAINY DAY · EPISODE 4 (2/4)</div>
+      </div>
+      <div id="frame-wrap">
+        <div id="frame">
+          <div id="ep04-part2-9x16-scene" data-composition-id="ep04-part2" data-composition-src="compositions/ep04/parts/ep04-part2-v1.html" data-start="0" data-duration="72" data-track-index="0" data-width="1920" data-height="1080"></div>
+        </div>
+      </div>
+      <div id="foot" class="clip" data-start="0" data-duration="72" data-track-index="3">part 3 next →</div>
+      <div id="cap9-s08-01" class="clip rd-cap9" data-start="0.4" data-duration="3.2" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-tag">BENNY OCHOA</span><span class="rd-speaker">BENNY:</span>Stove stays outside. Learned that one.</div></div>
+      <div id="cap9-s08-02" class="clip rd-cap9" data-start="3.72" data-duration="3.26" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">BENNY:</span>Rolling boil. One full minute.</div></div>
+      <div id="cap9-s08-03" class="clip rd-cap9" data-start="7.6" data-duration="1.27" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DRIZZLE:</span>And the timer?</div></div>
+      <div id="cap9-s08-04" class="clip rd-cap9" data-start="10" data-duration="1.91" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">BENNY:</span>Nothing else to do up here.</div></div>
+      <div id="cap9-s08-05" class="clip rd-cap9" data-start="13.2" data-duration="4.4" data-track-index="5"><div class="rd-cap-inner rd-caption rd-sign">BOIL: A ROLLING BOIL FOR 1 FULL MINUTE</div></div>
+      <div id="cap9-s09-01" class="clip rd-cap9" data-start="18.4" data-duration="3.39" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">MAGS:</span>Clear water, no fuel? Bleach.</div></div>
+      <div id="cap9-s09-02" class="clip rd-cap9" data-start="21.91" data-duration="3.85" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">MAGS:</span>Unscented. The label tells you how many drops.</div></div>
+      <div id="cap9-s09-03" class="clip rd-cap9" data-start="25.88" data-duration="1.47" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DRIZZLE:</span>Then we drink?</div></div>
+      <div id="cap9-s09-04" class="clip rd-cap9" data-start="27.47" data-duration="3.17" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">MAGS:</span>Stir. Then wait thirty minutes.</div></div>
+      <div id="cap9-s09-05" class="clip rd-cap9" data-start="30.76" data-duration="5.18" data-track-index="5"><div class="rd-cap-inner rd-caption rd-sign">BLEACH: UNSCENTED ONLY · DROPS PER LABEL · WAIT 30 MIN</div></div>
+      <div id="cap9-s10-01" class="clip rd-cap9" data-start="36.4" data-duration="3.1" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-tag">DANA REYES · first aid</span><span class="rd-speaker">DANA:</span>Sit. Foot up. Don't look.</div></div>
+      <div id="cap9-s10-02" class="clip rd-cap9" data-start="39.62" data-duration="1.57" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">CAL:</span>Wasn't gonna look.</div></div>
+      <div id="cap9-s10-03" class="clip rd-cap9" data-start="42" data-duration="2.01" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DRIZZLE:</span>Here. The whole kit.</div></div>
+      <div id="cap9-s10-04" class="clip rd-cap9" data-start="44.8" data-duration="1.88" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DANA:</span>Gord gave your bag back?</div></div>
+      <div id="cap9-s10-05" class="clip rd-cap9" data-start="47.4" data-duration="1.55" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DRIZZLE:</span>He "found" it.</div></div>
+      <div id="cap9-s10-06" class="clip rd-cap9" data-start="49.8" data-duration="3.2" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">DRIZZLE:</span>It's not a snack bag anymore. It's the camp's.</div></div>
+      <div id="cap9-s11-01" class="clip rd-cap9" data-start="57.6" data-duration="1.66" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-tag">MILO VARGA</span><span class="rd-speaker">MILO:</span>Mom. Tell him.</div></div>
+      <div id="cap9-s11-02" class="clip rd-cap9" data-start="61.2" data-duration="2.22" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-tag">TESS VARGA</span><span class="rd-speaker">TESS:</span>Drizzle. Not here.</div></div>
+      <div id="cap9-s11-03" class="clip rd-cap9" data-start="64.6" data-duration="2.2" data-track-index="5"><div class="rd-cap-inner rd-caption"><span class="rd-speaker">TESS:</span>Come with me. Alone.</div></div>
+
+      <!-- ═════════════ MUSIC — ep04-part2-9x16 (track 21, reserved; no music in Eps 1–3) ═════════════ -->
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#cap9-s08-01 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 0.4);
+      tl.to("#cap9-s08-01 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 3.45);
+      tl.fromTo("#cap9-s08-02 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 3.72);
+      tl.to("#cap9-s08-02 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 6.83);
+      tl.fromTo("#cap9-s08-03 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 7.6);
+      tl.to("#cap9-s08-03 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 8.72);
+      tl.fromTo("#cap9-s08-04 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 10);
+      tl.to("#cap9-s08-04 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 11.76);
+      tl.fromTo("#cap9-s08-05 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 13.2);
+      tl.to("#cap9-s08-05 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 17.45);
+      tl.fromTo("#cap9-s09-01 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 18.4);
+      tl.to("#cap9-s09-01 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 21.64);
+      tl.fromTo("#cap9-s09-02 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 21.91);
+      tl.to("#cap9-s09-02 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 25.61);
+      tl.fromTo("#cap9-s09-03 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 25.88);
+      tl.to("#cap9-s09-03 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 27.2);
+      tl.fromTo("#cap9-s09-04 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 27.47);
+      tl.to("#cap9-s09-04 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 30.49);
+      tl.fromTo("#cap9-s09-05 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 30.76);
+      tl.to("#cap9-s09-05 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 35.79);
+      tl.fromTo("#cap9-s10-01 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 36.4);
+      tl.to("#cap9-s10-01 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 39.35);
+      tl.fromTo("#cap9-s10-02 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 39.62);
+      tl.to("#cap9-s10-02 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 41.04);
+      tl.fromTo("#cap9-s10-03 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 42);
+      tl.to("#cap9-s10-03 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 43.86);
+      tl.fromTo("#cap9-s10-04 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 44.8);
+      tl.to("#cap9-s10-04 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 46.53);
+      tl.fromTo("#cap9-s10-05 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 47.4);
+      tl.to("#cap9-s10-05 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 48.8);
+      tl.fromTo("#cap9-s10-06 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 49.8);
+      tl.to("#cap9-s10-06 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 52.85);
+      tl.fromTo("#cap9-s11-01 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 57.6);
+      tl.to("#cap9-s11-01 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 59.11);
+      tl.fromTo("#cap9-s11-02 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 61.2);
+      tl.to("#cap9-s11-02 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 63.27);
+      tl.fromTo("#cap9-s11-03 .rd-cap-inner", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, 64.6);
+      tl.to("#cap9-s11-03 .rd-cap-inner", { opacity: 0, duration: 0.15, ease: "power1.in" }, 66.65);
+      window.__timelines["ep04-part2-9x16"] = tl;
+    </script>
+  </body>
+</html>
