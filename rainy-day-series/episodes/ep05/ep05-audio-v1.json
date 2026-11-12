@@ -1,0 +1,356 @@
+{
+ "version": 1,
+ "model": "elevenlabs_v4",
+ "notes": "Episode 5 voices: one ElevenLabs v4 take per line (via Higgsfield), voices from docs/voice-cast-v1.md (no new characters). Lines: audio/ep05/lines/ (log audio/ep05/LINES-v1.md). SFX: library files (assets/sfx/, incl. the Episode 5 additions logged in SFX-LOG-ep05-v1.md) + the Episode 1-4 ffmpeg synthesizer. No rain this episode (dry spell). No music.",
+ "cast": {
+  "DRIZZLE": {
+   "name": "Dylan",
+   "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "NARRATOR": {
+   "name": "Arthur",
+   "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "GORD": {
+   "name": "Gideon",
+   "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "DARLA": {
+   "name": "Juno",
+   "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+   "fx": "none",
+   "gainDb": -1
+  },
+  "MAGS": {
+   "name": "Mabel",
+   "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+   "fx": "none",
+   "gainDb": 0
+  },
+  "RADIO": {
+   "name": "Grady",
+   "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+   "fx": "radio",
+   "gainDb": -2
+  },
+  "HANK": {
+   "name": "Bob",
+   "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+   "fx": "none",
+   "gainDb": 0
+  }
+ },
+ "ambience": {},
+ "sfx": {
+  "h1": [
+   {
+    "file": "assets/sfx/dry-day-insects-v1.mp3",
+    "t": 0,
+    "d": 3.0,
+    "level": 0.35
+   },
+   {
+    "type": "click",
+    "t": 2.2,
+    "level": 0.5
+   }
+  ],
+  "s01": [
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 6.5,
+    "level": 0.15,
+    "rampIn": 0.5
+   },
+   {
+    "type": "click",
+    "t": 2.8,
+    "level": 0.8
+   },
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 0.2,
+    "d": 0.6,
+    "level": 0.4
+   }
+  ],
+  "s02": [
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 0.2,
+    "d": 0.6,
+    "level": 0.6
+   },
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 2.6,
+    "d": 0.6,
+    "level": 0.6
+   },
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 6,
+    "level": 0.25
+   }
+  ],
+  "s03": [
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 8,
+    "level": 0.2
+   },
+   {
+    "type": "drip",
+    "t": 1.5,
+    "d": 1.5
+   }
+  ],
+  "s04": [
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 0.3,
+    "d": 0.6,
+    "level": 0.45
+   },
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 0.7,
+    "d": 0.6,
+    "level": 0.45
+   },
+   {
+    "file": "assets/sfx/card-swish-v1.mp3",
+    "t": 1.1,
+    "d": 0.6,
+    "level": 0.45
+   },
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 6,
+    "level": 0.25,
+    "rampIn": 0.3
+   }
+  ],
+  "s05": [
+   {
+    "file": "assets/sfx/dry-day-insects-v1.mp3",
+    "t": 0,
+    "d": 24,
+    "level": 0.3
+   },
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 24,
+    "level": 0.35,
+    "rampIn": 0.3
+   }
+  ],
+  "s06": [
+   {
+    "file": "assets/sfx/dry-day-insects-v1.mp3",
+    "t": 0,
+    "d": 24,
+    "level": 0.3
+   },
+   {
+    "type": "thud",
+    "t": 1.6,
+    "level": 0.35
+   },
+   {
+    "type": "pour",
+    "t": 13.4,
+    "d": 1.2,
+    "level": 0.4
+   },
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 24,
+    "level": 0.2,
+    "rampIn": 0.3
+   }
+  ],
+  "s07": [
+   {
+    "file": "assets/sfx/creek-trickle-v1.mp3",
+    "t": 0,
+    "d": 24,
+    "level": 0.55
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0.4,
+    "d": 3.0,
+    "level": 0.25
+   }
+  ],
+  "s08": [
+   {
+    "file": "assets/sfx/creek-trickle-v1.mp3",
+    "t": 0,
+    "d": 12,
+    "level": 0.6
+   },
+   {
+    "type": "drip",
+    "t": 0,
+    "d": 12
+   }
+  ],
+  "s09": [
+   {
+    "file": "assets/sfx/gorge-wind-v1.mp3",
+    "t": 0,
+    "d": 26,
+    "level": 0.5
+   },
+   {
+    "type": "murmur",
+    "t": 0,
+    "d": 26,
+    "level": 0.4,
+    "rampIn": 0.3
+   }
+  ],
+  "s10": [
+   {
+    "file": "assets/sfx/gorge-wind-v1.mp3",
+    "t": 0,
+    "d": 18,
+    "level": 0.45
+   },
+   {
+    "file": "assets/sfx/radio-static-crank-v1.mp3",
+    "t": 0,
+    "d": 6.0,
+    "level": 0.45
+   },
+   {
+    "type": "murmur",
+    "t": 8.0,
+    "d": 10,
+    "level": 0.25,
+    "rampIn": 0.5
+   }
+  ],
+  "s11": [
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 24,
+    "level": 0.2
+   },
+   {
+    "file": "assets/sfx/mud-squelch-v1.mp3",
+    "t": 0.4,
+    "d": 7.0,
+    "level": 0.5
+   }
+  ],
+  "s12": [
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 14,
+    "level": 0.2
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0.2,
+    "d": 3.0,
+    "level": 0.2
+   }
+  ],
+  "s13": [
+   {
+    "file": "assets/sfx/dry-day-insects-v1.mp3",
+    "t": 0,
+    "d": 26,
+    "level": 0.12
+   },
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0.0,
+    "d": 5.6,
+    "level": 0.3
+   },
+   {
+    "type": "thud",
+    "t": 5.6,
+    "level": 0.5
+   }
+  ],
+  "s14": [
+   {
+    "file": "assets/sfx/footsteps-mud-v1.mp3",
+    "t": 0,
+    "d": 16,
+    "level": 0.22
+   },
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 16,
+    "level": 0.18
+   }
+  ],
+  "s15": [
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 28,
+    "level": 0.2
+   },
+   {
+    "type": "click",
+    "t": 0.5,
+    "level": 0.35
+   },
+   {
+    "type": "click",
+    "t": 0.65,
+    "level": 0.35
+   },
+   {
+    "type": "click",
+    "t": 0.8,
+    "level": 0.35
+   }
+  ],
+  "s16": [
+   {
+    "file": "assets/sfx/wind-hilltop-v1.mp3",
+    "t": 0,
+    "d": 12,
+    "level": 0.22
+   }
+  ],
+  "s17": [
+   {
+    "file": "assets/sfx/night-forest-v1.mp3",
+    "t": 0,
+    "d": 32,
+    "level": 0.5
+   },
+   {
+    "file": "assets/sfx/whistle-blasts-far-v1.mp3",
+    "t": 6.6,
+    "d": 4.2,
+    "level": 0.7
+   }
+  ]
+ },
+ "minSign": {}
+}
