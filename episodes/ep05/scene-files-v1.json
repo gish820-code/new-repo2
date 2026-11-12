@@ -1,0 +1,200 @@
+[
+ {
+  "part": 1,
+  "id": "h1",
+  "title": "Cold Open",
+  "compId": "ep05-h1",
+  "file": "compositions/ep05/scenes/ep05-h1-cold-open-v1.html",
+  "duration": 3,
+  "partStart": 0,
+  "epStart": 0,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s01",
+  "title": "Previously",
+  "compId": "ep05-s01",
+  "file": "compositions/ep05/scenes/ep05-s01-previously-v1.html",
+  "duration": 6.5,
+  "partStart": 3,
+  "epStart": 3,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s02",
+  "title": "Day Nine",
+  "compId": "ep05-s02",
+  "file": "compositions/ep05/scenes/ep05-s02-day-nine-v1.html",
+  "duration": 6,
+  "partStart": 9.5,
+  "epStart": 9.5,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s03",
+  "title": "Since Last Time",
+  "compId": "ep05-s03",
+  "file": "compositions/ep05/scenes/ep05-s03-since-last-time-v1.html",
+  "duration": 8,
+  "partStart": 15.5,
+  "epStart": 15.5,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s04",
+  "title": "The Count",
+  "compId": "ep05-s04",
+  "file": "compositions/ep05/scenes/ep05-s04-the-count-v1.html",
+  "duration": 6,
+  "partStart": 23.5,
+  "epStart": 23.5,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s05",
+  "title": "Rations",
+  "compId": "ep05-s05",
+  "file": "compositions/ep05/scenes/ep05-s05-rations-v1.html",
+  "duration": 24,
+  "partStart": 29.5,
+  "epStart": 29.5,
+  "bg": "camp9"
+ },
+ {
+  "part": 1,
+  "id": "s06",
+  "title": "Dried Out",
+  "compId": "ep05-s06",
+  "file": "compositions/ep05/scenes/ep05-s06-dried-out-v1.html",
+  "duration": 24,
+  "partStart": 53.5,
+  "epStart": 53.5,
+  "bg": "camp9"
+ },
+ {
+  "part": 2,
+  "id": "s07",
+  "title": "The Creek",
+  "compId": "ep05-s07",
+  "file": "compositions/ep05/scenes/ep05-s07-the-creek-v1.html",
+  "duration": 24,
+  "partStart": 0,
+  "epStart": 77.5,
+  "bg": "ravineCreek"
+ },
+ {
+  "part": 2,
+  "id": "s08",
+  "title": "One Jug",
+  "compId": "ep05-s08",
+  "file": "compositions/ep05/scenes/ep05-s08-one-jug-v1.html",
+  "duration": 12,
+  "partStart": 24,
+  "epStart": 101.5,
+  "bg": "ravineCreek"
+ },
+ {
+  "part": 2,
+  "id": "s09",
+  "title": "The Bridge",
+  "compId": "ep05-s09",
+  "file": "compositions/ep05/scenes/ep05-s09-the-bridge-v1.html",
+  "duration": 26,
+  "partStart": 36,
+  "epStart": 113.5,
+  "bg": "gullCreekBridge"
+ },
+ {
+  "part": 2,
+  "id": "s10",
+  "title": "The Real Broadcast",
+  "compId": "ep05-s10",
+  "file": "compositions/ep05/scenes/ep05-s10-the-real-broadcast-v1.html",
+  "duration": 18,
+  "partStart": 62,
+  "epStart": 139.5,
+  "bg": "gullCreekBridge"
+ },
+ {
+  "part": 3,
+  "id": "s11",
+  "title": "Mud Flats",
+  "compId": "ep05-s11",
+  "file": "compositions/ep05/scenes/ep05-s11-mud-flats-v1.html",
+  "duration": 24,
+  "partStart": 0,
+  "epStart": 157.5,
+  "bg": "tideFlats"
+ },
+ {
+  "part": 3,
+  "id": "s12",
+  "title": "The Boat",
+  "compId": "ep05-s12",
+  "file": "compositions/ep05/scenes/ep05-s12-the-boat-v1.html",
+  "duration": 14,
+  "partStart": 24,
+  "epStart": 181.5,
+  "bg": "tideFlats"
+ },
+ {
+  "part": 3,
+  "id": "s13",
+  "title": "The Knee",
+  "compId": "ep05-s13",
+  "file": "compositions/ep05/scenes/ep05-s13-the-knee-v1.html",
+  "duration": 26,
+  "partStart": 38,
+  "epStart": 195.5,
+  "bg": "loggingRoad"
+ },
+ {
+  "part": 3,
+  "id": "s14",
+  "title": "Up the Road",
+  "compId": "ep05-s14",
+  "file": "compositions/ep05/scenes/ep05-s14-up-the-road-v1.html",
+  "duration": 16,
+  "partStart": 64,
+  "epStart": 221.5,
+  "bg": "loggingRoad"
+ },
+ {
+  "part": 4,
+  "id": "s15",
+  "title": "Hank",
+  "compId": "ep05-s15",
+  "file": "compositions/ep05/scenes/ep05-s15-hank-v1.html",
+  "duration": 28,
+  "partStart": 0,
+  "epStart": 237.5,
+  "bg": "forestRoad"
+ },
+ {
+  "part": 4,
+  "id": "s16",
+  "title": "Into the Hills",
+  "compId": "ep05-s16",
+  "file": "compositions/ep05/scenes/ep05-s16-into-the-hills-v1.html",
+  "duration": 12,
+  "partStart": 28,
+  "epStart": 265.5,
+  "bg": "forestRoad"
+ },
+ {
+  "part": 4,
+  "id": "s17",
+  "title": "Three Blasts",
+  "compId": "ep05-s17",
+  "file": "compositions/ep05/scenes/ep05-s17-three-blasts-v1.html",
+  "duration": 32,
+  "partStart": 40,
+  "epStart": 277.5,
+  "bg": "nightWoods"
+ }
+]

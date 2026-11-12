@@ -1,0 +1,542 @@
+[
+ {
+  "sid": "h1",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "That's... the last jug?",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/h1-drizzle-v1.mp3",
+  "job": "d09599fc-de64-4d5d-9342-e0b0f86073b3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184626_d09599fc-de64-4d5d-9342-e0b0f86073b3.mp3"
+ },
+ {
+  "sid": "s01",
+  "cap": 1,
+  "speaker": "NARRATOR",
+  "text": "A working camp. A secret. A list in Gord's tent.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s01-narrator-v1.mp3",
+  "job": "a0c696fa-749c-4c26-9e9f-54909e3f9ba8",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184626_a0c696fa-749c-4c26-9e9f-54909e3f9ba8.mp3"
+ },
+ {
+  "sid": "s03",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "Five days. No rain. The sky forgot how.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s03-narrator-v1.mp3",
+  "job": "74c8e784-a383-43de-a373-0b25175804dd",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184652_74c8e784-a383-43de-a373-0b25175804dd.mp3"
+ },
+ {
+  "sid": "s04",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "Two days of water. Two hundred five people.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s04-narrator-v1.mp3",
+  "job": "8c06baf5-1d4e-430e-af31-8e656eb7e180",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184652_8c06baf5-1d4e-430e-af31-8e656eb7e180.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 0,
+  "speaker": "GORD",
+  "text": "Workers get full rations. That's fair.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep05/lines/s05-gord-v1.mp3",
+  "job": "58abaa35-5bd6-4968-9a7e-d5c8b14f7023",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184652_58abaa35-5bd6-4968-9a7e-d5c8b14f7023.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 1,
+  "speaker": "DARLA",
+  "text": "My kids can't haul water!",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep05/lines/s05-darla-v1.mp3",
+  "job": "32c01daf-e337-4ed6-b9f4-8154bed3c936",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184626_32c01daf-e337-4ed6-b9f4-8154bed3c936.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 2,
+  "speaker": "GORD",
+  "text": "Then they get half.",
+  "voice_id": "1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "file": "audio/ep05/lines/s05-gord2-v1.mp3",
+  "job": "7983d798-3b7a-4d40-8856-202b6f9aab69",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184653_7983d798-3b7a-4d40-8856-202b6f9aab69.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Ration food. Never water.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s05-mags-v1.mp3",
+  "job": "8883a2e4-ad61-42f9-afc6-8ce26c69b03f",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184653_8883a2e4-ad61-42f9-afc6-8ce26c69b03f.mp3"
+ },
+ {
+  "sid": "s05",
+  "cap": 4,
+  "speaker": "MAGS",
+  "text": "Drink what you need. Then go find more.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s05-mags2-v1.mp3",
+  "job": "9fe1055b-5cbe-4ac1-86c0-5a07175b17d5",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184652_9fe1055b-5cbe-4ac1-86c0-5a07175b17d5.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Benny? Whoa, sit.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s06-drizzle-v1.mp3",
+  "job": "3d5f7eca-9da0-4e36-b876-f06330e0ea50",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184717_3d5f7eca-9da0-4e36-b876-f06330e0ea50.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Dizzy. Headache. He's dried out.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s06-mags-v1.mp3",
+  "job": "74208b24-22f4-4dbf-a0e5-557e17d2daa2",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184716_74208b24-22f4-4dbf-a0e5-557e17d2daa2.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Safe water. Salt and sugar.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s06-mags2-v1.mp3",
+  "job": "05b3008e-ea68-46c8-9101-11c1853cf027",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184716_05b3008e-ea68-46c8-9101-11c1853cf027.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 4,
+  "speaker": "MAGS",
+  "text": "Mixed by a trusted recipe. Not a guess.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s06-mags3-v1.mp3",
+  "job": "45017e62-a2a8-432e-a539-84d2a222cdbc",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184747_45017e62-a2a8-432e-a539-84d2a222cdbc.mp3"
+ },
+ {
+  "sid": "s06",
+  "cap": 5,
+  "speaker": "MAGS",
+  "text": "The creek. Now.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s06-mags4-v1.mp3",
+  "job": "912b4dda-d351-41e3-8575-54baec360208",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184716_912b4dda-d351-41e3-8575-54baec360208.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "That's not a creek. That's a leak.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s07-drizzle-v1.mp3",
+  "job": "a90036f0-37d0-48fa-9221-44c6f43b0763",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184746_a90036f0-37d0-48fa-9221-44c6f43b0763.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "It's water. That's what matters.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s07-mags-v1.mp3",
+  "job": "f9317e43-b9ee-4ef0-b306-91a73694fba6",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184746_f9317e43-b9ee-4ef0-b306-91a73694fba6.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Not yet. It looks clean. It isn't.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s07-mags2-v1.mp3",
+  "job": "0bd0a7a6-ddcd-4366-a5b6-830f798db0fb",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184747_0bd0a7a6-ddcd-4366-a5b6-830f798db0fb.mp3"
+ },
+ {
+  "sid": "s07",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Boil it or treat it. Every time.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s07-mags3-v1.mp3",
+  "job": "f3768d31-a1d8-43d2-aa22-0d5d3a4feb6e",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184746_f3768d31-a1d8-43d2-aa22-0d5d3a4feb6e.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "Twenty minutes. One jug.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s08-narrator-v1.mp3",
+  "job": "6c5e51aa-34e4-4fcd-a183-f1c3fb1ed21d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_6c5e51aa-34e4-4fcd-a183-f1c3fb1ed21d.mp3"
+ },
+ {
+  "sid": "s08",
+  "cap": 1,
+  "speaker": "DARLA",
+  "text": "The Army's at the bridge! Buses!",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep05/lines/s08-darla-v1.mp3",
+  "job": "1660719e-e024-4e16-b14b-93190b9c81cb",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_1660719e-e024-4e16-b14b-93190b9c81cb.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 0,
+  "speaker": "DARLA",
+  "text": "Buses at noon. Everyone's going!",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep05/lines/s09-darla-v1.mp3",
+  "job": "d28e0d2b-f98c-4f23-9117-e97c36bd3bcf",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_d28e0d2b-f98c-4f23-9117-e97c36bd3bcf.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Who said?",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s09-mags-v1.mp3",
+  "job": "b9614484-4732-4988-ad14-0c2b13d30881",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_b9614484-4732-4988-ad14-0c2b13d30881.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 2,
+  "speaker": "DARLA",
+  "text": "Somebody heard it on the radio.",
+  "voice_id": "a3ce02fe-4d3e-55bc-b4d4-a4801b9acdb4",
+  "file": "audio/ep05/lines/s09-darla2-v1.mp3",
+  "job": "87294194-ea4a-412a-a0ed-ea7374595b86",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_87294194-ea4a-412a-a0ed-ea7374595b86.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 3,
+  "speaker": "MAGS",
+  "text": "Then we wait for the radio.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s09-mags2-v1.mp3",
+  "job": "20572570-93f8-4b8d-b2b2-553ffae5519d",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184810_20572570-93f8-4b8d-b2b2-553ffae5519d.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 4,
+  "speaker": "NARRATOR",
+  "text": "Twenty people waited for a bus that was never coming.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s09-narrator-v1.mp3",
+  "job": "ef8292cb-5534-4814-a27f-c55429d421cd",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184854_ef8292cb-5534-4814-a27f-c55429d421cd.mp3"
+ },
+ {
+  "sid": "s09",
+  "cap": 5,
+  "speaker": "DRIZZLE",
+  "text": "There's no road for a bus.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s09-drizzle-v1.mp3",
+  "job": "a4e6be19-badb-4a5d-a5ea-25ce05f5ff61",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184854_a4e6be19-badb-4a5d-a5ea-25ce05f5ff61.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 0,
+  "speaker": "RADIO",
+  "text": "...no evacuation is scheduled... for Gull Harbor...",
+  "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+  "file": "audio/ep05/lines/s10-radio-v1.mp3",
+  "job": "fbff45e4-0a46-4ec8-937f-72020e376432",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184854_fbff45e4-0a46-4ec8-937f-72020e376432.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 1,
+  "speaker": "RADIO",
+  "text": "...remain where you are... await instructions...",
+  "voice_id": "e2a2d2e6-9ed2-59cd-82af-feaa27f8a678",
+  "file": "audio/ep05/lines/s10-radio2-v1.mp3",
+  "job": "56da65be-79d1-4aeb-89d3-467c60c4174b",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184916_56da65be-79d1-4aeb-89d3-467c60c4174b.mp3"
+ },
+ {
+  "sid": "s10",
+  "cap": 3,
+  "speaker": "DRIZZLE",
+  "text": "Mags... the tide's out.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s10-drizzle-v1.mp3",
+  "job": "69eb76a9-ca7b-445b-88da-6eb72b6e5514",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184915_69eb76a9-ca7b-445b-88da-6eb72b6e5514.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Soup! Beans! Dinner!",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s11-drizzle-v1.mp3",
+  "job": "0a8b01e7-6adf-4527-89cc-70690a0e8d5f",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184855_0a8b01e7-6adf-4527-89cc-70690a0e8d5f.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Floodwater touched those.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s11-mags-v1.mp3",
+  "job": "e51524a1-5507-48ee-89a9-b9377203e121",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184916_e51524a1-5507-48ee-89a9-b9377203e121.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Only sealed cans. No dents. Wash them first.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s11-mags2-v1.mp3",
+  "job": "3bb1577c-ed26-45ea-9914-7be899f89ba2",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184916_3bb1577c-ed26-45ea-9914-7be899f89ba2.mp3"
+ },
+ {
+  "sid": "s11",
+  "cap": 4,
+  "speaker": "DRIZZLE",
+  "text": "Goodbye, beans. I barely knew you.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s11-drizzle2-v1.mp3",
+  "job": "d01833d2-10a8-428c-be82-4a9e26ca2c99",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184915_d01833d2-10a8-428c-be82-4a9e26ca2c99.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Found a whistle!",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s12-drizzle-v1.mp3",
+  "job": "ffb69553-1212-4e5f-8aac-42563a09f8a0",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184916_ffb69553-1212-4e5f-8aac-42563a09f8a0.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 1,
+  "speaker": "MAGS",
+  "text": "Keep it. Somebody'll need it.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s12-mags-v1.mp3",
+  "job": "ffd3f134-e726-4ecd-b838-5c3c19c6993c",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_ffd3f134-e726-4ecd-b838-5c3c19c6993c.mp3"
+ },
+ {
+  "sid": "s12",
+  "cap": 2,
+  "speaker": "NARRATOR",
+  "text": "It was a long walk home. Uphill. With all of it.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s12-narrator-v1.mp3",
+  "job": "56cdacd5-c5e3-4b93-bc00-62ec99785feb",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_56cdacd5-c5e3-4b93-bc00-62ec99785feb.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 0,
+  "speaker": "MAGS",
+  "text": "I'm fine. Keep walking.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s13-mags-v1.mp3",
+  "job": "512b7d53-7166-4167-9972-56ea617a6df7",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_512b7d53-7166-4167-9972-56ea617a6df7.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "Mags!",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s13-drizzle-v1.mp3",
+  "job": "a95884c9-213a-427e-bd8d-1dbd759d7c45",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_a95884c9-213a-427e-bd8d-1dbd759d7c45.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 2,
+  "speaker": "MAGS",
+  "text": "Knee. It's the knee.",
+  "voice_id": "fa64fba4-ad02-405e-99d0-1f085d87c706",
+  "file": "audio/ep05/lines/s13-mags2-v1.mp3",
+  "job": "452c05ae-524f-4022-9a99-0e65886abf00",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_452c05ae-524f-4022-9a99-0e65886abf00.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 3,
+  "speaker": "DRIZZLE",
+  "text": "Stop. Don't stand on it.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s13-drizzle2-v1.mp3",
+  "job": "b3b30889-d36e-4b79-b08e-22a3e2f7db45",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184940_b3b30889-d36e-4b79-b08e-22a3e2f7db45.mp3"
+ },
+ {
+  "sid": "s13",
+  "cap": 5,
+  "speaker": "DRIZZLE",
+  "text": "Arm over me. I've got the water.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s13-drizzle3-v1.mp3",
+  "job": "96fd797e-acfd-4451-bbfb-482e5a25c02e",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185021_96fd797e-acfd-4451-bbfb-482e5a25c02e.mp3"
+ },
+ {
+  "sid": "s14",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "For nine days Mags had carried everyone. Now somebody carried her.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s14-narrator-v1.mp3",
+  "job": "752659bf-14fc-4739-b451-3b44caa049c6",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185021_752659bf-14fc-4739-b451-3b44caa049c6.mp3"
+ },
+ {
+  "sid": "s14",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "Is that... Hank? With a pack?",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s14-drizzle-v1.mp3",
+  "job": "cfc26c6c-ab8f-48b0-949c-36ae28b12169",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184958_cfc26c6c-ab8f-48b0-949c-36ae28b12169.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 0,
+  "speaker": "HANK",
+  "text": "No offense. I'm not dying on a hill for a clipboard.",
+  "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+  "file": "audio/ep05/lines/s15-hank-v1.mp3",
+  "job": "d00ed15a-082f-493c-baa5-80163a9c404f",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185021_d00ed15a-082f-493c-baa5-80163a9c404f.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "Then don't go alone.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s15-drizzle-v1.mp3",
+  "job": "5c48e96d-981b-4d1d-83bf-c252b3c8cd86",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184958_5c48e96d-981b-4d1d-83bf-c252b3c8cd86.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 2,
+  "speaker": "HANK",
+  "text": "Nobody's coming with me.",
+  "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+  "file": "audio/ep05/lines/s15-hank2-v1.mp3",
+  "job": "02160c26-5d49-4736-a007-a306123b8975",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_184958_02160c26-5d49-4736-a007-a306123b8975.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 3,
+  "speaker": "DRIZZLE",
+  "text": "Then write your route. And when you'll be back.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s15-drizzle2-v1.mp3",
+  "job": "6d10de8a-a1c0-455a-b788-d8b5d59704ff",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185135_6d10de8a-a1c0-455a-b788-d8b5d59704ff.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 4,
+  "speaker": "HANK",
+  "text": "Highway 4. East. Three days.",
+  "voice_id": "ca12fd00-218c-5198-b10c-7d36e768c12c",
+  "file": "audio/ep05/lines/s15-hank3-v1.mp3",
+  "job": "62da9c37-84bf-4bfe-b781-6ea2d52effc7",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185021_62da9c37-84bf-4bfe-b781-6ea2d52effc7.mp3"
+ },
+ {
+  "sid": "s15",
+  "cap": 5,
+  "speaker": "DRIZZLE",
+  "text": "Three blasts if you're in trouble.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s15-drizzle3-v1.mp3",
+  "job": "8e3eb9de-67f4-44f9-a5f9-5213eb2874b9",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185021_8e3eb9de-67f4-44f9-a5f9-5213eb2874b9.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 0,
+  "speaker": "NARRATOR",
+  "text": "He walked into the hills with a whistle and a promise.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s16-narrator-v1.mp3",
+  "job": "48f41cde-027b-46b8-af09-30c7defcf8b4",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185102_48f41cde-027b-46b8-af09-30c7defcf8b4.mp3"
+ },
+ {
+  "sid": "s16",
+  "cap": 1,
+  "speaker": "DRIZZLE",
+  "text": "Day twelve, Hank. I'm counting.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s16-drizzle-v1.mp3",
+  "job": "51569bd6-f3aa-4657-bf0b-3305201e22c3",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185102_51569bd6-f3aa-4657-bf0b-3305201e22c3.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 0,
+  "speaker": "DRIZZLE",
+  "text": "Wes. Listen.",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s17-drizzle-v1.mp3",
+  "job": "9adb5564-83e9-4d99-b415-ffa9e2ea6bb1",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185102_9adb5564-83e9-4d99-b415-ffa9e2ea6bb1.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 2,
+  "speaker": "DRIZZLE",
+  "text": "HANK?!",
+  "voice_id": "b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "file": "audio/ep05/lines/s17-drizzle2-v1.mp3",
+  "job": "6479a1c5-123e-4a9d-80d9-8182b7231aa6",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185102_6479a1c5-123e-4a9d-80d9-8182b7231aa6.mp3"
+ },
+ {
+  "sid": "s17",
+  "cap": 3,
+  "speaker": "NARRATOR",
+  "text": "Three blasts. Then nothing.",
+  "voice_id": "30fc8796-ceb6-4a66-b3a7-4a145ef7f346",
+  "file": "audio/ep05/lines/s17-narrator-v1.mp3",
+  "job": "3b94f60c-e9a3-4c9b-898d-75ded414afda",
+  "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3IZi5HF2v3q6wBnngr7NpdhNaXB/hf_20261112_185102_3b94f60c-e9a3-4c9b-898d-75ded414afda.mp3"
+ }
+]

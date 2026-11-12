@@ -1,0 +1,26 @@
+{
+ "covers": [
+  ["s05", 10.0, "the FIRST SUNNY DAY — rations at the camp table, hard shadows, blue sky"],
+  ["s09", 1.5, "the collapsed Highway 101 bridge at Gull Creek — the crowd waiting at the broken edge"],
+  ["s11", 16.0, "the tide flats at low tide — the boat on the rooftop, long late-afternoon shadows"],
+  ["s17", 1.5, "the night woods — two flashlight beams in the trees under the stars"]
+ ],
+ "establishing": [
+  ["s02", 4.0, "camp, DAY 9 morning (visibly changed since Day 4: more tents, worn tarps, half-bare table)"],
+  ["s05", 10.0, "camp, first sunny day (blue sky, hard shadows, dust)"],
+  ["s07", 1.5, "forested ravine creek, midday dappled light (only a trickle)"],
+  ["s09", 1.5, "collapsed Highway 101 bridge at Gull Creek, afternoon haze"],
+  ["s09", 16.5, "the same bridge from below (gorge view)"],
+  ["s11", 1.0, "edge of the flooded town at low tide, late afternoon"],
+  ["s13", 1.5, "steep logging road, golden hour"],
+  ["s14", 1.5, "the logging road, wide view (figures tiny)"],
+  ["s15", 1.2, "forest road into the hills, dusk"],
+  ["s17", 1.5, "dark woods at night, stars"]
+ ],
+ "cards": [
+  ["s02", 4.0, "DAY 9 / THE LONG WAIT card"],
+  ["s04", 1.4, "tracker cards landing — WATER LEFT 6 struck through"],
+  ["s04", 3.0, "tracker cards: WATER LEFT 2 DAYS · FOOD LEFT 6 DAYS · PEOPLE IN CAMP 205"],
+  ["s17", 30.0, "NEXT: DAY 16 card"]
+ ]
+}
